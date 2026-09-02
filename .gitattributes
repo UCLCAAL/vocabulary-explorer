@@ -1,0 +1,16 @@
+* text=auto
+
+.gitattributes text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ttl text eol=lf
+*.vcl text eol=lf
+*.css text eol=lf
+*.rdf text eol=lf
+*.py text eol=lf
+*.twig text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.properties text eol=lf

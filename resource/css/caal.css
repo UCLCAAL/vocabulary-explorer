@@ -1,0 +1,38 @@
+/* CAAL Vocabulary Explorer branding */
+
+/* Keep the landing content narrower and more CAAL-like */
+.container {
+    max-width: 1400px;
+}
+
+/* CAAL branding block */
+.caal-vocabulary-brand {
+    margin: 1rem auto 2rem auto;
+    max-width: 1000px;
+}
+
+.caal-vocabulary-brand img {
+    display: block;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.caal-vocabulary-brand h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+.caal-vocabulary-brand p {
+    max-width: 900px;
+    margin: 0;
+}
+
+#skosmos-logo {
+    display: none !important;
+}
+
+/* Hide the default Skosmos landing header/logo */
+.frontpage-logo #headerbar {
+    display: none !important;
+}

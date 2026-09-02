@@ -1,0 +1,66 @@
+services:
+  fuseki:
+    hostname: fuseki
+    build:
+      context: ./dockerfiles/jena-fuseki2-docker
+      dockerfile: Dockerfile
+      args:
+        JENA_VERSION: 5.4.0
+    command: --config=/fuseki/skosmos.ttl
+    environment:
+      JAVA_OPTIONS: "-Xmx2g -Xms1g"
+    ports:
+      - "9030:3030"
+    volumes:
+      - ./dockerfiles/config/skosmos.ttl:/fuseki/skosmos.ttl:ro
+    user: "fuseki:fuseki"
+
+  fuseki-cache:
+    hostname: fuseki-cache
+    image: varnish
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "9031:80"
+    volumes:
+      - ./dockerfiles/config/varnish-default.vcl:/etc/varnish/default.vcl:ro
+    depends_on:
+      - fuseki
+
+  load-caal-data:
+    image: curlimages/curl:latest
+    volumes:
+      - ./data:/data:ro
+    depends_on:
+      - fuseki
+    command:
+      - sh
+      - -c
+      - |
+        echo "Waiting for Fuseki..."
+        until curl -sf \
+          "http://fuseki:3030/skosmos/sparql?query=ASK%20%7B%7D" \
+          > /dev/null; do
+          sleep 2
+        done
+
+        echo "Loading CAAL Site Types..."
+        curl -f -X PUT \
+          -H "Content-Type: application/rdf+xml" \
+          --data-binary "@/data/caal_site_types_wide.rdf" \
+          "http://fuseki:3030/skosmos/data?graph=https%3A%2F%2Fvocab.uclcaal.org%2Fgraph%2Fmonument-types"
+
+        echo "CAAL Site Types loaded."
+
+  skosmos:
+    hostname: skosmos
+    image: quay.io/natlibfi/skosmos:latest
+    ports:
+      - "9090:80"
+    volumes:
+      - ./dockerfiles/config/config-docker-compose.ttl:/var/www/html/config.ttl:ro
+      - ./resource/css/caal.css:/var/www/html/resource/css/caal.css:ro
+      - ./custom-templates:/var/www/html/custom-templates:ro
+    depends_on:
+      - fuseki-cache
+      - load-caal-data

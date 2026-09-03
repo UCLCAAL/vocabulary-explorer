@@ -1,0 +1,91 @@
+{% set caal_groups = [
+  {'title':'Archaeological Classification and Chronology','items':[
+    {'id':'caalMonumentTypes','title':'Site Types'},
+    {'id':'caalCulturalPeriods','title':'Cultural Periods'},
+    {'id':'caalClassifications','title':'Classifications'},
+    {'id':'caalDesignationTypes','title':'Designation Types'},
+    {'id':'caalReligions','title':'Religions'}]},
+  {'title':'Archive and Resource Description','items':[
+    {'id':'caalBeginningOfExistenceTypes','title':'Beginning of Existence Types'},
+    {'id':'caalContentTypes','title':'Content Types'},
+    {'id':'caalCopyrightStatus','title':'Copyright Status'},
+    {'id':'caalDatasetTypes','title':'Dataset Types'},
+    {'id':'caalDescriptionTypes','title':'Description Types'},
+    {'id':'caalDigitalFileFormats','title':'Digital File Formats'},
+    {'id':'caalEndOfExistenceTypes','title':'End of Existence Types'},
+    {'id':'caalLevels','title':'Levels'},
+    {'id':'caalNameTypes','title':'Name Types'},
+    {'id':'caalSubjects','title':'Subjects'},
+    {'id':'caalTitleTypes','title':'Title Types'}]},
+  {'title':'Condition and Risk','items':[
+    {'id':'caalConditionLevels','title':'Condition Levels'},
+    {'id':'caalConditions','title':'Conditions'},
+    {'id':'caalDeteriorationCauses','title':'Deterioration Causes'},
+    {'id':'caalRiskLevels','title':'Risk Levels'}]},
+  {'title':'Remote Sensing Interpretation','items':[
+    {'id':'caalAnomalyTypes','title':'Anomaly Types'},
+    {'id':'caalCertainty','title':'Certainty'},
+    {'id':'caalOrigins','title':'Surface Mark Origins'}]},
+  {'title':'Location and Administration','items':[
+    {'id':'caalAddressTypes','title':'Address Types'},
+    {'id':'caalAdministrativeTypes','title':'Administrative Types'},
+    {'id':'caalCountries','title':'Countries'},
+    {'id':'caalLocationAccuracyAssessment','title':'Location Accuracy Assessment'}]},
+  {'title':'Physical Description and Measurement','items':[
+    {'id':'caalColours','title':'Colours'},
+    {'id':'caalMeasurementTypes','title':'Measurement Types'},
+    {'id':'caalSizeDimensionsOriginalMaterial','title':'Size/Dimensions Original Material'},
+    {'id':'caalUnitsOfMeasurement','title':'Units of Measurement'}]},
+  {'title':'Language and Writing','items':[
+    {'id':'caalScripts','title':'Scripts'},
+    {'id':'caalWritingSystems','title':'Writing Systems'}]}
+] %}
+
+<aside id="caal-vocabulary-nav" class="caal-vocabulary-nav" aria-label="CAAL vocabularies">
+  <div class="caal-vocabulary-nav__brand">
+    <a class="caal-vocabulary-nav__home"
+       href="{{ 'home' | global_url(request.lang, request.contentLang, null, request.queryParam('anylang') == 'on') }}">
+      <span class="caal-vocabulary-nav__brand-title">CAAL</span>
+      <span class="caal-vocabulary-nav__brand-subtitle">Vocabulary Explorer</span>
+    </a>
+  </div>
+
+  <div class="caal-vocabulary-nav__tools">
+    <label class="visually-hidden" for="caal-vocabulary-filter">Filter vocabularies</label>
+    <div class="caal-vocabulary-nav__filter-wrap">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input id="caal-vocabulary-filter" class="caal-vocabulary-nav__filter"
+             type="search" placeholder="Filter vocabularies" autocomplete="off">
+    </div>
+  </div>
+
+  <nav class="caal-vocabulary-nav__scroll" aria-label="Vocabulary groups">
+    {% for group in caal_groups %}
+      <details class="caal-vocabulary-group" open>
+        <summary class="caal-vocabulary-group__title">{{ group.title }}</summary>
+        <ul class="caal-vocabulary-group__list">
+          {% for item in group.items %}
+            {% set isActive = request.vocabid == item.id %}
+            <li class="caal-vocabulary-group__item">
+              <a class="caal-vocabulary-link{% if isActive %} is-active{% endif %}"
+                 href="{{ '' | global_url(request.lang, request.contentLang, item.id, request.queryParam('anylang') == 'on') }}"
+                 data-vocabulary-title="{{ item.title|lower }}"
+                 {% if isActive %}aria-current="page"{% endif %}>
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endfor %}
+  </nav>
+
+  <div class="caal-vocabulary-nav__footer">
+    <a href="https://uclcaal.org/" target="_blank" rel="noopener">CAAL project website</a>
+  </div>
+</aside>
+
+<button id="caal-vocabulary-nav-toggle" class="caal-vocabulary-nav-toggle"
+        type="button" aria-controls="caal-vocabulary-nav" aria-expanded="false">
+  <i class="fa-solid fa-list" aria-hidden="true"></i><span>Vocabularies</span>
+</button>

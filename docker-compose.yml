@@ -58,9 +58,11 @@ services:
     ports:
       - "9090:80"
     volumes:
-      - ./dockerfiles/config/config-docker-compose.ttl:/var/www/html/config.ttl:ro
-      - ./resource/css/caal.css:/var/www/html/resource/css/caal.css:ro
-      - ./custom-templates:/var/www/html/custom-templates:ro
+    - ./dockerfiles/config/config-docker-compose.ttl:/var/www/html/config.ttl:ro
+    - ./resource/css/caal.css:/var/www/html/resource/css/caal.css:ro
+    - ./resource/css/caal-vocab-nav.css:/var/www/html/resource/css/caal-vocab-nav.css:ro
+    - ./resource/js/caal-vocab-nav.js:/var/www/html/resource/js/caal-vocab-nav.js:ro
+    - ./custom-templates:/var/www/html/custom-templates:ro
     depends_on:
       - fuseki-cache
       - load-caal-data

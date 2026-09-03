@@ -1,0 +1,87 @@
+<section class="caal-landing-intro" aria-labelledby="caal-landing-title">
+
+  <p class="caal-landing-intro__eyebrow">
+    Central Asian Archaeological Landscapes
+  </p>
+
+  <h1 id="caal-landing-title">
+    CAAL Vocabulary Explorer
+  </h1>
+
+  <p class="caal-landing-intro__lead">
+    Explore the multilingual controlled vocabularies used by CAAL to describe
+    archaeological sites, chronology, archives, remote-sensing interpretation,
+    condition, risk, location and related cultural heritage data.
+  </p>
+
+  <div class="caal-start-grid">
+
+    <div class="caal-start-card">
+      <div class="caal-start-card__icon">
+        <i class="fa-solid fa-list" aria-hidden="true"></i>
+      </div>
+
+      <h2>Browse vocabularies</h2>
+
+      <p>
+        Select a controlled vocabulary from the navigator on the left.
+        Vocabularies are grouped according to the areas of CAAL data in which
+        they are used.
+      </p>
+
+      <p class="caal-start-card__examples-label">
+        For example:
+      </p>
+
+      <div class="caal-start-links">
+        <a href="{{ '' | global_url(request.lang, request.contentLang, 'caalMonumentTypes', request.queryParam('anylang') == 'on') }}">
+          Site Types
+        </a>
+
+        <a href="{{ '' | global_url(request.lang, request.contentLang, 'caalCulturalPeriods', request.queryParam('anylang') == 'on') }}">
+          Cultural Periods
+        </a>
+      </div>
+    </div>
+
+
+    <div class="caal-start-card">
+      <div class="caal-start-card__icon">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </div>
+
+      <h2>Search across vocabularies</h2>
+
+      <p>
+        Use the search control above to find terminology across the complete
+        CAAL reference-data collection rather than within a single vocabulary.
+      </p>
+
+      <p class="caal-start-card__note">
+        Search terms can be explored within their vocabulary and followed
+        through broader, narrower and related concepts.
+      </p>
+    </div>
+
+
+    <div class="caal-start-card">
+      <div class="caal-start-card__icon">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+      </div>
+
+      <h2>Explore multilingual concepts</h2>
+
+      <p>
+        Concept pages bring together preferred terms, descriptions and
+        hierarchical relationships across the eight CAAL project languages.
+      </p>
+
+      <p class="caal-start-card__note">
+        Stable concept URIs and downloadable RDF support reuse outside
+        the CAAL web application.
+      </p>
+    </div>
+
+  </div>
+
+</section>

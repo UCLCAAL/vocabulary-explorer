@@ -1,0 +1,218 @@
+:root{
+  --caal-nav-width:270px;--caal-nav-top:82px;--caal-navy:#192b53;
+  --caal-blue:#3d6f9f;--caal-border:#d4dde8;--caal-panel:#f5f7fa;--caal-muted:#64748b;
+}
+.caal-vocabulary-nav{position:fixed;z-index:1030;top:var(--caal-nav-top);bottom:0;left:0;width:var(--caal-nav-width);display:flex;flex-direction:column;background:#fff;border-right:1px solid var(--caal-border);box-shadow:4px 0 16px rgba(15,23,42,.06)}
+.caal-vocabulary-nav__brand{padding:1rem 1.1rem .9rem;border-bottom:1px solid var(--caal-border)}
+.caal-vocabulary-nav__home{display:block;color:var(--caal-navy);text-decoration:none}
+.caal-vocabulary-nav__home:hover,.caal-vocabulary-nav__home:focus{color:var(--caal-blue)}
+.caal-vocabulary-nav__brand-title,.caal-vocabulary-nav__brand-subtitle{display:block}
+.caal-vocabulary-nav__brand-title{font-size:1.1rem;font-weight:800;letter-spacing:.04em;line-height:1.1}
+.caal-vocabulary-nav__brand-subtitle{margin-top:.15rem;font-size:.94rem;font-weight:600}
+.caal-vocabulary-nav__tools{padding:.8rem .9rem;background:var(--caal-panel);border-bottom:1px solid var(--caal-border)}
+.caal-vocabulary-nav__filter-wrap {
+  position: relative;
+  height: 42px;
+}
+
+.caal-vocabulary-nav__filter-wrap > i {
+  position: absolute;
+  z-index: 2;
+
+  left: 0.9rem;
+  top: 0;
+  bottom: 0;
+
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: auto;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--caal-muted);
+  font-size: 1rem;
+  line-height: 1 !important;
+  vertical-align: 0 !important;
+
+  pointer-events: none;
+}
+
+.caal-vocabulary-nav__filter-wrap > i::before {
+  display: block;
+  line-height: 1 !important;
+}
+
+.caal-vocabulary-nav__filter {
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+
+  margin: 0;
+  padding: 0 0.7rem 0 2.65rem;
+
+  background: #fff;
+  border: 1px solid #bec9d6;
+  border-radius: 7px;
+
+  color: #172033;
+  font-size: 0.88rem;
+  line-height: normal;
+}
+caal-vocabulary-nav__scroll{flex:1;min-height:0;overflow-y:auto;padding:.5rem .65rem 1rem;scrollbar-width:thin}
+.caal-vocabulary-group{padding:.15rem 0;border-bottom:1px solid #edf1f5}
+.caal-vocabulary-group__title{position:relative;padding:.62rem 1.45rem .5rem .55rem;color:#35445c;cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.045em;line-height:1.25;text-transform:uppercase;list-style:none}
+.caal-vocabulary-group__title::-webkit-details-marker{display:none}
+.caal-vocabulary-group__title::after{content:"\f078";position:absolute;top:.65rem;right:.55rem;font:var(--fa-font-solid);color:#7b8798;font-size:.68rem;transition:transform .15s ease}
+.caal-vocabulary-group:not([open]) .caal-vocabulary-group__title::after{transform:rotate(-90deg)}
+.caal-vocabulary-group__list{margin:0 0 .45rem;padding:0;list-style:none}
+.caal-vocabulary-link{display:block;margin:.05rem 0;padding:.43rem .6rem .43rem .72rem;border-left:3px solid transparent;border-radius:0 5px 5px 0;color:#3c628a;font-size:.9rem;line-height:1.25;text-decoration:none}
+.caal-vocabulary-link:hover,.caal-vocabulary-link:focus{background:#eef3f8;color:var(--caal-navy)}
+.caal-vocabulary-link.is-active{background:#e8eef6;border-left-color:var(--caal-navy);color:var(--caal-navy);font-weight:750}
+.caal-vocabulary-nav__footer{padding:.75rem 1rem;border-top:1px solid var(--caal-border);font-size:.78rem}
+.caal-vocabulary-nav__footer a{color:#536b85;text-decoration:none}
+@media(min-width:1100px){#headerbar,#main-container{margin-left:var(--caal-nav-width);width:calc(100% - var(--caal-nav-width))}}
+body.frontpage-logo #vocabulary-list{display:none}
+body.frontpage-logo #skosmos-logo{display:none}
+body.frontpage-logo #headerbar{padding-top:0!important;padding-bottom:0!important}
+.caal-landing-intro{max-width:1050px;margin:1.25rem auto 2.5rem;padding:2rem 2.1rem;background:#fff;border:1px solid var(--caal-border);border-radius:10px}
+.caal-landing-intro__eyebrow{margin:0 0 .45rem;color:var(--caal-blue);font-size:.78rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase}
+.caal-landing-intro h1{margin:0;color:var(--caal-navy);font-size:clamp(2rem,4vw,3.2rem);line-height:1.05}
+.caal-landing-intro__lead{max-width:800px;margin:1rem 0 0;color:#334155;font-size:1.12rem;line-height:1.6}
+.caal-landing-intro__help{margin:1rem 0 0;color:#58677b;line-height:1.55}
+.caal-landing-intro__features{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.35rem}
+.caal-landing-intro__features span{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .65rem;background:#edf3f8;border:1px solid #dbe5ef;border-radius:999px;color:#38536f;font-size:.83rem;font-weight:650}
+.caal-vocabulary-nav-toggle{display:none}
+.caal-vocabulary-group__item.is-filtered-out,.caal-vocabulary-group.is-filtered-out{display:none}
+@media(max-width:1099.98px){
+ .caal-vocabulary-nav{top:0;z-index:1080;width:min(320px,88vw);transform:translateX(-105%);transition:transform .2s ease}
+ .caal-vocabulary-nav.is-open{transform:translateX(0)}
+ .caal-vocabulary-nav-toggle{position:fixed;z-index:1070;bottom:1rem;left:1rem;display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:.62rem .85rem;background:var(--caal-navy);border:0;border-radius:8px;box-shadow:0 5px 18px rgba(15,23,42,.22);color:#fff;font-weight:700}
+ #headerbar,#main-container{margin-left:0;width:100%}
+ .caal-landing-intro{margin:.5rem 0 2rem;padding:1.3rem}
+}
+@media print{.caal-vocabulary-nav,.caal-vocabulary-nav-toggle{display:none!important}#headerbar,#main-container{margin-left:0!important;width:100%!important}}
+
+/* ----- Landing-page entry points ----- */
+
+.caal-start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.caal-start-card {
+  padding: 1.25rem 1.3rem;
+  background: #f7f9fc;
+  border: 1px solid #dbe3ec;
+  border-radius: 8px;
+}
+
+.caal-start-card__icon {
+  margin-bottom: 0.7rem;
+  color: var(--caal-blue);
+  font-size: 1.15rem;
+}
+
+.caal-start-card h2 {
+  margin: 0 0 0.65rem;
+  color: var(--caal-navy);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.caal-start-card p {
+  margin: 0;
+  color: #46556a;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.caal-start-card__note {
+  margin-top: 0.7rem !important;
+  color: #68768a !important;
+  font-size: 0.82rem !important;
+}
+
+.caal-start-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.caal-start-links a {
+  padding: 0.32rem 0.52rem;
+  background: #fff;
+  border: 1px solid #cfdae6;
+  border-radius: 5px;
+  color: #35638f;
+  font-size: 0.81rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.caal-start-links a:hover {
+  background: #edf3f8;
+  color: var(--caal-navy);
+}
+
+@media (max-width: 900px) {
+  .caal-start-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.caal-start-card__examples-label {
+  margin-top: 0.85rem !important;
+  margin-bottom: 0.45rem !important;
+  color: #68768a !important;
+  font-size: 0.8rem !important;
+  font-weight: 650;
+}
+
+/* ----- Vocabulary search/header spacing ----- */
+
+#headerbar {
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
+}
+
+#headerbar form {
+  align-items: flex-end;
+  gap: 0.8rem;
+}
+
+#headerbar label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #667085;
+  line-height: 1.2;
+}
+
+#headerbar input,
+#headerbar button,
+#headerbar select {
+  min-height: 48px;
+}
+
+/* Give autocomplete a little breathing space below the input */
+#headerbar .autocomplete,
+#headerbar .typeahead,
+#headerbar .dropdown-menu {
+  margin-top: 0.25rem;
+}
+
+/* Search results */
+#headerbar .dropdown-menu {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+#headerbar .dropdown-item {
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  line-height: 1.3;
+}

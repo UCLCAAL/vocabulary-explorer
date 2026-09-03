@@ -30,7 +30,7 @@ import re
 from typing import Dict, List, Optional, Tuple
 
 from rdflib import Graph, URIRef, Literal, Namespace
-from rdflib.namespace import RDF, SKOS, XSD
+from rdflib.namespace import RDF, RDFS, SKOS, XSD
 
 
 # placeholders, override in run command
@@ -174,6 +174,16 @@ def main() -> None:
     # to generate our own predicates in triples (non-SKOS)
     CAAL = Namespace("https://vocab.uclcaal.org/ns/")  # need to pick a stable namespace
     g.bind("caal", CAAL)
+
+    # Labels for CAAL-specific properties so applications such as Skosmos
+    # can display them with human-readable names.
+    g.add((CAAL.dateRangeLabel, RDF.type, RDF.Property))
+    g.add((CAAL.dateRangeLabel, RDFS.label, Literal("Date range", lang="en")))
+    g.add((
+        CAAL.dateRangeLabel,
+        RDFS.comment,
+        Literal("Human-readable chronological range used by CAAL.", lang="en")
+    ))
 
     # Scheme title(s) as skos:prefLabel
     scheme_labels = get_scheme_labels(rows, langs)

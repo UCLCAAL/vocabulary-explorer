@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/copyright-status/4">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/copyright-status">
+        <skos:prefLabel xml:lang="en">Copyright Status</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/copyright-status/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/copyright-status/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/copyright-status/4"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/copyright-status"/>
+    <caal:canonicalValue>unknown</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Unknown</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Не известно</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">未知</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Белгісіз</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Белгисиз</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Номаълум</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Näbelli</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Noma'lum</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/copyright-status/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/copyright-status"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/copyright-status"/>
+    <caal:canonicalValue>true</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Yes</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Да</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">是</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Иә</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Ооба</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Бале</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Howa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/copyright-status/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/copyright-status"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/copyright-status"/>
+    <caal:canonicalValue>false</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">No</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Нет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">否</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Жоқ</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Жок</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">На</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Ýok</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Yo‘q</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

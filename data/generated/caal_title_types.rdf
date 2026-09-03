@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/title-types/2">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/title-types">
+        <skos:prefLabel xml:lang="en">Title Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/title-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/title-types/3"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/title-types"/>
+    <caal:canonicalValue>Alternative</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Alternative</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Альтернативный</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">别名</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/title-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/title-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/title-types"/>
+    <caal:canonicalValue>Primary</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Primary</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Основной</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">常用地址</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

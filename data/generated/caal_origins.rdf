@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/origins/1">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/origins">
+        <skos:prefLabel xml:lang="en">Surface Mark Origins</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/origins/1"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/origins/2"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>1</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/origins"/>
+    <caal:canonicalValue>Natural</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Natural</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/origins/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/origins"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/origins"/>
+    <caal:canonicalValue>Anthropic</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Anthropic</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

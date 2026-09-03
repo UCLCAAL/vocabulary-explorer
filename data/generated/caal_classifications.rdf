@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/classifications/3">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/classifications">
+        <skos:prefLabel xml:lang="en">Classifications</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/classifications/1"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/classifications/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/classifications/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/classifications/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/classifications/5"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <caal:canonicalValue>Landscape</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Landscape</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Ландшафт</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">景观</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/classifications/1">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <skos:notation>1</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <caal:canonicalValue>Archaeological site</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Archaeological site</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Археологический памятник</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">考古遗址</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/classifications/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <caal:canonicalValue>Object</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Object</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Предмет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">实物</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/classifications/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <caal:canonicalValue>Historic Building</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Historic Building</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Историческое здание</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">历史建筑</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/classifications/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/classifications"/>
+    <caal:canonicalValue>Structure</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Structure</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Структура</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">结构</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

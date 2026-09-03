@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/28">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/content-types">
+        <skos:prefLabel xml:lang="en">Content Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/12"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/13"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/14"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/15"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/16"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/17"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/18"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/19"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/20"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/21"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/22"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/23"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/24"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/25"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/26"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/27"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/28"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/29"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/30"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/31"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/32"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/33"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/34"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/35"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/36"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/37"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/38"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/39"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/40"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/41"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/42"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/43"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/44"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/45"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/46"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/47"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/48"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/49"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/50"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/51"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/52"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/53"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/content-types/54"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>28</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Minute book</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Minute book</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Книга протоколов</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">会议记录</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Хаттамалар кітабы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Протоколдор китеби</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Китоби протоколҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Protokollar kitaby</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Bayonnomalar kitobi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/26">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>26</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Manuscript item</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Manuscript item</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Предмет рукописи</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">手稿项目</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Қолжазба нысаны</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кол жазма нерселери</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Маводи дастнавис</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Golýazma eseri</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qo‘lyozma ashyosi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/30">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>30</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Newspaper</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Newspaper</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Газета</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">报纸</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Газет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Гезит</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Рӯзнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gazet</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Gazeta</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/51">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>51</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Title page</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Title page</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Титульный лист</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">标题页</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Титулдық бет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Башкы бет</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Саҳифаи унвон</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Baş sahypa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Bosh sahifa</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/33">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>33</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Note</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Note</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Заметка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">便签</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Жазба</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кыскача жазуу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ёддошт</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Bellik</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Eslatma</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/49">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>49</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Technical drawing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Technical drawing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Чертеж</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Сызба</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Сызма</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Нақша</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Çyzgy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Chizma</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Book</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Book</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Книга</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">书籍</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Кітап</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">китеп</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Китоб</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Kitap</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Kitob</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/41">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>41</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Plan</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Plan</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">План</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">图纸</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Жоспар</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">План</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Нақша</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Plan</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Reja</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/50">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>50</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Thesis</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Thesis</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Тезис</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">论文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Тезис</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тезис</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Рисола</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Tezis</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Tezis</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Correspondence</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Correspondence</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Переписка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">回复</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Хат алмасу</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кат алышуу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Мукотба</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hat alyşma/Korrespondensiýa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Yozishma (Aloqa?)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Archival item</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Archival item</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Архивный предмет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">档案项目</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Архивтік зат</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Архивдик буюм</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ашёи бойгонӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Arhiw predmeti</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Arxiv buyumi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Appendix</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Appendix</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Приложение</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">附录</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Қосымша</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тиркеме</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Замима</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Goşmaça bap</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ilova</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/14">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>14</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Diagram</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Diagram</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Схема</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">图表</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Схема</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Схема</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Нақша</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Diagramma</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Chizma (Diagramma)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Archival File</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Archival File</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Архивный файл</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">档案文件</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Архивтік файл</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Архивдик файл</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Файли бойгонӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Arhiw faýly</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Arxiv fayli</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/35">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>35</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Painting</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Painting</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Картина</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">画作</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Кескіндеме</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Сурот</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Расм</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Kraska bilen çekilen surat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Rasm</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/32">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>32</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Newspaper clipping</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Newspaper clipping</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Газетная вырезка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">剪报</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Газет қиындысы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Геизеттен кесинди</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҷузъе рӯзнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gazet bölekleri</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Gazeta qirqindisi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/45">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>45</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Report</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Report</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Отчет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">报告</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Есеп</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Баяндама</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҳисобот</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hasabat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Hisobot</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Audio</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Audio</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Аудио</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">音频</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Аудио</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Аудио</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Аудио</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Audio</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ovoz (Audio)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/52">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>52</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Treaty</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Treaty</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Соглашение</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">协议</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Келісім</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Макулдашуу/Келишим</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Шартнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Ylalaşyk</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Kelishuv</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/44">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>44</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Register</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Register</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Реестр</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">注册</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Тізілім</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тизме</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Феҳрист</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Bellige alyş žurnaly</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qayddaftar</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/46">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>46</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Score</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Score</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Отметки</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">乐谱</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Белгілер</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Белгилер</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Қайдҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Bahalar</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Belgi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/54">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>54</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Volume</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Volume</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Том</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">卷</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Том</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тиркеме</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҷилд</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Tom</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Jild</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/36">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>36</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Pamphlet</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Pamphlet</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Памфлет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">小册子</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Памфлет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Памфлет</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Памфлет</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Buklet</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Risola</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Artefact</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Artefact</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Артефакт</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">艺术品</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Артефакт</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Артефакт</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Бозёфт</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Artefakt</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ashyo (Artefakt)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/19">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>19</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Index</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Index</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Индекс</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">索引</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Индекс</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Индекс</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Шохис</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Indeks</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ko‘rsatkich</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/24">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>24</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>List</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">List</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Список</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">表单</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Тізім</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тизме</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Рӯйхат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Spisok</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ro‘yxat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/16">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>16</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Document</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Document</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Документ</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">文件</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Құжат</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Иш кагаздар</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҳуҷҷат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Dokument</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Hujjat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/18">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>18</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Illustration</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Illustration</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Иллюстрация</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">插图</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Иллюстрация</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Иллюстрация</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Тасвир</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Illýustrasiýa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ilova</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/38">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>38</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Periodical</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Periodical</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Периодическое издание</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">期刊</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Мерзімді басылым</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Мезгилдуу басылмалар</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Нашрияи даврӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Periodiki neşir</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Davriy nashr</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/47">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>47</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Statistical table</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Statistical table</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Статистическая таблица</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">统计表</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Статистикалық кесте</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Статистикалык таблица</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҷадвали статистикӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Statistiki tablitsa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Hisob-kitob jadvali</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/31">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>31</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Newspaper article</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Newspaper article</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Газетная статья</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">报纸文章</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Газет мақаласы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Гезит макаласы</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Мақолаи рӯзнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gazet makalasy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Gazeta maqolasi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/25">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>25</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Manuscript</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Manuscript</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Рукопись</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">手稿</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Қолжазба</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кол жазма</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Дастхат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Golýazma</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qo‘lyozma</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/17">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>17</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Drawing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Drawing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Рисунок</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">绘图</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Сурет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Сурот</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Сурат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Galam bilen çekilen surat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Chizma</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Aerial photograph negative</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Aerial photograph negative</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Негатив Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">航摄负片</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Аэрофото негативі</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Аэрофото негативи</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Неготиви Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Aerosuratyň negatiwi</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Fazodan olingan surat negativi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/53">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>53</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Video</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Video</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Видео</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">视频</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Бейне</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Видео</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Видео</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Wideo</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Video</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Certificate</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Certificate</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Сертификат</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">证明</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Сертификат</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Сертификат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Шаҳодатнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Şahadatnama</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Sertifikat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/37">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>37</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Passport</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Passport</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Паспорт</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">护照</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Паспорт</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Паспорт</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Шиноснома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Pasport</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Pasport</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/23">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>23</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Letterbook</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Letterbook</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Книга с письмами</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">书信集</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Хаттар кітабы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Каттар китеби</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Китоби номаҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hat depderçesi</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xatlar kitobi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/40">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>40</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Photograph negative</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Photograph negative</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Негатив Фотографии</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">负片</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Фото негативі</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Суроттун негативи</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Негативи аксҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Foto suradyň negatiwi</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Negativ fotosurat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/22">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>22</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Letter</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Letter</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Письмо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">信件</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Хат</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Мактуб</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/39">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>39</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Photograph</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Photograph</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Фотография</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">照片</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Фотосурет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Сурот</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Аксҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Foto surat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Fotosurat</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/15">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>15</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Diary</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Diary</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дневник</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">日记</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Күнделік</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кундолук</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Рӯзнома</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gündelik</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Kundalik</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Booklet</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Booklet</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Буклет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">手册</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Буклет</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Буклет</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Буклет</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Kitapça/Buklet</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Buklet</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/27">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>27</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Map</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Map</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Карта</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">地图</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Карта</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Карта</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Харита</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Karta</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xarita</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/29">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>29</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Newsletter</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Newsletter</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Новостная рассылка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">时事通讯</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Жаңалықтар бюллетені</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Жанылыктар таратмасы</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Бюллеттен</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Habarlar býulleteni</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xabarnoma</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Aerial photograph</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Aerial photograph</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">航拍照片</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Аэрофото</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Aerosurat</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Fazodan suratga olish</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/48">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>48</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Table of Contents</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Table of Contents</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Оглавление</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">目录</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Мазмұны</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Мазмуну</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Мундариҷа</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Mazmun sanawy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Bo‘lim</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/20">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>20</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Journal</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Journal</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Журнал</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">杂志 日志</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Журнал</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Журнал</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Маҷалла</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Jurnal</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Jurnal</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/43">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>43</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Print</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Print</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Распечатка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">印刷品</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Басып шығарылған нұсқа</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Чыгарылган барак</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Маводи чопшуда</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Neşir</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Chop etish</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/34">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>34</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Notebook</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Notebook</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Блокнот</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">笔记本</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Блокнот</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Койдон китепче/Блокнот</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Дафтарча</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Bloknot</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Yondaftar</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/21">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>21</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Journal article</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Journal article</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Статья журнала</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">杂志文章</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Журнал мақаласы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Журналдагы макала</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Мақолаи маҷалла</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Jurnal makalasy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Jurnal maqolasi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/13">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>13</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Court/Legal Records</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Court/Legal Records</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Судебные/ Юридические записи</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">庭审/法律记录</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Сот / құқықтық жазбалар</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Соттук/ Юридикалык жазуулар</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Сабтҳо додгоҳ/ҳуқуқӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Sud/Hukuk ýazgylary</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Sud / Yuridik qaydlar</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/content-types/42">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <skos:notation>42</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/content-types"/>
+    <caal:canonicalValue>Postcard</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Postcard</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Открытка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">明信片</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Ашықхат</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Куттуктоо баракча</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Посткард</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Otkrytka</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Pochta kartasi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

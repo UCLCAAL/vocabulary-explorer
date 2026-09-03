@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/end-of-existence-types/5">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/end-of-existence-types">
+        <skos:prefLabel xml:lang="en">End of Existence Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/end-of-existence-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/end-of-existence-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/end-of-existence-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/end-of-existence-types/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/end-of-existence-types/6"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <caal:canonicalValue>Dissolution Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Dissolution Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Роспуска</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">解除日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/end-of-existence-types/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <caal:canonicalValue>Death Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Death Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Смерти</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">死亡日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/end-of-existence-types/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <caal:canonicalValue>End Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">End Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата окончания</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">结束日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/end-of-existence-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <caal:canonicalValue>Demolition Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Demolition Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Снесения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">拆除日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/end-of-existence-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/end-of-existence-types"/>
+    <caal:canonicalValue>Destruction Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Destruction Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Разрушения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">损毁日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

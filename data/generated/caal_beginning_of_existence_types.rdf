@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/beginning-of-existence-types/5">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/beginning-of-existence-types">
+        <skos:prefLabel xml:lang="en">Beginning of Existence Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/beginning-of-existence-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/beginning-of-existence-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/beginning-of-existence-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/beginning-of-existence-types/5"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <caal:canonicalValue>Start Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Start Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата начала</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">起始日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/beginning-of-existence-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <caal:canonicalValue>Formation Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Formation Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Образования</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">成立日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/beginning-of-existence-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <caal:canonicalValue>Built Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Built Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата Постройки</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">建成日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/beginning-of-existence-types/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/beginning-of-existence-types"/>
+    <caal:canonicalValue>Birth Date</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Birth Date</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дата рождения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">出生日期</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

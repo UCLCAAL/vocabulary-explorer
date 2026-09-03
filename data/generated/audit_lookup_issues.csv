@@ -1,0 +1,11 @@
+vocabulary,id,issue,detail
+administrative-types,"4,25",duplicate_label_zh,市
+administrative-types,"15,28,29",duplicate_label_zh,州/省
+content-types,"4,54",duplicate_label_ky,Тиркеме
+content-types,"17,35,39",duplicate_label_ky,Сурот
+content-types,"24,44",duplicate_label_ky,Тизме
+content-types,"14,41,49",duplicate_label_tg,Нақша
+content-types,"15,30",duplicate_label_tg,Рӯзнома
+content-types,"4,18",duplicate_label_uz,Ilova
+content-types,"17,49",duplicate_label_uz,Chizma
+scripts,"7,8",duplicate_label_ky,Кириллица

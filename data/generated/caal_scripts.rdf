@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/23">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/scripts">
+        <skos:prefLabel xml:lang="en">Scripts</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/1"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/12"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/13"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/14"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/15"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/16"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/17"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/18"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/19"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/20"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/21"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/22"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/23"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/24"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/25"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/26"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/scripts/27"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>23</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Runic</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Runic</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Рунический</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">卢恩字母</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Руникалық жазу</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Руна жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Рунӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Runik</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Runik yozuv (Kertma yozuv)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/15">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>15</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Manchu</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Manchu</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Маньчжурский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">满文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Маньчжур жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Манчужур тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Манчжурӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Mançžur</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Manjurcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Arabic</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Arabic</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Арабский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">阿拉伯文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Араб жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Араб жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Арабӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Arab</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Arabcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/24">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>24</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Sign writing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sign writing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Написание знака</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">手语书写符号</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Таңба жазылуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Белгинин жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Навиштани аломат</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Belgi ýazma</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Belgili yozuv</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Georgian (Mhedruli and Mtauruli)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Georgian (Mhedruli and Mtauruli)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Грузинский (Мхедрули и Мтаврули)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">格鲁吉亚字母（骑士体和圆体）</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Грузин жазуы (Мхедрули және Мтаврули)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Грузин тили (Мхедрули жана Мтаврули)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Гурҷӣ (Мхедрули ва Мтаврулӣ)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gruzin (Mhedruli we Mtauruli)</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Gurji / Gruzin (Mhedruli va Mtauruli)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Cyrillic</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Cyrillic</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Кириллица</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">西里尔字母</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Кирилл жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кириллица</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Алифбои сирилик</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Kiril</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Kirilcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/14">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>14</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Latin</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Latin</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Латиница</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">拉丁文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Латын жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Латын тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Лотинӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Latyn</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Lotincha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Chinese (traditional)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Chinese (traditional)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Китайский (традиционный)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">中文（繁体）</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Қытай (дәстүрлі) жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кытай тили (салтуу)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Чинӣ (маъмулӣ)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hytaý dili (milli)</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xitoycha (an'anaviy)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Ancient Turkic, Orchon rune</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ancient Turkic, Orchon rune</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Древнетюркский, орхонский рунический</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">古突厥文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Көне түркі, Орхон руникалық жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Байыркы турк, орхон-энесай жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Туркии қадим, орхонӣ рунӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gadymy türki, Orhon runa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qadimgi turkcha, O‘rxun-Enasoy bitigi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/27">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>27</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Undefined</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Undefined</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Неопределенный</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">未定义</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Анықталмаған</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Аныкталбаган</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Номуайян</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Näbelli</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Aniqlanmadi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Characters</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Characters</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Символы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">字符</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Таңбалар</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Символдор</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Аломатҳо</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Simwollar</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Belgi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Japanese</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Japanese</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Японский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">日文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Жапон жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Жапон тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ҷопонӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Ýapon</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Yaponcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Greek</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Greek</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Греческий</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">希腊文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Грек жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Грек тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Юнонӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Grek</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Grekcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/21">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>21</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Parthian inscription</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Parthian inscription</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Надпись Парфянская</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">帕提亚铭文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Парфян жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Парфия жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Катибаи портӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Parfiýa ýazgysy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Parfiya yozuvi</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Cyrillic (Old Slavic version)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Cyrillic (Old Slavic version)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Кириллица (старославянский вариант)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">西里尔字母（古斯拉夫文）</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Кирилл жазуы (көне славян нұсқасы)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кириллица</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Сирилик (славии куҳан)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Kiril (Köne slawýan görnüşi)</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Kirilcha (Eski slavyan shakli)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/16">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>16</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Mathematical record</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Mathematical record</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Математическая запись</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">数学记录</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Математикалық жазба</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Математикалык жазуу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Сабти математикӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Matematiki ýazgy</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Matematik qayd</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/26">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>26</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Tibetan</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Tibetan</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Тибетский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">藏文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Тибет жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Тибет тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Тибетӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Tibet</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Tibetcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/18">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>18</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Old Hungarian (Hungarian rune)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Old Hungarian (Hungarian rune)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Старый венгерский (венгерский рунический)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">古匈牙利文 （匈牙利卢恩字母）</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Көне венгр (венгр руникалық) жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Эски венгер тили (венгер руналары)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Маҷории қадим (маҷории рунӣ)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Köne Wenger (Wenger runa)</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qadimgi mojarcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/17">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>17</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Mongolian</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Mongolian</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Монгольский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">蒙古文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Моңғол жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Монгол тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Муғулӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Mongol</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Mo‘g‘ulcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/25">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>25</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Sughd</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sughd</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Согдийская</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">索格特文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Соғды жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Согду жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Суғдӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Sogd</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Sug‘dcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/1">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>1</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Ancient Persian</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ancient Persian</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Древнеперсидский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">古波斯文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Көне парсы жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Байыркы перс тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Форсии қадим</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Gadymy Pars</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qadimgi forscha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Chinese (simplified)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Chinese (simplified)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Китайский (упрощенный)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">中文（简体）</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Қытай (жеңілдетілген) жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Кытай тили (жонокойлотулгон)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Чинӣ (сода)</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Hytaý dili (ýönekeýleşdirilen)</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Xitoycha (soddalashtirilgan)</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/20">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>20</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Osmania</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Osmania</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Османья</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">奥斯曼亚</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Османья жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Османья жазуусу</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Усмония</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Osmaniýa</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Usmoniy</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/22">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>22</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Persian</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Persian</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Персидский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">波斯语</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Парсы жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Перс тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Форсӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Parsça</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Forscha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Hebrew</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Hebrew</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Иврит</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">希伯来文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Иврит жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Иврит тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Ибрӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Ýewreý</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Ibroniycha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/13">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>13</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Korean</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Korean</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Корейский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">韩文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Корей жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Корей тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Куриёӣ</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Koreý</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Koreyscha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/scripts/19">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <skos:notation>19</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/scripts"/>
+    <caal:canonicalValue>Old Sogda</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Old Sogda</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Старый согдийский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">古粟特文</skos:prefLabel>
+    <skos:prefLabel xml:lang="kk">Көне соғды жазуы</skos:prefLabel>
+    <skos:prefLabel xml:lang="ky">Эски согду тили</skos:prefLabel>
+    <skos:prefLabel xml:lang="tg">Суғдии қадим</skos:prefLabel>
+    <skos:prefLabel xml:lang="tk">Köne Sogd</skos:prefLabel>
+    <skos:prefLabel xml:lang="uz">Qadimgi sug‘dcha</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

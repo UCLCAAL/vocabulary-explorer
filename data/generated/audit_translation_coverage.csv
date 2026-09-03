@@ -1,0 +1,249 @@
+vocabulary,title,category,language,labelled_concepts,total_concepts,coverage_percent
+address-types,Address Types,cat_location,en,2,2,100.0
+address-types,Address Types,cat_location,ru,2,2,100.0
+address-types,Address Types,cat_location,zh,2,2,100.0
+address-types,Address Types,cat_location,kk,0,2,0.0
+address-types,Address Types,cat_location,ky,0,2,0.0
+address-types,Address Types,cat_location,tg,0,2,0.0
+address-types,Address Types,cat_location,tk,0,2,0.0
+address-types,Address Types,cat_location,uz,0,2,0.0
+administrative-types,Administrative Types,cat_location,en,28,28,100.0
+administrative-types,Administrative Types,cat_location,ru,15,28,53.6
+administrative-types,Administrative Types,cat_location,zh,28,28,100.0
+administrative-types,Administrative Types,cat_location,kk,0,28,0.0
+administrative-types,Administrative Types,cat_location,ky,0,28,0.0
+administrative-types,Administrative Types,cat_location,tg,0,28,0.0
+administrative-types,Administrative Types,cat_location,tk,0,28,0.0
+administrative-types,Administrative Types,cat_location,uz,0,28,0.0
+countries,Countries,cat_location,en,12,12,100.0
+countries,Countries,cat_location,ru,12,12,100.0
+countries,Countries,cat_location,zh,12,12,100.0
+countries,Countries,cat_location,kk,0,12,0.0
+countries,Countries,cat_location,ky,0,12,0.0
+countries,Countries,cat_location,tg,0,12,0.0
+countries,Countries,cat_location,tk,0,12,0.0
+countries,Countries,cat_location,uz,0,12,0.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,en,5,5,100.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,ru,5,5,100.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,zh,5,5,100.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,kk,0,5,0.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,ky,0,5,0.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,tg,0,5,0.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,tk,0,5,0.0
+location-accuracy-assessment,Location Accuracy Assessment,cat_location,uz,0,5,0.0
+classifications,Classifications,cat_archaeology,en,5,5,100.0
+classifications,Classifications,cat_archaeology,ru,5,5,100.0
+classifications,Classifications,cat_archaeology,zh,5,5,100.0
+classifications,Classifications,cat_archaeology,kk,0,5,0.0
+classifications,Classifications,cat_archaeology,ky,0,5,0.0
+classifications,Classifications,cat_archaeology,tg,0,5,0.0
+classifications,Classifications,cat_archaeology,tk,0,5,0.0
+classifications,Classifications,cat_archaeology,uz,0,5,0.0
+designation-types,Designation Types,cat_archaeology,en,12,12,100.0
+designation-types,Designation Types,cat_archaeology,ru,12,12,100.0
+designation-types,Designation Types,cat_archaeology,zh,11,12,91.7
+designation-types,Designation Types,cat_archaeology,kk,0,12,0.0
+designation-types,Designation Types,cat_archaeology,ky,0,12,0.0
+designation-types,Designation Types,cat_archaeology,tg,0,12,0.0
+designation-types,Designation Types,cat_archaeology,tk,0,12,0.0
+designation-types,Designation Types,cat_archaeology,uz,0,12,0.0
+religions,Religions,cat_archaeology,en,17,17,100.0
+religions,Religions,cat_archaeology,ru,17,17,100.0
+religions,Religions,cat_archaeology,zh,17,17,100.0
+religions,Religions,cat_archaeology,kk,0,17,0.0
+religions,Religions,cat_archaeology,ky,0,17,0.0
+religions,Religions,cat_archaeology,tg,0,17,0.0
+religions,Religions,cat_archaeology,tk,0,17,0.0
+religions,Religions,cat_archaeology,uz,0,17,0.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,en,4,4,100.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,ru,4,4,100.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,zh,4,4,100.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,kk,0,4,0.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,ky,0,4,0.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,tg,0,4,0.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,tk,0,4,0.0
+beginning-of-existence-types,Beginning of Existence Types,cat_archive,uz,0,4,0.0
+content-types,Content Types,cat_archive,en,53,53,100.0
+content-types,Content Types,cat_archive,ru,53,53,100.0
+content-types,Content Types,cat_archive,zh,52,53,98.1
+content-types,Content Types,cat_archive,kk,53,53,100.0
+content-types,Content Types,cat_archive,ky,53,53,100.0
+content-types,Content Types,cat_archive,tg,53,53,100.0
+content-types,Content Types,cat_archive,tk,53,53,100.0
+content-types,Content Types,cat_archive,uz,53,53,100.0
+copyright-status,Copyright Status,cat_archive,en,3,3,100.0
+copyright-status,Copyright Status,cat_archive,ru,3,3,100.0
+copyright-status,Copyright Status,cat_archive,zh,3,3,100.0
+copyright-status,Copyright Status,cat_archive,kk,3,3,100.0
+copyright-status,Copyright Status,cat_archive,ky,3,3,100.0
+copyright-status,Copyright Status,cat_archive,tg,3,3,100.0
+copyright-status,Copyright Status,cat_archive,tk,3,3,100.0
+copyright-status,Copyright Status,cat_archive,uz,3,3,100.0
+dataset-types,Dataset Types,cat_archive,en,4,4,100.0
+dataset-types,Dataset Types,cat_archive,ru,4,4,100.0
+dataset-types,Dataset Types,cat_archive,zh,4,4,100.0
+dataset-types,Dataset Types,cat_archive,kk,0,4,0.0
+dataset-types,Dataset Types,cat_archive,ky,0,4,0.0
+dataset-types,Dataset Types,cat_archive,tg,0,4,0.0
+dataset-types,Dataset Types,cat_archive,tk,0,4,0.0
+dataset-types,Dataset Types,cat_archive,uz,0,4,0.0
+description-types,Description Types,cat_archive,en,11,11,100.0
+description-types,Description Types,cat_archive,ru,11,11,100.0
+description-types,Description Types,cat_archive,zh,11,11,100.0
+description-types,Description Types,cat_archive,kk,0,11,0.0
+description-types,Description Types,cat_archive,ky,0,11,0.0
+description-types,Description Types,cat_archive,tg,0,11,0.0
+description-types,Description Types,cat_archive,tk,0,11,0.0
+description-types,Description Types,cat_archive,uz,0,11,0.0
+digital-file-formats,Digital File Formats,cat_archive,en,17,17,100.0
+digital-file-formats,Digital File Formats,cat_archive,ru,17,17,100.0
+digital-file-formats,Digital File Formats,cat_archive,zh,17,17,100.0
+digital-file-formats,Digital File Formats,cat_archive,kk,0,17,0.0
+digital-file-formats,Digital File Formats,cat_archive,ky,0,17,0.0
+digital-file-formats,Digital File Formats,cat_archive,tg,0,17,0.0
+digital-file-formats,Digital File Formats,cat_archive,tk,0,17,0.0
+digital-file-formats,Digital File Formats,cat_archive,uz,0,17,0.0
+end-of-existence-types,End of Existence Types,cat_archive,en,5,5,100.0
+end-of-existence-types,End of Existence Types,cat_archive,ru,5,5,100.0
+end-of-existence-types,End of Existence Types,cat_archive,zh,5,5,100.0
+end-of-existence-types,End of Existence Types,cat_archive,kk,0,5,0.0
+end-of-existence-types,End of Existence Types,cat_archive,ky,0,5,0.0
+end-of-existence-types,End of Existence Types,cat_archive,tg,0,5,0.0
+end-of-existence-types,End of Existence Types,cat_archive,tk,0,5,0.0
+end-of-existence-types,End of Existence Types,cat_archive,uz,0,5,0.0
+levels,Levels,cat_archive,en,5,5,100.0
+levels,Levels,cat_archive,ru,5,5,100.0
+levels,Levels,cat_archive,zh,5,5,100.0
+levels,Levels,cat_archive,kk,0,5,0.0
+levels,Levels,cat_archive,ky,0,5,0.0
+levels,Levels,cat_archive,tg,0,5,0.0
+levels,Levels,cat_archive,tk,0,5,0.0
+levels,Levels,cat_archive,uz,0,5,0.0
+name-types,Name Types,cat_archive,en,2,2,100.0
+name-types,Name Types,cat_archive,ru,2,2,100.0
+name-types,Name Types,cat_archive,zh,2,2,100.0
+name-types,Name Types,cat_archive,kk,0,2,0.0
+name-types,Name Types,cat_archive,ky,0,2,0.0
+name-types,Name Types,cat_archive,tg,0,2,0.0
+name-types,Name Types,cat_archive,tk,0,2,0.0
+name-types,Name Types,cat_archive,uz,0,2,0.0
+subjects,Subjects,cat_archive,en,92,92,100.0
+subjects,Subjects,cat_archive,ru,92,92,100.0
+subjects,Subjects,cat_archive,zh,91,92,98.9
+subjects,Subjects,cat_archive,kk,0,92,0.0
+subjects,Subjects,cat_archive,ky,0,92,0.0
+subjects,Subjects,cat_archive,tg,0,92,0.0
+subjects,Subjects,cat_archive,tk,0,92,0.0
+subjects,Subjects,cat_archive,uz,0,92,0.0
+title-types,Title Types,cat_archive,en,2,2,100.0
+title-types,Title Types,cat_archive,ru,2,2,100.0
+title-types,Title Types,cat_archive,zh,2,2,100.0
+title-types,Title Types,cat_archive,kk,0,2,0.0
+title-types,Title Types,cat_archive,ky,0,2,0.0
+title-types,Title Types,cat_archive,tg,0,2,0.0
+title-types,Title Types,cat_archive,tk,0,2,0.0
+title-types,Title Types,cat_archive,uz,0,2,0.0
+conditions,Conditions,cat_condition,en,5,5,100.0
+conditions,Conditions,cat_condition,ru,5,5,100.0
+conditions,Conditions,cat_condition,zh,5,5,100.0
+conditions,Conditions,cat_condition,kk,0,5,0.0
+conditions,Conditions,cat_condition,ky,0,5,0.0
+conditions,Conditions,cat_condition,tg,0,5,0.0
+conditions,Conditions,cat_condition,tk,0,5,0.0
+conditions,Conditions,cat_condition,uz,0,5,0.0
+condition-levels,Condition Levels,cat_condition,en,5,5,100.0
+condition-levels,Condition Levels,cat_condition,ru,0,5,0.0
+condition-levels,Condition Levels,cat_condition,zh,0,5,0.0
+condition-levels,Condition Levels,cat_condition,kk,0,5,0.0
+condition-levels,Condition Levels,cat_condition,ky,0,5,0.0
+condition-levels,Condition Levels,cat_condition,tg,0,5,0.0
+condition-levels,Condition Levels,cat_condition,tk,0,5,0.0
+condition-levels,Condition Levels,cat_condition,uz,0,5,0.0
+deterioration-causes,Deterioration Causes,cat_condition,en,11,11,100.0
+deterioration-causes,Deterioration Causes,cat_condition,ru,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,zh,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,kk,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,ky,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,tg,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,tk,0,11,0.0
+deterioration-causes,Deterioration Causes,cat_condition,uz,0,11,0.0
+risk-levels,Risk Levels,cat_condition,en,6,6,100.0
+risk-levels,Risk Levels,cat_condition,ru,0,6,0.0
+risk-levels,Risk Levels,cat_condition,zh,0,6,0.0
+risk-levels,Risk Levels,cat_condition,kk,0,6,0.0
+risk-levels,Risk Levels,cat_condition,ky,0,6,0.0
+risk-levels,Risk Levels,cat_condition,tg,0,6,0.0
+risk-levels,Risk Levels,cat_condition,tk,0,6,0.0
+risk-levels,Risk Levels,cat_condition,uz,0,6,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,en,3,3,100.0
+anomaly-types,Anomaly Types,cat_remote_sensing,ru,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,zh,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,kk,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,ky,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,tg,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,tk,0,3,0.0
+anomaly-types,Anomaly Types,cat_remote_sensing,uz,0,3,0.0
+certainty,Certainty,cat_remote_sensing,en,5,5,100.0
+certainty,Certainty,cat_remote_sensing,ru,0,5,0.0
+certainty,Certainty,cat_remote_sensing,zh,0,5,0.0
+certainty,Certainty,cat_remote_sensing,kk,0,5,0.0
+certainty,Certainty,cat_remote_sensing,ky,0,5,0.0
+certainty,Certainty,cat_remote_sensing,tg,0,5,0.0
+certainty,Certainty,cat_remote_sensing,tk,0,5,0.0
+certainty,Certainty,cat_remote_sensing,uz,0,5,0.0
+origins,Surface Mark Origins,cat_remote_sensing,en,2,2,100.0
+origins,Surface Mark Origins,cat_remote_sensing,ru,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,zh,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,kk,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,ky,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,tg,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,tk,0,2,0.0
+origins,Surface Mark Origins,cat_remote_sensing,uz,0,2,0.0
+colours,Colours,cat_physical,en,7,7,100.0
+colours,Colours,cat_physical,ru,7,7,100.0
+colours,Colours,cat_physical,zh,7,7,100.0
+colours,Colours,cat_physical,kk,0,7,0.0
+colours,Colours,cat_physical,ky,0,7,0.0
+colours,Colours,cat_physical,tg,0,7,0.0
+colours,Colours,cat_physical,tk,0,7,0.0
+colours,Colours,cat_physical,uz,0,7,0.0
+measurement-types,Measurement Types,cat_physical,en,11,11,100.0
+measurement-types,Measurement Types,cat_physical,ru,11,11,100.0
+measurement-types,Measurement Types,cat_physical,zh,11,11,100.0
+measurement-types,Measurement Types,cat_physical,kk,0,11,0.0
+measurement-types,Measurement Types,cat_physical,ky,0,11,0.0
+measurement-types,Measurement Types,cat_physical,tg,0,11,0.0
+measurement-types,Measurement Types,cat_physical,tk,0,11,0.0
+measurement-types,Measurement Types,cat_physical,uz,0,11,0.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,en,18,18,100.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,ru,18,18,100.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,zh,18,18,100.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,kk,0,18,0.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,ky,0,18,0.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,tg,0,18,0.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,tk,0,18,0.0
+size-dimensions-original-material,Size/Dimensions Original Material,cat_physical,uz,0,18,0.0
+units-of-measurement,Units of Measurement,cat_physical,en,8,8,100.0
+units-of-measurement,Units of Measurement,cat_physical,ru,8,8,100.0
+units-of-measurement,Units of Measurement,cat_physical,zh,8,8,100.0
+units-of-measurement,Units of Measurement,cat_physical,kk,0,8,0.0
+units-of-measurement,Units of Measurement,cat_physical,ky,0,8,0.0
+units-of-measurement,Units of Measurement,cat_physical,tg,0,8,0.0
+units-of-measurement,Units of Measurement,cat_physical,tk,0,8,0.0
+units-of-measurement,Units of Measurement,cat_physical,uz,0,8,0.0
+scripts,Scripts,cat_language,en,27,27,100.0
+scripts,Scripts,cat_language,ru,27,27,100.0
+scripts,Scripts,cat_language,zh,27,27,100.0
+scripts,Scripts,cat_language,kk,27,27,100.0
+scripts,Scripts,cat_language,ky,27,27,100.0
+scripts,Scripts,cat_language,tg,27,27,100.0
+scripts,Scripts,cat_language,tk,27,27,100.0
+scripts,Scripts,cat_language,uz,27,27,100.0
+writing-systems,Writing Systems,cat_language,en,5,5,100.0
+writing-systems,Writing Systems,cat_language,ru,5,5,100.0
+writing-systems,Writing Systems,cat_language,zh,5,5,100.0
+writing-systems,Writing Systems,cat_language,kk,0,5,0.0
+writing-systems,Writing Systems,cat_language,ky,0,5,0.0
+writing-systems,Writing Systems,cat_language,tg,0,5,0.0
+writing-systems,Writing Systems,cat_language,tk,0,5,0.0
+writing-systems,Writing Systems,cat_language,uz,0,5,0.0

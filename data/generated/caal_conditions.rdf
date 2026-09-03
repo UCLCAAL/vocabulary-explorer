@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/conditions/6">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/conditions">
+        <skos:prefLabel xml:lang="en">Conditions</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/conditions/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/conditions/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/conditions/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/conditions/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/conditions/6"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <caal:canonicalValue>very poor</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">very poor</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">очень плохо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">很差</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/conditions/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <caal:canonicalValue>fair</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">fair</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">удовлетворительно</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">一般</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/conditions/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <caal:canonicalValue>good</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">good</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">хорошо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">良好</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/conditions/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <caal:canonicalValue>poor</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">poor</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">плохо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">差</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/conditions/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/conditions"/>
+    <caal:canonicalValue>excellent</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">excellent</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">отлично</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">优</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

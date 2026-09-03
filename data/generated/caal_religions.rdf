@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/7">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/religions">
+        <skos:prefLabel xml:lang="en">Religions</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/12"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/13"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/14"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/15"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/16"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/17"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/religions/18"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Hinduism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Hinduism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Индуизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">印度教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/14">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>14</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Shinto</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Shinto</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Синто</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">神道</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Judaism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Judaism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Иудейство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">犹太教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/16">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>16</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Sufism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sufism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Суфизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">苏非主义</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/18">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>18</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Zoroastrianism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Zoroastrianism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Зороастризм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">拜火教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/13">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>13</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Rastafari</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Rastafari</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Растафари</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">拉斯塔法里教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Eastern Orthodox</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Eastern Orthodox</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Восточный православный</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">东正教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Old Believers</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Old Believers</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Старообрядцы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">旧礼仪派</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Jainism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Jainism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Джайнизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">耆那教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Islam</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Islam</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Ислам</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">伊斯兰教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/15">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>15</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Sikhism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sikhism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Сикхизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">锡克教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/17">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>17</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Taoism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Taoism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Даосизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">道教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Paganism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Paganism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Язычество</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">异教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Animism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Animism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Анимизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">万物有灵论</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Christianity</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Christianity</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Христианство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">基督教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Atheism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Atheism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Атеизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">无神论</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/religions/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/religions"/>
+    <caal:canonicalValue>Buddhism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Buddhism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Буддизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">佛教</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

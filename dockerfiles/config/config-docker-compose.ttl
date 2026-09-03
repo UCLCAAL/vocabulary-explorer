@@ -66,13 +66,59 @@
     # plugins to activate for the whole installation (including all vocabularies)
     skosmos:globalPlugins () .
 
+:categories a skos:ConceptScheme ;
+    skos:prefLabel "Vocabulary Categories"@en ;
+    skos:hasTopConcept
+        :cat_archaeology,
+        :cat_archive,
+        :cat_condition,
+        :cat_remote_sensing,
+        :cat_location,
+        :cat_physical,
+        :cat_language .
+
+:cat_archaeology a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Archaeological Classification and Chronology"@en .
+
+:cat_archive a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Archive and Resource Description"@en .
+
+:cat_condition a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Condition and Risk"@en .
+
+:cat_remote_sensing a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Remote Sensing Interpretation"@en .
+
+:cat_location a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Location and Administration"@en .
+
+:cat_physical a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Physical Description and Measurement"@en .
+
+:cat_language a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Language and Writing"@en .
+
 
 # Skosmos vocabularies
 
 :caalMonumentTypes a skosmos:Vocabulary, void:Dataset ;
-    dc:title "CAAL Site Types"@en ;
-    skosmos:shortName "CAAL Site Types" ;
-    dc:subject :cat_general ;
+    dc:title "Site Types"@en ;
+    skosmos:shortName "Site Types" ;
+    dc:subject :cat_archaeology ;
     void:uriSpace "https://vocab.uclcaal.org/concept/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
@@ -81,3 +127,419 @@
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/site-types> ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/monument-types> .
+
+:caalCulturalPeriods a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Cultural Periods"@en ;
+    skosmos:shortName "Cultural Periods" ;
+    dc:subject :cat_archaeology ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/cultural-periods> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/cultural-periods> .
+
+:caalAddressTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Address Types"@en ;
+    skosmos:shortName "Address Types" ;
+    dc:subject :cat_location ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/address-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/address-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/address-types> .
+
+:caalAdministrativeTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Administrative Types"@en ;
+    skosmos:shortName "Administrative Types" ;
+    dc:subject :cat_location ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/administrative-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/administrative-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/administrative-types> .
+
+:caalAnomalyTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Anomaly Types"@en ;
+    skosmos:shortName "Anomaly Types" ;
+    dc:subject :cat_remote_sensing ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/anomaly-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/anomaly-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/anomaly-types> .
+
+:caalBeginningOfExistenceTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Beginning of Existence Types"@en ;
+    skosmos:shortName "Beginning of Existence Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/beginning-of-existence-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/beginning-of-existence-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/beginning-of-existence-types> .
+
+:caalCertainty a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Certainty"@en ;
+    skosmos:shortName "Certainty" ;
+    dc:subject :cat_remote_sensing ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/certainty/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/certainty> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/certainty> .
+
+:caalClassifications a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Classifications"@en ;
+    skosmos:shortName "Classifications" ;
+    dc:subject :cat_archaeology ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/classifications/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/classifications> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/classifications> .
+
+:caalColours a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Colours"@en ;
+    skosmos:shortName "Colours" ;
+    dc:subject :cat_physical ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/colours/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/colours> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/colours> .
+
+:caalConditions a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Conditions"@en ;
+    skosmos:shortName "Conditions" ;
+    dc:subject :cat_condition ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/conditions/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/conditions> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/conditions> .
+
+:caalConditionLevels a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Condition Levels"@en ;
+    skosmos:shortName "Condition Levels" ;
+    dc:subject :cat_condition ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/condition-levels/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/condition-levels> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/condition-levels> .
+
+:caalContentTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Content Types"@en ;
+    skosmos:shortName "Content Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/content-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/content-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/content-types> .
+
+:caalCopyrightStatus a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Copyright Status"@en ;
+    skosmos:shortName "Copyright Status" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/copyright-status/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/copyright-status> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/copyright-status> .
+
+:caalCountries a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Countries"@en ;
+    skosmos:shortName "Countries" ;
+    dc:subject :cat_location ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/countries/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/countries> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/countries> .
+
+:caalDatasetTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Dataset Types"@en ;
+    skosmos:shortName "Dataset Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/dataset-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/dataset-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/dataset-types> .
+
+:caalDescriptionTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Description Types"@en ;
+    skosmos:shortName "Description Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/description-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/description-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/description-types> .
+
+:caalDesignationTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Designation Types"@en ;
+    skosmos:shortName "Designation Types" ;
+    dc:subject :cat_archaeology ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/designation-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/designation-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/designation-types> .
+
+:caalDeteriorationCauses a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Deterioration Causes"@en ;
+    skosmos:shortName "Deterioration Causes" ;
+    dc:subject :cat_condition ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/deterioration-causes/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/deterioration-causes> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/deterioration-causes> .
+
+:caalDigitalFileFormats a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Digital File Formats"@en ;
+    skosmos:shortName "Digital File Formats" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/digital-file-formats/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/digital-file-formats> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/digital-file-formats> .
+
+:caalEndOfExistenceTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "End of Existence Types"@en ;
+    skosmos:shortName "End of Existence Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/end-of-existence-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/end-of-existence-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/end-of-existence-types> .
+
+:caalLevels a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Levels"@en ;
+    skosmos:shortName "Levels" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/levels/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/levels> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/levels> .
+
+:caalLocationAccuracyAssessment a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Location Accuracy Assessment"@en ;
+    skosmos:shortName "Location Accuracy Assessment" ;
+    dc:subject :cat_location ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/location-accuracy-assessment/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/location-accuracy-assessment> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/location-accuracy-assessment> .
+
+:caalMeasurementTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Measurement Types"@en ;
+    skosmos:shortName "Measurement Types" ;
+    dc:subject :cat_physical ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/measurement-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/measurement-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/measurement-types> .
+
+:caalNameTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Name Types"@en ;
+    skosmos:shortName "Name Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/name-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/name-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/name-types> .
+
+:caalOrigins a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Surface Mark Origins"@en ;
+    skosmos:shortName "Surface Mark Origins" ;
+    dc:subject :cat_remote_sensing ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/origins/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/origins> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/origins> .
+
+:caalReligions a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Religions"@en ;
+    skosmos:shortName "Religions" ;
+    dc:subject :cat_archaeology ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/religions/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/religions> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/religions> .
+
+:caalRiskLevels a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Risk Levels"@en ;
+    skosmos:shortName "Risk Levels" ;
+    dc:subject :cat_condition ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/risk-levels/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/risk-levels> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/risk-levels> .
+
+:caalScripts a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Scripts"@en ;
+    skosmos:shortName "Scripts" ;
+    dc:subject :cat_language ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/scripts/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/scripts> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/scripts> .
+
+:caalSizeDimensionsOriginalMaterial a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Size/Dimensions Original Material"@en ;
+    skosmos:shortName "Size/Dimensions Original Material" ;
+    dc:subject :cat_physical ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/size-dimensions-original-material/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/size-dimensions-original-material> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/size-dimensions-original-material> .
+
+:caalSubjects a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Subjects"@en ;
+    skosmos:shortName "Subjects" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/subjects/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/subjects> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/subjects> .
+
+:caalTitleTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Title Types"@en ;
+    skosmos:shortName "Title Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/title-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/title-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/title-types> .
+
+:caalUnitsOfMeasurement a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Units of Measurement"@en ;
+    skosmos:shortName "Units of Measurement" ;
+    dc:subject :cat_physical ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/units-of-measurement/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/units-of-measurement> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/units-of-measurement> .
+
+:caalWritingSystems a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Writing Systems"@en ;
+    skosmos:shortName "Writing Systems" ;
+    dc:subject :cat_language ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/writing-systems/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/writing-systems> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/writing-systems> .

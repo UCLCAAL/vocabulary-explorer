@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/levels/3">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/levels">
+        <skos:prefLabel xml:lang="en">Levels</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/levels/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/levels/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/levels/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/levels/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/levels/6"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <caal:canonicalValue>Sub-series</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sub-series</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Суб-серия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Sub-series</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/levels/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <caal:canonicalValue>File</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">File</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Файл</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">File</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/levels/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <caal:canonicalValue>Item</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Item</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Предмет</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Item</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/levels/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <caal:canonicalValue>Collection</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Collection</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Коллекция</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Collection</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/levels/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/levels"/>
+    <caal:canonicalValue>Folder</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Folder</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Папка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Folder</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

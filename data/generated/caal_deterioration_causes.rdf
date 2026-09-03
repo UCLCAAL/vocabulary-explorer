@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/11">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/deterioration-causes">
+        <skos:prefLabel xml:lang="en">Deterioration Causes</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/1"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/deterioration-causes/11"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Cemetery</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Cemetery</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Looting</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Looting</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Looting pits which are visible from satellite images.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Quarrying</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Quarrying</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">In general mining activities that are clearly destroying the landscape.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Agriculture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Agriculture</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Activities such as ploughing and tillage, that heavily destroy archaeological remains.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Transport Infrastructure</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Transport Infrastructure</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Construction</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Construction</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Infrastructure development.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Fire</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Fire</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Traces of intentional episodes of fire occurring on site.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Riverine Erosion</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Riverine Erosion</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Riverbank erosion, river channel migration and surface runoff.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Soil Erosion</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Soil Erosion</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Erosion of the structure itself due to general weathering not related to river movement.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Dumping</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Dumping</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Illegal dumping of any sort of waste on site.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/deterioration-causes/1">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <skos:notation>1</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/deterioration-causes"/>
+    <caal:canonicalValue>Urban Encroachment</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Urban Encroachment</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Unrestricted growth of housing, commercial development and roads.</skos:scopeNote>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

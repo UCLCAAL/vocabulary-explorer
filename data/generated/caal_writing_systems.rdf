@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/writing-systems/6">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/writing-systems">
+        <skos:prefLabel xml:lang="en">Writing Systems</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/writing-systems/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/writing-systems/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/writing-systems/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/writing-systems/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/writing-systems/6"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <caal:canonicalValue>Vertical writing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Vertical writing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Вертикальное письмо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">纵书</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/writing-systems/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <caal:canonicalValue>Not Applicable</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Not Applicable</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Не применимо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">都不适用</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/writing-systems/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <caal:canonicalValue>Left-to-Right</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Left-to-Right</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Слева направо</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">自左至右</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/writing-systems/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <caal:canonicalValue>Right-to-Left</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Right-to-Left</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Справо налево</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">自右至左</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/writing-systems/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/writing-systems"/>
+    <caal:canonicalValue>Both</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Both</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Оба</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">双向</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

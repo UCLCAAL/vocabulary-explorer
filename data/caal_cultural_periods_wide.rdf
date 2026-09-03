@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0027">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/cultural-periods">
+        <skos:prefLabel xml:lang="en">Cultural Period</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Культурный период</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">文化时期</skos:prefLabel>
+        <skos:prefLabel xml:lang="kk">Мәдени кезең</skos:prefLabel>
+        <skos:prefLabel xml:lang="ky">Маданий мезгил</skos:prefLabel>
+        <skos:prefLabel xml:lang="tg">Давраи фарҳангӣ</skos:prefLabel>
+        <skos:prefLabel xml:lang="tk">Medeni döwür</skos:prefLabel>
+        <skos:prefLabel xml:lang="uz">Madaniy davr</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0001"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0003"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0007"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0008"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0009"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0010"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0011"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0016"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0013"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0015"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0014"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0004"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0017"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0018"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>CP-2-0027</skos:notation>
+    <skos:prefLabel xml:lang="en">MONGOL</skos:prefLabel>
+    <caal:dateRangeLabel>1206–1368 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1206</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1368</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0005">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0005</skos:notation>
+        <skos:prefLabel xml:lang="en">Empire/dynasty</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0018"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0019"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0020"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0021"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0022"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0023"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0024"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0025"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0026"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0027"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0028"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0029"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0030"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0031"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0033"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0032"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0034"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0035"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0036"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0037"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0038"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0039"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0046">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0046</skos:notation>
+    <skos:prefLabel xml:lang="en">QARAKHANID</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Turkic dynasty (999–1211 CE) that ruled in Transoxania in Central Asia. Also spelled Karakhanid</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Тюркская династия (999-1211 н.э.) кот. властвовал в Трансоксиане в Центральной Азии.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">于公元999-1211年统治中亚河间地带的突厥王朝。名称又可拼作Karakhanids。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Борбордук Азиядагы Трансоксиананы башкарган Турк династиясы ( 999-1211 б.з.)</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Сулолаи туркхо (999—1211), ки дар Осиёи Миёна дар Мовароуннаҳр хукмронӣ кардаанд. Қарахониён низ ёд шудаанд.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Merkezi Aziýanyň Transoksaniýada höküm süren türki dinastiýasy (b.e. 999–1211). Garahanid diýip hem ýazylýar</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">999-1211-yillarda Movarounnahr hududida hukmronlik qilgan turkiy sulola. Qoraxoniylar deb ham ataladi</skos:scopeNote>
+    <caal:dateRangeLabel>999–1211 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">999</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1211</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0006">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0006</skos:notation>
+        <skos:prefLabel xml:lang="en">ISLAMIC</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0040"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0041"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0042"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0043"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0044"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0045"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0046"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0047"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0048"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0049"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0050"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0012">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0012</skos:notation>
+    <skos:prefLabel xml:lang="en">Prehistoric</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0053">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0053</skos:notation>
+        <skos:prefLabel xml:lang="en">ANDRONOVO</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Debate over date range continue</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Дебаты по датам продолжаются</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">持续就年代范围进行讨论</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Дата диапазону боюнча талкуулар улантылууда</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Баҳс дар бораи доираи сана идома дорад</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Sene aralygy baradaky jedel dowam edýär</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Davrlashtirish hali ham bahsli</skos:scopeNote>
+        <caal:dateRangeLabel>c. 2,000-900 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2000</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-900</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0003"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0001"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0002"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0004"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0054">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0054</skos:notation>
+        <skos:prefLabel xml:lang="en">BMAC</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Bactria–Margiana Archaeological Complex, a Bronze Age civilization of Central Asia, dated to c. 2400-1600 BCE, located in present-day northern Afghanistan, eastern Turkmenistan, southern Uzbekistan and western Tajikistan.</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Бактрия-Маргианский Археологический Комплекс, Централно-Азиатская цивилизация Бронзового Века, датировано ок. 2400-1600 д.н.э., располагался в нынешней территории северного Афганистана, восточного Туркменистана, южного Узбекистана и западного Таджикистана.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">巴克特里亚·马尔吉阿纳文明区，是中亚青铜时代文明，可追溯到约公元前2400-公元前1600年。位于今阿富汗北部，土库曼斯坦东部，乌兹别克斯坦南部和塔吉克斯坦西部。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Бактрия - Маргиан археологиялык комплекси, коло доорундагы Борбордук Азия цивилизациясы, б.з.ч. 2400-1600-жылдарга таандык, азыркы Афганистандын түндүгүндө, Түркмөнстандын чыгышында, Өзбекстандын түштүгүндө жана Тажикстандын батышында жайгашкан.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Маҷмааи бостоншиносии Бохтару Марғиён, тамаддуни асри биринҷии Осиёи Марказӣ, ки ба солҳои 2400-1600 пеш аз милод тааллуқ дорад, ки дар шимоли Афғонистони имрӯза, Туркманистони шарқӣ, ҷануби Узбакистон ва ғарби Тоҷикистон воқеъ аст.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Merkezi Aziýanyň Bürünç döwrüniň siwilizasiýasy bolan Baktriya-Margiana Arheologiki Kompleksi b.e. Öň 2400-1600 töwerekleri, häzirki zaman demirgazyk Owganistanyň, günbatar Türkmenistanyň, günorta Özbegistanyň we günbatar Täjigistanyň territoriýasynda ýerleşipdir.</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Baqtriya-Marg‘iyona arxeologik majmuasi, Markaziy Osiyoning bronza davri sivilizatsiyasi. Miloddan avvalgi 2400-1600-yillarga tegishli. Hozirgi Afg‘onistonning shimolida, Turkmanistonning sharqiy qismida, O‘zbekistonning janubida va Tojikistonning g‘arbiy qismida joylashgan.</skos:scopeNote>
+        <caal:dateRangeLabel>c. 2400-1600 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2400</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1600</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0055">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0055</skos:notation>
+        <skos:prefLabel xml:lang="en">BRONZE AGE</skos:prefLabel>
+        <caal:dateRangeLabel>c. 2400-900 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2400</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-900</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0005"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0006"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0007"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0056">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0056</skos:notation>
+        <skos:prefLabel xml:lang="en">CHALCOLITHIC/ENEOLITHIC</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Transitional period between the Neolithic and the Bronze Age, during which the earliest metallic (copper) artifacts appeared; also sometimes called Copper Age. c. 2500–2000 BCE.</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Переходной период между Неолитом и Бронзовым Веком, в течении которого появились самые ранние металлические (медь) артефакты; иногда также называется Медный Век. ок. 2500-2000 д.н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">新石器时代到青铜时代的过渡时期，此时期出现最早的金属（红铜）器物。有时也被称为红铜时代。公元前2500-2000年。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Неолит жана коло доорунун ортосундагы өткөөл мезгил, анын учурунда эң алгачкы металл (жез) артефакттар пайда болгон; кээде жез доору деп да аталат. биздин заманга чейинки 2500-2000-жылдар.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Давраи гузариш байни давраи неолит ва асри биринҷӣ, ки дар ин давра қадимтарин осори металлӣ (мисӣ) пайдо шудаанд; баъзан асри мис низ номида мешавад. в. 2500–2000 пеш аз милод.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Neolitik we Bürünç döwürleri arasyndaky geçiş döwri arasynda metal (mis) artefaktlary ýüze çykan; şeýle hem b.e.öň 2500-2000 töweregi käwägt Mis döwri diýip atlandyrylýar.</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Neolitdan jez/bronza asriga o‘tish davri, bu davrda eng qadimgi metall (mis) buyumlar paydo bo'ldi. Ba'zan mis davri deb ataladi. Miloddan avvalgi 2500-2000 yillar.</skos:scopeNote>
+        <caal:dateRangeLabel>c. 2500–2000 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2500</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2000</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0057">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0057</skos:notation>
+        <skos:prefLabel xml:lang="en">EARLY PREHISTORIC</skos:prefLabel>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0058">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0058</skos:notation>
+        <skos:prefLabel xml:lang="en">IRON AGE</skos:prefLabel>
+        <caal:dateRangeLabel>c. 900-650 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-900</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-650</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0013"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0014"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0059">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0059</skos:notation>
+        <skos:prefLabel xml:lang="en">LATER PREHISTORIC</skos:prefLabel>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0060">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0060</skos:notation>
+        <skos:prefLabel xml:lang="en">MESOLITHIC</skos:prefLabel>
+        <caal:dateRangeLabel>c. 14,000-6,500 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-14000</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-6500</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0015"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0016"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0061">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0061</skos:notation>
+        <skos:prefLabel xml:lang="en">NEOLITHIC</skos:prefLabel>
+        <caal:dateRangeLabel>c. 6,500-2,500 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-6500</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2500</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0017"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0018"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0019"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0062">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0062</skos:notation>
+        <skos:prefLabel xml:lang="en">PALAEOLITHIC</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Human activity in Central Asia from 1.5 to 1 million years ago, to the 10th millennia BCE</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Человеческая деятельность в Центральной Азии начиная с 1-1,5 млн. лет назад до 10-го тысячелетие д.н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">人类在中亚的活动从150万年前到100万年前，到公元前10万年</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Борбордук Азиядагы адам баласынын ишмердүүлүгү 1,5 миллиондон 1 миллион жыл мурун, биздин заманга чейинки 10 миң жылдыкка чейин</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Фаъолияти инсон дар Осиёи Миёна аз 1-1,5 миллион сол пеш то ҳазораи 10 пеш аз милод.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">B.e.öň 1,5 million ýyldan başlap 1 millon ýyla çenli, 10-njy müňýyllyga çenli Merkezi Aziýada adamzat hereketi</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Oʻrta Osiyoda 1-1,5 million yil avvaldan miloddan avvalgi 10-ming yilliklargacha boʻlgan inson faoliyati.</skos:scopeNote>
+        <caal:dateRangeLabel>c. 1,500,000-16,000 BP</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1498050</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-14050</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0020"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0021"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0022"/>
+      </skos:Concept>
+    </skos:narrower>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0068">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0068</skos:notation>
+    <skos:prefLabel xml:lang="en">Late-Sarmat culture</skos:prefLabel>
+    <caal:dateRangeLabel>2nd-4th centuries CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0015">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0015</skos:notation>
+        <skos:prefLabel xml:lang="en">Sarmats/Sarmatians</skos:prefLabel>
+        <caal:dateRangeLabel>(4th century BCE – 4th century CE)</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-400</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</caal:endYear>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0070"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0069"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0068"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0074">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0074</skos:notation>
+    <skos:prefLabel xml:lang="en">Chrikirabad culture</skos:prefLabel>
+    <caal:dateRangeLabel>4th-2nd centuries BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-400</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-101</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0017">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0017</skos:notation>
+        <skos:prefLabel xml:lang="en">Sedentary-agricultural cultures of the South-Eastern Aral Sea region</skos:prefLabel>
+        <caal:dateRangeLabel>7th-6th centuries of BCE – 7th-8th centuries CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-700</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</caal:endYear>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0074"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0075"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0013">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0013</skos:notation>
+    <skos:prefLabel xml:lang="en">LATE IRON AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0058"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0035">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0035</skos:notation>
+    <skos:prefLabel xml:lang="en">TIBETAN EMPIRE</skos:prefLabel>
+    <caal:dateRangeLabel>618–842 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">618</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">842</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0003">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0003</skos:notation>
+    <skos:prefLabel xml:lang="en">Sintashta-Petrovka culture</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Some see as precursor to Andronova culture</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Некоторые считают предшественником андроновской культуры</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">也被视为安德罗诺沃文化的前身</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Айрымдар Андронов маданиятынын башаты деп эсептешет</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Баъзеҳо онро пешгузаштаи фарҳанги Андроново медонанд</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Käbirleri Andronowo medeniýetinden öňki döwür hökmünde görýärler</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Shuningdek, bu Andronovo madaniyatining davomi sifatida ham qaraladi</skos:scopeNote>
+    <caal:dateRangeLabel>c. 2,000-1600 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2000</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1600</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0053"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0017">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0017</skos:notation>
+    <skos:prefLabel xml:lang="en">EARLY NEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 6,500-5,000 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-6500</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-5000</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0061"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0015">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0015</skos:notation>
+    <skos:prefLabel xml:lang="en">Early Mesolithic</skos:prefLabel>
+    <caal:dateRangeLabel>c. 14,000-10,000 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-14000</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-10000</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0060"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0003">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0003</skos:notation>
+    <skos:prefLabel xml:lang="en">Han Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>206 BCE-220 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-206</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0002">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0002</skos:notation>
+        <skos:prefLabel xml:lang="en">Chinese</skos:prefLabel>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0014"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0008"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0013"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0001"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0005"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0003"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0012"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0010"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0011"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0002"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0009"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0015"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0004"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0006"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0007"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0045">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0045</skos:notation>
+    <skos:prefLabel xml:lang="en">LATE ISLAMIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 11th century to 13th century CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1001</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1300</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0066">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0066</skos:notation>
+    <skos:prefLabel xml:lang="en">Saka culture of Aral Sea region</skos:prefLabel>
+    <caal:dateRangeLabel>the end of the 9th – 6th centuries BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-825</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-501</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0013">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-1-0013</skos:notation>
+        <skos:prefLabel xml:lang="en">Saka period</skos:prefLabel>
+        <caal:dateRangeLabel>(late 9th - 2nd/1st centuries BCE)</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-875</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</caal:endYear>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0067"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0065"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0064"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0063"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0066"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0009">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0009</skos:notation>
+    <skos:prefLabel xml:lang="en">Medieval</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">?From the arrival of Islam, c. 650CE to the end of the Timurid dynasty 1507 CE</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">?От прибытие Ислама около 650 н.э. до конца династии Тимуридов в 1507 н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">从伊斯兰教传入，约公元650年到贴木儿王朝末期，公元1507年。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Исламдын келишинен тартып, болжол менен 650-жылдан тарта 1507-жылы Тимурид династиясынын аягына чейин</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">?Аз омадани Ислом, соли 650 то охири сулолаи Темуриён 1507 мелодӣ</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Yslamyň gelmeginden, b.e. 650 ýyl töwereklerinden Timur dinastiýasynyň ahyryna 1507-nji ýyla çenli</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">650-yilda islomning kirib kelishidan to 1507-yil - Temuriylar sulolasining tugatilishiga qadar</skos:scopeNote>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0051">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0051</skos:notation>
+        <skos:prefLabel xml:lang="en">EARLY MEDIEVAL</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">?From the arrival of Islam, c. 650CE to the start of the Seljuk era, 1037CE</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">?От прибытие Ислама около 650 н.э.до начало Селджукской эры, 1037 н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">从伊斯兰教传入，约公元650年到塞尔柱王朝开端，公元1037年。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Исламдын келишинен тартып, болжол менен 650-жылдан Сельджук доорунун башталышына чейин, 1037-жылга чейин</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">?Аз омадани Ислом, соли 650 то оғози даврони Салҷуқӣ, 1037-и милод</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Yslamyň gelmeginden, ýagny b.e. 650 ýyldan Seljuk erasynyň başyna çenli, b.e. 1037 ýyla çenli</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">650-yilda islomning kirib kelishidan to 1037-yil - Saljuqiylar hukmronligining boshlanguniga qadar</skos:scopeNote>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0009"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0052">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0052</skos:notation>
+        <skos:prefLabel xml:lang="en">LATE MEDIEVAL</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">?From the start of the Seljuk dynasty in 1037CE to the end of the Timurid dynasty in 1507CE</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">?От начало династии Селджуков в 1037 н.э. до конца династии Тимуридов в 1507 н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">从塞尔柱王朝开端公元1037年到贴木儿王朝末尾巴1507年。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">1037 жылы Сельджук династиясынын башталышынан 1507 жылы Тимурид династиясынын аягына чейин</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">?Аз ибтидои сулолаи Салҷуқиён дар соли 1037 то охири сулолаи Темуриён дар соли 1507</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">1037-nji ýylda Seljuk dinastiýasynyň başyndan başlap, 1507-nji ýylda Timur dinastiýasynyň ahyryna çenli</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">1037-yil Saljuqiylar sulolasi hukmronligining boshlanishidan to 1507-yil - Temuriylar sulolasi hukmronligining so‘ngiga qadar</skos:scopeNote>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0009"/>
+      </skos:Concept>
+    </skos:narrower>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0007">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0007</skos:notation>
+    <skos:prefLabel xml:lang="en">Kerder culture</skos:prefLabel>
+    <caal:dateRangeLabel>400-900 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0018">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0018</skos:notation>
+    <skos:prefLabel xml:lang="en">ACHAEMENID</skos:prefLabel>
+    <caal:dateRangeLabel>550BCE-330BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">330</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">550</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0008">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0008</skos:notation>
+    <skos:prefLabel xml:lang="en">Eastern Chagatai Khanate (Moghulistan)</skos:prefLabel>
+    <caal:dateRangeLabel>1340s–1680s CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1340</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1689</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0019">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0019</skos:notation>
+        <skos:prefLabel xml:lang="en">CHAGATAI KHANATE</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Empire before split</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">целиком</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">公元</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Бөлүнгөнгө чейинки империя</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Империя пеш аз тақсим</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Bölünmezden ozal imperiýa</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Emperiya bo‘linmasdan oldin Butun</skos:scopeNote>
+        <caal:dateRangeLabel>1225 – 1340s CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1225</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1349</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0009"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0008"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0001">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0001</skos:notation>
+    <skos:prefLabel xml:lang="en">Afrighid</skos:prefLabel>
+    <caal:dateRangeLabel>305-995 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">305</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">995</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0005">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0005</skos:notation>
+    <skos:prefLabel xml:lang="en">EARLY BRONZE AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0055"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0025">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0025</skos:notation>
+    <skos:prefLabel xml:lang="en">KUSHAN</skos:prefLabel>
+    <caal:dateRangeLabel>c. 30–375 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">375</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0016">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0016</skos:notation>
+    <skos:prefLabel xml:lang="en">Late Mesolithic</skos:prefLabel>
+    <caal:dateRangeLabel>c. 10,00-6,500 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-6500</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1000</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0060"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0020">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0020</skos:notation>
+    <skos:prefLabel xml:lang="en">GHAZNAVID</skos:prefLabel>
+    <caal:dateRangeLabel>997–1186 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">997</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1186</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0047">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0047</skos:notation>
+    <skos:prefLabel xml:lang="en">SAMANID</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">The Samanid Empire, also known as the Samanian Empire, Samanid dynasty, Samanid Emirate, or simply Samanids, ruled from 819 to 999 CE. The empire was centred in Khorasan and Transoxiana.</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Империя Саманидов , или династия Саманидов, или же просто Саманиды, властвовали от 819 до 999 н.э. Центр империи был в Хоросане и Трансоксиане</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">萨曼王朝又称萨曼帝国，萨曼酋长国，或萨曼。公元819-999年统治呼罗珊和河间地带及周围区域。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Саманиддер империясы же Саманиддер династиясы же жөн эле Саманиддер 819-жылдан 999-жылга чейин үстөмдүк кылышкан. империянын борбору Хоросан жана Трансоксиан</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Империяи Сомониён, инчунин бо номҳои сулолаи Сомониён, Аморати Сомониён ё содда Сомониён маъруф аст, аз соли 819 то 999 мелодӣ ҳукмронӣ кардааст. Маркази империя дар Хуросон ва Мовароуннаҳр буд.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Samanidler imperiýasy, Samani imperiýasy, Samanid dinastiýasy, Samanid emirligi ýa-da ýönekeý Samanidler diýlip hem bilinýän b.e. 819-njy ýyldan 999-njy ýyla çenli höküm sürüpdir. Imperiýa Horasanda we Transoxiana merkezinde ýerleşýärdi.</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Somoniylar imperiyasi, shuningdek, Somoniylar sulolasi, Somoniylar amirligi yoki oddiygina Somoniylar deb nomlanuvchi davlat, 819-yildan 999-yilgacha hukmronlik qilgan. Imperiyaning markazi Xuroson va Movarounnahr boʻlgan.</skos:scopeNote>
+    <caal:dateRangeLabel>819-999 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">819</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">999</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0042">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0042</skos:notation>
+    <skos:prefLabel xml:lang="en">GHAZNAVID</skos:prefLabel>
+    <caal:dateRangeLabel>997–1186 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">997</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1186</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0019">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0019</skos:notation>
+    <skos:prefLabel xml:lang="en">MIDDLE NEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 5,000-4,000 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-5000</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-4000</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0061"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0021">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0021</skos:notation>
+    <skos:prefLabel xml:lang="en">MIDDLE PALAEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 300,000-45,000 BP</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-298050</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-43050</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0062"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0069">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0069</skos:notation>
+    <skos:prefLabel xml:lang="en">Mid-Sarmat culture</skos:prefLabel>
+    <caal:dateRangeLabel>2nd century BCE – 1st century CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-200</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0015"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0004">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0004</skos:notation>
+    <skos:prefLabel xml:lang="en">Early state formations</skos:prefLabel>
+    <caal:dateRangeLabel>2nd century BCE – 5th century CE)</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-200</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0016">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0016</skos:notation>
+        <skos:prefLabel xml:lang="en">Kangyuy</skos:prefLabel>
+        <caal:dateRangeLabel>2nd century BCE – 5th century CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-200</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0004"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0017">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0017</skos:notation>
+        <skos:prefLabel xml:lang="en">Usun</skos:prefLabel>
+        <caal:dateRangeLabel>2nd century BCE – 5th century CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-200</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0004"/>
+      </skos:Concept>
+    </skos:narrower>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0038">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0038</skos:notation>
+    <skos:prefLabel xml:lang="en">UYGHUR KHAGANATE</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Uyghur Khaganate (or Uyghur Empire or Uighur Khaganate)</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Уйгурский каганат (или Уйгурская империя)</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">突厥汗国分裂后，西突厥汗国于公元7世纪形成（公元593-603年）。公元657年，被唐朝征服。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Уйгур кагандыгы (же Уйгур империясы)</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Ҳоқонати Уйғурҳо (ё империяи Уйғурҳо)</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Uýgur Kaganaty (ýa-da Uýgur Imperiýasy)</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Uygʻur xoqonligi (Uygʻur imperiyasi yoki Uygʻur xoqonligi)</skos:scopeNote>
+    <caal:dateRangeLabel>744–840 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">744</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">840</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0044">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0044</skos:notation>
+    <skos:prefLabel xml:lang="en">KHWARAZMIAN</skos:prefLabel>
+    <caal:dateRangeLabel>1077–1231 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1077</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1231</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0048">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0048</skos:notation>
+    <skos:prefLabel xml:lang="en">SELJUK</skos:prefLabel>
+    <caal:dateRangeLabel>1037–1194 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1037</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1194</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0009">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0009</skos:notation>
+    <skos:prefLabel xml:lang="en">Western Chagatai Khanate (Mawerenahr)</skos:prefLabel>
+    <caal:dateRangeLabel>1340s–1370 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1340</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1370</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0019"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0010">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0010</skos:notation>
+    <skos:prefLabel xml:lang="en">Spring and Autumn Period</skos:prefLabel>
+    <caal:dateRangeLabel>771-476 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-771</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-476</caal:endYear>
+    <skos:broader>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0001">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0001</skos:notation>
+        <skos:prefLabel xml:lang="en">Eastern Zhou</skos:prefLabel>
+        <caal:dateRangeLabel>770-221 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-770</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-221</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0010"/>
+        <skos:narrower rdf:resource="https://vocab.uclcaal.org/concept/CP-3-0011"/>
+      </skos:Concept>
+    </skos:broader>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0049">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0049</skos:notation>
+    <skos:prefLabel xml:lang="en">TAHIRID</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Effectively ruled Khorasan from 821 to 873 CE</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Практически управляли между 821-873 н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">公元821-863年实际掌握呼罗珊地区。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Дээрлик 821-873-жылдардын ортосунда башкарылган.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Амалан байни солҳои 821-873 мелодӣ ҳукмронӣ карданд.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Aslynda 821-nji ýyldan 873-nji ýyla çenli Horasany dolandyrdy. meselem</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">821-873-yillarda Xurosonni samarali boshqargan</skos:scopeNote>
+    <caal:dateRangeLabel>821-873 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">821</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">873</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0029">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0029</skos:notation>
+    <skos:prefLabel xml:lang="en">SARMATIANS</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Sarmatians flourished from c. 5th century BCE to the 4th century CE. Originating in the central parts of the Eurasian Steppe, the Sarmatians started migrating westward around the 4th and 3rd centuries BCE.</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Расцвет Сарматов от V в. д.н.э. по IV в. н.э. Начиная из центральных частей Евразийской степи, Сарматы мигрировали на запад около IV -III в. д.н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">撒马利亚在大约公元前5世纪到公元4世纪国力繁盛。兴起于欧亚大草原，撒马利亚人于公元前4世纪到公元前3世纪开始向西迁移。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Сарматтардын өөрчүшү б. з. V-к. IV-к. чейин Евразия талаасынын борбордук бөлүктөрүнөн баштап сармат эли б. з. IV-III-к. тегерегинде батышка көчүп келишкен.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Тарақиёти сарматҳо аз асри V то IV пеш аз милод. Сарматҳо аз қисматҳои марказии Дашти Авруосиё, тақрибан дар асрҳои IV ва III пеш аз милод ба самти ғарб муҳоҷират карданд.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Sarmatlar b.e.öň V asyrdan b.e. IV asyra çenli gülläp ösdüler. Ýewraziýa sährasynyň merkezi böleklerinden gözbaş alyp gaýdýan sarmatlar beöň 4-nji we 3-nji asyrlarda günbatara göçüp başlapdyrlar.</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Sarmatlar miloddan avvalgi V asrdan milodiy IV asrgacha gullab yashnagan. Ular miloddan avvalgi IV-III asrlarda Yevrosiyoning markaziy dashtlaridan, g‘arbga ko‘chishgan.</skos:scopeNote>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0023">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0023</skos:notation>
+    <skos:prefLabel xml:lang="en">HELLENISTIC</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Maximum date range</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Максимальный диапазон дат</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Максималдуу күндөр диапазону</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Maksimum sene diapazony</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Maksimal sana oralig‘i</skos:scopeNote>
+    <caal:dateRangeLabel>c. 331 BCE to 125 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-331</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-125</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0011">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0011</skos:notation>
+    <skos:prefLabel xml:lang="en">Tang</skos:prefLabel>
+    <caal:dateRangeLabel>618–907 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">618</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">907</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0043">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0043</skos:notation>
+    <skos:prefLabel xml:lang="en">KARAKHANID</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Turkic dynasty that ruled in Transoxania in Central Asia. Also spelled Qarakhanids</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Тюркская династия кот. властвовал в Трансоксиане в Центральной Азии.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">于公元999-1211年统治中亚河间地带的突厥王朝。名称又可拼作Qarakhanids。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Борбордук Азиядагы Трансоксиананы башкарган Турк династиясы</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Сулолаи туркҳо, ки дар Мовароуннаҳр дар Осиёи Миёна хукмрон буданд. Ҳамчунин Қарахониён низ ёд шудаанд</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Merkezi Aziýanyň Transoksaniýada höküm süren türki dinastiýasy. Garahanidler diýip hem ýazylýar</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">999-1211-yillarda Movarounnahr hududida hukmronlik qilgan turkiy sulola. Qoraxoniylar deb ham ataladi</skos:scopeNote>
+    <caal:dateRangeLabel>999–1211 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">999</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1211</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0024">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0024</skos:notation>
+    <skos:prefLabel xml:lang="en">HEPHTHALITE</skos:prefLabel>
+    <caal:dateRangeLabel>c. 440s–710 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">440</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">710</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0016">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0016</skos:notation>
+    <skos:prefLabel xml:lang="en">Scythian</skos:prefLabel>
+    <caal:dateRangeLabel>c. 900-300 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">900</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0071">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0071</skos:notation>
+        <skos:prefLabel xml:lang="en">First Scythian Kingdom</skos:prefLabel>
+        <caal:dateRangeLabel>c. 900-600 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-900</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-600</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0016"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0072">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0072</skos:notation>
+        <skos:prefLabel xml:lang="en">Second Scythian Kingdom</skos:prefLabel>
+        <caal:dateRangeLabel>c. 600-300 BCE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-600</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-300</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0016"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0073">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-2-0073</skos:notation>
+        <skos:prefLabel xml:lang="en">Third Scythian Kingdom</skos:prefLabel>
+        <caal:dateRangeLabel>c. 300 BCE -300 CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-300</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0016"/>
+      </skos:Concept>
+    </skos:narrower>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0040">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0040</skos:notation>
+    <skos:prefLabel xml:lang="en">ABBASID</skos:prefLabel>
+    <skos:scopeNote xml:lang="ru">от 750 -1258 н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">约公元750-1258年</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">750 -1258 б. з.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">аз 750 -1258 пеш аз милод.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">B.e. 750-1258 ýyla</skos:scopeNote>
+    <caal:dateRangeLabel>c. 750–1258 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">750</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1258</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0008">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0008</skos:notation>
+    <skos:prefLabel xml:lang="en">Late Antiquity</skos:prefLabel>
+    <caal:dateRangeLabel>265 CE - 450 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">265</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">450</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0032">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0032</skos:notation>
+    <skos:prefLabel xml:lang="en">SOGDIAN</skos:prefLabel>
+    <caal:dateRangeLabel>6th century BCE to 8th century CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-600</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0075">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0075</skos:notation>
+    <skos:prefLabel xml:lang="en">Zhetyasar culture</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Early Iron Age: 7th-6th – 4th-3rd/2nd centuries BCE), Parthian-Sarmat period: 4th-3rd/2nd centuries BCE – 3rd-4th centuries CE, Sasanian and Early-Medieval (Pre-Islamic) period 3rd-4th – 7th-8th centuries CE</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">ранний железный век: VII-VI – IV-III/II вв .до н.э.), парфяно-сарматское время: IV-III/II вв до н.э. – III-IV вв. н.э., сасанидское и раннесредневековое (доисламское) время III-IV – VII-VIII вв. н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">早期铁器时代：公元前2/3-4-6-7世纪. 帕提亚和萨尔马提亚时期：公元前2-4世纪-公元前3-4世纪. 萨珊和早期中世纪时代（伊斯兰时期之前）：公元前3-4-7-8世纪</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Эрте темир доору: VII-VI-IV-III/II-кылымдар б.з.ч.), Парфян-сармат доору: IV-III/II-кылымдар б.з.ч. –III-IV кылымдар б.з, Сасанид жана орто кылымдын башында (исламга чейинки) III-IV-VII-VIII кылымдар б.з.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Асри аввали оҳан: асрҳои VII-VI – IV-III/II пеш аз милод), давраи порту-сармат: асрҳои IV-III/II пеш аз милод – асрҳои III-IV милодӣ, сосониён ва асри миёна (тоисломӣ) – III-IV – VII-VIII-уми милодӣ.</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Irki Demir döwri: b.e.öň VII-VI asyrlardan - IV-III/II asyrlar aralygy), Parfiýa-Sarmat döwri: b.e.öň IV-III/II asyrdan -b.e. III-IV asyrlar aralygy, Sasanylar we Irki orta asyrlar (Yslamdan öňki) döwürler b.e. III-IV asyrdan - VII-VIII asyrlar aralygy</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Ilk temir davri: miloddan avvalgi VII-VI-IV-III/II asrlar), Parfiya-sarmat davri: miloddan avvalgi IV-III/II asrlar - milodiy III-IV asrlar, Sosoniylar va ilk oʻrta asrlar (islomgacha boʻlgan davr) III-IV – VII-VIII asrlar.</skos:scopeNote>
+    <caal:dateRangeLabel>7th c BCE - 8th century CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-700</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0017"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0010">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0010</skos:notation>
+    <skos:prefLabel xml:lang="en">Modern</skos:prefLabel>
+    <caal:dateRangeLabel>20th and 21st century</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2001</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2100</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0006">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0006</skos:notation>
+    <skos:prefLabel xml:lang="en">Qing Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>1636-1912 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1636</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1912</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0034">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0034</skos:notation>
+    <skos:prefLabel xml:lang="en">THREE KINGDOMS</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0037">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0037</skos:notation>
+    <skos:prefLabel xml:lang="en">TURKIC KHAGANATE</skos:prefLabel>
+    <caal:dateRangeLabel>552-593/603 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">552</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">603</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0023">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-3-0023</skos:notation>
+        <skos:prefLabel xml:lang="en">EASTERN TURKIC KHAGANATE</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The Eastern Turkic Khaganate was formed at the beginning of the 7th century (593–603 CE) after the split of the Göktürk Khaganate. Subjugated by the Tang Empire in 630 CE.</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Восточный Тюркский Каганат был создан в начале VII в. (593-603 н.э.) после разделение Гоктюркского каганата. Был покорен Империей Танг в 630 н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">突厥汗国分裂后，东突厥汗国于公元7世纪形成（公元593-603年）。公元630年，被唐朝征服。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Чыгыш Түрк кагандыгы Гоктүрк каганатынын бөлүнүшүнөн кийин (593-603-ж.) 7-к. башында түзүлгөн. 630-жылы Тан империясы тарабынан багындырылган.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Хоқонати Туркони Шарқӣ дар ибтидои асри VII (593-603 милодӣ) пас аз тақсим шудани Хоқонати Гоктурк таъсис ёфт. Онро дар соли 630 милодӣ империяи Тан забт кардааст.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Gündogar Türk Kaganaty VII asyryň başynda (b.e. 593-603-nji ýyllar) Göktürk Kaganatyndan bölünenden soň emele geldi. B.e. 630 ýylda Tang imperiýasy tarapyndan gol astyna alynyýar.</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Sharqiy Turk xoqonligi VII asr boshlarida (milodiy 593—603-yillar) Koʻk turk xoqonligi boʻlinib ketganidan keyin tashkil topgan. Milodiy 630-yilda esa Tan imperiyasi tomonidan bo'ysundirilgan.</skos:scopeNote>
+        <caal:dateRangeLabel>593/603-630 CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">593</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">630</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0037"/>
+      </skos:Concept>
+    </skos:narrower>
+    <skos:narrower>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0024">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+        <skos:notation>CP-3-0024</skos:notation>
+        <skos:prefLabel xml:lang="en">WESTERN TURKIC KHAGANATE</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The Western Turkic Khaganate (or Onoq Khaganate) was a Turkic khaganate formed beginning of the 7th century (593–603 CE) after the split of the Göktürk Khaganate. Subjugated by the Tang Empire in 657 CE.</skos:scopeNote>
+        <skos:scopeNote xml:lang="ru">Заподно-Тюркский Каганат (или каганат Онок) был Тюркским каганатом созданный в начале VII в. (593-603 н.э.) после разделении Гоктюркского каганата. Был покорен Империей Танг в 657 н.э.</skos:scopeNote>
+        <skos:scopeNote xml:lang="zh">突厥汗国分裂后，西突厥汗国于公元7世纪形成（公元593-603年）。公元657年，被唐朝征服。</skos:scopeNote>
+        <skos:scopeNote xml:lang="ky">Батыш Түрк кагандыгы (же Он-Ок кагандыгы) - Гоктүрк каганатынын бөлүнүшүнөн кийин (593-603-ж.) 7-к. башында түзүлгөн. 657-жылы Тан империясы тарабынан багындырылган.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tg">Хоқонати Туркони Ғарбӣ (ё Хоқонати Онок) — хоқонати туркҳо буд, ки дар ибтидои асри 7 (593-603 милодӣ) пас аз тақсим шудани Хоқонати Гоктурк таъсис ёфтааст. Онро дар соли 657 милодӣ империяи Тан забт кардааст.</skos:scopeNote>
+        <skos:scopeNote xml:lang="tk">Günbatar Türki Kaganaty (ýa-da Onok Kaganate) VII asyryň başynda (593–603-nji ýyllar) Göktürk Kaganaty bölünenden soň döredilen türki haganatydy. B.e. 657-nji ýylda Tang imperiýasy tarapyndan boýun egdirilipdir.</skos:scopeNote>
+        <skos:scopeNote xml:lang="uz">Koʻkturk xoqonligi boʻlingandan keyin Gʻarbiy Turk xoqonligi (yoki Oʻnoq xoqonligi) — VII asr boshlarida tuzilgan Turk xoqonligi. (milodiy 593-603-yillar). 657 yilda Tan imperiyasi tomonidan bosib olingan.</skos:scopeNote>
+        <caal:dateRangeLabel>593/603-657 CE</caal:dateRangeLabel>
+        <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">593</caal:startYear>
+        <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">657</caal:endYear>
+        <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0037"/>
+      </skos:Concept>
+    </skos:narrower>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0030">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0030</skos:notation>
+    <skos:prefLabel xml:lang="en">SASANIAN</skos:prefLabel>
+    <caal:dateRangeLabel>224–651 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">224</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">651</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0065">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0065</skos:notation>
+    <skos:prefLabel xml:lang="en">Pazyryk culture</skos:prefLabel>
+    <caal:dateRangeLabel>2nd half of the 6th – 3rd centuries BCE.</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-550</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-201</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0013"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0011">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0011</skos:notation>
+    <skos:prefLabel xml:lang="en">Post Medieval</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0011">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0011</skos:notation>
+    <skos:prefLabel xml:lang="en">Warring States Period</skos:prefLabel>
+    <caal:dateRangeLabel>475-221 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-475</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-221</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0001"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0004">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0004</skos:notation>
+    <skos:prefLabel xml:lang="en">Zamaraev</skos:prefLabel>
+    <caal:dateRangeLabel>c. 1300-900 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1300</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-900</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0053"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0018">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0018</skos:notation>
+    <skos:prefLabel xml:lang="en">LATE NEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 4,000-2,500 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-4000</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2500</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0061"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0064">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0064</skos:notation>
+    <skos:prefLabel xml:lang="en">Mayemir stage of Early Iron Age of Altay and Eastern Kazakhstan</skos:prefLabel>
+    <caal:dateRangeLabel>end of the 9th – 2nd-3rd quarter of the 6th century BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-800</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-525</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0013"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0063">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0063</skos:notation>
+    <skos:prefLabel xml:lang="en">Kulazhorgin stage of Early Iron Age of Altay and Eastern Kazakhstan</skos:prefLabel>
+    <caal:dateRangeLabel>3rd - 1st centuries BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-300</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0013"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0010">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0010</skos:notation>
+    <skos:prefLabel xml:lang="en">Sui</skos:prefLabel>
+    <caal:dateRangeLabel>581–618 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">581</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">618</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0013">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0013</skos:notation>
+    <skos:prefLabel xml:lang="en">Western Zhou</skos:prefLabel>
+    <caal:dateRangeLabel>1046-771 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1046</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-771</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0004">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0004</skos:notation>
+    <skos:prefLabel xml:lang="en">Ming Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>1368-1644 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1368</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1644</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0005">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0005</skos:notation>
+    <skos:prefLabel xml:lang="en">Qin Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>221-206 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-221</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-206</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0031">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0031</skos:notation>
+    <skos:prefLabel xml:lang="en">SELEUCID</skos:prefLabel>
+    <caal:dateRangeLabel>312 BCE – 63 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-312</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-63</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0012">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0012</skos:notation>
+    <skos:prefLabel xml:lang="en">Wei, Jin, Southern and Northern Dynasties</skos:prefLabel>
+    <caal:dateRangeLabel>220-580 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">580</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0012">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0012</skos:notation>
+    <skos:prefLabel xml:lang="en">EARLY IRON AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0058"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0026">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0026</skos:notation>
+    <skos:prefLabel xml:lang="en">Liao Dynasty</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0001">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0001</skos:notation>
+    <skos:prefLabel xml:lang="en">Alakul</skos:prefLabel>
+    <caal:dateRangeLabel>c. 1600-1400 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1600</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1400</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0053"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0014">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0014</skos:notation>
+    <skos:prefLabel xml:lang="en">Sargat culture (forest-steppe of the Western Siberia and Trans-Urals)</skos:prefLabel>
+    <caal:dateRangeLabel>from 7th-6th centuries BCE to 3rd-5th centuries CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-700</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0050">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0050</skos:notation>
+    <skos:prefLabel xml:lang="en">UMAYYAD</skos:prefLabel>
+    <caal:dateRangeLabel>661–750 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">661</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">750</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0009">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0009</skos:notation>
+    <skos:prefLabel xml:lang="en">Song Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>960-1279 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">960</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1279</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0002">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0002</skos:notation>
+    <skos:prefLabel xml:lang="en">Fedorovo</skos:prefLabel>
+    <caal:dateRangeLabel>c. 1500-1300 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1500</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1300</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0053"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0036">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0036</skos:notation>
+    <skos:prefLabel xml:lang="en">TIMURID</skos:prefLabel>
+    <caal:dateRangeLabel>1370–1507 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1370</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1507</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0002">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0002</skos:notation>
+    <skos:prefLabel xml:lang="en">Five Dynasties and Ten Kingdoms Period</skos:prefLabel>
+    <caal:dateRangeLabel>907-979 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">907</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">979</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0022">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0022</skos:notation>
+    <skos:prefLabel xml:lang="en">GREEK-MACEDONIAN</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">Preferred term in Kazakhstan for early Hellenistic</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Предпочтительный термин в Казахстане для раннего эллинизма</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Казакстанда эрте эллинизм үчүн артыкчылыктуу термин</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Irki ellinçilik üçin Gazagystanda ulanylmak islenyan termin</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Qozog‘istonda erta ellinizm davri uchun afzal qilingan atama</skos:scopeNote>
+    <caal:dateRangeLabel>c. 331 BCE to 312 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-331</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-312</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0015">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0015</skos:notation>
+    <skos:prefLabel xml:lang="en">Yuan Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>1271-1368 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1271</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1368</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0008">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0008</skos:notation>
+    <skos:prefLabel xml:lang="en">Shang Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>1600-1046 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1600</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1046</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0039">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0039</skos:notation>
+    <skos:prefLabel xml:lang="en">XIONGNU</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">A tribal confederation of nomadic peoples who inhabited the eastern Eurasian Steppe from the 3rd century BCE to the late 1st century CE.</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">Племенная конфедерация кочевников кот. заселяли возточный Евразийский степ от III в. д.н.э. до поздного I в. н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">欧亚大草原东部游牧民族部落联盟，公元前3世纪-公元1世纪。</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Көчмөндөрдүн уруулук конфедерациясы Чыгыш Евразия талааларын III к. б.з. ч жана I к. б.з. байырлаган</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Конфедератсияи қабилаҳои бодиянишин ки аз асри III пеш аз милод то охири асри I милодӣ дар даштҳои Шарқии Авруосиё сукунат дошт</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">B.e.öň III b.e I asyrynyň ahyryna çenli gündogar Yewraziýa sährasynda ýaşaýan çarwa halklaryň taýpa konfederasiýasy.</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Miloddan avvalgi III asrdan milodiy I asr oxirigacha Sharqiy Yevrosiyo dashtida yashagan koʻchmanchi xalqlar qabilalarining konfederatsiyasi.</skos:scopeNote>
+    <caal:dateRangeLabel>3rd century BCE to the late 1st century CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-300</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0041">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0041</skos:notation>
+    <skos:prefLabel xml:lang="en">EARLY ISLAMIC</skos:prefLabel>
+    <skos:scopeNote xml:lang="en">From the Islamic conquest to c 11th century CE</skos:scopeNote>
+    <skos:scopeNote xml:lang="ru">От Исламского завоевания до ок. XI в. н.э.</skos:scopeNote>
+    <skos:scopeNote xml:lang="zh">从伊斯兰对外征服起到约11世纪</skos:scopeNote>
+    <skos:scopeNote xml:lang="ky">Исламдын басып алуусунан тарта, XI кылымга чейин</skos:scopeNote>
+    <skos:scopeNote xml:lang="tg">Аз истилои ислом то асри тақрибан асри XI милодӣ</skos:scopeNote>
+    <skos:scopeNote xml:lang="tk">Yslam basyp alyşyndan b.e. XI asyryna çenli</skos:scopeNote>
+    <skos:scopeNote xml:lang="uz">Islom istilosidan milodiy XI asrgacha</skos:scopeNote>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0006"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0070">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0070</skos:notation>
+    <skos:prefLabel xml:lang="en">Prohorov (early-Sarmat) culture</skos:prefLabel>
+    <caal:dateRangeLabel>4th-2nd centuries BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-400</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-201</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0015"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0022">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0022</skos:notation>
+    <skos:prefLabel xml:lang="en">UPPER PALAEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 50,000-16,000 BP</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-48050</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-14050</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0062"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0021">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0021</skos:notation>
+    <skos:prefLabel xml:lang="en">GRECO-BACTRIAN</skos:prefLabel>
+    <caal:dateRangeLabel>256 BCE–125 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-256</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-125</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0020">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0020</skos:notation>
+    <skos:prefLabel xml:lang="en">LOWER PALAEOLITHIC</skos:prefLabel>
+    <caal:dateRangeLabel>c. 1,500,000-300,000 BP</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1498050</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-298050</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0062"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0007">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0007</skos:notation>
+    <skos:prefLabel xml:lang="en">Republic of China</skos:prefLabel>
+    <caal:dateRangeLabel>1912-1949 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1912</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1949</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0003">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0003</skos:notation>
+    <skos:prefLabel xml:lang="en">Early Antiquity</skos:prefLabel>
+    <caal:dateRangeLabel>329 BCE - 265 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-329</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">265</caal:endYear>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0028">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0028</skos:notation>
+    <skos:prefLabel xml:lang="en">PARTHIAN</skos:prefLabel>
+    <caal:dateRangeLabel>247 BCE – 224 CE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-247</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">224</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0014">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0014</skos:notation>
+    <skos:prefLabel xml:lang="en">Xia Dynasty</skos:prefLabel>
+    <caal:dateRangeLabel>2070-1600 BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-2070</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1600</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0002"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0067">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0067</skos:notation>
+    <skos:prefLabel xml:lang="en">Tasmola culture</skos:prefLabel>
+    <caal:dateRangeLabel>late 9th – 3rd centuries BCE</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-875</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-201</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0013"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0006">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0006</skos:notation>
+    <skos:prefLabel xml:lang="en">LATE BRONZE AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0055"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-1-0018">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-1-0018</skos:notation>
+    <skos:prefLabel xml:lang="en">Uncertain</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0014">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0014</skos:notation>
+    <skos:prefLabel xml:lang="en">MIDDLE IRON AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0058"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-3-0007">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-3-0007</skos:notation>
+    <skos:prefLabel xml:lang="en">MIDDLE BRONZE AGE</skos:prefLabel>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-2-0055"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/CP-2-0033">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/cultural-periods"/>
+    <skos:notation>CP-2-0033</skos:notation>
+    <skos:prefLabel xml:lang="en">Shaybanids</skos:prefLabel>
+    <caal:dateRangeLabel>1428-1599</caal:dateRangeLabel>
+    <caal:startYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1428</caal:startYear>
+    <caal:endYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1599</caal:endYear>
+    <skos:broader rdf:resource="https://vocab.uclcaal.org/concept/CP-1-0005"/>
+  </skos:Concept>
+</rdf:RDF>

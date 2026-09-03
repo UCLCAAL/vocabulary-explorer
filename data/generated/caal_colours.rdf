@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/7">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/colours">
+        <skos:prefLabel xml:lang="en">Colours</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/colours/8"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>Other / unusual bit depth</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Other / unusual bit depth</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Другое</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Other / unusual bit depth</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>24-bit RGB</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">24-bit RGB</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">24-битный RGB</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">24-bit RGB</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>1-bit mono</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">1-bit mono</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">1-битный моно</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">1-bit mono</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>24-bit RGB + 16-bit greyscale</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">24-bit RGB + 16-bit greyscale</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">24-битный RGB; 16-битный</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">24-bit RGB + 16-bit greyscale</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>Not stated</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Not stated</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Не указано</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Not stated</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>Black and white</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Black and white</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">черно-белый</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">Black and white</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/colours/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/colours"/>
+    <caal:canonicalValue>8-bit</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">8-bit</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">8 бит</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">8-bit</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

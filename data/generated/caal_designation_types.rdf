@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/designation-types">
+    <skos:prefLabel xml:lang="en">Designation Types</skos:prefLabel>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/2">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>2</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Local level site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Local level site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник местного значения</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/3">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>3</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>City Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">City Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник городского уровня</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">市级遗址/市县级重点文物保护单位</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/4">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>4</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>County Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">County Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник уровня округа</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">县级遗址/市县级重点文物保护单位</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/5">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>5</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>National Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">National Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник национального уровня</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">国家级遗址/全国重点文物保护单位</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/6">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>6</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Provincial Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Provincial Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник провинциального уровня</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">省级遗址/省级重点文物保护单位</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/7">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>7</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Regional Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Regional Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник регионального уровня</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">区域重要遗址</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/8">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>8</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>International Level Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">International Level Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник международного уровня</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">国际级保护遗址</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/9">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>9</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>World Heritage Site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">World Heritage Site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Объект всемирного наследия</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">世界遗产</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/10">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>10</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Undesignated</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Undesignated</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">необозначенный</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">未认定/未评级</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/11">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>11</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Republic level site</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Republic level site</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Памятник республиканского значения</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">共和国级别保护遗址</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/12">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>12</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Provisional register</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Provisional register</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Находится в списке предварительного учета</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">临时注册</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+    <skos:hasTopConcept>
+      <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/designation-types/13">
+        <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <skos:notation>13</skos:notation>
+        <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/designation-types"/>
+        <caal:canonicalValue>Registry of monuments</caal:canonicalValue>
+        <skos:prefLabel xml:lang="en">Registry of monuments</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">Внесен в свод памятников</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">古迹登记系统</skos:prefLabel>
+        <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+      </skos:Concept>
+    </skos:hasTopConcept>
+  </skos:ConceptScheme>
+</rdf:RDF>

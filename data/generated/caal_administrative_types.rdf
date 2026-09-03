@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/12">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/administrative-types">
+        <skos:prefLabel xml:lang="en">Administrative Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/12"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/13"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/14"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/15"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/16"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/17"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/18"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/19"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/20"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/21"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/22"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/23"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/24"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/25"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/26"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/27"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/28"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/administrative-types/29"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Etrap</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Etrap</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Этрап</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">市（土库曼斯坦）</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/21">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>21</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Regiment</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Regiment</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">团/团场</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Autonomous prefecture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Autonomous prefecture</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Автономная префектура</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">自治州</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/22">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>22</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Subdistrict</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Subdistrict</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">街道</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Autonomous county</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Autonomous county</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">自治县</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/29">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>29</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Welayat</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Welayat</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Велаят</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">州/省</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>City</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">City</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Город</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">市</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>County</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">County</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Округ / сельский административный округ</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">县</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/28">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>28</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Viloyat</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Viloyat</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Вилоят</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">州/省</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/24">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>24</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Township</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Township</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">乡</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Community</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Community</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">社/社区</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/26">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>26</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Village</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Village</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">село</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">村</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/23">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>23</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Town</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Town</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">镇</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/16">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>16</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Prefecture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Prefecture</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Префектура</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">地区</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>County controlled district</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">County controlled district</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">县辖区</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>District</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">District</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Участок</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">市辖区</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/15">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>15</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Oblast</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Oblast</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Область</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">州/省</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/18">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>18</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Province</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Province</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Провинция</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">省</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>County level city</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">County level city</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">县级市</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Ethnic township</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ethnic township</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">民族乡</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/13">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>13</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Farm</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Farm</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">农场</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/27">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>27</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Village/settlement</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Village/settlement</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Село/Посёлок</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">乡/村</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/25">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>25</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Tuman</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Tuman</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Туман</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">市</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/20">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>20</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Rayon</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Rayon</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Район</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">区</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Division</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Division</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">师</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/14">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>14</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Neighbourhood</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Neighbourhood</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Соседство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">邻里</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/19">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>19</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Ranch</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ranch</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">牧场</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/administrative-types/17">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <skos:notation>17</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/administrative-types"/>
+    <caal:canonicalValue>Prefectural city</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Prefectural city</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">地级市</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

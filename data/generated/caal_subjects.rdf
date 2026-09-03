@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/89">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/subjects">
+        <skos:prefLabel xml:lang="en">Subjects</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/12"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/13"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/14"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/15"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/16"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/17"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/18"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/19"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/20"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/21"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/22"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/23"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/24"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/25"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/26"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/27"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/28"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/29"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/30"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/31"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/32"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/33"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/34"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/35"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/36"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/37"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/38"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/39"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/40"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/41"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/42"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/43"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/44"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/45"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/46"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/47"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/48"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/49"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/50"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/51"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/52"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/53"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/54"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/55"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/56"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/57"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/58"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/59"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/60"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/61"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/62"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/63"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/64"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/65"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/66"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/67"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/68"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/69"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/70"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/71"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/72"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/73"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/74"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/75"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/76"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/77"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/78"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/79"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/80"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/81"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/82"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/83"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/84"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/85"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/86"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/87"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/88"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/89"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/90"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/91"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/92"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/subjects/93"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>89</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Travel</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Travel</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Путешествие</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">旅游</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/15">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>15</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Castes and Tribes</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Castes and Tribes</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Касты и племена</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">种姓和部族</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/38">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>38</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Folklore</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Folklore</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Фольклор</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">民俗</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/75">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>75</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Publishing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Publishing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Издательский</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">出版</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/63">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>63</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Mysticism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Mysticism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Мистика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">神秘主义</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/90">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>90</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Utilities</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Utilities</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Системы обеспечения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">公用设施</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/76">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>76</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Rites and ceremonies</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Rites and ceremonies</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Обряды и церемонии</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">礼仪和仪式</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/59">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>59</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Military</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Military</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Военный</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">军队</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/61">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>61</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Monuments and Memorials</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Monuments and Memorials</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Памятники и Мемориалы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">纪念碑与纪念馆</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/31">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>31</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Education</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Education</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Образование</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">教育</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/88">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>88</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Transport</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Transport</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Транспорт</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">运输</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/73">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>73</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Propaganda</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Propaganda</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Пропаганда</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">宣传</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">73</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/86">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>86</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Trade and Industry</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Trade and Industry</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Торговля и Промышленность</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">贸易与工业</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/28">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>28</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Diaspora</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Diaspora</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Диаспора</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">侨民</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/13">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>13</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Building construction</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Building construction</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Строительство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">屋宇建筑</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/36">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>36</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Ethnic groups</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ethnic groups</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Этнические группы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">族裔群体</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/42">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>42</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Geology</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Geology</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Геология</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">地质学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/45">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>45</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>History</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">History</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">История</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">历史学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/23">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>23</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Crime</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Crime</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Преступление</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">犯罪</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/54">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>54</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Manual work</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Manual work</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Ручная работа</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">手工工作</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/65">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>65</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Occupations and Employees</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Occupations and Employees</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Профессии и сотрудники</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">职业与雇员</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/53">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>53</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Literature</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Literature</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Литература</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">文学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/58">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>58</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Migration</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Migration</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Миграция</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">移民</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Architecture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Architecture</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Архитектура</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">建筑</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/83">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>83</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Sport and Leisure</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Sport and Leisure</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Спорт и Отдых</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">运动休闲</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">83</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/69">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>69</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Poetry</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Poetry</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Поэзия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">诗歌</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/87">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>87</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Trade unions</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Trade unions</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Профсоюзы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">贸易联盟</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Anthropology</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Anthropology</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Антропология</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">人类学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/17">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>17</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Children</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Children</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дети</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">儿童</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/20">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>20</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Colonialism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Colonialism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Колониализм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">殖民主义</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/67">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>67</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Philosophy</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Philosophy</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Философия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">哲学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/49">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>49</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Land use</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Land use</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Землепользование</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">土地利用</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/78">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>78</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Science</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Science</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Наука</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">科学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/70">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>70</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Politics</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Politics</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Политика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">政治</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/81">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>81</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Slavery</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Slavery</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Рабство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">奴隶制</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">81</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/40">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>40</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Forestry</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Forestry</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Лесоводство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">林业</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/72">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>72</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Pottery and Ceramics</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Pottery and Ceramics</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Керамика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">陶瓷器</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/22">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>22</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Conflicts</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Conflicts</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Конфликты</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">冲突</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/52">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>52</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Law and Legal affairs</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Law and Legal affairs</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Право и правовые вопросы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">法律和司法事务</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Administration</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Administration</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Администрация</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">行政</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/24">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>24</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Customs and traditions</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Customs and traditions</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Обычаи и традиции</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">风俗传统</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/39">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>39</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Food and Drink</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Food and Drink</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Еда и напитки</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">饮食</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/82">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>82</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Social Welfare</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Social Welfare</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Социальное обеспечение</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">社会福利</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/85">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>85</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Theology</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Theology</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Теология</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">神学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/21">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>21</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Commentaries</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Commentaries</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Комментарии</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">评论</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/30">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>30</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Diplomacy</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Diplomacy</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дипломатия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">外交</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/64">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>64</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Nationalism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Nationalism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Национализм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">民族主义</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/26">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>26</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Death</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Death</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Смерть</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">死亡</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/44">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>44</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Health and Medicine</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Health and Medicine</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Здоровье и медицина</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">医疗保健</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/68">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>68</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Plants</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Plants</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Растения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">植物</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/14">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>14</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Business</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Business</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Бизнес</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">商业</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/27">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>27</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Demography</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Demography</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Демография</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">人口统计学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/41">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>41</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Genealogy</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Genealogy</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Генеалогия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">世系族谱</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/62">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>62</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Music</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Music</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Музыка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">音乐</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/74">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>74</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Psychiatry</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Psychiatry</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Психиатрия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">精神病学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/60">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>60</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Missionary work</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Missionary work</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Миссионерская работа</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">传教工作</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/84">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>84</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Theatre</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Theatre</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Театр</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">剧院</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Art</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Art</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Искусство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">艺术</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Animals</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Animals</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Животные</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">动物</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Astrology</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Astrology</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Астрология</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">占星学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Accounting and Finance</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Accounting and Finance</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Бухгалтерский учет и финансы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">金融会计</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/29">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>29</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Didacticism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Didacticism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дидактицисм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">启蒙主义</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/50">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>50</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Landscapes</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Landscapes</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Ландшафты</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">景观</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/37">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>37</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>First World War (1914-1918)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">First World War (1914-1918)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Первая мировая война (1914-1918)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">第一次世界大战（1914-1918）</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/93">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>93</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Women</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Women</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Женщины</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">女性</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/80">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>80</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Settlements</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Settlements</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Населенные пункты</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/56">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>56</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Material culture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Material culture</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Материальная культура</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">物质文化</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/48">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>48</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>LGBT</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">LGBT</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">ЛГБТ</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">非异性恋者</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Astronomy</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Astronomy</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Астрономия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">天文学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/43">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>43</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Government</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Government</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Правительство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">政府</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/66">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>66</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Parish Records</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Parish Records</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Приходские Отчеты</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">教区记录</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/19">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>19</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Clothing and Dress</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Clothing and Dress</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Одежда и платье</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">服装衣着</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/77">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>77</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Royalty and rulers</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Royalty and rulers</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Королевство и правители</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">皇室和统治者</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/57">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>57</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Mathematics</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Mathematics</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Математика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">数学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Birth</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Birth</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Рождения</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">出生</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/47">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>47</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Indigenous populations</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Indigenous populations</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Коренное население</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">原住民</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/18">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>18</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Cinema and Television</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Cinema and Television</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Кино и Телевидение</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">影视</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/51">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>51</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Languages and Grammar</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Languages and Grammar</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Языки и грамматика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">语言和语法</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/34">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>34</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Eroticism</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Eroticism</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Эротизм</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">色情</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/55">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>55</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Marriage</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Marriage</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Брак</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">婚姻</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/71">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>71</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Portraits</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Portraits</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Портреты</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">肖像</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Archaeology</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Archaeology</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Археология</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">考古学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/46">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>46</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Hunting and Fishing</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Hunting and Fishing</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Охота и рыбалка</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">渔猎</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/33">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>33</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Epic poetry</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Epic poetry</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Эпическая поэзия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">史诗</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/32">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>32</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Engineering</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Engineering</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Инженерия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">工程</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/79">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>79</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Second World War (1939-1945)</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Second World War (1939-1945)</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Вторая мировая война (1939-1945)</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">第二次世界大战（1939-1945）</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/25">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>25</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Dance</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Dance</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Танец</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">舞蹈</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/91">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>91</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Weapons</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Weapons</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Оружие</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">武器</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">91</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/92">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>92</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Weather</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Weather</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Погода</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">天气</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">92</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Agriculture</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Agriculture</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Сельское хозяйство</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">农业</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/35">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>35</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Ethics</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Ethics</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Этика</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">伦理学</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/subjects/16">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <skos:notation>16</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/subjects"/>
+    <caal:canonicalValue>Charity</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Charity</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Благотворительная деятельность</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">慈善</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/2">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/measurement-types">
+        <skos:prefLabel xml:lang="en">Measurement Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/measurement-types/12"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>Area</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Area</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Площадь</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">面积</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>protected zone area</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">protected zone area</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">площадь охранной зоны</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">保护区域</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>depth</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">depth</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">глубина</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">深度</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>weight</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">weight</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">вес</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">重量</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>diameter</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">diameter</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">диаметр</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">直径</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>protected area</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">protected area</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">охранная зона</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">保护区面积</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>height</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">height</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">высота</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">高度</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/6">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>breadth</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">breadth</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">ширина</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">宽度</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>length</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">length</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">длина</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">长度</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>buffer zone area</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">buffer zone area</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">площадь буферной зоны</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">缓冲区面积</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/measurement-types/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/measurement-types"/>
+    <caal:canonicalValue>perimeter</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">perimeter</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">периметр</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">周长</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:caal="https://vocab.uclcaal.org/ns/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/6">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="https://vocab.uclcaal.org/scheme/description-types">
+        <skos:prefLabel xml:lang="en">Description Types</skos:prefLabel>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/2"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/3"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/4"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/5"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/6"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/7"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/8"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/9"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/10"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/11"/>
+        <skos:hasTopConcept rdf:resource="https://vocab.uclcaal.org/concept/description-types/12"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:notation>6</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Primary</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Primary</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Первичное</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">首要的</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/9">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>9</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>UNESCO Nomination</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">UNESCO Nomination</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Номинация ЮНЕСКО</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">联合国教科文组织世界遗产提名</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/8">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>8</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Supplementary Description</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Supplementary Description</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Дополнительное описание</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">补充说明</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/12">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>12</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Written Sources</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Written Sources</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Письменные источники</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">书面资料</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/7">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>7</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Summary of Significance</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Summary of Significance</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Общая сводка о важности объекта</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">重要性简介</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/3">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>3</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Author Resources</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Author Resources</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Авторские ресурсы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">作者资源</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/4">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>4</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Comments</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Comments</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Комментарии</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">注释</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/11">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>11</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Wikipedia</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Wikipedia</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Википедия</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">维基百科</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/5">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>5</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>General Description</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">General Description</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Общее описание</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">基本说明</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/10">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>10</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>UNESCO TL</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">UNESCO TL</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Предварительный список ЮНЕСКО</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">联合国教科文组织世界遗产预备名单</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</caal:sortOrder>
+  </skos:Concept>
+  <skos:Concept rdf:about="https://vocab.uclcaal.org/concept/description-types/2">
+    <skos:inScheme rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <skos:notation>2</skos:notation>
+    <skos:topConceptOf rdf:resource="https://vocab.uclcaal.org/scheme/description-types"/>
+    <caal:canonicalValue>Archive Resources</caal:canonicalValue>
+    <skos:prefLabel xml:lang="en">Archive Resources</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">Архивные ресурсы</skos:prefLabel>
+    <skos:prefLabel xml:lang="zh">档案资源</skos:prefLabel>
+    <caal:sortOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</caal:sortOrder>
+  </skos:Concept>
+</rdf:RDF>

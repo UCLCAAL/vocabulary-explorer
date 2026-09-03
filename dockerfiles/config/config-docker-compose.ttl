@@ -122,6 +122,7 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:hasMultiLingualProperty skos:scopeNote ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/site-types> ;
@@ -135,6 +136,7 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:hasMultiLingualProperty skos:scopeNote ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/cultural-periods> ;

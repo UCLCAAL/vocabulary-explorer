@@ -216,3 +216,27 @@ body.frontpage-logo #headerbar{padding-top:0!important;padding-bottom:0!importan
   padding-bottom: 0.55rem;
   line-height: 1.3;
 }
+
+.caal-vocabulary-nav {
+    padding-bottom: 2rem;
+}
+
+/* Allow persistent vocabulary navigator to scroll independently */
+.caal-vocabulary-nav {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+}
+
+@media (max-width: 991px) {
+    .caal-vocabulary-nav {
+        top: var(--caal-nav-top);
+        bottom: 0;
+        height: auto !important;
+        max-height: calc(100vh - var(--caal-nav-top));
+        overflow-y: auto !important;
+    }
+}

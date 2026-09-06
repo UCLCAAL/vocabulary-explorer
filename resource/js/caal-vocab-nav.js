@@ -84,7 +84,7 @@ const caalLanguageReplacements = {
 
     if (!match) return null;
 
-    return `http://vocab.getty.edu/aat/${match[1]}`;
+    return `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`;
   }
 
   function caalFixAatMappingLinks() {
@@ -141,7 +141,7 @@ const caalLanguageReplacements = {
 
         if (!match) return;
 
-        link.href = `http://vocab.getty.edu/aat/${match[1]}`;
+        link.href = `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`;
       },
       true
     );

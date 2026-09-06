@@ -71,6 +71,33 @@ const caalLanguageReplacements = {
 
   /* Re-check only after user interaction, rather than watching every DOM change */
   document.addEventListener("click", () => {
-    window.setTimeout(caalLocaliseContentLanguages, 50);
+    window.setTimeout(() => {
+      caalLocaliseContentLanguages();
+      caalFixAatMappingLinks();
+    }, 50);
   });
+
+  function caalFixAatMappingLinks() {
+    document.querySelectorAll('a[href*="/aatReference/"]').forEach((link) => {
+      let url;
+
+      try {
+        url = new URL(link.href, window.location.origin);
+      } catch {
+        return;
+      }
+
+      const match = url.pathname.match(
+        /^\/aatReference\/[^/]+\/page\/(\d+)$/
+      );
+
+      if (!match) return;
+
+      const aatId = match[1];
+
+      link.href = `http://vocab.getty.edu/aat/${aatId}`;
+    });
+  }
+
+  caalFixAatMappingLinks();
 })();

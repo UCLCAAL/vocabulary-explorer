@@ -60,7 +60,8 @@
   font-size: 0.88rem;
   line-height: normal;
 }
-caal-vocabulary-nav__scroll{flex:1;min-height:0;overflow-y:auto;padding:.5rem .65rem 1rem;scrollbar-width:thin}
+
+.caal-vocabulary-nav__scroll{flex:1;min-height:0;overflow-y:auto;padding:.5rem .65rem 1rem;scrollbar-width:thin}
 .caal-vocabulary-group{padding:.15rem 0;border-bottom:1px solid #edf1f5}
 .caal-vocabulary-group__title{position:relative;padding:.62rem 1.45rem .5rem .55rem;color:#35445c;cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.045em;line-height:1.25;text-transform:uppercase;list-style:none}
 .caal-vocabulary-group__title::-webkit-details-marker{display:none}

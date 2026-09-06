@@ -1,0 +1,17 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# CAAL Caravanserai -> Getty AAT caravanserais
+<https://vocab.uclcaal.org/concept/MT-2-0014>
+    skos:exactMatch
+    <http://vocab.getty.edu/aat/300007148> .
+
+# CAAL Mausoleum -> Getty AAT mausoleums
+<https://vocab.uclcaal.org/concept/MT-2-0076>
+    skos:exactMatch
+    <http://vocab.getty.edu/aat/300005891> .
+
+# CAAL Mazar (Ma Zha) is a more specific regional concept,
+# so Getty's general mausoleum concept is a broader match.
+<https://vocab.uclcaal.org/concept/MT-3-0038>
+    skos:broadMatch
+    <http://vocab.getty.edu/aat/300005891> .

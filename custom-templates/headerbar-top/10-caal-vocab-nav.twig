@@ -1,3 +1,4 @@
+{% if request.vocabid %}
 {% set caal_groups = [
   {'title':'Archaeological Classification and Chronology','items':[
     {'id':'caalMonumentTypes','title':'Site Types'},
@@ -89,3 +90,4 @@
         type="button" aria-controls="caal-vocabulary-nav" aria-expanded="false">
   <i class="fa-solid fa-list" aria-hidden="true"></i><span>Vocabularies</span>
 </button>
+{% endif %}

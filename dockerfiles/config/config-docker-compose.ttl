@@ -547,3 +547,12 @@
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/writing-systems> ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/writing-systems> .
+
+:aatReference a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Art and Architecture Thesaurus"@en ;
+    skosmos:shortName "AAT" ;
+    void:uriSpace "http://vocab.getty.edu/aat/" ;
+    skosmos:language "en" ;
+    skosmos:defaultLanguage "en" ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/aat-reference> .

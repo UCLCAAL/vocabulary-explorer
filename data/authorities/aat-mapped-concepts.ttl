@@ -1,0 +1,9 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://vocab.getty.edu/aat/300007148>
+    a skos:Concept ;
+    skos:prefLabel "caravanserais"@en .
+
+<http://vocab.getty.edu/aat/300005891>
+    a skos:Concept ;
+    skos:prefLabel "mausoleums"@en .

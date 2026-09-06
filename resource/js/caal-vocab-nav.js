@@ -69,35 +69,60 @@ const caalLanguageReplacements = {
 
   caalLocaliseContentLanguages();
 
-  /* Re-check only after user interaction, rather than watching every DOM change */
-  document.addEventListener("click", () => {
+  function caalGettyUrl(link) {
+    let url;
+
+    try {
+      url = new URL(link.href, window.location.origin);
+    } catch {
+      return null;
+    }
+
+    const match = url.pathname.match(
+      /^\/aatReference\/[^/]+\/page\/(\d+)\/?$/
+    );
+
+    if (!match) return null;
+
+    return `http://vocab.getty.edu/aat/${match[1]}`;
+  }
+
+  function caalFixAatMappingLinks() {
+    document.querySelectorAll('a[href*="/aatReference/"]').forEach((link) => {
+      const gettyUrl = caalGettyUrl(link);
+
+      if (gettyUrl) {
+        link.href = gettyUrl;
+      }
+    });
+  }
+
+  /* Fix mappings already present when the page loads */
+  caalFixAatMappingLinks();
+
+  /* Skosmos may populate parts of the concept page after initial load */
+  window.setTimeout(caalFixAatMappingLinks, 250);
+  window.setTimeout(caalFixAatMappingLinks, 1000);
+
+  /*
+  * Also fix the href synchronously if a dynamically-created mapping
+  * is clicked before one of the checks above has caught it.
+  */
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.('a[href*="/aatReference/"]');
+
+    if (link) {
+      const gettyUrl = caalGettyUrl(link);
+
+      if (gettyUrl) {
+        link.href = gettyUrl;
+      }
+    }
+
     window.setTimeout(() => {
       caalLocaliseContentLanguages();
       caalFixAatMappingLinks();
     }, 50);
   });
 
-  function caalFixAatMappingLinks() {
-    document.querySelectorAll('a[href*="/aatReference/"]').forEach((link) => {
-      let url;
-
-      try {
-        url = new URL(link.href, window.location.origin);
-      } catch {
-        return;
-      }
-
-      const match = url.pathname.match(
-        /^\/aatReference\/[^/]+\/page\/(\d+)$/
-      );
-
-      if (!match) return;
-
-      const aatId = match[1];
-
-      link.href = `http://vocab.getty.edu/aat/${aatId}`;
-    });
-  }
-
-  caalFixAatMappingLinks();
 })();

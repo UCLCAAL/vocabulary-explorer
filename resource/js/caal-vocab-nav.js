@@ -100,29 +100,61 @@ const caalLanguageReplacements = {
   /* Fix mappings already present when the page loads */
   caalFixAatMappingLinks();
 
-  /* Skosmos may populate parts of the concept page after initial load */
-  window.setTimeout(caalFixAatMappingLinks, 250);
-  window.setTimeout(caalFixAatMappingLinks, 1000);
+  function caalStartAatMappingFix() {
+    /* Fix anything already on the page */
+    caalFixAatMappingLinks();
 
-  /*
-  * Also fix the href synchronously if a dynamically-created mapping
-  * is clicked before one of the checks above has caught it.
-  */
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest?.('a[href*="/aatReference/"]');
-
-    if (link) {
-      const gettyUrl = caalGettyUrl(link);
-
-      if (gettyUrl) {
-        link.href = gettyUrl;
-      }
-    }
-
-    window.setTimeout(() => {
-      caalLocaliseContentLanguages();
+    /*
+    * Skosmos can insert concept/mapping content dynamically.
+    * Re-check whenever new DOM content appears.
+    */
+    const observer = new MutationObserver(() => {
       caalFixAatMappingLinks();
-    }, 50);
-  });
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+
+    /*
+    * Capture phase means this runs before Skosmos' normal click handling.
+    */
+    document.addEventListener(
+      "click",
+      (event) => {
+        const link = event.target.closest?.('a[href*="/aatReference/"]');
+
+        if (!link) return;
+
+        let url;
+
+        try {
+          url = new URL(link.href, window.location.origin);
+        } catch {
+          return;
+        }
+
+        const match = url.pathname.match(
+          /^\/aatReference\/[^/]+\/page\/(\d+)\/?$/
+        );
+
+        if (!match) return;
+
+        link.href = `http://vocab.getty.edu/aat/${match[1]}`;
+      },
+      true
+    );
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      caalStartAatMappingFix,
+      { once: true }
+    );
+  } else {
+    caalStartAatMappingFix();
+  }
 
 })();

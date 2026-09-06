@@ -141,7 +141,11 @@ const caalLanguageReplacements = {
 
         if (!match) return;
 
-        link.href = `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        window.location.href =
+          `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`;
       },
       true
     );

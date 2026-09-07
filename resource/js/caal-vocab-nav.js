@@ -88,7 +88,7 @@ const caalLanguageReplacements = {
   }
 
   function caalFixAatMappingLinks() {
-    document.querySelectorAll('a[href*="/aatReference/"]').forEach((link) => {
+    document.querySelectorAll('a[href*="aatReference/"]').forEach((link) => {
       const gettyUrl = caalGettyUrl(link);
 
       if (gettyUrl) {
@@ -123,7 +123,7 @@ const caalLanguageReplacements = {
     document.addEventListener(
       "click",
       (event) => {
-        const link = event.target.closest?.('a[href*="/aatReference/"]');
+        const link = event.target.closest?.('a[href*="aatReference/"]');
 
         if (!link) return;
 

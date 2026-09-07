@@ -7,3 +7,7 @@
 <http://vocab.getty.edu/aat/300005891>
     a skos:Concept ;
     skos:prefLabel "mausoleums"@en .
+
+<http://vocab.getty.edu/aat/300458715>
+    a skos:Concept ;
+    skos:prefLabel "mazars"@en .

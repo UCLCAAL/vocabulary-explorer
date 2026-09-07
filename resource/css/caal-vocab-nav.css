@@ -241,3 +241,32 @@ body.frontpage-logo #headerbar{padding-top:0!important;padding-bottom:0!importan
         overflow-y: auto !important;
     }
 }
+
+
+/* Multilingual scope-note rows */
+
+.caal-scope-note-row {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    column-gap: 1rem;
+    align-items: start;
+    margin-bottom: 0.35rem;
+}
+
+.caal-scope-note-language {
+    display: block;
+    font-weight: 600;
+}
+
+.caal-scope-note-text {
+    display: block;
+    min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+    .caal-scope-note-row {
+        grid-template-columns: 1fr;
+        row-gap: 0.15rem;
+        margin-bottom: 0.6rem;
+    }
+}

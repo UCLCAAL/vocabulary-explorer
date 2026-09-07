@@ -63,6 +63,7 @@ services:
     - ./resource/css/caal-vocab-nav.css:/var/www/html/resource/css/caal-vocab-nav.css:ro
     - ./resource/js/caal-vocab-nav.js:/var/www/html/resource/js/caal-vocab-nav.js:ro
     - ./custom-templates:/var/www/html/custom-templates:ro
+    - ./skosmos-overrides/concept-card.inc.twig:/var/www/html/src/view/concept-card.inc.twig:ro
     depends_on:
       - fuseki-cache
       - load-caal-data

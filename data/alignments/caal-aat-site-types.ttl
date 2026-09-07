@@ -10,8 +10,9 @@
     skos:exactMatch
     <http://vocab.getty.edu/aat/300005891> .
 
-# CAAL Mazar (Ma Zha) is a more specific regional concept,
-# so Getty's general mausoleum concept is a broader match.
+# CAAL Mazar -> Getty AAT mazars / mausoleums
 <https://vocab.uclcaal.org/concept/MT-3-0038>
+    skos:closeMatch
+        <http://vocab.getty.edu/aat/300458715> ;
     skos:broadMatch
-    <http://vocab.getty.edu/aat/300005891> .
+        <http://vocab.getty.edu/aat/300005891> .

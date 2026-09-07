@@ -69,6 +69,143 @@ const caalLanguageReplacements = {
 
   caalLocaliseContentLanguages();
 
+  const caalConceptLanguageOrder = [
+    "en",
+    "ru",
+    "zh",
+    "kk",
+    "ky",
+    "tg",
+    "tk",
+    "uz"
+  ];
+
+  const caalConceptLanguageNames = {
+    en: "English",
+    ru: "Русский",
+    zh: "中文",
+    kk: "Қазақша",
+    ky: "Кыргызча",
+    tg: "Тоҷикӣ",
+    tk: "Türkmençe",
+    uz: "O‘zbekcha"
+  };
+
+  function caalLanguageRank(lang) {
+    const code = (lang || "").toLowerCase().split("-")[0];
+    const index = caalConceptLanguageOrder.indexOf(code);
+
+    return index === -1 ? 999 : index;
+  }
+
+  function caalSortChildren(container, getLanguage) {
+    if (!container) return;
+
+    const current = [...container.children];
+
+    const sorted = [...current].sort((a, b) => {
+      return (
+        caalLanguageRank(getLanguage(a)) -
+        caalLanguageRank(getLanguage(b))
+      );
+    });
+
+    const orderChanged = sorted.some(
+      (element, index) => element !== current[index]
+    );
+
+    if (!orderChanged) return;
+
+    const fragment = document.createDocumentFragment();
+
+    sorted.forEach((element) => {
+      fragment.appendChild(element);
+    });
+
+    container.appendChild(fragment);
+  }
+
+  function caalFormatConceptLanguages() {
+    /*
+    * Multilingual scope notes.
+    */
+    const scopeProperties = [...document.querySelectorAll(".property")]
+      .filter((property) => {
+        const list = property.querySelector(".property-value > ul");
+
+        if (!list) return false;
+
+        const multilingualValues =
+          list.querySelectorAll("span[data-lang]");
+
+        const languageLinks =
+          list.querySelectorAll("a[hreflang]");
+
+        return (
+          multilingualValues.length > 1 &&
+          languageLinks.length === 0
+        );
+      });
+
+    scopeProperties.forEach((property) => {
+      const list = property.querySelector(".property-value > ul");
+
+      if (!list) return;
+
+      [...list.children].forEach((item) => {
+        const value = item.querySelector("span[data-lang]");
+
+        if (!value) return;
+
+        const lang = value.dataset.lang
+          .toLowerCase()
+          .split("-")[0];
+
+        item.dataset.lang = lang;
+        item.classList.add("caal-scope-note-row");
+        value.classList.add("caal-scope-note-text");
+
+        const desiredLabel =
+          caalConceptLanguageNames[lang] || lang;
+
+        let languageLabel = item.querySelector(
+          ".caal-scope-note-language"
+        );
+
+        if (!languageLabel) {
+          languageLabel = document.createElement("span");
+          languageLabel.className = "caal-scope-note-language";
+          languageLabel.textContent = desiredLabel;
+
+          item.insertBefore(languageLabel, value);
+        } else if (languageLabel.textContent !== desiredLabel) {
+          languageLabel.textContent = desiredLabel;
+        }
+      });
+
+      caalSortChildren(
+        list,
+        (item) => item.dataset.lang
+      );
+    });
+
+    /*
+    * "In other languages" labels.
+    */
+    const foreignLabels =
+      document.querySelector("#concept-other-languages");
+
+    if (foreignLabels) {
+      caalSortChildren(
+        foreignLabels,
+        (row) =>
+          row
+            .querySelector("[hreflang]")
+            ?.getAttribute("hreflang")
+      );
+    }
+  }
+
   function caalGettyUrl(link) {
     let url;
 
@@ -93,6 +230,8 @@ const caalLanguageReplacements = {
 
       if (gettyUrl) {
         link.href = gettyUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
       }
     });
   }
@@ -103,19 +242,39 @@ const caalLanguageReplacements = {
   function caalStartAatMappingFix() {
     /* Fix anything already on the page */
     caalFixAatMappingLinks();
+    caalFormatConceptLanguages();
 
     /*
     * Skosmos can insert concept/mapping content dynamically.
     * Re-check whenever new DOM content appears.
     */
-    const observer = new MutationObserver(() => {
-      caalFixAatMappingLinks();
-    });
+    function caalRefreshConceptPresentation() {
+      window.setTimeout(() => {
+        caalFixAatMappingLinks();
+        caalFormatConceptLanguages();
+      }, 0);
+    }
 
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
+    /*
+    * Initial page load.
+    */
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        caalRefreshConceptPresentation,
+        { once: true }
+      );
+    } else {
+      caalRefreshConceptPresentation();
+    }
+
+    /*
+    * Skosmos fires this when a concept page has been loaded dynamically.
+    */
+    document.addEventListener(
+      "loadConceptPage",
+      caalRefreshConceptPresentation
+    );
 
     /*
     * Capture phase means this runs before Skosmos' normal click handling.
@@ -144,8 +303,11 @@ const caalLanguageReplacements = {
         event.preventDefault();
         event.stopImmediatePropagation();
 
-        window.location.href =
-          `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`;
+        window.open(
+          `https://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=${match[1]}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
       },
       true
     );

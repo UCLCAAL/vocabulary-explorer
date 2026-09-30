@@ -70,6 +70,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(publicRoot, "index.html"));
 });
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, "127.0.0.1", () => {
   console.log(`Vocabulary Workbench listening on port ${PORT}`);
 });

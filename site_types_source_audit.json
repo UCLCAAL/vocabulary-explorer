@@ -1,0 +1,59 @@
+{
+  "source_file": "site_types_3_1_interim_MERGED.csv",
+  "sha256": "51c807fe83d3ab3305264fb61ae2e9d096d3159185557689b285d4ab11f8c901",
+  "source_rows": 235,
+  "concept_rows": 233,
+  "unique_concept_ids": 232,
+  "duplicate_concept_ids": {
+    "MT-3-0013": 2
+  },
+  "scheme_rows": [
+    {
+      "csv_line": 2,
+      "sortOrder": "1",
+      "L0_en": "Site types"
+    }
+  ],
+  "unresolved_rows": [
+    {
+      "csv_line": 216,
+      "sortOrder": "215",
+      "join_key_norm": "L2|Workshop|Trade/commerce",
+      "H1_en": "Trade/commerce",
+      "H2_en": "Workshop",
+      "H3_en": "",
+      "H4_en": ""
+    }
+  ],
+  "preferred_label_concepts_by_language": {
+    "en": 232,
+    "ru": 231,
+    "zh": 231,
+    "kk": 232,
+    "ky": 231,
+    "tg": 232,
+    "tk": 232,
+    "uz": 231
+  },
+  "scope_note_concepts_by_language": {
+    "en": 27,
+    "ru": 21,
+    "zh": 16,
+    "kk": 27,
+    "ky": 27,
+    "tg": 27,
+    "tk": 27,
+    "uz": 27
+  },
+  "label_conflicts": [
+    {
+      "concept_id": "MT-3-0013",
+      "lang": "kk",
+      "values": [
+        "Тоқу цехы",
+        "Тоқыма цехы"
+      ]
+    }
+  ],
+  "note_conflicts": []
+}

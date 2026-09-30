@@ -1,0 +1,28 @@
+﻿concept_id,lang,published_pref_label,database_pref_label,published_label_already_in_database,staged_source_variants,proposed_action
+MT-1-0010,ru,Историческая школа / академия,Историческая школа/академия,,Историческая школа / академия (rows 60),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-1-0022,ru,Торговля / коммерция,Торговля/коммерция,,Торговля / коммерция (rows 192),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0015,ru,Резьба / резное изображение,Резьба/резное изображение,,Резьба / резное изображение (rows 125),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0026,ru,Таможенный пост,Административный,,Таможенный пост (rows 4),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0035,ru,Памятник ранних гоминидов,Стоянка,,Памятник ранних гоминидов (rows 187),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0053,ru,Грот комплекс / храм,Грот комплекс/храм,,Грот комплекс / храм (rows 130),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0073,ru,,,,,Manual review required because the reference or database contains multiple/no preferred values in an unexpected combination.
+MT-2-0073,zh,,,,,Manual review required because the reference or database contains multiple/no preferred values in an unexpected combination.
+MT-2-0077,ru,Мемориальная арка / экран,Мемориальная арка/экран,,Мемориальная арка / экран (rows 141),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0081,ru,Шахта / плавильный объект,Шахта/плавильный объект,,Шахта / плавильный объект (rows 78),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0090,ru,Путь / Тропа,Путь/Тропа,,Путь / Тропа (rows 209),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0098,en,Rock carving / cliff inscriptions,Rock carving/cliff inscriptions,,Rock carving / cliff inscriptions (rows 150),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0098,ru,Наскальные рисунки / надписи на скалах,Наскальные рисунки/надписи на скалах,,Наскальные рисунки / надписи на скалах (rows 150),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0102,zh,神庙,神殿,,神庙 (rows 157),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0105,zh,神龛,神殿,,神龛 (rows 158),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0110,en,Stone platform /building,Stone platform/building,,Stone platform /building (rows 181),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0110,ru,Каменная платформа / здание,Каменная платформа/здание,,Каменная платформа / здание (rows 181),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0115,ru,Сборы с поверхности или подъемный материал,Сборы с поверхно-сти или подъемный материал,,Сборы с поверхности или подъемный материал (rows 26),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-2-0116,ru,Тепе / депе,Тепе/депе,,Тепе / депе (rows 182),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0001,en,Ancient steles / tablet inscriptions,Ancient steles/tablet inscriptions,,Ancient steles / tablet inscriptions (rows 151),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0001,ru,Древние стелы / надписи на табличках,Древние стелы/надписи на табличках,,Древние стелы / надписи на табличках (rows 151),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0013,kk,Тоқыма цехы,,,Тоқу цехы (rows 81) | Тоқыма цехы (rows 217),Insert the published label as preferred. Preserve all staged source variants for later review.
+MT-3-0030,ru,Кладбище / Могилник,Кладбище/Могилник,,Кладбище / Могилник (rows 111),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0037,ru,Балбал / Балбалтас,Балбал/Балбалтас,,Балбал / Балбалтас (rows 154),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0042,zh,陵园,墓园,,陵园 (rows 118),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0049,ru,Канат / Кяриз,Канат/Кяриз,,Канат / Кяриз (rows 235),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.
+MT-3-0057,ru,Ручей,Поток,,Ручей (rows 236),Insert the published label as preferred; demote the current database preferred row to alt. Retain both.

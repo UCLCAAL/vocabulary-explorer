@@ -270,3 +270,206 @@ body.frontpage-logo #headerbar{padding-top:0!important;padding-bottom:0!importan
         margin-bottom: 0.6rem;
     }
 }
+
+/* Phase 3.11 - compact concept hierarchy graph */
+
+.caal-hierarchy-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0 0.65rem;
+  width: 100%;
+}
+
+.caal-hierarchy-canvas {
+  position: relative;
+  margin: 0 auto;
+}
+
+.caal-hierarchy-lines {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.caal-hierarchy-edge {
+  fill: none;
+  stroke: #b8c2cc;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.caal-hierarchy-node {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #cbd3da;
+  border-radius: 3px;
+  background: #fff;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+a.caal-hierarchy-node:hover,
+a.caal-hierarchy-node:focus {
+  border-color: currentColor;
+  text-decoration: none;
+}
+
+.caal-hierarchy-node.is-current {
+  border: 2px solid #17345d;
+  background: #f4f6f8;
+}
+
+.caal-hierarchy-node__code {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: #747d84;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.caal-hierarchy-node__label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .caal-hierarchy-node__label {
+    font-size: 0.82rem;
+  }
+}
+
+/* Phase 3.12 - compact, collapsible hierarchy */
+
+.caal-hierarchy-scroll {
+  padding: 0.1rem 0 0.35rem;
+  scrollbar-width: thin;
+}
+
+.caal-hierarchy-node {
+  padding: 0.3rem 0.42rem;
+  border-radius: 1px;
+  line-height: 1.08;
+}
+
+.caal-hierarchy-node__code {
+  margin-bottom: 0.12rem;
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.caal-hierarchy-node__label {
+  font-size: 0.78rem;
+  line-height: 1.12;
+}
+
+.caal-hierarchy-node.is-current {
+  border-width: 2px;
+}
+
+button.caal-hierarchy-node.is-more {
+  cursor: pointer;
+  border-style: dashed;
+  background: #f8f9fa;
+  color: inherit;
+  font: inherit;
+}
+
+button.caal-hierarchy-node.is-more:hover,
+button.caal-hierarchy-node.is-more:focus {
+  border-color: #17345d;
+  background: #f1f4f6;
+}
+
+button.caal-hierarchy-node.is-more
+.caal-hierarchy-node__code {
+  color: #747d84;
+}
+
+button.caal-hierarchy-node.is-more
+.caal-hierarchy-node__label {
+  color: #356b9a;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .caal-hierarchy-node__label {
+    font-size: 0.74rem;
+  }
+}
+
+
+/* overrides for compact other translation languages to follow definitions */
+
+/* -----------------------------------------
+   Consistent concept-page section alignment
+   ----------------------------------------- */
+
+.caal-hierarchy-property > .property-label,
+.caal-definition-property > .property-label {
+  margin-left: -1rem;
+}
+
+
+/* -----------------------------------------
+   Multilingual rows
+   Keep labels + definitions visually aligned
+   ----------------------------------------- */
+
+#concept-other-languages {
+  margin: 0;
+  padding: 0;
+}
+
+.caal-definition-list {
+  margin: 0;
+  padding: 0;
+}
+
+.caal-definition-row,
+.caal-other-language-row {
+  display: grid;
+  grid-template-columns:
+    165px minmax(0, 1fr);
+
+  column-gap: 16px;
+  align-items: start;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.caal-definition-row
+  + .caal-definition-row,
+.caal-other-language-row
+  + .caal-other-language-row {
+  margin-top: 0.18rem !important;
+}
+
+.caal-definition-language,
+.caal-other-language-language {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.caal-definition-text,
+.caal-other-language-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.caal-other-language-text {
+  text-decoration: none;
+}

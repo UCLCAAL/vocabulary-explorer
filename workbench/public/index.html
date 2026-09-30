@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAAL Vocabulary Workbench</title>
+  <link rel="stylesheet" href="css/workbench.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="loginView" class="login-card">
+      <div class="eyebrow"></div>
+      <h1>Vocabulary Workbench</h1>
+      <p class="muted"></p>
+
+      <form id="loginForm">
+        <label>
+          Username
+          <input id="username" autocomplete="username" required>
+        </label>
+
+        <label>
+          Password
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+
+        <button type="submit">Sign in</button>
+        <p id="loginError" class="error" hidden></p>
+      </form>
+    </section>
+
+    <section id="appView" hidden>
+      <header class="app-header">
+        <div>
+          <div class="eyebrow">CAAL</div>
+          <h1>Vocabulary Workbench</h1>
+        </div>
+
+        <div class="header-actions">
+          <span id="signedInAs" class="muted"></span>
+          <button id="logoutButton" class="secondary">Sign out</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Workbench sections">
+        <button
+          class="tab active"
+          data-main-tab="vocabularies"
+        >Vocabularies</button>
+
+        <button class="tab" disabled>Alignments</button>
+
+        <button
+          class="tab"
+          data-main-tab="publishing"
+        >Publishing</button>
+      </nav>
+
+      <section id="vocabulariesView" data-main-view="vocabularies">
+        <div id="vocabularySummary" class="card loading">Loading Site Types...</div>
+
+        <div class="workspace-grid">
+          <aside class="card concept-list-card">
+            <div class="panel-heading">
+              <div>
+                <h2>Site Types</h2>
+                <p class="muted"></p>
+              </div>
+            </div>
+
+            <input
+              id="conceptSearch"
+              class="search"
+              type="search"
+              placeholder="Search labels or MT ID"
+            >
+
+            <div id="conceptList" class="concept-list"></div>
+          </aside>
+
+          <section class="card concept-detail-card">
+            <div id="conceptEmpty" class="empty-state">
+              Select a concept to inspect its data.
+            </div>
+
+            <div id="conceptDetail" hidden>
+              <div class="concept-title-row">
+                <div>
+                  <h2 id="conceptTitle"></h2>
+                  <div id="conceptId" class="concept-id"></div>
+                </div>
+                <span id="conceptLevel" class="badge"></span>
+              </div>
+
+              <div class="detail-tabs">
+                <button class="detail-tab active" data-detail-tab="overview">Overview</button>
+                <button class="detail-tab" data-detail-tab="labels">Labels</button>
+                <button class="detail-tab" data-detail-tab="definitions">Definitions</button>
+                <button class="detail-tab" data-detail-tab="scope-notes">Scope notes</button>
+                <button class="detail-tab" data-detail-tab="bibliography">Bibliography</button>
+                <button class="detail-tab" data-detail-tab="hierarchy">Hierarchy</button>
+                <button class="detail-tab" data-detail-tab="history">History</button>
+              </div>
+
+              <div id="detailContent"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section
+        id="publishingView"
+        data-main-view="publishing"
+        hidden
+      >
+        <div class="card publishing-card">
+          <div class="eyebrow">Site Types</div>
+          <h2>Publishing</h2>
+
+          <p class="muted">
+            Saving in the workbench updates PostgreSQL tables immediately.
+            Publishing regenerates the RDF, replaces the Site Types graph, 
+            restores the alignments, and refreshes Skosmos.
+          </p>
+
+          <div id="publishingStatus" class="publishing-status">
+            Loading publishing status...
+          </div>
+
+          <div class="publishing-actions">
+            <button
+              id="publishSiteTypesButton"
+              type="button"
+              class="publish-action"
+            >Publish Site Types</button>
+
+            <span
+              id="publishActionStatus"
+              class="save-status"
+            ></span>
+          </div>
+
+          <div id="publicationHistory"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/workbench.js"></script>
+</body>
+</html>

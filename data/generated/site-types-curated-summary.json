@@ -1,0 +1,53 @@
+{
+  "triples": 3240,
+  "concepts": 232,
+  "schemes": 1,
+  "pref_labels": 1856,
+  "pref_labels_by_lang": {
+    "en": 233,
+    "kk": 233,
+    "ky": 231,
+    "ru": 232,
+    "tg": 232,
+    "tk": 233,
+    "uz": 231,
+    "zh": 231
+  },
+  "alt_labels": 7,
+  "alt_labels_by_lang": {
+    "kk": 1,
+    "ru": 3,
+    "zh": 3
+  },
+  "alt_labels_skipped_unassigned": 1,
+  "scope_notes": 8,
+  "scope_notes_by_lang": {
+    "en": 1,
+    "kk": 1,
+    "ky": 1,
+    "ru": 1,
+    "tg": 1,
+    "tk": 1,
+    "uz": 1,
+    "zh": 1
+  },
+  "definitions": 199,
+  "definitions_by_lang": {
+    "en": 27,
+    "kk": 27,
+    "ky": 27,
+    "ru": 21,
+    "tg": 27,
+    "tk": 27,
+    "uz": 27,
+    "zh": 16
+  },
+  "broader": 209,
+  "narrower": 209,
+  "topConceptOf": 23,
+  "hasTopConcept": 23,
+  "notations": 232,
+  "bibliographic_resources": 3,
+  "bibliography_sources": 0,
+  "bibliography_references": 3
+}

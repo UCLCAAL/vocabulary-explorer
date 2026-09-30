@@ -27,7 +27,18 @@ services:
     depends_on:
       - fuseki
 
+  # Legacy/bootstrap loader only.
+  #
+  # This service used to run as a dependency of Skosmos. That meant
+  # recreating Skosmos could PUT the old static Site Types RDF back into
+  # Fuseki and overwrite a Workbench publication.
+  #
+  # It is now behind an explicit profile and is NOT a Skosmos dependency.
+  # Normal `docker compose up -d`, restart, or recreate operations will not
+  # run it.
   load-caal-data:
+    profiles:
+      - bootstrap
     image: curlimages/curl:latest
     volumes:
       - ./data:/data:ro
@@ -44,13 +55,13 @@ services:
           sleep 2
         done
 
-        echo "Loading CAAL Site Types..."
+        echo "Loading legacy CAAL Site Types bootstrap RDF..."
         curl -f -X PUT \
           -H "Content-Type: application/rdf+xml" \
           --data-binary "@/data/caal_site_types_wide.rdf" \
           "http://fuseki:3030/skosmos/data?graph=https%3A%2F%2Fvocab.uclcaal.org%2Fgraph%2Fmonument-types"
 
-        echo "CAAL Site Types loaded."
+        echo "Legacy CAAL Site Types bootstrap RDF loaded."
 
   skosmos:
     hostname: skosmos
@@ -58,12 +69,10 @@ services:
     ports:
       - "9090:80"
     volumes:
-    - ./dockerfiles/config/config-docker-compose.ttl:/var/www/html/config.ttl:ro
-    - ./resource/css/caal.css:/var/www/html/resource/css/caal.css:ro
-    - ./resource/css/caal-vocab-nav.css:/var/www/html/resource/css/caal-vocab-nav.css:ro
-    - ./resource/js/caal-vocab-nav.js:/var/www/html/resource/js/caal-vocab-nav.js:ro
-    - ./custom-templates:/var/www/html/custom-templates:ro
-    - ./skosmos-overrides/concept-card.inc.twig:/var/www/html/src/view/concept-card.inc.twig:ro
+      - ./dockerfiles/config/config-docker-compose.ttl:/var/www/html/config.ttl:ro
+      - ./resource/css/caal.css:/var/www/html/resource/css/caal.css:ro
+      - ./resource/css/caal-vocab-nav.css:/var/www/html/resource/css/caal-vocab-nav.css:ro
+      - ./resource/js/caal-vocab-nav.js:/var/www/html/resource/js/caal-vocab-nav.js:ro
+      - ./custom-templates:/var/www/html/custom-templates:ro
     depends_on:
       - fuseki-cache
-      - load-caal-data

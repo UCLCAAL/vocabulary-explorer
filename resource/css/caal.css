@@ -36,3 +36,31 @@
 .frontpage-logo #headerbar {
     display: none !important;
 }
+
+/* CAAL concept bibliography display */
+
+.caal-bibliography-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.caal-bibliography-row + .caal-bibliography-row {
+  margin-top: 0.75rem;
+}
+
+.caal-bibliography-citation {
+  line-height: 1.45;
+}
+
+.caal-bibliography-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin-top: 0.25rem;
+  font-size: 0.95em;
+}
+
+.caal-bibliography-links a {
+  font-weight: 600;
+}

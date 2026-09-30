@@ -1,0 +1,716 @@
+{
+  "reference_file": "caal_site_types_wide.rdf",
+  "import_run_id": 1,
+  "published_concepts": 232,
+  "mismatch_count": 27,
+  "mismatches": [
+    {
+      "concept_id": "MT-1-0010",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Историческая школа / академия"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "201",
+          "label": "Историческая школа/академия",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Историческая школа / академия",
+          "source_rows": [
+            60
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-1-0022",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Торговля / коммерция"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "618",
+          "label": "Торговля/коммерция",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Торговля / коммерция",
+          "source_rows": [
+            192
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0015",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Резьба / резное изображение"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "519",
+          "label": "Резьба/резное изображение",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Резьба / резное изображение",
+          "source_rows": [
+            125
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0026",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Таможенный пост"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "701",
+          "label": "Административный",
+          "status": "preferred",
+          "source": "thesaurus_add"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Таможенный пост",
+          "source_rows": [
+            4
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0035",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Памятник ранних гоминидов"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "597",
+          "label": "Стоянка",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Памятник ранних гоминидов",
+          "source_rows": [
+            187
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0053",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Грот комплекс / храм"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "114",
+          "label": "Грот комплекс/храм",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Грот комплекс / храм",
+          "source_rows": [
+            130
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0073",
+      "lang": "ru",
+      "published_pref_labels": [],
+      "database_pref_labels": [
+        {
+          "label_id": "696",
+          "label": "",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [],
+      "proposed_action": "Manual review required because the reference or database contains multiple/no preferred values in an unexpected combination."
+    },
+    {
+      "concept_id": "MT-2-0073",
+      "lang": "zh",
+      "published_pref_labels": [],
+      "database_pref_labels": [
+        {
+          "label_id": "697",
+          "label": "",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [],
+      "proposed_action": "Manual review required because the reference or database contains multiple/no preferred values in an unexpected combination."
+    },
+    {
+      "concept_id": "MT-2-0077",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Мемориальная арка / экран"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "330",
+          "label": "Мемориальная арка/экран",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Мемориальная арка / экран",
+          "source_rows": [
+            141
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0081",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Шахта / плавильный объект"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "681",
+          "label": "Шахта/плавильный объект",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Шахта / плавильный объект",
+          "source_rows": [
+            78
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0090",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Путь / Тропа"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "513",
+          "label": "Путь/Тропа",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Путь / Тропа",
+          "source_rows": [
+            209
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0098",
+      "lang": "en",
+      "published_pref_labels": [
+        "Rock carving / cliff inscriptions"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "377",
+          "label": "Rock carving/cliff inscriptions",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Rock carving / cliff inscriptions",
+          "source_rows": [
+            150
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0098",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Наскальные рисунки / надписи на скалах"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "378",
+          "label": "Наскальные рисунки/надписи на скалах",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Наскальные рисунки / надписи на скалах",
+          "source_rows": [
+            150
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0102",
+      "lang": "zh",
+      "published_pref_labels": [
+        "神庙"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "707",
+          "label": "神殿",
+          "status": "preferred",
+          "source": "thesaurus_add"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "神庙",
+          "source_rows": [
+            157
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0105",
+      "lang": "zh",
+      "published_pref_labels": [
+        "神龛"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "565",
+          "label": "神殿",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "神龛",
+          "source_rows": [
+            158
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0110",
+      "lang": "en",
+      "published_pref_labels": [
+        "Stone platform /building"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "209",
+          "label": "Stone platform/building",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Stone platform /building",
+          "source_rows": [
+            181
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0110",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Каменная платформа / здание"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "210",
+          "label": "Каменная платформа/здание",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Каменная платформа / здание",
+          "source_rows": [
+            181
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0115",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Сборы с поверхности или подъемный материал"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "558",
+          "label": "Сборы с поверхно-сти или подъемный материал",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Сборы с поверхности или подъемный материал",
+          "source_rows": [
+            26
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-2-0116",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Тепе / депе"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "609",
+          "label": "Тепе/депе",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Тепе / депе",
+          "source_rows": [
+            182
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0001",
+      "lang": "en",
+      "published_pref_labels": [
+        "Ancient steles / tablet inscriptions"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "140",
+          "label": "Ancient steles/tablet inscriptions",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Ancient steles / tablet inscriptions",
+          "source_rows": [
+            151
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0001",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Древние стелы / надписи на табличках"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "141",
+          "label": "Древние стелы/надписи на табличках",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Древние стелы / надписи на табличках",
+          "source_rows": [
+            151
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0013",
+      "lang": "kk",
+      "published_pref_labels": [
+        "Тоқыма цехы"
+      ],
+      "database_pref_labels": [],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Тоқу цехы",
+          "source_rows": [
+            81
+          ],
+          "is_published_value": false,
+          "is_current_db_preferred": false
+        },
+        {
+          "label": "Тоқыма цехы",
+          "source_rows": [
+            217
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred. Preserve all staged source variants for later review."
+    },
+    {
+      "concept_id": "MT-3-0030",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Кладбище / Могилник"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "267",
+          "label": "Кладбище/Могилник",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Кладбище / Могилник",
+          "source_rows": [
+            111
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0037",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Балбал / Балбалтас"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "27",
+          "label": "Балбал/Балбалтас",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Балбал / Балбалтас",
+          "source_rows": [
+            154
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0042",
+      "lang": "zh",
+      "published_pref_labels": [
+        "陵园"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "388",
+          "label": "墓园",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "陵园",
+          "source_rows": [
+            118
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0049",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Канат / Кяриз"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "228",
+          "label": "Канат/Кяриз",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Канат / Кяриз",
+          "source_rows": [
+            235
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    },
+    {
+      "concept_id": "MT-3-0057",
+      "lang": "ru",
+      "published_pref_labels": [
+        "Ручей"
+      ],
+      "database_pref_labels": [
+        {
+          "label_id": "483",
+          "label": "Поток",
+          "status": "preferred",
+          "source": "thesaurus_import_2025-10"
+        }
+      ],
+      "published_label_already_in_database": [],
+      "staged_source_variants": [
+        {
+          "label": "Ручей",
+          "source_rows": [
+            236
+          ],
+          "is_published_value": true,
+          "is_current_db_preferred": false
+        }
+      ],
+      "proposed_action": "Insert the published label as preferred; demote the current database preferred row to alt. Retain both."
+    }
+  ]
+}

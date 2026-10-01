@@ -409,6 +409,283 @@ router.get("/site-types/concepts", async (req, res) => {
   }
 });
 
+router.post("/site-types/concepts", async (req, res) => {
+  const parentId = clean(req.body?.parent_id) || null;
+  const suppliedLabels =
+    req.body?.labels && typeof req.body.labels === "object"
+      ? req.body.labels
+      : {};
+
+  const labels = Object.fromEntries(
+    LANGS
+      .map((lang) => [lang, clean(suppliedLabels[lang])])
+      .filter(([, label]) => label)
+  );
+
+  const englishLabel = labels.en;
+
+  if (!englishLabel) {
+    return res.status(400).json({
+      ok: false,
+      error: "English preferred label is required"
+    });
+  }
+
+  const client = await pool.connect();
+
+  try {
+    await client.query("BEGIN");
+
+    // Concept IDs and sort order are allocated centrally here. Locking the
+    // curated concept table prevents two administrators from receiving the
+    // same next MT identifier during concurrent creation.
+    await client.query(
+      "LOCK TABLE public.concepts_curated IN SHARE ROW EXCLUSIVE MODE"
+    );
+
+    let parent = null;
+    let levelNumber = 1;
+    let parentEnglish = "NA";
+
+    if (parentId) {
+      const parentResult = await client.query(
+        `
+        SELECT
+          c.concept_id,
+          c.level,
+          COALESCE(en.label, NULLIF(c.en_label, ''), c.concept_id) AS label_en
+        FROM public.concepts_curated c
+        LEFT JOIN LATERAL (
+          SELECT label
+          FROM public.labels_curated
+          WHERE concept_id = c.concept_id
+            AND lang = 'en'
+            AND lower(COALESCE(status, '')) = 'preferred'
+          ORDER BY label_id
+          LIMIT 1
+        ) en ON true
+        WHERE c.concept_id = $1
+          AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+              NOT IN ('false', '0', 'no', 'inactive')
+        `,
+        [parentId]
+      );
+
+      if (parentResult.rows.length === 0) {
+        await client.query("ROLLBACK");
+        return res.status(400).json({
+          ok: false,
+          error: "Parent concept was not found"
+        });
+      }
+
+      parent = parentResult.rows[0];
+
+      const levelMatch = String(parent.level || "").match(/^L(\d+)$/i);
+      const parentLevel = levelMatch ? Number(levelMatch[1]) : NaN;
+
+      if (!Number.isInteger(parentLevel) || parentLevel < 1 || parentLevel >= 4) {
+        await client.query("ROLLBACK");
+        return res.status(400).json({
+          ok: false,
+          error: "New Site Types can only be created within hierarchy levels L1-L4"
+        });
+      }
+
+      levelNumber = parentLevel + 1;
+      parentEnglish = clean(parent.label_en) || parent.concept_id;
+    }
+
+    const duplicate = await client.query(
+      `
+      SELECT c.concept_id
+      FROM public.concepts_curated c
+      JOIN public.labels_curated l
+        ON l.concept_id = c.concept_id
+       AND l.lang = 'en'
+       AND lower(COALESCE(l.status, '')) = 'preferred'
+      WHERE c.parent_id IS NOT DISTINCT FROM $1
+        AND lower(btrim(l.label)) = lower(btrim($2))
+        AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+            NOT IN ('false', '0', 'no', 'inactive')
+      LIMIT 1
+      `,
+      [parentId, englishLabel]
+    );
+
+    if (duplicate.rows.length > 0) {
+      await client.query("ROLLBACK");
+      return res.status(409).json({
+        ok: false,
+        error:
+          `A concept with that English preferred label already exists under this parent (${duplicate.rows[0].concept_id})`
+      });
+    }
+
+    const nextIdResult = await client.query(
+      `
+      SELECT COALESCE(
+        MAX(split_part(concept_id, '-', 3)::integer),
+        0
+      ) + 1 AS next_number
+      FROM public.concepts_curated
+      WHERE concept_id ~ ('^MT-' || $1::text || '-[0-9]+$')
+      `,
+      [levelNumber]
+    );
+
+    const nextNumber = Number(nextIdResult.rows[0].next_number);
+
+    if (!Number.isInteger(nextNumber) || nextNumber < 1) {
+      throw new Error("Could not allocate the next Site Types concept ID");
+    }
+
+    const conceptId =
+      `MT-${levelNumber}-${String(nextNumber).padStart(4, "0")}`;
+    const level = `L${levelNumber}`;
+    const idKey = `${level}|${englishLabel}|${parentEnglish}`;
+
+    const sortResult = await client.query(
+      `
+      SELECT COALESCE(MAX(sort_order), 0) + 1 AS next_sort_order
+      FROM public.concepts_curated
+      `
+    );
+
+    const sortOrder = Number(sortResult.rows[0].next_sort_order);
+
+    const conceptResult = await client.query(
+      `
+      INSERT INTO public.concepts_curated
+        (
+          concept_id,
+          level,
+          parent_id,
+          en_label,
+          id_key,
+          is_active,
+          sort_order
+        )
+      VALUES
+        ($1, $2, $3, $4, $5, 'true', $6)
+      RETURNING
+        concept_id,
+        level,
+        parent_id,
+        en_label,
+        id_key,
+        is_active,
+        sort_order
+      `,
+      [
+        conceptId,
+        level,
+        parentId,
+        englishLabel,
+        idKey,
+        sortOrder
+      ]
+    );
+
+    const concept = conceptResult.rows[0];
+    const insertedLabels = [];
+
+    for (const lang of LANGS) {
+      const label = labels[lang];
+      if (!label) continue;
+
+      const labelId = await nextNumericLabelId(client);
+
+      const labelResult = await client.query(
+        `
+        INSERT INTO public.labels_curated
+          (
+            label_id,
+            concept_id,
+            lang,
+            label,
+            status,
+            source,
+            norm_key,
+            level,
+            en_label,
+            disambiguation
+          )
+        VALUES
+          ($1, $2, $3, $4, 'preferred', 'workbench', $5, $6, $7, NULL)
+        RETURNING
+          label_id,
+          concept_id,
+          lang,
+          label,
+          status,
+          source,
+          norm_key,
+          level,
+          en_label,
+          disambiguation
+        `,
+        [
+          labelId,
+          conceptId,
+          lang,
+          label,
+          normaliseKey(label),
+          level,
+          englishLabel
+        ]
+      );
+
+      const inserted = labelResult.rows[0];
+      insertedLabels.push(inserted);
+
+      await writeRevision(client, {
+        conceptId,
+        entityType: "preferred_label",
+        entityId: inserted.label_id,
+        action: "insert",
+        lang,
+        oldData: null,
+        newData: inserted,
+        session: req.session.workbenchSession
+      });
+    }
+
+    await writeRevision(client, {
+      conceptId,
+      entityType: "concept",
+      entityId: conceptId,
+      action: "insert",
+      lang: null,
+      oldData: null,
+      newData: concept,
+      session: req.session.workbenchSession
+    });
+
+    await client.query("COMMIT");
+
+    return res.status(201).json({
+      ok: true,
+      concept,
+      labels: insertedLabels
+    });
+  } catch (error) {
+    await client.query("ROLLBACK");
+    console.error("Failed to create Site Types concept:", error);
+
+    return res.status(500).json({
+      ok: false,
+      error: "Failed to create Site Types concept",
+      ...(process.env.NODE_ENV !== "production"
+        ? { detail: error.message }
+        : {})
+    });
+  } finally {
+    client.release();
+  }
+});
+
+
 router.get("/site-types/concepts/:conceptId", async (req, res) => {
   const conceptId = clean(req.params.conceptId);
 

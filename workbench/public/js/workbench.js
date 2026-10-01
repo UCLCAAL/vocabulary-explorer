@@ -16,18 +16,29 @@ const LANGUAGES = [
 ];
 
 let session = null;
-let concepts = [];
 let selectedConcept = null;
 let selectedDetailTab = "overview";
 let currentVocabulary = null;
 let labelFlashMessage = null;
+let hierarchyConcepts = [];
+let hierarchyById = new Map();
+let hierarchyChildren = new Map();
+let expandedTreeIds = new Set();
+let conceptSearchResultsData = [];
+let conceptSearchRequestId = 0;
+let creatingConcept = false;
+
+const MAX_HIERARCHY_LEVEL = 4;
 
 const loginView = document.getElementById("loginView");
 const appView = document.getElementById("appView");
 const loginForm = document.getElementById("loginForm");
 const loginError = document.getElementById("loginError");
-const conceptList = document.getElementById("conceptList");
 const conceptSearch = document.getElementById("conceptSearch");
+const conceptSearchResults = document.getElementById("conceptSearchResults");
+const conceptTree = document.getElementById("conceptTree");
+const newConceptButton = document.getElementById("newConceptButton");
+const collapseTreeButton = document.getElementById("collapseTreeButton");
 
 function apiPath(path) {
   return `${WORKBENCH_BASE}${path}`;
@@ -90,7 +101,7 @@ async function showApp() {
 
   await Promise.all([
     loadVocabularySummary(),
-    loadConcepts()
+    loadHierarchyTree()
   ]);
 }
 
@@ -174,13 +185,183 @@ async function loadVocabularySummary() {
   }
 }
 
-async function loadConcepts(query = "") {
+async function loadHierarchyTree() {
   const data = await api(
-    `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(query)}`
+    "/api/vocabularies/site-types/concepts?q="
   );
 
-  concepts = data.concepts;
-  renderConceptList();
+  hierarchyConcepts = data.concepts || [];
+  rebuildHierarchyIndex();
+
+  if (selectedConcept?.concept?.concept_id) {
+    expandPathToConcept(selectedConcept.concept.concept_id);
+  }
+
+  renderHierarchyTree();
+}
+
+function levelNumber(value) {
+  const match = String(value || "").match(/^(?:L)?(\d+)$/i);
+  return match ? Number(match[1]) : null;
+}
+
+function conceptNavigationLabel(concept) {
+  return (
+    concept?.label_en ||
+    concept?.label_ru ||
+    concept?.label_zh ||
+    concept?.concept_id ||
+    "Untitled concept"
+  );
+}
+
+function rebuildHierarchyIndex() {
+  hierarchyById = new Map(
+    hierarchyConcepts.map((concept) => [concept.concept_id, concept])
+  );
+
+  hierarchyChildren = new Map();
+
+  for (const concept of hierarchyConcepts) {
+    const parentId = concept.parent_id || null;
+
+    if (!hierarchyChildren.has(parentId)) {
+      hierarchyChildren.set(parentId, []);
+    }
+
+    hierarchyChildren.get(parentId).push(concept);
+  }
+
+  for (const children of hierarchyChildren.values()) {
+    children.sort((a, b) => {
+      const aOrder = Number(a.sort_order);
+      const bOrder = Number(b.sort_order);
+
+      if (Number.isFinite(aOrder) && Number.isFinite(bOrder) && aOrder !== bOrder) {
+        return aOrder - bOrder;
+      }
+
+      return conceptNavigationLabel(a).localeCompare(
+        conceptNavigationLabel(b),
+        undefined,
+        { sensitivity: "base" }
+      );
+    });
+  }
+}
+
+function expandPathToConcept(conceptId) {
+  let current = hierarchyById.get(conceptId);
+  const seen = new Set();
+
+  while (current?.parent_id && !seen.has(current.parent_id)) {
+    seen.add(current.parent_id);
+    expandedTreeIds.add(current.parent_id);
+    current = hierarchyById.get(current.parent_id);
+  }
+}
+
+function hierarchyRoots() {
+  return hierarchyConcepts.filter((concept) => {
+    const parentId = concept.parent_id || null;
+    return !parentId || !hierarchyById.has(parentId);
+  }).sort((a, b) => {
+    const aOrder = Number(a.sort_order);
+    const bOrder = Number(b.sort_order);
+
+    if (Number.isFinite(aOrder) && Number.isFinite(bOrder) && aOrder !== bOrder) {
+      return aOrder - bOrder;
+    }
+
+    return conceptNavigationLabel(a).localeCompare(conceptNavigationLabel(b));
+  });
+}
+
+function renderTreeNode(concept, depth = 0, ancestry = new Set()) {
+  if (!concept?.concept_id || ancestry.has(concept.concept_id)) {
+    return "";
+  }
+
+  const nextAncestry = new Set(ancestry);
+  nextAncestry.add(concept.concept_id);
+
+  const children = hierarchyChildren.get(concept.concept_id) || [];
+  const hasChildren = children.length > 0;
+  const expanded = hasChildren && expandedTreeIds.has(concept.concept_id);
+  const active =
+    selectedConcept?.concept?.concept_id === concept.concept_id &&
+    !creatingConcept;
+
+  return `
+    <div class="tree-node">
+      <div
+        class="tree-row ${active ? "active" : ""}"
+        style="--tree-depth:${depth}"
+      >
+        ${hasChildren ? `
+          <button
+            type="button"
+            class="tree-toggle"
+            data-tree-toggle="${escapeHtml(concept.concept_id)}"
+            aria-label="${expanded ? "Collapse" : "Expand"} ${escapeHtml(conceptNavigationLabel(concept))}"
+            aria-expanded="${expanded ? "true" : "false"}"
+          >${expanded ? "▾" : "▸"}</button>
+        ` : `<span class="tree-toggle-spacer"></span>`}
+
+        <button
+          type="button"
+          class="tree-concept"
+          data-tree-concept="${escapeHtml(concept.concept_id)}"
+        >
+          <span class="tree-label">${escapeHtml(conceptNavigationLabel(concept))}</span>
+          <span class="tree-id">${escapeHtml(concept.concept_id)}</span>
+        </button>
+      </div>
+
+      ${expanded ? `
+        <div class="tree-children">
+          ${children.map((child) =>
+            renderTreeNode(child, depth + 1, nextAncestry)
+          ).join("")}
+        </div>
+      ` : ""}
+    </div>
+  `;
+}
+
+function renderHierarchyTree() {
+  if (!conceptTree) return;
+
+  if (!hierarchyConcepts.length) {
+    conceptTree.innerHTML =
+      `<div class="tree-empty">No Site Types concepts found.</div>`;
+    return;
+  }
+
+  conceptTree.innerHTML = hierarchyRoots()
+    .map((concept) => renderTreeNode(concept))
+    .join("");
+
+  conceptTree.querySelectorAll("[data-tree-toggle]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const conceptId = button.dataset.treeToggle;
+
+      if (expandedTreeIds.has(conceptId)) {
+        expandedTreeIds.delete(conceptId);
+      } else {
+        expandedTreeIds.add(conceptId);
+      }
+
+      renderHierarchyTree();
+    });
+  });
+
+  conceptTree.querySelectorAll("[data-tree-concept]").forEach((button) => {
+    button.addEventListener("click", () => {
+      loadConcept(button.dataset.treeConcept);
+    });
+  });
 }
 
 function conceptSearchMatchContext(concept) {
@@ -208,38 +389,75 @@ function conceptSearchMatchContext(concept) {
   `;
 }
 
-function renderConceptList() {
-  if (concepts.length === 0) {
-    conceptList.innerHTML =
-      `<div class="empty-state">No concepts found.</div>`;
+async function loadConceptSearch(query) {
+  const trimmed = String(query || "").trim();
+  const requestId = ++conceptSearchRequestId;
+
+  if (!trimmed) {
+    conceptSearchResultsData = [];
+    renderConceptSearchResults();
     return;
   }
 
-  conceptList.innerHTML = concepts.map((concept) => `
+  try {
+    const data = await api(
+      `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(trimmed)}`
+    );
+
+    if (requestId !== conceptSearchRequestId) return;
+
+    conceptSearchResultsData = (data.concepts || []).slice(0, 12);
+    renderConceptSearchResults();
+  } catch (error) {
+    if (requestId !== conceptSearchRequestId) return;
+
+    conceptSearchResultsData = [];
+    conceptSearchResults.hidden = false;
+    conceptSearchResults.innerHTML =
+      `<div class="search-result-message error">${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function renderConceptSearchResults() {
+  if (!conceptSearchResults) return;
+
+  const query = conceptSearch.value.trim();
+
+  if (!query) {
+    conceptSearchResults.hidden = true;
+    conceptSearchResults.innerHTML = "";
+    return;
+  }
+
+  conceptSearchResults.hidden = false;
+
+  if (!conceptSearchResultsData.length) {
+    conceptSearchResults.innerHTML =
+      `<div class="search-result-message">No concepts found.</div>`;
+    return;
+  }
+
+  conceptSearchResults.innerHTML = conceptSearchResultsData.map((concept) => `
     <button
-      class="concept-row ${
-        selectedConcept?.concept?.concept_id === concept.concept_id
-          ? "active"
-          : ""
-      }"
-      data-concept-id="${escapeHtml(concept.concept_id)}"
+      type="button"
+      class="concept-search-result"
+      data-search-concept="${escapeHtml(concept.concept_id)}"
     >
-      <span class="concept-row-id">${escapeHtml(concept.concept_id)}</span>
-      <span>
-        <div class="concept-row-label">
-          ${escapeHtml(concept.label_en || "(No English label)")}
-        </div>
-        <div class="concept-row-secondary">
-          ${escapeHtml(concept.label_ru || concept.label_zh || "")}
-        </div>
-        ${conceptSearchMatchContext(concept)}
+      <span class="concept-search-result-main">
+        <strong>${escapeHtml(conceptNavigationLabel(concept))}</strong>
+        <span class="concept-row-id">${escapeHtml(concept.concept_id)}</span>
       </span>
+      ${conceptSearchMatchContext(concept)}
     </button>
   `).join("");
 
-  conceptList.querySelectorAll("[data-concept-id]").forEach((button) => {
-    button.addEventListener("click", () => {
-      loadConcept(button.dataset.conceptId);
+  conceptSearchResults.querySelectorAll("[data-search-concept]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const conceptId = button.dataset.searchConcept;
+      conceptSearch.value = "";
+      conceptSearchResultsData = [];
+      renderConceptSearchResults();
+      await loadConcept(conceptId);
     });
   });
 }
@@ -249,15 +467,251 @@ let searchTimer = null;
 conceptSearch.addEventListener("input", () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
-    loadConcepts(conceptSearch.value.trim());
+    loadConceptSearch(conceptSearch.value);
   }, 180);
 });
+
+conceptSearch.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    conceptSearch.value = "";
+    conceptSearchResultsData = [];
+    renderConceptSearchResults();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest?.(".concept-search-wrap")) {
+    conceptSearchResults.hidden = true;
+  }
+});
+
+collapseTreeButton.addEventListener("click", () => {
+  expandedTreeIds.clear();
+  renderHierarchyTree();
+});
+
+newConceptButton.addEventListener("click", () => {
+  openNewConceptForm();
+});
+
+function defaultNewConceptParentId() {
+  const selected = selectedConcept?.concept;
+
+  if (!selected) return "";
+
+  const selectedLevel = levelNumber(selected.level);
+
+  if (selectedLevel && selectedLevel < MAX_HIERARCHY_LEVEL) {
+    return selected.concept_id;
+  }
+
+  return selected.parent_id || "";
+}
+
+function newConceptParentOptions(selectedParentId = "") {
+  const options = [
+    `<option value="" ${selectedParentId ? "" : "selected"}>No parent - new top concept</option>`
+  ];
+
+  for (const concept of hierarchyConcepts) {
+    const level = levelNumber(concept.level);
+
+    if (!level || level >= MAX_HIERARCHY_LEVEL) continue;
+
+    const selected = concept.concept_id === selectedParentId
+      ? "selected"
+      : "";
+    const indent = "- ".repeat(Math.max(0, level - 1));
+
+    options.push(`
+      <option value="${escapeHtml(concept.concept_id)}" ${selected}>
+        ${escapeHtml(`${indent}${conceptNavigationLabel(concept)} (${concept.concept_id})`)}
+      </option>
+    `);
+  }
+
+  return options.join("");
+}
+
+function predictedLevelForParent(parentId) {
+  if (!parentId) return 1;
+
+  const parent = hierarchyById.get(parentId);
+  const parentLevel = levelNumber(parent?.level);
+
+  return parentLevel ? parentLevel + 1 : null;
+}
+
+function openNewConceptForm() {
+  creatingConcept = true;
+
+  const parentId = defaultNewConceptParentId();
+  const predictedLevel = predictedLevelForParent(parentId) || 1;
+
+  document.getElementById("conceptEmpty").hidden = true;
+  document.getElementById("conceptDetail").hidden = false;
+  document.getElementById("conceptTitle").textContent = "New term";
+  document.getElementById("conceptId").textContent =
+    "Concept ID will be allocated automatically when saved";
+  document.getElementById("conceptLevel").textContent = `L${predictedLevel}`;
+  document.querySelector(".detail-tabs").hidden = true;
+
+  const container = document.getElementById("detailContent");
+
+  container.innerHTML = `
+    <form id="newConceptForm" class="new-concept-form">
+      <div class="new-concept-intro">
+        <p>
+          Create the concept in PostgreSQL first. It will not appear in the
+          public Vocabulary Explorer until Site Types is published.
+        </p>
+      </div>
+
+      <label>
+        Preferred label - English
+        <input
+          id="newConceptLabelEn"
+          required
+          autocomplete="off"
+          placeholder="Enter the new Site Type"
+        >
+      </label>
+
+      <label>
+        Parent concept
+        <select id="newConceptParent">
+          ${newConceptParentOptions(parentId)}
+        </select>
+      </label>
+
+      <div id="newConceptHierarchyHelp" class="new-concept-hierarchy-help">
+        This will create an L${predictedLevel} concept.
+      </div>
+
+      <details class="new-concept-language-details">
+        <summary>Additional language labels</summary>
+        <p class="muted">
+          Optional. These are stored as preferred labels for the new concept.
+          They can also be added or revised after creation.
+        </p>
+
+        <div class="new-concept-language-grid">
+          ${LANGUAGES.filter(([lang]) => lang !== "en").map(([lang, name]) => `
+            <label>
+              ${escapeHtml(name)} <span class="field-meta">${escapeHtml(lang)}</span>
+              <input
+                data-new-concept-label="${escapeHtml(lang)}"
+                autocomplete="off"
+              >
+            </label>
+          `).join("")}
+        </div>
+      </details>
+
+      <div class="new-concept-actions">
+        <button type="submit" id="createConceptButton">Create term</button>
+        <button type="button" class="secondary" id="cancelNewConceptButton">Cancel</button>
+        <span id="newConceptStatus" class="save-status"></span>
+      </div>
+    </form>
+  `;
+
+  bindNewConceptForm();
+  renderHierarchyTree();
+
+  window.setTimeout(() => {
+    document.getElementById("newConceptLabelEn")?.focus();
+  }, 0);
+}
+
+function bindNewConceptForm() {
+  const form = document.getElementById("newConceptForm");
+  const parentSelect = document.getElementById("newConceptParent");
+  const status = document.getElementById("newConceptStatus");
+
+  parentSelect.addEventListener("change", () => {
+    const level = predictedLevelForParent(parentSelect.value);
+    document.getElementById("conceptLevel").textContent =
+      level ? `L${level}` : "";
+    document.getElementById("newConceptHierarchyHelp").textContent =
+      level
+        ? `This will create an L${level} concept.`
+        : "Choose a valid parent concept.";
+  });
+
+  document.getElementById("cancelNewConceptButton").addEventListener("click", async () => {
+    creatingConcept = false;
+    document.querySelector(".detail-tabs").hidden = false;
+    renderHierarchyTree();
+
+    if (selectedConcept?.concept?.concept_id) {
+      await loadConcept(selectedConcept.concept.concept_id, true);
+      return;
+    }
+
+    document.getElementById("conceptDetail").hidden = true;
+    document.getElementById("conceptEmpty").hidden = false;
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const english = document.getElementById("newConceptLabelEn").value.trim();
+    const labels = { en: english };
+
+    document.querySelectorAll("[data-new-concept-label]").forEach((input) => {
+      const value = input.value.trim();
+      if (value) labels[input.dataset.newConceptLabel] = value;
+    });
+
+    if (!english) {
+      status.textContent = "English preferred label is required.";
+      status.className = "save-status error";
+      return;
+    }
+
+    const submitButton = document.getElementById("createConceptButton");
+    submitButton.disabled = true;
+    status.textContent = "Creating...";
+    status.className = "save-status";
+
+    try {
+      const result = await api(
+        "/api/vocabularies/site-types/concepts",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            parent_id: parentSelect.value || null,
+            labels
+          })
+        }
+      );
+
+      creatingConcept = false;
+      selectedDetailTab = "labels";
+      document.querySelector(".detail-tabs").hidden = false;
+
+      await Promise.all([
+        loadVocabularySummary(),
+        loadHierarchyTree()
+      ]);
+
+      await loadConcept(result.concept.concept_id, true);
+    } catch (error) {
+      status.textContent = error.message;
+      status.className = "save-status error";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
 
 async function loadConcept(conceptId, keepTab = false) {
   const data = await api(
     `/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}`
   );
 
+  creatingConcept = false;
   selectedConcept = data;
 
   if (!keepTab) {
@@ -266,6 +720,7 @@ async function loadConcept(conceptId, keepTab = false) {
 
   document.getElementById("conceptEmpty").hidden = true;
   document.getElementById("conceptDetail").hidden = false;
+  document.querySelector(".detail-tabs").hidden = false;
   document.getElementById("conceptId").textContent =
     data.concept.concept_id;
   document.getElementById("conceptLevel").textContent =
@@ -289,8 +744,15 @@ async function loadConcept(conceptId, keepTab = false) {
     );
   });
 
-  renderConceptList();
+  expandPathToConcept(conceptId);
+  renderHierarchyTree();
   renderDetail();
+
+  window.setTimeout(() => {
+    conceptTree
+      .querySelector(`[data-tree-concept="${cssEscape(conceptId)}"]`)
+      ?.scrollIntoView({ block: "nearest" });
+  }, 0);
 }
 
 document.querySelectorAll(".detail-tab").forEach((button) => {
@@ -925,7 +1387,7 @@ async function refreshSelectedConcept() {
 
   await Promise.all([
     loadVocabularySummary(),
-    loadConcepts(conceptSearch.value.trim())
+    loadHierarchyTree()
   ]);
 
   await loadConcept(conceptId, true);

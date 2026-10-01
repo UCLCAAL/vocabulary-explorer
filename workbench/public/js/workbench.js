@@ -27,6 +27,7 @@ let expandedTreeIds = new Set();
 let conceptSearchResultsData = [];
 let conceptSearchRequestId = 0;
 let creatingConcept = false;
+const expandedHierarchyDiagrams = new Set();
 
 const MAX_HIERARCHY_LEVEL = 4;
 
@@ -2037,60 +2038,99 @@ function bindBibliographyEditor() {
 
 
 function renderHierarchy(hierarchy) {
-  const parent = hierarchy.parent
-    ? `
-      <div>
-        <h3>Parent</h3>
-        <button
-          class="hierarchy-item"
-          data-open-concept="${escapeHtml(hierarchy.parent.concept_id)}"
-        >
-          ${escapeHtml(
-            hierarchy.parent.label_en || hierarchy.parent.concept_id
-          )}
-          <span class="concept-row-id">
-            ${escapeHtml(hierarchy.parent.concept_id)}
-          </span>
-        </button>
-      </div>
-    `
-    : `
-      <div>
-        <h3>Parent</h3>
-        <p class="muted">Top concept</p>
-      </div>
-    `;
+  const current = selectedConcept.concept;
+  const english = selectedConcept.labels.find((row) =>
+    row.lang === "en" && String(row.status || "").toLowerCase() === "preferred"
+  );
+  const currentNode = {
+    ...current,
+    label_en: english?.label || current.en_label || current.concept_id
+  };
+  const ancestors = [];
+  const seen = new Set([current.concept_id]);
+  let parentId = current.parent_id || hierarchy.parent?.concept_id;
+  let warning = "";
 
-  const children = hierarchy.children.length
-    ? hierarchy.children.map((child) => `
-        <button
-          class="hierarchy-item"
-          data-open-concept="${escapeHtml(child.concept_id)}"
-        >
-          ${escapeHtml(child.label_en || child.concept_id)}
-          <span class="concept-row-id">
-            ${escapeHtml(child.concept_id)}
-          </span>
-        </button>
-      `).join("")
-    : `<p class="muted">No narrower concepts.</p>`;
+  // Use the same saved PostgreSQL data as the navigation tree, including
+  // changes that have not yet been published to Skosmos.
+  while (parentId) {
+    if (seen.has(parentId)) {
+      warning = "The hierarchy contains a cycle. The path shown is incomplete.";
+      break;
+    }
+    seen.add(parentId);
+    const parent = hierarchyById.get(parentId);
+    if (!parent) {
+      const directParent = hierarchy.parent?.concept_id === parentId
+        ? hierarchy.parent : { concept_id: parentId };
+      ancestors.unshift(directParent);
+      warning = "The full ancestor path is unavailable in the loaded hierarchy.";
+      break;
+    }
+    ancestors.unshift(parent);
+    parentId = parent.parent_id;
+  }
+
+  const children = hierarchy.children || [];
+  const expanded = expandedHierarchyDiagrams.has(current.concept_id);
+  const collapsed = children.length > 5 && !expanded;
+  const visibleChildren = collapsed ? children.slice(0, 4) : children;
+  const node = (concept, isCurrent = false) => `
+    <${isCurrent ? "div" : "button type=\"button\""}
+      class="wb-hierarchy-node${isCurrent ? " is-current" : ""}"
+      ${isCurrent ? 'aria-current="true"' : `data-open-concept="${escapeHtml(concept.concept_id)}"`}
+    >
+      <span class="wb-hierarchy-code">${escapeHtml(concept.concept_id)}</span>
+      <span class="wb-hierarchy-label">${escapeHtml(conceptNavigationLabel(concept))}</span>
+    </${isCurrent ? "div" : "button"}>`;
 
   return `
-    <div class="hierarchy-list">
-      ${parent}
-      <div>
-        <h3>Children</h3>
-        <div class="hierarchy-list">${children}</div>
+    <section class="wb-hierarchy" aria-label="Concept hierarchy">
+      <div class="wb-hierarchy-heading">
+        <h3>Hierarchy</h3>
+        <span class="wb-hierarchy-count">${warning ? "Incomplete path" : "1 path"}</span>
       </div>
-    </div>
-  `;
+      ${warning ? `<p class="wb-hierarchy-warning" role="status">${escapeHtml(warning)}</p>` : ""}
+      <div class="wb-hierarchy-scroll" tabindex="0" role="region" aria-label="Hierarchy diagram. Scroll horizontally to see all terms.">
+        <div class="wb-hierarchy-diagram">
+          <ol class="wb-hierarchy-chain" aria-label="Ancestor path and selected concept">
+            ${ancestors.map((ancestor) => `<li class="wb-hierarchy-step has-next">${node(ancestor)}</li>`).join("")}
+            <li class="wb-hierarchy-step${children.length ? " has-children" : ""}">${node(currentNode, true)}</li>
+          </ol>
+          ${children.length ? `
+            <ul class="wb-hierarchy-children" aria-label="Narrower concepts">
+              ${visibleChildren.map((child) => `<li>${node(child)}</li>`).join("")}
+              ${collapsed ? `<li>
+                <button type="button" class="wb-hierarchy-node is-more" data-hierarchy-expand aria-expanded="false">
+                  <span class="wb-hierarchy-code">${children.length} narrower</span>
+                  <span class="wb-hierarchy-label">+ ${children.length - 4} more</span>
+                </button>
+              </li>` : ""}
+            </ul>` : ""}
+        </div>
+      </div>
+      ${!children.length ? '<p class="muted wb-hierarchy-note">No narrower concepts.</p>' : ""}
+      ${expanded && children.length > 5 ? '<button type="button" class="wb-hierarchy-collapse" data-hierarchy-collapse aria-expanded="true">Show fewer narrower concepts</button>' : ""}
+    </section>`;
 }
 
 function bindHierarchyLinks() {
   document.querySelectorAll("[data-open-concept]").forEach((button) => {
     button.addEventListener("click", () => {
-      loadConcept(button.dataset.openConcept);
+      loadConcept(button.dataset.openConcept, true).catch((error) => {
+        window.alert(error.message);
+      });
     });
+  });
+  document.querySelector("[data-hierarchy-expand]")?.addEventListener("click", () => {
+    expandedHierarchyDiagrams.add(selectedConcept.concept.concept_id);
+    renderDetail();
+    document.querySelector("[data-hierarchy-collapse]")?.focus({ preventScroll: true });
+  });
+  document.querySelector("[data-hierarchy-collapse]")?.addEventListener("click", () => {
+    expandedHierarchyDiagrams.delete(selectedConcept.concept.concept_id);
+    renderDetail();
+    document.querySelector("[data-hierarchy-expand]")?.focus({ preventScroll: true });
   });
 }
 

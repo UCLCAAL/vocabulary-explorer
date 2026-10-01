@@ -11,7 +11,7 @@
     <section id="loginView" class="login-card">
       <div class="eyebrow">CAAL</div>
       <h1>Vocabulary Workbench</h1>
-      <p class="muted">Access is available to CAAL level 9 administrators.</p>
+      <p class="muted"></p>
 
       <form id="loginForm">
         <label>
@@ -108,7 +108,7 @@
 
           <section class="card concept-detail-card">
             <div id="conceptEmpty" class="empty-state">
-              Select a concept to inspect its authoritative data.
+              Select a concept to inspect its data.
             </div>
 
             <div id="conceptDetail" hidden>
@@ -146,10 +146,9 @@
           <h2>Publishing</h2>
 
           <p class="muted">
-            Saving in the workbench updates PostgreSQL immediately.
-            Publishing regenerates the RDF, replaces the Site Types graph
-            in Fuseki, restores the alignment triples, and refreshes
-            Skosmos.
+            Saving in the workbench updates the Postgres database immediately.
+            Publishing regenerates the RDF, replaces the Site Types graph, 
+            restores the alignments/matches, and refreshes Skosmos.
           </p>
 
           <div id="publishingStatus" class="publishing-status">

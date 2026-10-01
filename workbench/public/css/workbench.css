@@ -1197,3 +1197,138 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Phase 3.18: Skosmos-style diagram in the concept Hierarchy tab. */
+.wb-hierarchy { min-width: 0; }
+.wb-hierarchy-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  color: #17345d;
+}
+.wb-hierarchy-heading h3 { margin: 0; font-size: 21px; }
+.wb-hierarchy-count {
+  border-radius: 20px;
+  padding: 4px 12px;
+  background: #f4f6f8;
+  color: #65717e;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.wb-hierarchy-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 4px 0 16px;
+  scrollbar-width: thin;
+}
+.wb-hierarchy-diagram {
+  width: max-content;
+  min-width: 100%;
+  padding: 0 8px;
+}
+.wb-hierarchy-chain,
+.wb-hierarchy-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wb-hierarchy-step {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.wb-hierarchy-step.has-next { padding-bottom: 32px; }
+.wb-hierarchy-step.has-next::after,
+.wb-hierarchy-step.has-children::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 32px;
+  border-left: 2px solid #b8c2cc;
+  transform: translateX(-1px);
+}
+.wb-hierarchy-step.has-children { padding-bottom: 18px; }
+.wb-hierarchy-step.has-children::after { height: 18px; }
+.wb-hierarchy-node {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 180px;
+  min-height: 72px;
+  padding: 10px 9px;
+  border: 1px solid #cbd3da;
+  border-radius: 1px;
+  background: #fff;
+  color: #356b9a;
+  text-align: center;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+button.wb-hierarchy-node:hover { border-color: #17345d; background: #f4f6f8; }
+.wb-hierarchy-node:focus-visible,
+.wb-hierarchy-scroll:focus-visible,
+.wb-hierarchy-collapse:focus-visible {
+  outline: 2px solid #356b9a;
+  outline-offset: 3px;
+}
+.wb-hierarchy-node.is-current {
+  border: 2px solid #24365f;
+  background: #f4f6f8;
+  color: #17345d;
+}
+.wb-hierarchy-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 400;
+  color: #747d84;
+}
+.wb-hierarchy-label { font-size: 15px; font-weight: 600; }
+.wb-hierarchy-children { display: flex; justify-content: center; }
+.wb-hierarchy-children > li {
+  position: relative;
+  display: flex;
+  padding: 18px 6px 0;
+}
+.wb-hierarchy-children > li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 2px solid #b8c2cc;
+}
+.wb-hierarchy-children > li:first-child::before { left: 50%; }
+.wb-hierarchy-children > li:last-child::before { right: 50%; }
+.wb-hierarchy-children > li:only-child::before { display: none; }
+.wb-hierarchy-children > li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 18px;
+  border-left: 2px solid #b8c2cc;
+  transform: translateX(-1px);
+}
+.wb-hierarchy-node.is-more { border-style: dashed; background: #f8f9fa; }
+.wb-hierarchy-collapse {
+  display: block;
+  margin: 8px auto 0;
+  border: 0;
+  padding: 6px;
+  background: transparent;
+  color: #356b9a;
+  text-decoration: underline;
+}
+.wb-hierarchy-note { text-align: center; font-size: 14px; }
+.wb-hierarchy-warning {
+  padding: 10px;
+  border-left: 3px solid #b7791f;
+  background: #fff9ed;
+  color: #754c13;
+}

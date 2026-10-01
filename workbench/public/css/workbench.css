@@ -1332,3 +1332,53 @@ button.wb-hierarchy-node:hover { border-color: #17345d; background: #f4f6f8; }
   background: #fff9ed;
   color: #754c13;
 }
+
+/* Thin branch guides for the left-hand hierarchy only. */
+.concept-tree {
+  --tree-line: #d8e0db;
+}
+
+/* Nesting provides the same 14px indentation as the existing tree. */
+.concept-tree .tree-row {
+  position: relative;
+  padding-left: 0;
+}
+.concept-tree .tree-children {
+  margin-left: 14px;
+}
+.concept-tree .tree-children > .tree-node {
+  position: relative;
+}
+
+/* Continue the branch past siblings, including their expanded children. */
+.concept-tree .tree-children > .tree-node:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--tree-line);
+  pointer-events: none;
+}
+
+/* Stop the branch at the centre of the last child's row. */
+.concept-tree .tree-children > .tree-node:last-child > .tree-row::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  height: 50%;
+  border-left: 1px solid var(--tree-line);
+  pointer-events: none;
+}
+
+/* Short horizontal branch to each child's arrow or spacer. */
+.concept-tree .tree-children > .tree-node > .tree-row::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  width: 9px;
+  border-top: 1px solid var(--tree-line);
+  pointer-events: none;
+}

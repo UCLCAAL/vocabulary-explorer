@@ -644,7 +644,7 @@ router.post("/site-types/concepts", async (req, res) => {
         entityType: "preferred_label",
         entityId: inserted.label_id,
         action: "insert",
-        lang: "und",
+        lang,
         oldData: null,
         newData: inserted,
         session: req.session.workbenchSession
@@ -656,7 +656,7 @@ router.post("/site-types/concepts", async (req, res) => {
       entityType: "concept",
       entityId: conceptId,
       action: "insert",
-      lang: null,
+      lang: "und",
       oldData: null,
       newData: concept,
       session: req.session.workbenchSession

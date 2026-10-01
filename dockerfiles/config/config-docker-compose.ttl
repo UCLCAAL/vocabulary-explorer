@@ -126,6 +126,7 @@
     skosmos:defaultLanguage "en" ;
     skosmos:hasMultiLingualProperty skos:scopeNote ;
     skosmos:showTopConcepts true ;
+    skosmos:showChangeList false ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/site-types> ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;

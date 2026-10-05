@@ -9,7 +9,7 @@ services:
         JENA_VERSION: 5.4.0
     command: --config=/fuseki/skosmos.ttl
     environment:
-      JAVA_OPTIONS: "-Xms128m -Xmx384m"
+        JAVA_OPTIONS: "-Xms256m -Xmx1g"
     ports:
       - "9030:3030"
     volumes:

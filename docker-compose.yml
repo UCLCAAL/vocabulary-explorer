@@ -1,6 +1,7 @@
 services:
   fuseki:
     hostname: fuseki
+    restart: unless-stopped
     build:
       context: ./dockerfiles/jena-fuseki2-docker
       dockerfile: Dockerfile
@@ -8,11 +9,13 @@ services:
         JENA_VERSION: 5.4.0
     command: --config=/fuseki/skosmos.ttl
     environment:
-      JAVA_OPTIONS: "-Xmx2g -Xms1g"
+      JAVA_OPTIONS: "-Xms128m -Xmx384m"
     ports:
       - "9030:3030"
     volumes:
       - ./dockerfiles/config/skosmos.ttl:/fuseki/skosmos.ttl:ro
+      - /opt/caal-vocabulary-data/fuseki/databases:/fuseki/databases
+      - /opt/caal-vocabulary-data/fuseki/run:/fuseki/run
     user: "fuseki:fuseki"
 
   fuseki-cache:

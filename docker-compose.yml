@@ -20,6 +20,7 @@ services:
 
   fuseki-cache:
     hostname: fuseki-cache
+    restart: unless-stopped
     image: varnish
     security_opt:
       - seccomp:unconfined
@@ -68,6 +69,7 @@ services:
 
   skosmos:
     hostname: skosmos
+    restart: unless-stopped
     image: quay.io/natlibfi/skosmos:latest
     ports:
       - "9090:80"

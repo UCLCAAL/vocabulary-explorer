@@ -224,10 +224,15 @@ function bindReviewAlternatives(container, filters) {
 }
 
 let reviewUsageRequestId = 0;
+let reviewUsageController = null;
 function reviewSourceLabel(row) {
   return `${row.source_table} (${row.source_schema === "public" ? "CAAL" : row.source_schema === "kz" ? "KZ" : row.source_schema.toUpperCase()})`;
 }
 async function loadReviewUsage(conceptId) {
+  reviewUsageController?.abort();
+  const controller = new AbortController();
+  reviewUsageController = controller;
+  const timeoutId = window.setTimeout(() => controller.abort(), 35000);
   const requestId = ++reviewUsageRequestId;
   const userKey = reviewUserKey;
   const dialog = document.getElementById("reviewUsageDialog");
@@ -236,7 +241,7 @@ async function loadReviewUsage(conceptId) {
   panel.textContent = "Finding records...";
   if (!dialog.open) dialog.showModal();
   try {
-    const data = await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}/usage`);
+    const data = await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}/usage`, { signal: controller.signal });
     if (requestId !== reviewUsageRequestId || userKey !== reviewUserKey || !dialog.open) return;
     panel.innerHTML = `<p><strong>${data.record_count}</strong> matching records</p>
       <table class="review-records-summary"><thead><tr><th>Table (workspace)</th><th>Records</th><th>Fields</th></tr></thead><tbody>${data.sources.map(row => `<tr><td>${escapeHtml(reviewSourceLabel(row))}</td><td>${row.record_count}</td><td>${row.field_count}</td></tr>`).join("") || '<tr><td colspan="3">No matching records found.</td></tr>'}</tbody></table>
@@ -244,11 +249,14 @@ async function loadReviewUsage(conceptId) {
       ${data.field_count > data.examples.length ? `<p class="muted">Showing ${data.examples.length} of ${data.field_count} matching fields.</p>` : ""}`;
   } catch (error) {
     if (requestId !== reviewUsageRequestId || userKey !== reviewUserKey || !dialog.open) return;
-    panel.textContent = `Records could not be checked. ${error.message}`;
+    panel.textContent = error.name === "AbortError" ? "The record check timed out. Close and try again." : `Records could not be checked. ${error.message}`;
+  } finally {
+    window.clearTimeout(timeoutId);
+    if (reviewUsageController === controller) reviewUsageController = null;
   }
 }
 document.getElementById("reviewUsageClose").addEventListener("click", () => document.getElementById("reviewUsageDialog").close());
-document.getElementById("reviewUsageDialog").addEventListener("close", () => { reviewUsageRequestId += 1; });
+document.getElementById("reviewUsageDialog").addEventListener("close", () => { reviewUsageRequestId += 1; reviewUsageController?.abort(); });
 document.getElementById("reviewUsageDialog").addEventListener("click", event => {
   const dialog = event.currentTarget;
   const bounds = dialog.getBoundingClientRect();

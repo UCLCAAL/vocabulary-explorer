@@ -12,15 +12,21 @@ const SOURCES = ["public", "kz"].flatMap(schema => [
   { schema, table: "CAAL_Monuments", columns: [1,2,3,4,5,6].map(n => `Monument Type${n}`) }
 ]);
 const quote = value => '"' + value.replaceAll('"', '""') + '"';
-const sourcesSql = SOURCES.map(source => `
-  SELECT '${source.schema}'::text AS source_schema, '${source.table}'::text AS source_table,
-         t.id::text AS row_id,
-         COALESCE(NULLIF(btrim(to_jsonb(t)->>'CAAL_ID'), ''), NULLIF(btrim(to_jsonb(t)->>'CAAL ID'), ''), NULLIF(btrim(to_jsonb(t)->>'caal_id'), '')) AS caal_id,
-         cells.field, btrim(cells.value) AS value
-  FROM ${quote(source.schema)}.${quote(source.table)} t
-  CROSS JOIN LATERAL (VALUES ${source.columns.map(column => `('${column}', t.${quote(column)}::text)`).join(", ")}) cells(field, value)
-  WHERE NULLIF(btrim(cells.value), '') IS NOT NULL
-`).join("\nUNION ALL\n");
+function buildSourceSql(identityColumns) {
+  return SOURCES.map(source => {
+    const identityColumn = identityColumns.get(`${source.schema}.${source.table}`);
+    const identitySql = identityColumn ? `NULLIF(btrim(t.${quote(identityColumn)}::text), '')` : 'NULL::text';
+    return `
+      SELECT '${source.schema}'::text AS source_schema, '${source.table}'::text AS source_table,
+             t.id::text AS row_id, ${identitySql} AS caal_id,
+             cells.field, btrim(cells.value) AS value
+      FROM ${quote(source.schema)}.${quote(source.table)} t
+      CROSS JOIN LATERAL (VALUES ${source.columns.map(column => `('${column}', t.${quote(column)}::text)`).join(", ")}) cells(field, value)
+      WHERE NULLIF(btrim(cells.value), '') IS NOT NULL
+    `;
+  }).join("\nUNION ALL\n");
+}
+
 
 router.get("/review/preference", async (req, res) => {
   try {
@@ -114,10 +120,29 @@ router.get("/review", async (req, res) => {
 
 router.get("/concepts/:conceptId/usage", async (req, res) => {
   const conceptId = String(req.params.conceptId || "").trim();
+  let client;
   try {
+    client = await pool.connect();
+    await client.query("BEGIN");
+    await client.query("SET LOCAL statement_timeout = '25s'");
+    const identityResult = await client.query(`
+      SELECT table_schema, table_name, column_name
+      FROM information_schema.columns
+      WHERE table_schema IN ('public', 'kz')
+        AND table_name IN ('CAAL_RS3_Poly', 'CAAL_RS3_Line', 'CAAL_RS3_Group', 'CAAL_Monuments')
+        AND column_name IN ('CAAL_ID', 'CAAL ID', 'caal_id')
+      ORDER BY table_schema, table_name,
+        CASE column_name WHEN 'CAAL_ID' THEN 0 WHEN 'CAAL ID' THEN 1 ELSE 2 END
+    `);
+    const identityColumns = new Map();
+    for (const row of identityResult.rows) {
+      const key = `${row.table_schema}.${row.table_name}`;
+      if (!identityColumns.has(key)) identityColumns.set(key, row.column_name);
+    }
+    const sourcesSql = buildSourceSql(identityColumns);
     // One statement provides a consistent snapshot across every authoritative source.
     // Match whole field values only: no substring or speculative delimiter splitting.
-    const result = await pool.query(`
+    const result = await client.query(`
       WITH concepts AS (
         SELECT c.concept_id, c.en_label,
           COALESCE((SELECT min(NULLIF(btrim(l.label), '')) FROM public.labels_curated l
@@ -134,15 +159,15 @@ router.get("/concepts/:conceptId/usage", async (req, res) => {
         SELECT lower(regexp_replace(btrim(value), '[[:space:]]+', ' ', 'g')) AS key,
                array_agg(DISTINCT concept_id ORDER BY concept_id) AS candidates
         FROM vocabulary WHERE NULLIF(btrim(value), '') IS NOT NULL GROUP BY 1
+      ), target_aliases AS (
+        SELECT * FROM aliases WHERE $1 = ANY(candidates)
       ), cells AS (${sourcesSql}), matches AS (
         SELECT cells.*, a.candidates,
-          (SELECT string_agg(DISTINCT ref.english_label, '; ' ORDER BY ref.english_label)
-           FROM concepts ref WHERE ref.concept_id = ANY(a.candidates)) AS english_label,
           CASE WHEN lower(cells.value) = lower($1) THEN 'concept_id'
                WHEN cells.value ~* '^https?://' THEN 'concept_uri'
                WHEN cardinality(a.candidates) > 1 THEN 'ambiguous_label'
                ELSE 'legacy_label' END AS match_kind
-        FROM cells JOIN aliases a ON a.key = lower(regexp_replace(btrim(cells.value), '[[:space:]]+', ' ', 'g'))
+        FROM cells JOIN target_aliases a ON a.key = lower(regexp_replace(btrim(cells.value), '[[:space:]]+', ' ', 'g'))
         WHERE $1 = ANY(a.candidates)
       )
       SELECT EXISTS(SELECT 1 FROM concepts WHERE concept_id = $1) AS concept_exists,
@@ -154,16 +179,26 @@ router.get("/concepts/:conceptId/usage", async (req, res) => {
           FROM matches GROUP BY source_schema, source_table
         ) summary), '[]'::jsonb) AS sources,
         COALESCE((SELECT jsonb_agg(sample) FROM (
-          SELECT * FROM matches ORDER BY source_schema, source_table, row_id, field LIMIT 100
+          SELECT limited.*,
+            (SELECT string_agg(DISTINCT ref.english_label, '; ' ORDER BY ref.english_label)
+             FROM concepts ref WHERE ref.concept_id = ANY(limited.candidates)) AS english_label
+          FROM (SELECT * FROM matches ORDER BY source_schema, source_table, row_id, field LIMIT 100) limited
         ) sample), '[]'::jsonb) AS examples
     `, [conceptId]);
+    await client.query("COMMIT");
     const row = result.rows[0];
     if (!row.concept_exists) return res.status(404).json({ ok: false, error: "Concept not found" });
     return res.json({ ok: true, checked_at: new Date().toISOString(), coverage: "all_eight_source_tables", ...row,
       limitation: "Whole-field matches against current labels, IDs and registered URIs. Historical labels no longer retained in the vocabulary and compound values may remain unresolved. This report does not authorise permanent deletion." });
   } catch (error) {
+    if (client) { try { await client.query("ROLLBACK"); } catch {} }
     console.error("Site Types usage check failed:", error);
-    return res.status(503).json({ ok: false, usage_status: "unknown", error: "Usage could not be checked across all eight source tables. No unused-term conclusion can be drawn." });
+    return res.status(error.code === "57014" ? 504 : 503).json({
+      ok: false, usage_status: "unknown",
+      error: error.code === "57014" ? "The record check timed out. Try again or ask an administrator to check the server log." : "Records could not be checked across all eight source tables."
+    });
+  } finally {
+    client?.release();
   }
 });
 

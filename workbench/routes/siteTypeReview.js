@@ -14,7 +14,9 @@ const SOURCES = ["public", "kz"].flatMap(schema => [
 const quote = value => '"' + value.replaceAll('"', '""') + '"';
 const sourcesSql = SOURCES.map(source => `
   SELECT '${source.schema}'::text AS source_schema, '${source.table}'::text AS source_table,
-         t.id::text AS row_id, cells.field, btrim(cells.value) AS value
+         t.id::text AS row_id,
+         COALESCE(NULLIF(btrim(to_jsonb(t)->>'CAAL_ID'), ''), NULLIF(btrim(to_jsonb(t)->>'CAAL ID'), ''), NULLIF(btrim(to_jsonb(t)->>'caal_id'), '')) AS caal_id,
+         cells.field, btrim(cells.value) AS value
   FROM ${quote(source.schema)}.${quote(source.table)} t
   CROSS JOIN LATERAL (VALUES ${source.columns.map(column => `('${column}', t.${quote(column)}::text)`).join(", ")}) cells(field, value)
   WHERE NULLIF(btrim(cells.value), '') IS NOT NULL
@@ -59,11 +61,13 @@ router.get("/review", async (req, res) => {
     const result = await pool.query(`
       WITH labels AS (
         SELECT concept_id,
-          min(NULLIF(btrim(label), '')) FILTER (WHERE lang = $1) AS preferred_label,
-          count(*) FILTER (WHERE lang = $1)::int AS label_count,
-          min(NULLIF(btrim(label), '')) FILTER (WHERE lang = $2) AS reference_label
+          min(NULLIF(btrim(label), '')) FILTER (WHERE lang = $1 AND lower(COALESCE(status, '')) = 'preferred') AS preferred_label,
+          count(*) FILTER (WHERE lang = $1 AND lower(COALESCE(status, '')) = 'preferred')::int AS label_count,
+          min(NULLIF(btrim(label), '')) FILTER (WHERE lang = $2 AND lower(COALESCE(status, '')) = 'preferred') AS reference_label,
+          jsonb_agg(jsonb_build_object('label_id', label_id, 'label', label) ORDER BY label_id)
+            FILTER (WHERE lang = $1 AND lower(COALESCE(status, '')) = 'alt' AND NULLIF(btrim(label), '') IS NOT NULL) AS alternative_labels
         FROM public.labels_curated
-        WHERE lower(COALESCE(status, '')) = 'preferred' AND lang IN ($1, $2)
+        WHERE lower(COALESCE(status, '')) IN ('preferred', 'alt') AND lang IN ($1, $2)
         GROUP BY concept_id
       ), definitions AS (
         SELECT concept_id,
@@ -76,7 +80,7 @@ router.get("/review", async (req, res) => {
       )
       SELECT c.concept_id, c.level, c.en_label,
              l.preferred_label, COALESCE(l.label_count, 0) AS label_count,
-             l.reference_label, d.definition, d.reference_definition,
+             l.reference_label, COALESCE(l.alternative_labels, '[]'::jsonb) AS alternative_labels, d.definition, d.reference_definition,
              COALESCE(d.definition_count, 0) AS definition_count
       FROM public.concepts_curated c
       LEFT JOIN labels l ON l.concept_id = c.concept_id
@@ -115,7 +119,11 @@ router.get("/concepts/:conceptId/usage", async (req, res) => {
     // Match whole field values only: no substring or speculative delimiter splitting.
     const result = await pool.query(`
       WITH concepts AS (
-        SELECT concept_id, en_label FROM public.concepts_curated
+        SELECT c.concept_id, c.en_label,
+          COALESCE((SELECT min(NULLIF(btrim(l.label), '')) FROM public.labels_curated l
+                    WHERE l.concept_id = c.concept_id AND l.lang = 'en' AND lower(COALESCE(l.status, '')) = 'preferred'),
+                   NULLIF(btrim(c.en_label), ''), c.concept_id) AS english_label
+        FROM public.concepts_curated c
       ), vocabulary AS (
         SELECT concept_id, label AS value FROM public.labels_curated
         UNION SELECT concept_id, en_label FROM concepts
@@ -128,6 +136,8 @@ router.get("/concepts/:conceptId/usage", async (req, res) => {
         FROM vocabulary WHERE NULLIF(btrim(value), '') IS NOT NULL GROUP BY 1
       ), cells AS (${sourcesSql}), matches AS (
         SELECT cells.*, a.candidates,
+          (SELECT string_agg(DISTINCT ref.english_label, '; ' ORDER BY ref.english_label)
+           FROM concepts ref WHERE ref.concept_id = ANY(a.candidates)) AS english_label,
           CASE WHEN lower(cells.value) = lower($1) THEN 'concept_id'
                WHEN cells.value ~* '^https?://' THEN 'concept_uri'
                WHEN cardinality(a.candidates) > 1 THEN 'ambiguous_label'

@@ -87,8 +87,8 @@ function showLogin() {
   reviewUserKey = null;
   reviewRequestId += 1;
   reviewUsageRequestId += 1;
-  reviewPreferencePromise = null;
   reviewDirty = false;
+  document.getElementById("reviewUsageDialog").close();
   session = null;
   loginView.hidden = false;
   appView.hidden = true;
@@ -191,7 +191,6 @@ async function loadVocabularySummary() {
     container.querySelectorAll("[data-review-language]").forEach(button => {
       button.addEventListener("click", async () => {
         if (!allowReviewNavigation()) return;
-        await initialiseReviewPreference();
         document.getElementById("reviewLanguage").value = button.dataset.reviewLanguage;
         reviewOffset = 0;
         document.querySelector('[data-main-tab="review"]').click();
@@ -2300,7 +2299,6 @@ function bindMainTabs() {
       });
 
       if (tab === "review") {
-        await initialiseReviewPreference();
         await loadReview();
       }
 

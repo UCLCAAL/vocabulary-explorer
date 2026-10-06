@@ -142,10 +142,10 @@
         <div class="card review-card">
           <div class="eyebrow">Site Types</div>
           <h2>Language review</h2>
-          <p class="muted">Find and fill missing preferred labels and definitions. Coverage records whether text is present, not whether its translation has been verified.</p>
+
           <form id="reviewFilters" class="review-filters">
             <label>REVIEW LANGUAGE<select id="reviewLanguage"></select></label>
-            <label>REFERENCE LANGUAGE<select id="reviewReferenceLanguage"></select></label>
+            <label>SHOW REFERENCE TEXT IN<select id="reviewReferenceLanguage"></select></label>
             <label>SHOW<select id="reviewMissing">
               <option value="any">Missing label or definition</option>
               <option value="label">Missing preferred label</option>
@@ -154,13 +154,8 @@
               <option value="conflicts">Duplicate entries</option>
               <option value="all">All active concepts</option>
             </select></label>
-            <label>SEARCH<input id="reviewSearch" type="search" placeholder="Label or concept ID"></label>
             <button type="submit">Apply</button>
           </form>
-          <div class="review-default-row">
-            <button id="reviewSaveDefault" class="secondary" type="button">Use this as my default language</button>
-            <span id="reviewPreferenceStatus" class="save-status" role="status"></span>
-          </div>
           <div id="reviewCounts" class="review-counts"></div>
           <div class="review-list-heading"><span id="reviewResultCount"></span><button id="reviewRefresh" class="secondary" type="button">Refresh list</button></div>
           <p id="reviewStatus" role="status" aria-live="polite"></p>
@@ -170,7 +165,13 @@
             <span id="reviewPageStatus"></span>
             <button id="reviewNext" type="button" class="secondary">Next</button>
           </div>
-          <section id="reviewUsage" class="review-usage" hidden aria-live="polite"></section>
+          <dialog id="reviewUsageDialog" class="review-records-dialog" aria-labelledby="reviewUsageTitle">
+            <header class="review-modal-header">
+              <h2 id="reviewUsageTitle">Records matching this type</h2>
+              <button id="reviewUsageClose" type="button" class="secondary">Close</button>
+            </header>
+            <div id="reviewUsage" aria-live="polite"></div>
+          </dialog>
         </div>
       </section>
 

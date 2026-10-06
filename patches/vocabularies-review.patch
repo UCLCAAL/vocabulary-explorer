@@ -1,0 +1,26 @@
+--- a/workbench/routes/vocabularies.js
++++ b/workbench/routes/vocabularies.js
+@@ -8,6 +8,7 @@
+ const VOCABULARY_CODE = "site-types";
+ 
+ router.use(requireLevel9);
++router.use("/site-types", require("./siteTypeReview"));
+ 
+ function clean(value) {
+   return String(value ?? "").trim();
+@@ -173,6 +174,7 @@
+       JOIN public.concepts_curated c
+         ON c.concept_id = l.concept_id
+       WHERE lower(COALESCE(l.status, '')) = 'preferred'
++        AND NULLIF(btrim(l.label), '') IS NOT NULL
+         AND c.sort_order IS NOT NULL
+         AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+             NOT IN ('false', '0', 'no', 'inactive')
+@@ -189,6 +191,7 @@
+       JOIN public.concepts_curated c
+         ON c.concept_id = n.concept_id
+       WHERE lower(COALESCE(n.note_type, '')) = 'definition'
++        AND NULLIF(btrim(n.note), '') IS NOT NULL
+         AND c.sort_order IS NOT NULL
+         AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+             NOT IN ('false', '0', 'no', 'inactive')

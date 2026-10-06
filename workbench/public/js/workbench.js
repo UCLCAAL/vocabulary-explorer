@@ -84,6 +84,11 @@ async function loadSession() {
 }
 
 function showLogin() {
+  reviewUserKey = null;
+  reviewRequestId += 1;
+  reviewUsageRequestId += 1;
+  reviewPreferencePromise = null;
+  reviewDirty = false;
   session = null;
   loginView.hidden = false;
   appView.hidden = true;
@@ -99,6 +104,8 @@ async function showApp() {
 
   document.getElementById("signedInAs").textContent =
     `${session?.user?.username || ""}${workspace ? ` (${workspace} admin)` : ""}`;
+
+  initialiseReview();
 
   await Promise.all([
     loadVocabularySummary(),
@@ -145,7 +152,7 @@ async function loadVocabularySummary() {
 
     const labelCoverage = Object.entries(vocab.labels_by_language)
       .map(([lang, count]) =>
-        `<span class="coverage-chip">${lang}: ${count}/${vocab.concept_count}</span>`
+        `<button type="button" class="coverage-chip" data-review-language="${escapeHtml(lang)}" title="Review ${escapeHtml(lang)} translations">${escapeHtml(lang)}: ${count}/${vocab.concept_count}</button>`
       )
       .join("");
 
@@ -181,6 +188,15 @@ async function loadVocabularySummary() {
     `;
 
     bindCopyButtons();
+    container.querySelectorAll("[data-review-language]").forEach(button => {
+      button.addEventListener("click", async () => {
+        if (!allowReviewNavigation()) return;
+        await initialiseReviewPreference();
+        document.getElementById("reviewLanguage").value = button.dataset.reviewLanguage;
+        reviewOffset = 0;
+        document.querySelector('[data-main-tab="review"]').click();
+      });
+    });
   } catch (error) {
     container.textContent = error.message;
   }
@@ -2282,6 +2298,11 @@ function bindMainTabs() {
       document.querySelectorAll("[data-main-view]").forEach((view) => {
         view.hidden = view.dataset.mainView !== tab;
       });
+
+      if (tab === "review") {
+        await initialiseReviewPreference();
+        await loadReview();
+      }
 
       if (tab === "publishing") {
         await loadPublishingStatus();

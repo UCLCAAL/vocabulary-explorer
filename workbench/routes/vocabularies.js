@@ -241,7 +241,7 @@ router.get("/", async (req, res) => {
 
 router.get("/site-types/concepts", async (req, res) => {
   const q = clean(req.query.q);
-  const includeRetired = req.query.include_retired === "true";
+  const retiredOnly = req.query.status === "retired";
 
   try {
     const result = await pool.query(
@@ -397,8 +397,10 @@ router.get("/site-types/concepts", async (req, res) => {
       ) best_match ON true
 
       WHERE c.sort_order IS NOT NULL
-        AND ((lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
-            NOT IN ('false', '0', 'no', 'inactive')) OR ($2::boolean AND c.lifecycle_status='retired'))
+        AND (($2::boolean AND c.lifecycle_status='retired') OR
+             (NOT $2::boolean AND c.lifecycle_status<>'retired'
+              AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+                  NOT IN ('false', '0', 'no', 'inactive')))
         AND (
           $1 = ''
           OR best_match.match_rank IS NOT NULL
@@ -409,7 +411,7 @@ router.get("/site-types/concepts", async (req, res) => {
         c.sort_order,
         c.concept_id
       `,
-      [q, includeRetired]
+      [q, retiredOnly]
     );
 
     return res.json({

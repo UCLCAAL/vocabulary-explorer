@@ -21,6 +21,8 @@ let selectedDetailTab = "overview";
 let currentVocabulary = null;
 let labelFlashMessage = null;
 let hierarchyConcepts = [];
+let activeHierarchyConcepts = [];
+let hierarchyRequestId = 0;
 let hierarchyById = new Map();
 let hierarchyChildren = new Map();
 let expandedTreeIds = new Set();
@@ -202,17 +204,21 @@ async function loadVocabularySummary() {
 }
 
 async function loadHierarchyTree() {
-  const data = await api(
-    `/api/vocabularies/site-types/concepts?q=&include_retired=${document.getElementById("showRetiredConcepts").checked}`
-  );
-
-  hierarchyConcepts = data.concepts || [];
+  const requestId = ++hierarchyRequestId;
+  const retiredOnly = document.getElementById("showRetiredConcepts").checked;
+  const [activeData, retiredData] = await Promise.all([
+    api("/api/vocabularies/site-types/concepts?q=&status=active"),
+    retiredOnly ? api("/api/vocabularies/site-types/concepts?q=&status=retired") : Promise.resolve(null)
+  ]);
+  if (requestId !== hierarchyRequestId) return;
+  // Keep active options available to editors even when navigation shows retired terms only.
+  activeHierarchyConcepts = activeData.concepts || [];
+  hierarchyConcepts = retiredOnly ? (retiredData.concepts || []) : activeHierarchyConcepts;
   rebuildHierarchyIndex();
 
   if (selectedConcept?.concept?.concept_id) {
     expandPathToConcept(selectedConcept.concept.concept_id);
   }
-
   renderHierarchyTree();
 }
 
@@ -233,7 +239,7 @@ function conceptNavigationLabel(concept) {
 
 function rebuildHierarchyIndex() {
   hierarchyById = new Map(
-    hierarchyConcepts.map((concept) => [concept.concept_id, concept])
+    [...activeHierarchyConcepts, ...hierarchyConcepts].map((concept) => [concept.concept_id, concept])
   );
 
   hierarchyChildren = new Map();
@@ -278,9 +284,10 @@ function expandPathToConcept(conceptId) {
 }
 
 function hierarchyRoots() {
+  const visibleIds = new Set(hierarchyConcepts.map(c => c.concept_id));
   return hierarchyConcepts.filter((concept) => {
     const parentId = concept.parent_id || null;
-    return !parentId || !hierarchyById.has(parentId);
+    return !parentId || !visibleIds.has(parentId);
   }).sort((a, b) => {
     const aOrder = Number(a.sort_order);
     const bOrder = Number(b.sort_order);
@@ -350,7 +357,7 @@ function renderHierarchyTree() {
 
   if (!hierarchyConcepts.length) {
     conceptTree.innerHTML =
-      `<div class="tree-empty">No Site Types concepts found.</div>`;
+      `<div class="tree-empty">${document.getElementById("showRetiredConcepts").checked ? "No retired terms." : "No Site Types concepts found."}</div>`;
     return;
   }
 
@@ -417,7 +424,7 @@ async function loadConceptSearch(query) {
 
   try {
     const data = await api(
-      `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(trimmed)}&include_retired=${document.getElementById("showRetiredConcepts").checked}`
+      `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(trimmed)}&status=${document.getElementById("showRetiredConcepts").checked ? "retired" : "active"}`
     );
 
     if (requestId !== conceptSearchRequestId) return;
@@ -513,7 +520,7 @@ newConceptButton.addEventListener("click", () => {
 function defaultNewConceptParentId() {
   const selected = selectedConcept?.concept;
 
-  if (!selected) return "";
+  if (!selected || selected.lifecycle_status === "retired") return "";
 
   const selectedLevel = levelNumber(selected.level);
 
@@ -529,7 +536,7 @@ function newConceptParentOptions(selectedParentId = "") {
     `<option value="" ${selectedParentId ? "" : "selected"}>No parent - new top concept</option>`
   ];
 
-  for (const concept of hierarchyConcepts) {
+  for (const concept of activeHierarchyConcepts) {
     if (concept.lifecycle_status === "retired") continue;
     const level = levelNumber(concept.level);
 
@@ -705,6 +712,7 @@ function bindNewConceptForm() {
       );
 
       creatingConcept = false;
+      document.getElementById("showRetiredConcepts").checked = false;
       selectedDetailTab = "labels";
       document.querySelector(".detail-tabs").hidden = false;
 
@@ -2562,7 +2570,18 @@ document
 // Parent corrections, retirement and deletion share a compact management dialog.
 const managementDialog = document.getElementById("conceptManagementDialog");
 document.getElementById("showRetiredConcepts").addEventListener("change", async () => {
-  try { await loadHierarchyTree(); await loadConceptSearch(conceptSearch.value); }
+  try {
+    await loadHierarchyTree();
+    const selected = selectedConcept?.concept;
+    const retiredOnly = document.getElementById("showRetiredConcepts").checked;
+    if (selected && (selected.lifecycle_status === "retired") !== retiredOnly) {
+      selectedConcept = null;
+      document.getElementById("conceptDetail").hidden = true;
+      document.getElementById("conceptEmpty").hidden = false;
+      renderHierarchyTree();
+    }
+    await loadConceptSearch(conceptSearch.value);
+  }
   catch (error) { window.alert(error.message); }
 });
 document.getElementById("manageConceptButton").addEventListener("click", openConceptManagement);
@@ -2577,12 +2596,13 @@ function managementOptions(selected = "", forParent = false) {
   if (forParent) {
     const pending = [current.concept_id];
     while (pending.length) {
-      for (const child of hierarchyChildren.get(pending.pop()) || []) {
+      const parentId = pending.pop();
+      for (const child of activeHierarchyConcepts.filter(c => c.parent_id === parentId)) {
         if (!blocked.has(child.concept_id)) { blocked.add(child.concept_id); pending.push(child.concept_id); }
       }
     }
   }
-  return hierarchyConcepts.filter(c => c.lifecycle_status !== "retired" && !blocked.has(c.concept_id) &&
+  return activeHierarchyConcepts.filter(c => c.lifecycle_status !== "retired" && !blocked.has(c.concept_id) &&
     (!forParent || (levelNumber(c.level) >= 1 && levelNumber(c.level) < 4)))
     .map(c => `<option value="${escapeHtml(c.concept_id)}" ${c.concept_id === selected ? "selected" : ""}>${escapeHtml(conceptNavigationLabel(c))} (${escapeHtml(c.concept_id)})</option>`).join("");
 }
@@ -2602,7 +2622,6 @@ function openConceptManagement() {
     <form id="retireConceptForm" class="concept-management-section">
       <h3>Retire term</h3><label for="manageReplacement">Replacement (optional)</label>
       <select id="manageReplacement"><option value="">No replacement</option>${managementOptions()}</select>
-      <label for="retireConfirm">Enter ${escapeHtml(c.concept_id)} to confirm</label><input id="retireConfirm" autocomplete="off" required>
       <button type="submit" class="secondary-button">Retire term</button><span class="save-status" data-management-status></span>
     </form>` : ""}
     <form id="deleteConceptForm" class="concept-management-section">
@@ -2623,8 +2642,11 @@ function openConceptManagement() {
     const isMove = form.id === "changeParentForm";
     const isDelete = form.id === "deleteConceptForm";
     const confirmation = isDelete ? document.getElementById("deleteConfirm").value.trim()
-      : isMove ? null : document.getElementById("retireConfirm").value.trim();
-    if (!isMove && confirmation !== c.concept_id) { status.textContent = "Enter the exact concept ID."; return; }
+      : isMove ? null : c.concept_id;
+    if (isDelete && confirmation !== c.concept_id) { status.textContent = "Enter the exact concept ID."; return; }
+    if (!isMove && !isDelete && !window.confirm(
+      "This term will no longer appear in the active hierarchy or be available for new records. Do you want to proceed?"
+    )) return;
     const body = isMove ? {parent_id:parent.value || null}
       : isDelete ? {confirm_id:confirmation}
       : {confirm_id:confirmation,replacement_concept_id:document.getElementById("manageReplacement").value || null};
@@ -2638,6 +2660,7 @@ function openConceptManagement() {
         {method:isMove ? "PUT" : isDelete ? "DELETE" : "POST",body:JSON.stringify(body)});
       managementDialog.close();
       if (isDelete) { selectedConcept = null; document.getElementById("conceptDetail").hidden = true; document.getElementById("conceptEmpty").hidden = false; }
+      if (isMove) document.getElementById("showRetiredConcepts").checked = false;
       if (!isMove && !isDelete) document.getElementById("showRetiredConcepts").checked = true;
       await Promise.all([loadHierarchyTree(),loadVocabularySummary()]);
       conceptSearch.value = ""; conceptSearchResults.hidden = true; conceptSearchResultsData = [];

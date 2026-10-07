@@ -203,7 +203,7 @@ async function loadVocabularySummary() {
 
 async function loadHierarchyTree() {
   const data = await api(
-    "/api/vocabularies/site-types/concepts?q="
+    `/api/vocabularies/site-types/concepts?q=&include_retired=${document.getElementById("showRetiredConcepts").checked}`
   );
 
   hierarchyConcepts = data.concepts || [];
@@ -330,7 +330,7 @@ function renderTreeNode(concept, depth = 0, ancestry = new Set()) {
           data-tree-concept="${escapeHtml(concept.concept_id)}"
         >
           <span class="tree-label">${escapeHtml(conceptNavigationLabel(concept))}</span>
-          <span class="tree-id">${escapeHtml(concept.concept_id)}</span>
+          <span class="tree-id">${escapeHtml(concept.concept_id)}${concept.lifecycle_status === "retired" ? " · Retired" : ""}</span>
         </button>
       </div>
 
@@ -417,7 +417,7 @@ async function loadConceptSearch(query) {
 
   try {
     const data = await api(
-      `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(trimmed)}`
+      `/api/vocabularies/site-types/concepts?q=${encodeURIComponent(trimmed)}&include_retired=${document.getElementById("showRetiredConcepts").checked}`
     );
 
     if (requestId !== conceptSearchRequestId) return;
@@ -530,6 +530,7 @@ function newConceptParentOptions(selectedParentId = "") {
   ];
 
   for (const concept of hierarchyConcepts) {
+    if (concept.lifecycle_status === "retired") continue;
     const level = levelNumber(concept.level);
 
     if (!level || level >= MAX_HIERARCHY_LEVEL) continue;
@@ -740,7 +741,7 @@ async function loadConcept(conceptId, keepTab = false) {
   document.getElementById("conceptId").textContent =
     data.concept.concept_id;
   document.getElementById("conceptLevel").textContent =
-    data.concept.level || "";
+    (data.concept.level || "") + (data.concept.lifecycle_status === "retired" ? " · Retired" : "");
 
   const englishPreferred = data.labels.find(
     (row) =>
@@ -784,6 +785,22 @@ document.querySelectorAll(".detail-tab").forEach((button) => {
 });
 
 function renderDetail() {
+  renderDetailContent();
+  if (selectedConcept?.concept?.lifecycle_status === "retired") {
+    const container = document.getElementById("detailContent");
+    container.querySelectorAll("input, textarea, select, button").forEach(control => {
+      if (!control.matches("[data-open-concept], [data-copy-uri], [data-hierarchy-expand], [data-hierarchy-collapse]")) control.disabled = true;
+    });
+    const replacement = selectedConcept.concept.replaced_by_concept_id;
+    const banner = document.createElement("p");
+    banner.className = "retired-concept-banner";
+    banner.innerHTML = `Retired${replacement ? ` · Replaced by <button type="button" class="tree-text-action" data-retired-replacement="${escapeHtml(replacement)}">${escapeHtml(replacement)}</button>` : ""}`;
+    banner.querySelector("button")?.addEventListener("click", () => loadConcept(replacement));
+    container.prepend(banner);
+  }
+}
+
+function renderDetailContent() {
   const container = document.getElementById("detailContent");
   if (!selectedConcept) return;
 
@@ -2539,5 +2556,98 @@ document
     "click",
     publishSiteTypes
   );
+
+
+
+// Parent corrections, retirement and deletion share a compact management dialog.
+const managementDialog = document.getElementById("conceptManagementDialog");
+document.getElementById("showRetiredConcepts").addEventListener("change", async () => {
+  try { await loadHierarchyTree(); await loadConceptSearch(conceptSearch.value); }
+  catch (error) { window.alert(error.message); }
+});
+document.getElementById("manageConceptButton").addEventListener("click", openConceptManagement);
+document.getElementById("closeConceptManagement").addEventListener("click", () => managementDialog.close());
+managementDialog.addEventListener("click", event => { if (event.target === managementDialog && !managementDialog.dataset.saving) {
+  const box = managementDialog.getBoundingClientRect();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) managementDialog.close();
+}});
+function managementOptions(selected = "", forParent = false) {
+  const current = selectedConcept.concept;
+  const blocked = new Set([current.concept_id]);
+  if (forParent) {
+    const pending = [current.concept_id];
+    while (pending.length) {
+      for (const child of hierarchyChildren.get(pending.pop()) || []) {
+        if (!blocked.has(child.concept_id)) { blocked.add(child.concept_id); pending.push(child.concept_id); }
+      }
+    }
+  }
+  return hierarchyConcepts.filter(c => c.lifecycle_status !== "retired" && !blocked.has(c.concept_id) &&
+    (!forParent || (levelNumber(c.level) >= 1 && levelNumber(c.level) < 4)))
+    .map(c => `<option value="${escapeHtml(c.concept_id)}" ${c.concept_id === selected ? "selected" : ""}>${escapeHtml(conceptNavigationLabel(c))} (${escapeHtml(c.concept_id)})</option>`).join("");
+}
+function openConceptManagement() {
+  if (!selectedConcept) return;
+  const c = selectedConcept.concept;
+  const retired = c.lifecycle_status === "retired";
+  document.getElementById("conceptManagementTitle").textContent = `Manage ${c.concept_id}`;
+  const panel = document.getElementById("conceptManagementContent");
+  panel.innerHTML = `
+    ${!retired ? `<form id="changeParentForm" class="concept-management-section">
+      <h3>Change parent</h3><label for="manageParent">Parent</label>
+      <select id="manageParent"><option value="" ${!c.parent_id ? "selected" : ""}>No parent - top concept</option>${managementOptions(c.parent_id, true)}</select>
+      <p id="parentChangeOutcome" class="muted"></p>
+      <button type="submit">Save parent</button><span class="save-status" data-management-status></span>
+    </form>
+    <form id="retireConceptForm" class="concept-management-section">
+      <h3>Retire term</h3><label for="manageReplacement">Replacement (optional)</label>
+      <select id="manageReplacement"><option value="">No replacement</option>${managementOptions()}</select>
+      <label for="retireConfirm">Enter ${escapeHtml(c.concept_id)} to confirm</label><input id="retireConfirm" autocomplete="off" required>
+      <button type="submit" class="secondary-button">Retire term</button><span class="save-status" data-management-status></span>
+    </form>` : ""}
+    <form id="deleteConceptForm" class="concept-management-section">
+      <h3>Delete term</h3><p class="muted">Only unused terms without narrower concepts or other references can be deleted. The ID remains reserved.</p>
+      <label for="deleteConfirm">Enter ${escapeHtml(c.concept_id)} to confirm</label><input id="deleteConfirm" autocomplete="off" required>
+      <button type="submit" class="danger-button">Delete term</button><span class="save-status" data-management-status></span>
+    </form>`;
+  const parent = document.getElementById("manageParent");
+  if (parent) {
+    const update = () => { const number = predictedLevelForParent(parent.value);
+      document.getElementById("parentChangeOutcome").textContent = number === levelNumber(c.level)
+        ? `Keeps ${c.concept_id}.` : `Creates an L${number} ID and retires ${c.concept_id}.`; };
+    parent.addEventListener("change", update); update();
+  }
+  panel.querySelectorAll("form").forEach(form => form.addEventListener("submit", async event => {
+    event.preventDefault();
+    const status = form.querySelector("[data-management-status]");
+    const isMove = form.id === "changeParentForm";
+    const isDelete = form.id === "deleteConceptForm";
+    const confirmation = isDelete ? document.getElementById("deleteConfirm").value.trim()
+      : isMove ? null : document.getElementById("retireConfirm").value.trim();
+    if (!isMove && confirmation !== c.concept_id) { status.textContent = "Enter the exact concept ID."; return; }
+    const body = isMove ? {parent_id:parent.value || null}
+      : isDelete ? {confirm_id:confirmation}
+      : {confirm_id:confirmation,replacement_concept_id:document.getElementById("manageReplacement").value || null};
+    const buttons = [...panel.querySelectorAll("button")];
+    buttons.forEach(b => b.disabled = true);
+    document.getElementById("closeConceptManagement").disabled = true;
+    managementDialog.dataset.saving = "true";
+    status.textContent = isMove && predictedLevelForParent(parent.value) === levelNumber(c.level) ? "Saving..." : "Checking records and references...";
+    try {
+      const result = await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(c.concept_id)}${isMove ? "/parent" : isDelete ? "" : "/retire"}`,
+        {method:isMove ? "PUT" : isDelete ? "DELETE" : "POST",body:JSON.stringify(body)});
+      managementDialog.close();
+      if (isDelete) { selectedConcept = null; document.getElementById("conceptDetail").hidden = true; document.getElementById("conceptEmpty").hidden = false; }
+      if (!isMove && !isDelete) document.getElementById("showRetiredConcepts").checked = true;
+      await Promise.all([loadHierarchyTree(),loadVocabularySummary()]);
+      conceptSearch.value = ""; conceptSearchResults.hidden = true; conceptSearchResultsData = [];
+      if (!isDelete) await loadConcept(result.concept.concept_id, true);
+      if (result.replacement_concept_id) window.alert(`${result.retired_concept_id} retired. New ID: ${result.replacement_concept_id}.`);
+    } catch (error) { status.textContent = error.message; }
+    finally { buttons.forEach(b => b.disabled = false); document.getElementById("closeConceptManagement").disabled = false; delete managementDialog.dataset.saving; }
+  }));
+  managementDialog.showModal();
+}
+managementDialog.addEventListener("cancel", event => { if (managementDialog.dataset.saving) event.preventDefault(); });
 
 loadSession();

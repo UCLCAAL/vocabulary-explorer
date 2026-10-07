@@ -92,6 +92,8 @@
               ></div>
             </div>
 
+            <label class="retired-toggle"><input type="checkbox" id="showRetiredConcepts"> Show retired terms</label>
+
             <div class="tree-heading-row">
               <strong>Hierarchy</strong>
               <button
@@ -119,7 +121,8 @@
                   <h2 id="conceptTitle"></h2>
                   <div id="conceptId" class="concept-id"></div>
                 </div>
-                <span id="conceptLevel" class="badge"></span>
+                <div class="concept-management-actions"><span id="conceptLevel" class="badge"></span>
+                  <button type="button" id="manageConceptButton" class="secondary-button">Manage term</button></div>
               </div>
 
               <div class="detail-tabs">
@@ -213,6 +216,11 @@
     </section>
   </main>
 
+  <dialog id="conceptManagementDialog" class="concept-management-dialog" aria-labelledby="conceptManagementTitle">
+    <div class="concept-management-dialog-heading"><h2 id="conceptManagementTitle">Manage term</h2>
+      <button type="button" id="closeConceptManagement" class="secondary-button">Close</button></div>
+    <div id="conceptManagementContent"></div>
+  </dialog>
   <script src="js/review.js"></script>
   <script src="js/workbench.js"></script>
 </body>

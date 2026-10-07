@@ -49,7 +49,7 @@ except ImportError as e:
 
 try:
     from rdflib import Graph, Literal, Namespace, URIRef
-    from rdflib.namespace import RDF, SKOS
+    from rdflib.namespace import RDF, SKOS, OWL
 except ImportError as e:
     raise SystemExit("rdflib is not installed. Run: pip install rdflib") from e
 
@@ -363,15 +363,17 @@ def build_curated_graph(cur) -> Graph:
             level,
             en_label,
             is_active,
-            sort_order
+            sort_order,
+            lifecycle_status,
+            replaced_by_concept_id
         FROM public.concepts_curated
         WHERE sort_order IS NOT NULL
-          AND lower(
+          AND (lifecycle_status = 'retired' OR lower(
                 COALESCE(
                     NULLIF(btrim(is_active), ''),
                     'true'
                 )
-              ) NOT IN ('false', '0', 'no', 'inactive')
+              ) NOT IN ('false', '0', 'no', 'inactive'))
         ORDER BY sort_order, concept_id
         """
     )
@@ -385,6 +387,8 @@ def build_curated_graph(cur) -> Graph:
         en_label,
         active,
         sort_order,
+        lifecycle_status,
+        replaced_by_concept_id,
     ) in cur.fetchall():
         concepts[concept_id] = {
             "concept_id": concept_id,
@@ -392,6 +396,8 @@ def build_curated_graph(cur) -> Graph:
             "level": level,
             "en_label": en_label,
             "sort_order": sort_order,
+            "lifecycle_status": lifecycle_status,
+            "replaced_by_concept_id": replaced_by_concept_id,
         }
 
     included = set(concepts)
@@ -586,6 +592,13 @@ def build_curated_graph(cur) -> Graph:
                         Literal(value, lang=lang),
                     ))
 
+        if row.get("lifecycle_status") == "retired":
+            g.add((cu, OWL.deprecated, Literal(True)))
+            replacement = clean(row.get("replaced_by_concept_id"))
+            if replacement:
+                g.add((cu, DCTERMS.isReplacedBy, concept_uri(replacement)))
+            continue
+
         parent = clean(row.get("parent_id"))
 
         if parent and parent in included:
@@ -596,6 +609,26 @@ def build_curated_graph(cur) -> Graph:
         elif not parent:
             g.add((scheme_uri, SKOS.hasTopConcept, cu))
             g.add((cu, SKOS.topConceptOf, scheme_uri))
+
+    cur.execute("""
+        SELECT concept_id, deleted_snapshot FROM vocab_workbench.concept_id_registry
+        WHERE deleted_at IS NOT NULL ORDER BY concept_id
+    """)
+    for deleted_id, deleted in cur.fetchall():
+        deleted = deleted or {}
+        cu = concept_uri(deleted_id)
+        g.add((cu, RDF.type, SKOS.Concept))
+        g.add((cu, SKOS.inScheme, scheme_uri))
+        g.add((cu, SKOS.notation, Literal(deleted_id)))
+        g.add((cu, OWL.deprecated, Literal(True)))
+        g.add((cu, DCTERMS.description, Literal("Deleted from the active CAAL vocabulary.", lang="en")))
+        replacement = clean((deleted.get("concept") or {}).get("replaced_by_concept_id"))
+        if replacement:
+            g.add((cu, DCTERMS.isReplacedBy, concept_uri(replacement)))
+        for label in deleted.get("labels", []):
+            if clean(label.get("label")) and clean(label.get("lang")):
+                predicate = SKOS.prefLabel if clean(label.get("status")).lower() == "preferred" else SKOS.altLabel
+                g.add((cu, predicate, Literal(label["label"], lang=label["lang"])))
 
     emitted_references: set[int] = set()
 

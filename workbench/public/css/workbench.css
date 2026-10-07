@@ -1440,3 +1440,20 @@ button.coverage-chip:focus-visible { outline: 2px solid #305f4f; outline-offset:
 .review-records-details th, .review-records-details td { padding: 10px 8px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 .review-records-details tbody tr + tr > td { border-top: 1px solid #e3e6e1; }
 .review-possible-match { display: inline-block; color: #775323; font-size: 11px; white-space: nowrap; }
+
+
+/* Concept management */
+.concept-management-actions { display:flex; align-items:center; gap:.65rem; flex-wrap:wrap; }
+.retired-toggle { display:flex; align-items:center; gap:.4rem; margin:.7rem 0; font-size:.88rem; }
+.retired-toggle input { width:auto; margin:0; }
+.retired-concept-banner { border-left:3px solid #927039; padding:.6rem .8rem; background:#faf6ed; }
+.concept-management-dialog { width:min(560px, calc(100vw - 2rem)); max-height:85vh; overflow:auto; border:1px solid #ccd5ce; border-radius:5px; padding:1.2rem; }
+.concept-management-dialog::backdrop { background:rgba(0,0,0,.35); }
+.concept-management-dialog-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.concept-management-dialog-heading h2 { margin:0; font-size:1.15rem; }
+.concept-management-section { border-top:1px solid #d9dfda; margin-top:1rem; padding-top:.6rem; }
+.concept-management-section h3 { font-size:1rem; margin:.4rem 0 .6rem; }
+.concept-management-section label { display:block; margin:.65rem 0 .3rem; }
+.concept-management-section input, .concept-management-section select { width:100%; margin-bottom:.7rem; }
+.concept-management-section .save-status { display:block; margin-top:.55rem; }
+.concept-management-section .danger-button { background:#983c32; color:#fff; }

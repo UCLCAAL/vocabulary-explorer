@@ -8,7 +8,17 @@ const LANGS = ["en", "ru", "zh", "kk", "ky", "tg", "tk", "uz"];
 const VOCABULARY_CODE = "site-types";
 
 router.use(requireLevel9);
+router.use("/site-types", require("./siteTypeManagement"));
 router.use("/site-types", require("./siteTypeReview"));
+
+router.use("/site-types/concepts/:conceptId", async (req, res, next) => {
+  if (["GET", "HEAD", "OPTIONS"].includes(req.method)) return next();
+  try {
+    const result = await pool.query("SELECT lifecycle_status FROM public.concepts_curated WHERE concept_id=$1", [req.params.conceptId]);
+    if (result.rows[0]?.lifecycle_status === "retired") return res.status(409).json({ok:false,error:"Retired concepts are read-only. Open their replacement to edit it."});
+    return next();
+  } catch (error) { return res.status(503).json({ok:false,error:"Could not check concept status."}); }
+});
 
 function clean(value) {
   return String(value ?? "").trim();
@@ -231,6 +241,7 @@ router.get("/", async (req, res) => {
 
 router.get("/site-types/concepts", async (req, res) => {
   const q = clean(req.query.q);
+  const includeRetired = req.query.include_retired === "true";
 
   try {
     const result = await pool.query(
@@ -240,6 +251,8 @@ router.get("/site-types/concepts", async (req, res) => {
         c.level,
         c.parent_id,
         c.sort_order,
+        c.lifecycle_status,
+        c.replaced_by_concept_id,
         en.label AS label_en,
         ru.label AS label_ru,
         zh.label AS label_zh,
@@ -384,8 +397,8 @@ router.get("/site-types/concepts", async (req, res) => {
       ) best_match ON true
 
       WHERE c.sort_order IS NOT NULL
-        AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
-            NOT IN ('false', '0', 'no', 'inactive')
+        AND ((lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true'))
+            NOT IN ('false', '0', 'no', 'inactive')) OR ($2::boolean AND c.lifecycle_status='retired'))
         AND (
           $1 = ''
           OR best_match.match_rank IS NOT NULL
@@ -396,7 +409,7 @@ router.get("/site-types/concepts", async (req, res) => {
         c.sort_order,
         c.concept_id
       `,
-      [q]
+      [q, includeRetired]
     );
 
     return res.json({
@@ -531,7 +544,7 @@ router.post("/site-types/concepts", async (req, res) => {
         MAX(split_part(concept_id, '-', 3)::integer),
         0
       ) + 1 AS next_number
-      FROM public.concepts_curated
+      FROM vocab_workbench.concept_id_registry
       WHERE concept_id ~ ('^MT-' || $1::text || '-[0-9]+$')
       `,
       [levelNumber]
@@ -702,6 +715,9 @@ router.get("/site-types/concepts/:conceptId", async (req, res) => {
         en_label,
         id_key,
         is_active,
+        lifecycle_status,
+        replaced_by_concept_id,
+        retired_at,
         sort_order
       FROM public.concepts_curated
       WHERE concept_id = $1

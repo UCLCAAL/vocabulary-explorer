@@ -8,6 +8,7 @@ const LANGS = ["en", "ru", "zh", "kk", "ky", "tg", "tk", "uz"];
 const VOCABULARY_CODE = "site-types";
 
 router.use(requireLevel9);
+router.use("/site-types/alignments", require("./alignments"));
 router.use("/site-types", require("./siteTypeManagement"));
 router.use("/site-types", require("./siteTypeReview"));
 

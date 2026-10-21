@@ -86,6 +86,7 @@ async function loadSession() {
 }
 
 function showLogin() {
+  resetAlignments();
   reviewUserKey = null;
   reviewRequestId += 1;
   reviewUsageRequestId += 1;
@@ -108,6 +109,7 @@ async function showApp() {
     `${session?.user?.username || ""}${workspace ? ` (${workspace} admin)` : ""}`;
 
   initialiseReview();
+  resetAlignments();
 
   await Promise.all([
     loadVocabularySummary(),
@@ -2327,6 +2329,10 @@ function bindMainTabs() {
         await loadReview();
       }
 
+      if (tab === "alignments") {
+        await loadAlignmentsView();
+      }
+
       if (tab === "publishing") {
         await loadPublishingStatus();
       }
@@ -2392,6 +2398,10 @@ async function loadPublishingStatus() {
           <strong>${escapeHtml(current.scope_notes ?? "")}</strong>
         </div>
 
+        <div class="publish-metric">
+          <span>Accepted alignments</span>
+          <strong>${escapeHtml(current.accepted_alignments ?? "")}</strong>
+        </div>
         <div class="publish-metric">
           <span>Bibliography links</span>
           <strong>${escapeHtml(current.bibliography_links ?? "")}</strong>

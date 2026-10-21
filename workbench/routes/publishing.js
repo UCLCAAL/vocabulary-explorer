@@ -45,14 +45,8 @@ const SUMMARY_PATH =
     "site-types-curated-summary.json"
   );
 
-const ALIGNMENT_PATH =
-  process.env.SITE_TYPES_ALIGNMENT_PATH ||
-  path.join(
-    REPO_ROOT,
-    "data",
-    "alignments",
-    "caal-aat-site-types.ttl"
-  );
+const AAT_GRAPH_URI = process.env.AAT_REFERENCE_GRAPH_URI || "https://vocab.uclcaal.org/graph/aat-reference";
+const AAT_OUTPUT_PATH = path.join(REPO_ROOT, "data", "generated", "aat-accepted-reference.rdf");
 
 const BACKUP_DIR =
   process.env.SITE_TYPES_BACKUP_DIR ||
@@ -84,9 +78,9 @@ function truncateLog(value, max = 100000) {
   return text.slice(0, max) + "\n...[truncated]";
 }
 
-function graphStoreUrl() {
+function graphStoreUrl(graphUri = GRAPH_URI) {
   const url = new URL(FUSEKI_DATA_URL);
-  url.searchParams.set("graph", GRAPH_URI);
+  url.searchParams.set("graph", graphUri);
   return url.toString();
 }
 
@@ -131,13 +125,13 @@ async function restartDisplayServices() {
   ].filter(Boolean).join("\n");
 }
 
-async function backupCurrentGraph() {
+async function backupCurrentGraph(graphUri = GRAPH_URI, tag = "site-types") {
   await fs.mkdir(BACKUP_DIR, {
     recursive: true
   });
 
   const response = await fetch(
-    graphStoreUrl(),
+    graphStoreUrl(graphUri),
     {
       method: "GET",
       headers: {
@@ -146,7 +140,7 @@ async function backupCurrentGraph() {
     }
   );
 
-  if (!response.ok) {
+  if (!response.ok && !(response.status === 404 && graphUri === AAT_GRAPH_URI)) {
     const detail = await response.text();
 
     throw new Error(
@@ -155,17 +149,18 @@ async function backupCurrentGraph() {
     );
   }
 
-  const content = Buffer.from(
-    await response.arrayBuffer()
-  );
+  const content = response.status === 404
+    ? Buffer.from('<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>')
+    : Buffer.from(await response.arrayBuffer());
 
   const backupPath = path.join(
     BACKUP_DIR,
-    `site-types-before-${timestampForFile()}.rdf`
+    `${tag}-before-${timestampForFile()}.rdf`
   );
 
   await fs.writeFile(
     backupPath,
+    graphUri,
     content
   );
 
@@ -175,9 +170,9 @@ async function backupCurrentGraph() {
   };
 }
 
-async function putGraph(rdfBuffer) {
+async function putGraph(rdfBuffer, graphUri = GRAPH_URI) {
   const response = await fetch(
-    graphStoreUrl(),
+    graphStoreUrl(graphUri),
     {
       method: "PUT",
       headers: {
@@ -196,40 +191,16 @@ async function putGraph(rdfBuffer) {
     );
   }
 
-  return `Vocabulary graph PUT: ${response.status}`;
+  return `Graph ${graphUri} PUT: ${response.status}`;
 }
 
-async function postAlignments(ttlBuffer) {
-  const response = await fetch(
-    graphStoreUrl(),
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/turtle"
-      },
-      body: ttlBuffer
-    }
-  );
-
-  if (!response.ok) {
-    const detail = await response.text();
-
-    throw new Error(
-      `Fuseki alignment POST failed ` +
-      `(${response.status}): ${detail}`
-    );
-  }
-
-  return `Alignment graph POST: ${response.status}`;
-}
-
-async function restoreBackup(backup) {
+async function restoreBackup(backup, restart = true) {
   if (!backup?.content) {
     return "No backup available for rollback.";
   }
 
   const response = await fetch(
-    graphStoreUrl(),
+    graphStoreUrl(backup.graphUri),
     {
       method: "PUT",
       headers: {
@@ -251,7 +222,7 @@ async function restoreBackup(backup) {
   let restartLog = "";
 
   try {
-    restartLog = await restartDisplayServices();
+    restartLog = restart ? await restartDisplayServices() : "";
   } catch (error) {
     restartLog =
       `Rollback restored graph, but service restart failed: ` +
@@ -289,7 +260,8 @@ router.get("/site-types/status", async (req, res) => {
       `
       SELECT
         publication_run_id,
-        finished_at
+        finished_at,
+        started_at
       FROM vocab_workbench.publication_runs
       WHERE vocabulary_code = $1
         AND status = 'succeeded'
@@ -304,16 +276,19 @@ router.get("/site-types/status", async (req, res) => {
     let lastEditAt = null;
 
     if (latestSuccess.rows.length === 1) {
-      const since = latestSuccess.rows[0].finished_at;
+      const since = latestSuccess.rows[0].started_at;
 
       const changes = await pool.query(
         `
         SELECT
           count(*)::int AS change_count,
           max(changed_at) AS last_edit_at
-        FROM vocab_workbench.concept_revisions
-        WHERE vocabulary_code = $1
-          AND changed_at > $2
+        FROM (
+          SELECT changed_at FROM vocab_workbench.concept_revisions WHERE vocabulary_code=$1
+          UNION ALL
+          SELECT changed_at FROM vocab_workbench.site_type_alignment_events
+          WHERE action IN ('accept','deprecate','import')
+        ) changes WHERE changed_at > $2
         `,
         [VOCABULARY_CODE, since]
       );
@@ -414,7 +389,9 @@ router.get("/site-types/status", async (req, res) => {
                     'true'
                   )
                 ) NOT IN ('false', '0', 'no', 'inactive')
-        ) AS bibliography_links
+        ) AS bibliography_links,
+        (SELECT count(*)::int FROM vocab_workbench.site_type_alignments
+         WHERE vocabulary_code=$1 AND status='accepted') AS accepted_alignments
       `,
       [
         VOCABULARY_CODE,
@@ -459,10 +436,15 @@ router.post("/site-types/publish", async (req, res) => {
   let runId = null;
   let backup = null;
   let graphWasReplaced = false;
+  let referenceBackup = null;
+  let referenceWasReplaced = false;
 
   const publishLog = [];
 
   try {
+    if (GRAPH_URI === AAT_GRAPH_URI || path.resolve(OUTPUT_PATH) === path.resolve(AAT_OUTPUT_PATH)) {
+      throw new Error("The vocabulary and AAT reference graphs must use distinct graph URIs and output files.");
+    }
     const lockResult = await lockClient.query(
       `
       SELECT pg_try_advisory_lock(
@@ -513,11 +495,6 @@ router.post("/site-types/publish", async (req, res) => {
       "Site Types exporter"
     );
 
-    await ensureReadableFile(
-      ALIGNMENT_PATH,
-      "Site Types alignment file"
-    );
-
     await fs.mkdir(
       path.dirname(OUTPUT_PATH),
       { recursive: true }
@@ -532,7 +509,9 @@ router.post("/site-types/publish", async (req, res) => {
         "--output",
         OUTPUT_PATH,
         "--summary-json",
-        SUMMARY_PATH
+        SUMMARY_PATH,
+        "--alignment-reference-output",
+        AAT_OUTPUT_PATH
       ],
       {
         cwd: REPO_ROOT,
@@ -566,25 +545,19 @@ router.post("/site-types/publish", async (req, res) => {
       OUTPUT_PATH
     );
 
-    const alignments = await fs.readFile(
-      ALIGNMENT_PATH
-    );
+    const referenceRdf = await fs.readFile(AAT_OUTPUT_PATH);
 
     backup = await backupCurrentGraph();
+    referenceBackup = await backupCurrentGraph(AAT_GRAPH_URI, "aat-reference");
 
     publishLog.push(
       `Current graph backed up to ${backup.backupPath}`
     );
 
-    publishLog.push(
-      await putGraph(rdf)
-    );
-
     graphWasReplaced = true;
-
-    publishLog.push(
-      await postAlignments(alignments)
-    );
+    publishLog.push(await putGraph(rdf));
+    referenceWasReplaced = true;
+    publishLog.push(await putGraph(referenceRdf, AAT_GRAPH_URI));
 
     publishLog.push(
       await restartDisplayServices()
@@ -624,26 +597,24 @@ router.post("/site-types/publish", async (req, res) => {
       backup_file: backup.backupPath,
       message:
         "Site Types published successfully. " +
-        "Vocabulary RDF was replaced, alignments were restored, " +
+        "Vocabulary RDF and accepted alignments were published, " +
         "and display services were refreshed."
     });
   } catch (error) {
     let rollbackLog = "";
 
-    if (graphWasReplaced && backup) {
-      try {
-        rollbackLog = await restoreBackup(
-          backup
-        );
-
-        publishLog.push(rollbackLog);
-      } catch (rollbackError) {
-        rollbackLog =
-          `ROLLBACK FAILED: ${rollbackError.message}`;
-
-        publishLog.push(rollbackLog);
-      }
+    const rollbackMessages = [];
+    for (const [changed, saved] of [[referenceWasReplaced, referenceBackup], [graphWasReplaced, backup]]) {
+      if (!changed || !saved) continue;
+      try { rollbackMessages.push(await restoreBackup(saved, false)); }
+      catch (rollbackError) { rollbackMessages.push(`ROLLBACK FAILED for ${saved.graphUri}: ${rollbackError.message}`); }
     }
+    if (graphWasReplaced || referenceWasReplaced) {
+      try { rollbackMessages.push(await restartDisplayServices()); }
+      catch (restartError) { rollbackMessages.push(`Display refresh after rollback failed: ${restartError.message}`); }
+    }
+    rollbackLog = rollbackMessages.filter(Boolean).join("\n");
+    if (rollbackLog) publishLog.push(rollbackLog);
 
     if (runId) {
       try {

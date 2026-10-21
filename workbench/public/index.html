@@ -50,7 +50,7 @@
 
         <button class="tab" data-main-tab="review">Review</button>
 
-        <button class="tab" disabled>Alignments</button>
+        <button class="tab" data-main-tab="alignments">Alignments</button>
 
         <button
           class="tab"
@@ -178,6 +178,43 @@
         </div>
       </section>
 
+      <section id="alignmentsView" data-main-view="alignments" hidden>
+        <div class="card alignment-heading">
+          <div><div class="eyebrow">Site Types · Getty AAT</div><h2>Alignments</h2></div>
+          <button id="alignmentRefresh" type="button" class="secondary">Refresh decisions</button>
+        </div>
+        <div class="alignment-comparison">
+          <section class="card alignment-source-card" aria-labelledby="alignmentSourceTitle">
+            <h3 id="alignmentSourceTitle">CAAL concept</h3>
+            <label for="alignmentSource">Site type</label>
+            <select id="alignmentSource"><option value="">Choose a concept</option></select>
+            <div id="alignmentSourceDetail" class="alignment-source-detail"><p class="muted">Choose a CAAL concept to compare with AAT.</p></div>
+          </section>
+          <section class="card alignment-target-card" aria-labelledby="alignmentTargetTitle">
+            <h3 id="alignmentTargetTitle">Getty AAT</h3>
+            <form id="alignmentSearchForm" class="alignment-search-form">
+              <label for="alignmentSearch">Search terms or AAT ID</label>
+              <div class="alignment-search-input"><input id="alignmentSearch" type="search" maxlength="120" autocomplete="off" placeholder="e.g. caravanserai"><button id="alignmentSearchButton" type="submit">Search AAT</button></div>
+            </form>
+            <p id="alignmentSearchStatus" class="save-status" role="status"></p>
+            <div id="alignmentCandidates"></div>
+            <div id="alignmentTargetDetail"></div>
+          </section>
+        </div>
+        <section class="card alignment-decisions" aria-labelledby="alignmentDecisionsTitle">
+          <div class="alignment-section-heading"><h3 id="alignmentDecisionsTitle">Saved alignments</h3>
+            <div class="alignment-list-filters">
+              <label class="alignment-checkbox"><input id="alignmentAllTerms" type="checkbox"> All CAAL terms</label>
+              <label for="alignmentStatusFilter">Status<select id="alignmentStatusFilter"><option value="">All decisions</option><option value="proposed">Proposed</option><option value="accepted">Accepted</option><option value="rejected">Rejected</option><option value="deprecated">Withdrawn</option></select></label>
+            </div>
+          </div>
+          <div id="alignmentCounts" class="alignment-counts"></div>
+          <p id="alignmentListStatus" class="save-status" role="status"></p>
+          <div id="alignmentSaved"></div>
+          <div class="alignment-pagination"><button id="alignmentPrevious" class="secondary" type="button" disabled>Previous</button><span id="alignmentPage"></span><button id="alignmentNext" class="secondary" type="button" disabled>Next</button></div>
+        </section>
+      </section>
+
       <section
         id="publishingView"
         data-main-view="publishing"
@@ -190,7 +227,7 @@
           <p class="muted">
             Saving in the workbench updates the Postgres database immediately.
             Publishing regenerates the RDF, replaces the Site Types graph, 
-            restores the alignments/matches, and refreshes Skosmos.
+            includes accepted alignments, and refreshes Skosmos.
           </p>
 
           <div id="publishingStatus" class="publishing-status">
@@ -221,7 +258,18 @@
       <button type="button" id="closeConceptManagement" class="secondary-button">Close</button></div>
     <div id="conceptManagementContent"></div>
   </dialog>
+  <dialog id="alignmentDecisionDialog" class="alignment-decision-dialog" aria-labelledby="alignmentDecisionTitle">
+    <form id="alignmentDecisionForm">
+      <h2 id="alignmentDecisionTitle"></h2>
+      <div id="alignmentDecisionSummary"></div>
+      <label for="alignmentDecisionNote">Review note (optional)</label>
+      <textarea id="alignmentDecisionNote" rows="3" maxlength="4000"></textarea>
+      <p id="alignmentDecisionStatus" class="save-status" role="status"></p>
+      <div class="alignment-dialog-actions"><button id="alignmentDecisionCancel" type="button" class="secondary">Cancel</button><button id="alignmentDecisionConfirm" type="submit"></button></div>
+    </form>
+  </dialog>
   <script src="js/review.js"></script>
+  <script src="js/alignments.js"></script>
   <script src="js/workbench.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ Curated mode reads:
   public.concept_notes_curated
   public.vocabulary_bibliographic_resources
   public.concept_bibliographic_links
+  vocab_workbench.site_type_alignments (accepted mappings only)
 
 Published mappings:
   preferred label        -> skos:prefLabel
@@ -692,6 +693,46 @@ def build_curated_graph(cur) -> Graph:
                     URIRef(related_uri),
                 ))
 
+    # Decisions in PostgreSQL are authoritative. The old static mapping file
+    # is imported once by migration 005, and must not be posted after export.
+    cur.execute("""
+        SELECT source_concept_id, target_uri, relation, target_label,
+               target_label_language, candidate_snapshot
+        FROM vocab_workbench.site_type_alignments
+        WHERE vocabulary_code = %s AND status = 'accepted'
+        ORDER BY alignment_id
+    """, (VOCABULARY_CODE,))
+    reference = Graph()
+    reference.bind("skos", SKOS)
+    aat_scheme = URIRef("http://vocab.getty.edu/aat/")
+    reference.add((aat_scheme, RDF.type, SKOS.ConceptScheme))
+    reference.add((aat_scheme, DCTERMS.source, URIRef("https://vocab.getty.edu/")))
+    reference.add((aat_scheme, DCTERMS.license, URIRef("https://opendatacommons.org/licenses/by/1-0/")))
+    reference.add((aat_scheme, SKOS.prefLabel, Literal("Art & Architecture Thesaurus", lang="en")))
+    accepted_count = 0
+    allowed_relations = {"exactMatch", "closeMatch", "broadMatch", "narrowMatch", "relatedMatch"}
+    for source_id, target_uri, relation, target_label, target_language, snapshot in cur.fetchall():
+        if source_id not in included:
+            raise RuntimeError(f"Accepted alignment source {source_id} is missing from the export")
+        if relation not in allowed_relations:
+            raise RuntimeError(f"Unsupported alignment relation: {relation}")
+        # Restrict external URIs even if data was inserted outside the API.
+        import re
+        if not re.fullmatch(r"http://vocab[.]getty[.]edu/aat/[0-9]{9}", target_uri):
+            raise RuntimeError(f"Invalid AAT target URI: {target_uri}")
+        target = URIRef(target_uri)
+        g.add((concept_uri(source_id), SKOS[relation], target))
+        accepted_count += 1
+        reference.add((target, RDF.type, SKOS.Concept))
+        reference.add((target, SKOS.inScheme, aat_scheme))
+        reference.add((target, SKOS.prefLabel, Literal(target_label, lang=clean(target_language) or None)))
+        for definition in (snapshot or {}).get("definitions", []):
+            value = clean(definition.get("text"))
+            if value:
+                reference.add((target, SKOS.scopeNote, Literal(value, lang=clean(definition.get("language")) or None)))
+    g._caal_accepted_alignment_count = accepted_count
+    g._caal_aat_reference_graph = reference
+
     # Used only in graph_summary() output.
     g._caal_skipped_unassigned_alt_labels = (
         skipped_unassigned_alt_labels
@@ -732,6 +773,7 @@ def graph_summary(g: Graph) -> dict[str, Any]:
 
     return {
         "triples": len(g),
+        "accepted_alignments": int(getattr(g, "_caal_accepted_alignment_count", 0)),
         "concepts": len(concepts),
         "schemes": len(schemes),
         "pref_labels": sum(pref_langs.values()),
@@ -892,6 +934,7 @@ def main() -> int:
         help="Used only by baseline mode",
     )
 
+    ap.add_argument("--alignment-reference-output", default="", help="Write the accepted AAT target descriptions as RDF/XML")
     ap.add_argument("--output", required=True)
     ap.add_argument("--compare")
     ap.add_argument("--summary-json")
@@ -918,6 +961,7 @@ def main() -> int:
 
     with psycopg.connect(dsn) as conn:
         with conn.cursor() as cur:
+            cur.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY")
             if args.mode == "baseline":
                 staged_rows = get_staged_rows(
                     cur,
@@ -945,6 +989,14 @@ def main() -> int:
         destination=str(output),
         format="pretty-xml",
     )
+
+    if args.alignment_reference_output:
+        reference = getattr(graph, "_caal_aat_reference_graph", None)
+        if reference is None:
+            raise SystemExit("AAT reference export requires curated mode")
+        reference_path = Path(args.alignment_reference_output).resolve()
+        reference_path.parent.mkdir(parents=True, exist_ok=True)
+        reference.serialize(destination=str(reference_path), format="pretty-xml")
 
     summary = graph_summary(graph)
 

@@ -6,7 +6,7 @@ const ALIGNMENT_RELATIONS = [
   ["narrowMatch","AAT term is narrower","The AAT term has a narrower scope than the CAAL term."],
   ["relatedMatch","Related terms","CAAL and AAT terms are related without an equivalence or broader/narrower assertion."]
 ];
-const alignmentState={source:null,target:null,rows:[],sourceRequest:0,targetRequest:0,searchRequest:0,listRequest:0,offset:0,total:0,limit:30,dirty:false,decision:null,user:null};
+const alignmentState={source:null,target:null,rows:[],liveRows:[],candidates:[],coverage:[],coverageReady:false,coverageRequest:0,sourceRequest:0,targetRequest:0,searchRequest:0,listRequest:0,offset:0,total:0,limit:30,dirty:false,decision:null,user:null};
 const alignmentEl=id=>document.getElementById(id);
 const alignmentEscape=value=>escapeHtml(value);
 function alignmentRelation(value){return ALIGNMENT_RELATIONS.find(row=>row[0]===value)?.[1]||value;}
@@ -16,12 +16,13 @@ function alignmentGettyLink(uri,label){
   return id?`<a href="https://vocab.getty.edu/aat/${id}" target="_blank" rel="noopener">${alignmentEscape(label||id)}</a>`:alignmentEscape(label||uri);
 }
 function resetAlignments(){
-  alignmentState.sourceRequest++;alignmentState.targetRequest++;alignmentState.searchRequest++;alignmentState.listRequest++;
-  Object.assign(alignmentState,{source:null,target:null,rows:[],offset:0,total:0,dirty:false,decision:null,user:null});
+  alignmentState.sourceRequest++;alignmentState.targetRequest++;alignmentState.searchRequest++;alignmentState.listRequest++;alignmentState.coverageRequest++;
+  Object.assign(alignmentState,{source:null,target:null,rows:[],liveRows:[],candidates:[],coverage:[],coverageReady:false,offset:0,total:0,dirty:false,decision:null,user:null});
   alignmentEl("alignmentDecisionDialog").close();
   alignmentEl("alignmentSource").innerHTML='<option value="">Choose a concept</option>';
   alignmentEl("alignmentSourceDetail").innerHTML='<p class="muted">Choose a CAAL concept to compare with AAT.</p>';
-  for(const id of ["alignmentCandidates","alignmentTargetDetail","alignmentSaved","alignmentCounts"]) alignmentEl(id).innerHTML="";
+  for(const id of ["alignmentCandidates","alignmentTargetDetail","alignmentSaved","alignmentCounts","alignmentSourceMappings","alignmentCoverageCounts"]) alignmentEl(id).innerHTML="";
+  alignmentEl("alignmentCoverageFilter").value="";alignmentEl("alignmentCoverageStatus").textContent="";alignmentEl("alignmentCandidateSort").value="suggested";
   for(const id of ["alignmentSearch","alignmentSearchStatus","alignmentListStatus","alignmentPage"]) {
     if(id==="alignmentSearch") alignmentEl(id).value="";else alignmentEl(id).textContent="";
   }
@@ -38,20 +39,45 @@ function allowAlignmentNavigation(){
   return true;
 }
 async function loadAlignmentsView(){
+  await loadAlignmentCoverage();
   const select=alignmentEl("alignmentSource");
   const old=select.value;
   const concepts=activeHierarchyConcepts;
   select.innerHTML='<option value="">Choose a concept</option>'+concepts.map(c=>`<option value="${alignmentEscape(c.concept_id)}">${alignmentEscape(conceptNavigationLabel(c))} (${alignmentEscape(c.concept_id)})</option>`).join("");
-  const selected=old || (selectedConcept?.concept?.lifecycle_status!=="retired"?selectedConcept?.concept?.concept_id:"");
+  const selected=workspaceSelectedId || old || (selectedConcept?.concept?.lifecycle_status!=="retired"?selectedConcept?.concept?.concept_id:"");
   if(concepts.some(c=>c.concept_id===selected))select.value=selected;
   if(!select.value)alignmentEl("alignmentAllTerms").checked=true;
   if(select.value && alignmentState.source?.concept?.concept_id!==select.value) await selectAlignmentSource(select.value);
   else await loadSavedAlignments();
 }
-async function selectAlignmentSource(id){
+async function loadAlignmentCoverage(){
+  const request=++alignmentState.coverageRequest;
+  alignmentEl("alignmentCoverageStatus").textContent="Loading mapping coverage...";
+  try{
+    const data=await api(`${ALIGNMENT_API}/coverage`);if(request!==alignmentState.coverageRequest)return;
+    alignmentState.coverage=data.rows;alignmentState.coverageReady=true;
+    alignmentEl("alignmentCoverageStatus").textContent="";
+    alignmentEl("alignmentCoverageCounts").innerHTML=[["","All concepts",data.counts.total],["unmapped","No mapping",data.counts.unmapped],["awaiting","Awaiting approval",data.counts.awaiting],["mapped","Mapped",data.counts.mapped]].map(([key,label,count])=>`<button type="button" data-coverage-filter="${key}" class="${alignmentEl('alignmentCoverageFilter').value===key?'active':''}">${label} <strong>${count}</strong></button>`).join("");
+    alignmentEl("alignmentCoverageCounts").querySelectorAll("[data-coverage-filter]").forEach(b=>b.addEventListener("click",()=>{alignmentEl("alignmentCoverageFilter").value=b.dataset.coverageFilter;applyAlignmentCoverageFilter();}));
+    renderHierarchyTree();
+  }catch(error){if(request!==alignmentState.coverageRequest)return;alignmentState.coverageReady=false;alignmentState.coverage=[];alignmentEl("alignmentCoverageCounts").innerHTML="";alignmentEl("alignmentCoverageStatus").textContent=error.message;renderHierarchyTree();}
+}
+function applyAlignmentCoverageFilter(){
+  const filter=alignmentEl("alignmentCoverageFilter").value;
+  alignmentEl("alignmentCoverageCounts").querySelectorAll("[data-coverage-filter]").forEach(b=>b.classList.toggle("active",b.dataset.coverageFilter===filter));
+  if(filter){for(const r of alignmentState.coverage.filter(r=>r.state===filter))expandPathToConcept(r.concept_id);}
+  renderHierarchyTree();
+}
+function renderSourceLiveMappings(){
+  alignmentState.liveRows.sort((a,b)=>ALIGNMENT_RELATIONS.findIndex(r=>r[0]===a.relation)-ALIGNMENT_RELATIONS.findIndex(r=>r[0]===b.relation)||Number(b.status==='accepted')-Number(a.status==='accepted')||Number(a.alignment_id)-Number(b.alignment_id));
+  alignmentEl("alignmentSourceMappings").innerHTML=alignmentState.liveRows.length?`<div class="alignment-saved-indicator">Saved mappings</div>${alignmentState.liveRows.map(r=>`<button type="button" class="secondary" data-live-alignment="${r.alignment_id}">${alignmentEscape(alignmentRelation(r.relation))} · ${alignmentEscape(r.target_label)} <span class="muted">(${alignmentStatus(r.status)})</span></button>`).join("")}`:"";
+  alignmentEl("alignmentSourceMappings").querySelectorAll("[data-live-alignment]").forEach(b=>b.addEventListener("click",()=>{const r=alignmentState.liveRows.find(r=>String(r.alignment_id)===b.dataset.liveAlignment);if(r)compareAlignmentCandidate(r.target_uri.split('/').pop(),r.search_text,r);}));
+}
+async function selectAlignmentSource(id,restore=true){
   const request=++alignmentState.sourceRequest;
   alignmentState.targetRequest++;alignmentState.searchRequest++;
-  alignmentState.source=null;alignmentState.target=null;alignmentState.dirty=false;alignmentState.offset=0;
+  alignmentState.source=null;alignmentState.target=null;alignmentState.liveRows=[];alignmentState.candidates=[];alignmentState.dirty=false;alignmentState.offset=0;
+  renderSourceLiveMappings();workspaceMarkConcept(id);
   alignmentState.listRequest++;
   alignmentEl("alignmentAllTerms").checked=!id;
   alignmentEl("alignmentSaved").innerHTML="";
@@ -61,9 +87,10 @@ async function selectAlignmentSource(id){
   alignmentEl("alignmentSearch").value="";
   if(!id){await loadSavedAlignments();return;}
   try{
-    const source=await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(id)}`);
+    const [source,live]=await Promise.all([api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(id)}`),api(`${ALIGNMENT_API}/source/${encodeURIComponent(id)}`)]);
     if(request!==alignmentState.sourceRequest)return;
     alignmentState.source=source;
+    alignmentState.liveRows=live.rows;renderSourceLiveMappings();
     const preferred=source.labels.filter(row=>String(row.status).toLowerCase()==="preferred");
     const english=preferred.find(row=>row.lang==="en")?.label||source.concept.en_label||id;
     alignmentEl("alignmentSearch").value=english;
@@ -74,6 +101,7 @@ async function selectAlignmentSource(id){
       <h5>Definitions</h5>${source.definitions.length?source.definitions.map(d=>`<div class="alignment-definition"><span class="muted">${alignmentEscape(d.lang)}</span><p>${alignmentEscape(d.note)}</p></div>`).join(""):'<p class="muted">No definitions recorded.</p>'}
       ${source.scope_notes?.length?`<details><summary>Scope notes</summary>${source.scope_notes.map(n=>`<p><strong>${alignmentEscape(n.lang)}</strong> ${alignmentEscape(n.note)}</p>`).join("")}</details>`:""}`;
     await loadSavedAlignments();
+    if(restore&&request===alignmentState.sourceRequest&&alignmentState.liveRows.length){const row=alignmentState.liveRows[0];await compareAlignmentCandidate(row.target_uri.split('/').pop(),row.search_text,row);}
   }catch(error){if(request===alignmentState.sourceRequest)alignmentEl("alignmentSourceDetail").textContent=error.message;}
 }
 async function searchAlignmentCandidates(event){
@@ -82,7 +110,7 @@ async function searchAlignmentCandidates(event){
   const text=alignmentEl("alignmentSearch").value.trim();
   if(!text){alignmentEl("alignmentSearchStatus").textContent="Enter a term or AAT ID.";return;}
   const request=++alignmentState.searchRequest;
-  alignmentState.targetRequest++;alignmentState.target=null;
+  alignmentState.targetRequest++;alignmentState.target=null;alignmentState.candidates=[];
   alignmentEl("alignmentTargetDetail").innerHTML="";alignmentEl("alignmentCandidates").innerHTML="";
   const status=alignmentEl("alignmentSearchStatus");status.textContent="Searching Getty AAT...";
   alignmentEl("alignmentSearchButton").disabled=true;
@@ -90,21 +118,44 @@ async function searchAlignmentCandidates(event){
     const data=await api(`${ALIGNMENT_API}/aat/search?${new URLSearchParams({q:text})}`);
     if(request!==alignmentState.searchRequest)return;
     status.textContent=data.results.length?(data.has_more?"Showing 20 candidates. Refine the search for more specific results.":`${data.results.length} candidate${data.results.length===1?"":"s"}.`):"No AAT candidates found. Try another term or an AAT ID.";
-    alignmentEl("alignmentCandidates").innerHTML=data.results.length?`<ul class="alignment-candidates">${data.results.map(c=>`<li><div><strong>${alignmentEscape(c.label)}</strong><span class="muted"> ${alignmentEscape(c.id)}</span>${c.parent_string?`<p>${alignmentEscape(c.parent_string)}</p>`:""}</div><button type="button" class="secondary" data-alignment-compare="${alignmentEscape(c.id)}">Compare</button></li>`).join("")}</ul>`:"";
-    alignmentEl("alignmentCandidates").querySelectorAll("[data-alignment-compare]").forEach(b=>b.addEventListener("click",()=>compareAlignmentCandidate(b.dataset.alignmentCompare,text)));
+    alignmentState.candidates=data.results;alignmentState.candidateSearch=text;renderAlignmentCandidates();
   }catch(error){if(request===alignmentState.searchRequest)status.textContent=error.message;}
   finally{if(request===alignmentState.searchRequest)alignmentEl("alignmentSearchButton").disabled=false;}
 }
-async function compareAlignmentCandidate(id,searchText=""){
+function alignmentLabelKey(value){return String(value||"").normalize("NFKC").toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu," ").trim();}
+function alignmentCandidateRank(candidate){
+  const label=alignmentLabelKey(candidate.label),source=alignmentLabelKey(alignmentState.source?.concept?.en_label),query=alignmentLabelKey(alignmentState.candidateSearch);
+  if(label && [source,query].includes(label))return 0;
+  if([source,query].some(q=>q&&(label.startsWith(q)||q.startsWith(label))))return 1;
+  return 2;
+}
+function renderAlignmentCandidates(){
+  const alphabetical=alignmentEl("alignmentCandidateSort").value==="alphabetical";
+  const results=[...alignmentState.candidates].sort((a,b)=>(alphabetical?0:alignmentCandidateRank(a)-alignmentCandidateRank(b))||a.label.localeCompare(b.label)||a.id.localeCompare(b.id));
+  alignmentEl("alignmentCandidates").innerHTML=results.length?`<p class="muted alignment-candidate-hint">Suggestions use label similarity; compare the definitions before choosing a relationship.</p><ul class="alignment-candidates">${results.map(c=>`<li><div><strong>${alignmentEscape(c.label)}</strong><span class="muted"> ${alignmentEscape(c.id)}</span>${alignmentCandidateRank(c)<2?`<span class="alignment-candidate-hint">${alignmentCandidateRank(c)===0?'Same label':'Similar label'}</span>`:""}${c.parent_string?`<p>${alignmentEscape(c.parent_string)}</p>`:""}</div><button type="button" class="secondary" data-alignment-compare="${alignmentEscape(c.id)}">Compare</button></li>`).join("")}</ul>`:"";
+  alignmentEl("alignmentCandidates").querySelectorAll("[data-alignment-compare]").forEach(b=>b.addEventListener("click",()=>compareAlignmentCandidate(b.dataset.alignmentCompare,alignmentState.candidateSearch)));
+}
+function showSavedAlignmentInForm(saved){
+  if(!alignmentEl("alignmentRelation"))return;
+  if(saved){alignmentEl("alignmentRelation").value=saved.relation;alignmentEl("alignmentEvidence").value=saved.evidence||"";alignmentEl("alignmentRelationHelp").textContent=ALIGNMENT_RELATIONS.find(r=>r[0]===saved.relation)?.[2]||"";}
+  for(const id of ["alignmentRelation","alignmentEvidence","alignmentProposeButton"])alignmentEl(id).disabled=!!saved;
+  alignmentEl("alignmentProposeButton").textContent=saved?`${alignmentStatus(saved.status)} mapping`:"Save proposal";
+  alignmentEl("alignmentProposalStatus").textContent=saved?`${alignmentStatus(saved.status)} · ${alignmentRelation(saved.relation)} saved.`:"";
+  alignmentState.dirty=false;
+}
+async function compareAlignmentCandidate(id,searchText="",saved=null){
   if(!allowAlignmentNavigation())return;
   const request=++alignmentState.targetRequest;
   alignmentState.target=null;
   const panel=alignmentEl("alignmentTargetDetail");panel.textContent="Loading AAT concept...";
   try{
-    const data=await api(`${ALIGNMENT_API}/aat/${encodeURIComponent(id)}`);
+    saved=saved||alignmentState.liveRows.find(r=>r.target_uri.split('/').pop()===id)||null;
+    const snapshot=saved?.candidate_snapshot;
+    const data=snapshot?.uri&&snapshot.label&&Array.isArray(snapshot.labels)&&Array.isArray(snapshot.definitions)?{candidate:snapshot}:await api(`${ALIGNMENT_API}/aat/${encodeURIComponent(id)}`);
     if(request!==alignmentState.targetRequest)return;
     const c=data.candidate;alignmentState.target=c;
     panel.innerHTML=`<section class="alignment-selected-target"><div class="alignment-section-heading"><h4>${alignmentEscape(c.label)}</h4>${alignmentGettyLink(c.uri,"Open in Getty")}</div>
+      ${data.candidate===snapshot?`<p class="muted alignment-saved-indicator">Saved AAT comparison${c.fetched_at?` · ${alignmentEscape(formatDate(c.fetched_at))}`:""}</p>`:""}
       <p class="muted alignment-id">AAT ${alignmentEscape(c.id)}</p>${c.deprecated?'<p class="error">Getty marks this concept as deprecated.</p>':""}
       ${c.parent_string?`<p class="alignment-parent">${alignmentEscape(c.parent_string)}</p>`:""}
       <h5>Definition / scope note</h5>${c.definitions.length?c.definitions.map(d=>`<div class="alignment-definition"><span class="muted">${alignmentEscape(d.language||"Unspecified language")}</span><p>${alignmentEscape(d.text)}</p></div>`).join(""):'<p class="muted">No scope note returned by Getty.</p>'}
@@ -117,6 +168,7 @@ async function compareAlignmentCandidate(id,searchText=""){
       </form>`:!alignmentState.source?'<p class="muted">Choose a CAAL concept before proposing an alignment.</p>':""}
     </section>`;
     const relation=alignmentEl("alignmentRelation");
+    if(relation)showSavedAlignmentInForm(saved);
     relation?.addEventListener("change",()=>{alignmentEl("alignmentRelationHelp").textContent=ALIGNMENT_RELATIONS.find(row=>row[0]===relation.value)?.[2]||"";alignmentState.dirty=!!relation.value||!!alignmentEl("alignmentEvidence").value;});
     alignmentEl("alignmentEvidence")?.addEventListener("input",()=>{alignmentState.dirty=!!relation.value||!!alignmentEl("alignmentEvidence").value;});
     alignmentEl("alignmentProposalForm")?.addEventListener("submit",async event=>{
@@ -126,14 +178,14 @@ async function compareAlignmentCandidate(id,searchText=""){
       if(!sourceId||!relation.value)return;
       button.disabled=true;status.textContent="Saving proposal...";
       try{
-        await api(ALIGNMENT_API,{method:"POST",body:JSON.stringify({source_concept_id:sourceId,target_uri:c.uri,relation:relation.value,evidence:alignmentEl("alignmentEvidence").value,search_text:searchText})});
+        const result=await api(ALIGNMENT_API,{method:"POST",body:JSON.stringify({source_concept_id:sourceId,target_uri:c.uri,relation:relation.value,evidence:alignmentEl("alignmentEvidence").value,search_text:searchText})});
         if(request!==alignmentState.targetRequest)return;
-        alignmentState.dirty=false;status.textContent="Proposal saved for review.";
-        alignmentEl("alignmentEvidence").value="";relation.value="";alignmentEl("alignmentRelationHelp").textContent="";
+        alignmentState.liveRows.push(result.alignment);renderSourceLiveMappings();showSavedAlignmentInForm(result.alignment);
         alignmentState.offset=0;alignmentEl("alignmentStatusFilter").value="";
         await loadSavedAlignments();
+        await loadAlignmentCoverage();
       }catch(error){if(request===alignmentState.targetRequest)status.textContent=error.message;}
-      finally{button.disabled=false;}
+      finally{button.disabled=alignmentState.liveRows.some(r=>r.target_uri===c.uri);}
     });
   }catch(error){if(request===alignmentState.targetRequest)panel.textContent=error.message;}
 }
@@ -171,7 +223,7 @@ async function loadSavedAlignments(){
       const row=alignmentState.rows.find(a=>String(a.alignment_id)===b.dataset.alignmentInspect);
       if(!row)return;
       alignmentEl("alignmentSource").value=row.source_concept_id;
-      if(alignmentEl("alignmentSource").value){await selectAlignmentSource(row.source_concept_id);await compareAlignmentCandidate(row.target_uri.split('/').pop(),row.search_text);}
+      if(alignmentEl("alignmentSource").value){await selectAlignmentSource(row.source_concept_id,false);await compareAlignmentCandidate(row.target_uri.split('/').pop(),row.search_text);}
       else {alignmentEl("alignmentListStatus").textContent="This CAAL concept is retired. Its saved evidence remains in History.";}
     }));
     alignmentEl("alignmentSaved").querySelectorAll("[data-alignment-history]").forEach(b=>b.addEventListener("click",async()=>{
@@ -192,6 +244,17 @@ function openAlignmentDecision(id,action){
   alignmentEl("alignmentDecisionNote").value="";alignmentEl("alignmentDecisionStatus").textContent="";alignmentEl("alignmentDecisionConfirm").textContent=word;
   alignmentEl("alignmentDecisionDialog").showModal();
 }
+async function refreshAlignmentDecisions(){
+  await Promise.all([loadSavedAlignments(),loadAlignmentCoverage()]);
+  const id=alignmentState.source?.concept?.concept_id,request=alignmentState.sourceRequest;
+  if(!id)return;
+  try{
+    const data=await api(`${ALIGNMENT_API}/source/${encodeURIComponent(id)}`);
+    if(request!==alignmentState.sourceRequest)return;
+    alignmentState.liveRows=data.rows;renderSourceLiveMappings();
+    if(!alignmentState.dirty&&alignmentState.target)showSavedAlignmentInForm(data.rows.find(r=>r.target_uri===alignmentState.target.uri)||null);
+  }catch(error){if(request===alignmentState.sourceRequest)alignmentEl("alignmentListStatus").textContent=error.message;}
+}
 alignmentEl("alignmentDecisionForm").addEventListener("submit",async event=>{
   event.preventDefault();const decision=alignmentState.decision;if(!decision)return;
   const dialog=alignmentEl("alignmentDecisionDialog");dialog.dataset.saving="true";
@@ -199,7 +262,7 @@ alignmentEl("alignmentDecisionForm").addEventListener("submit",async event=>{
   alignmentEl("alignmentDecisionStatus").textContent="Saving decision...";
   try{
     await api(`${ALIGNMENT_API}/${decision.row.alignment_id}/decision`,{method:"POST",body:JSON.stringify({action:decision.action,version:decision.row.version,note:alignmentEl("alignmentDecisionNote").value})});
-    dialog.close();alignmentState.decision=null;await loadSavedAlignments();
+    dialog.close();alignmentState.decision=null;await refreshAlignmentDecisions();
   }catch(error){alignmentEl("alignmentDecisionStatus").textContent=error.message;}
   finally{delete dialog.dataset.saving;alignmentEl("alignmentDecisionConfirm").disabled=false;alignmentEl("alignmentDecisionCancel").disabled=false;}
 });
@@ -211,7 +274,9 @@ alignmentEl("alignmentSource").addEventListener("change",event=>{
   selectAlignmentSource(event.target.value);
 });
 for(const id of ["alignmentAllTerms","alignmentStatusFilter"])alignmentEl(id).addEventListener("change",()=>{alignmentState.offset=0;loadSavedAlignments();});
-alignmentEl("alignmentRefresh").addEventListener("click",()=>loadSavedAlignments());
+alignmentEl("alignmentRefresh").addEventListener("click",refreshAlignmentDecisions);
+alignmentEl("alignmentCoverageFilter").addEventListener("change",applyAlignmentCoverageFilter);
+alignmentEl("alignmentCandidateSort").addEventListener("change",renderAlignmentCandidates);
 alignmentEl("alignmentPrevious").addEventListener("click",()=>{alignmentState.offset=Math.max(0,alignmentState.offset-alignmentState.limit);loadSavedAlignments();});
 alignmentEl("alignmentNext").addEventListener("click",()=>{alignmentState.offset+=alignmentState.limit;loadSavedAlignments();});
 document.querySelectorAll("[data-main-tab]").forEach(button=>button.addEventListener("click",event=>{if(button.dataset.mainTab!=="alignments"&&!allowAlignmentNavigation()){event.preventDefault();event.stopImmediatePropagation();}},{capture:true}));

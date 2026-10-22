@@ -17,6 +17,8 @@ const LANGUAGES = [
 
 let session = null;
 let selectedConcept = null;
+let conceptDetailRequestId=0;
+let workspaceTabRequest=0;
 let selectedDetailTab = "overview";
 let currentVocabulary = null;
 let labelFlashMessage = null;
@@ -86,6 +88,11 @@ async function loadSession() {
 }
 
 function showLogin() {
+  workspaceSelectedId="";reviewCoverage.clear();selectedConcept=null;
+  conceptDetailRequestId++;workspaceTabRequest++;
+  document.querySelectorAll('[data-main-tab]').forEach(b=>b.classList.toggle('active',b.dataset.mainTab==='vocabularies'));
+  document.querySelectorAll('[data-main-view]').forEach(v=>{v.hidden=v.dataset.mainView!=='vocabularies';});
+  setWorkspaceTab('vocabularies');
   resetAlignments();
   reviewUserKey = null;
   reviewRequestId += 1;
@@ -110,6 +117,7 @@ async function showApp() {
 
   initialiseReview();
   resetAlignments();
+  workspaceSelectedId="";reviewCoverage.clear();
 
   await Promise.all([
     loadVocabularySummary(),
@@ -310,11 +318,13 @@ function renderTreeNode(concept, depth = 0, ancestry = new Set()) {
   const nextAncestry = new Set(ancestry);
   nextAncestry.add(concept.concept_id);
 
-  const children = hierarchyChildren.get(concept.concept_id) || [];
+  const visible=workspaceTreeFilterIds();
+  if(visible&&!visible.has(concept.concept_id))return "";
+  const children = (hierarchyChildren.get(concept.concept_id) || []).filter(c=>!visible||visible.has(c.concept_id));
   const hasChildren = children.length > 0;
   const expanded = hasChildren && expandedTreeIds.has(concept.concept_id);
   const active =
-    selectedConcept?.concept?.concept_id === concept.concept_id &&
+    (workspaceSelectedId||selectedConcept?.concept?.concept_id) === concept.concept_id &&
     !creatingConcept;
 
   return `
@@ -340,6 +350,7 @@ function renderTreeNode(concept, depth = 0, ancestry = new Set()) {
         >
           <span class="tree-label">${escapeHtml(conceptNavigationLabel(concept))}</span>
           <span class="tree-id">${escapeHtml(concept.concept_id)}${concept.lifecycle_status === "retired" ? " · Retired" : ""}</span>
+          ${workspaceConceptBadge(concept.concept_id)}
         </button>
       </div>
 
@@ -366,6 +377,7 @@ function renderHierarchyTree() {
   conceptTree.innerHTML = hierarchyRoots()
     .map((concept) => renderTreeNode(concept))
     .join("");
+  if(!conceptTree.innerHTML.trim())conceptTree.innerHTML='<p class="tree-empty">No concepts match this mapping status.</p>';
 
   conceptTree.querySelectorAll("[data-tree-toggle]").forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -384,7 +396,7 @@ function renderHierarchyTree() {
 
   conceptTree.querySelectorAll("[data-tree-concept]").forEach((button) => {
     button.addEventListener("click", () => {
-      loadConcept(button.dataset.treeConcept);
+      workspaceSelectConcept(button.dataset.treeConcept).catch(error=>window.alert(error.message));
     });
   });
 }
@@ -482,7 +494,7 @@ function renderConceptSearchResults() {
       conceptSearch.value = "";
       conceptSearchResultsData = [];
       renderConceptSearchResults();
-      await loadConcept(conceptId);
+      await workspaceSelectConcept(conceptId);
     });
   });
 }
@@ -734,12 +746,15 @@ function bindNewConceptForm() {
 }
 
 async function loadConcept(conceptId, keepTab = false) {
+  const request=++conceptDetailRequestId;
   const data = await api(
     `/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}`
   );
+  if(request!==conceptDetailRequestId)return;
 
   creatingConcept = false;
   selectedConcept = data;
+  workspaceSelectedId=conceptId;
 
   if (!keepTab) {
     selectedDetailTab = "overview";
@@ -2313,6 +2328,9 @@ function bindMainTabs() {
   document.querySelectorAll("[data-main-tab]").forEach((button) => {
     button.addEventListener("click", async () => {
       const tab = button.dataset.mainTab;
+      const request=++workspaceTabRequest;
+      await setWorkspaceTab(tab);
+      if(request!==workspaceTabRequest)return;
 
       document.querySelectorAll("[data-main-tab]").forEach((tabButton) => {
         tabButton.classList.toggle(
@@ -2566,6 +2584,7 @@ async function publishSiteTypes() {
   }
 }
 
+initialiseWorkspace();
 bindMainTabs();
 
 document

@@ -22,6 +22,7 @@ function initialiseReview() {
   document.getElementById("reviewLanguage").value = LANGUAGES.some(([code]) => code === session?.profile?.preferred_language) ? session.profile.preferred_language : "en";
   document.getElementById("reviewReferenceLanguage").value = "en";
   document.getElementById("reviewMissing").value = "any";
+  document.getElementById("reviewScope").value="all";
 }
 
 function allowReviewNavigation() {
@@ -37,11 +38,14 @@ function updateReviewDirty() {
 }
 
 function reviewFilters() {
-  return {
+  const filters={
     language: document.getElementById("reviewLanguage").value,
     reference_language: document.getElementById("reviewReferenceLanguage").value,
     missing: document.getElementById("reviewMissing").value
   };
+  const scope=document.getElementById("reviewScope").value;
+  if(scope!=="all"&&workspaceSelectedId)filters[scope==="branch"?"branch":"concept_id"]=workspaceSelectedId;
+  return filters;
 }
 
 function renderReviewCounts(data) {
@@ -59,6 +63,12 @@ async function loadReview() {
   const userKey = reviewUserKey;
   const filters = reviewFilters();
   const status = document.getElementById("reviewStatus");
+  if(document.getElementById("reviewScope").value!=="all"&&!workspaceSelectedId){
+    status.textContent="Choose a concept in the hierarchy.";
+    for(const id of ["reviewTable","reviewCounts","reviewResultCount","reviewPageStatus","reviewScopeStatus"])document.getElementById(id).textContent="";
+    document.getElementById("reviewPrevious").disabled=true;document.getElementById("reviewNext").disabled=true;
+    return;
+  }
   status.textContent = "Loading translations...";
   try {
     let data = await api(`/api/vocabularies/site-types/review?${new URLSearchParams({ ...filters, offset: reviewOffset, limit: reviewLimit })}`);
@@ -69,6 +79,10 @@ async function loadReview() {
       if (requestId !== reviewRequestId || userKey !== reviewUserKey) return;
     }
     reviewAppliedFilters = filters;
+    reviewCoverage=new Map((data.coverage||[]).map(r=>[r.concept_id,r]));
+    const scope=document.getElementById("reviewScope").value;
+    document.getElementById("reviewScopeStatus").textContent=scope==="all"?"":workspaceSelectedId?`${scope==='branch'?'Branch':'Concept'}: ${conceptNavigationLabel(hierarchyById.get(workspaceSelectedId))}`:"Choose a concept in the hierarchy.";
+    renderHierarchyTree();
     reviewMatched = data.matched;
     renderReviewCounts(data);
     const languageName = LANGUAGES.find(([code]) => code === filters.language)?.[1] || filters.language;
@@ -135,6 +149,7 @@ function bindReviewEditors(filters) {
         const data = await api(`/api/vocabularies/site-types/review?${new URLSearchParams({ ...filters, limit: 1 })}`);
         if (form.isConnected && session && filters.language === reviewAppliedFilters?.language) {
           renderReviewCounts(data);
+          reviewCoverage=new Map((data.coverage||[]).map(r=>[r.concept_id,r]));renderHierarchyTree();
           document.getElementById("reviewStatus").textContent = "";
         }
         if (session) await loadVocabularySummary();
@@ -150,8 +165,7 @@ function bindReviewEditors(filters) {
   }));
   table.querySelectorAll("[data-review-open]").forEach(button => button.addEventListener("click", async () => {
     if (!allowReviewNavigation()) return;
-    document.querySelector('[data-main-tab="vocabularies"]').click();
-    try { await loadConcept(button.dataset.reviewOpen); } catch (error) { document.getElementById("reviewStatus").textContent = error.message; }
+    try { await loadConcept(button.dataset.reviewOpen);document.querySelector('[data-main-tab="vocabularies"]').click(); } catch (error) { document.getElementById("reviewStatus").textContent = error.message; }
   }));
   table.querySelectorAll("[data-review-usage]").forEach(button => button.addEventListener("click", () => loadReviewUsage(button.dataset.reviewUsage)));
 }

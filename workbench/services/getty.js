@@ -34,7 +34,7 @@ function searchQuery(value) {
 SELECT DISTINCT ?uri ?label ?parents WHERE {
   ?uri luc:term ${JSON.stringify(lucene)} ; skos:inScheme aat: ; gvp:prefLabelGVP/xl:literalForm ?label .
   OPTIONAL { ?uri gvp:parentStringAbbrev ?parents }
-} LIMIT 21`;
+} ORDER BY DESC(LCASE(STR(?label)) = LCASE(${JSON.stringify(text)})) LCASE(STR(?label)) STR(?uri) LIMIT 21`;
 }
 function detailQuery(uri) {
   uri = aatUri(uri);

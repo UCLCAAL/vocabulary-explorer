@@ -147,6 +147,7 @@
           <h2>Language review</h2>
 
           <form id="reviewFilters" class="review-filters">
+            <label>SCOPE<select id="reviewScope"><option value="all">Whole vocabulary</option><option value="branch">Selected branch</option><option value="concept">Selected concept</option></select></label>
             <label>REVIEW LANGUAGE<select id="reviewLanguage"></select></label>
             <label>SHOW REFERENCE TEXT IN<select id="reviewReferenceLanguage"></select></label>
             <label>SHOW<select id="reviewMissing">
@@ -159,6 +160,7 @@
             </select></label>
             <button type="submit">Apply</button>
           </form>
+          <p id="reviewScopeStatus" class="muted"></p>
           <div id="reviewCounts" class="review-counts"></div>
           <div class="review-list-heading"><span id="reviewResultCount"></span><button id="reviewRefresh" class="secondary" type="button">Refresh list</button></div>
           <p id="reviewStatus" role="status" aria-live="polite"></p>
@@ -183,11 +185,19 @@
           <div><div class="eyebrow">Site Types · Getty AAT</div><h2>Alignments</h2></div>
           <button id="alignmentRefresh" type="button" class="secondary">Refresh decisions</button>
         </div>
+        <div class="card alignment-coverage-card">
+          <h3>Mapping review</h3>
+          <div id="alignmentCoverageCounts" class="alignment-counts"></div>
+          <label for="alignmentCoverageFilter">Show in hierarchy</label>
+          <select id="alignmentCoverageFilter"><option value="">All active concepts</option><option value="unmapped">Without a mapping or proposal</option><option value="awaiting">Awaiting approval</option><option value="mapped">With accepted mappings</option></select>
+          <p id="alignmentCoverageStatus" class="save-status" role="status"></p>
+        </div>
         <div class="alignment-comparison">
           <section class="card alignment-source-card" aria-labelledby="alignmentSourceTitle">
             <h3 id="alignmentSourceTitle">CAAL concept</h3>
-            <label for="alignmentSource">Site type</label>
-            <select id="alignmentSource"><option value="">Choose a concept</option></select>
+            <label for="alignmentSource" class="visually-hidden">Site type</label>
+            <select id="alignmentSource" hidden><option value="">Choose a concept</option></select>
+            <div id="alignmentSourceMappings" class="alignment-live-mappings"></div>
             <div id="alignmentSourceDetail" class="alignment-source-detail"><p class="muted">Choose a CAAL concept to compare with AAT.</p></div>
           </section>
           <section class="card alignment-target-card" aria-labelledby="alignmentTargetTitle">
@@ -197,6 +207,7 @@
               <div class="alignment-search-input"><input id="alignmentSearch" type="search" maxlength="120" autocomplete="off" placeholder="e.g. caravanserai"><button id="alignmentSearchButton" type="submit">Search AAT</button></div>
             </form>
             <p id="alignmentSearchStatus" class="save-status" role="status"></p>
+            <label class="alignment-sort-label" for="alignmentCandidateSort">Sort candidates<select id="alignmentCandidateSort"><option value="suggested">Label similarity</option><option value="alphabetical">Alphabetical</option></select></label>
             <div id="alignmentCandidates"></div>
             <div id="alignmentTargetDetail"></div>
           </section>
@@ -270,6 +281,7 @@
   </dialog>
   <script src="js/review.js"></script>
   <script src="js/alignments.js"></script>
+  <script src="js/workspace.js"></script>
   <script src="js/workbench.js"></script>
 </body>
 </html>

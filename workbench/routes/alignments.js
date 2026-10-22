@@ -72,6 +72,37 @@ function makeRouter({pool=defaultPool,getty=createGettyClient(pool)}={}) {
     try {return res.json({ok:true,candidate:await getty.detail(aatUri(req.params.aatId))});}
     catch(e){return sendError(res,e);}
   });
+  router.get("/coverage",async(req,res)=>{
+    try {
+      const result=await pool.query(`SELECT c.concept_id,c.parent_id,c.sort_order,
+          COALESCE(en.label,c.en_label,c.concept_id) AS label,
+          COALESCE(a.accepted,0)::int AS accepted,COALESCE(a.proposed,0)::int AS proposed
+        FROM public.concepts_curated c
+        LEFT JOIN LATERAL (SELECT label FROM public.labels_curated WHERE concept_id=c.concept_id
+          AND lang='en' AND lower(status)='preferred' AND NULLIF(btrim(label),'') IS NOT NULL ORDER BY label_id LIMIT 1) en ON true
+        LEFT JOIN (SELECT source_concept_id,count(*) FILTER(WHERE status='accepted') AS accepted,
+          count(*) FILTER(WHERE status='proposed') AS proposed
+          FROM vocab_workbench.site_type_alignments GROUP BY source_concept_id) a ON a.source_concept_id=c.concept_id
+        WHERE c.sort_order IS NOT NULL AND COALESCE(c.lifecycle_status,'active') <> 'retired'
+          AND lower(COALESCE(NULLIF(btrim(c.is_active),''),'true')) NOT IN ('false','0','no','inactive')
+        ORDER BY c.sort_order,c.concept_id`);
+      const rows=result.rows.map(r=>({...r,state:r.accepted?'mapped':r.proposed?'awaiting':'unmapped'}));
+      return res.json({ok:true,rows,counts:{total:rows.length,
+        unmapped:rows.filter(r=>r.state==='unmapped').length,
+        awaiting:rows.filter(r=>r.state==='awaiting').length,mapped:rows.filter(r=>r.state==='mapped').length}});
+    }catch(e){return sendError(res,e);}
+  });
+  // All live mappings for a selected source, independent of list filters/pagination.
+  router.get("/source/:conceptId",async(req,res)=>{
+    try {
+      const id=sourceId(req.params.conceptId);
+      const result=await pool.query(`SELECT * FROM vocab_workbench.site_type_alignments
+        WHERE source_concept_id=$1 AND status IN ('accepted','proposed')
+        ORDER BY CASE relation WHEN 'exactMatch' THEN 0 WHEN 'closeMatch' THEN 1 WHEN 'broadMatch' THEN 2
+          WHEN 'narrowMatch' THEN 3 ELSE 4 END,CASE status WHEN 'accepted' THEN 0 ELSE 1 END,alignment_id`,[id]);
+      return res.json({ok:true,rows:result.rows});
+    }catch(e){return sendError(res,e);}
+  });
   router.get("/",async(req,res)=>{
     try {
       const id=clean(req.query.source_concept_id)?sourceId(req.query.source_concept_id):null;
@@ -86,7 +117,9 @@ function makeRouter({pool=defaultPool,getty=createGettyClient(pool)}={}) {
         LEFT JOIN LATERAL (SELECT label FROM public.labels_curated WHERE concept_id=c.concept_id
           AND lang='en' AND lower(status)='preferred' ORDER BY label_id LIMIT 1) en ON true
         WHERE ($1::text IS NULL OR a.source_concept_id=$1) AND ($2::text IS NULL OR a.status=$2)
-        ORDER BY CASE a.status WHEN 'proposed' THEN 0 WHEN 'accepted' THEN 1 ELSE 2 END,a.updated_at DESC,a.alignment_id DESC
+        ORDER BY CASE a.relation WHEN 'exactMatch' THEN 0 WHEN 'closeMatch' THEN 1 WHEN 'broadMatch' THEN 2
+          WHEN 'narrowMatch' THEN 3 ELSE 4 END,
+          CASE a.status WHEN 'proposed' THEN 0 WHEN 'accepted' THEN 1 ELSE 2 END,a.updated_at DESC,a.alignment_id DESC
         LIMIT $3 OFFSET $4`,[id,status,limit,offset]);
       const counts=await pool.query(`SELECT status,count(*)::int AS count FROM vocab_workbench.site_type_alignments
         WHERE ($1::text IS NULL OR source_concept_id=$1) GROUP BY status`,[id]);

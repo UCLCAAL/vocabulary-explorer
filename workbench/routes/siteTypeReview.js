@@ -84,7 +84,7 @@ router.get("/review", async (req, res) => {
         WHERE lower(COALESCE(note_type, '')) = 'definition' AND lang IN ($1, $2)
         GROUP BY concept_id
       )
-      SELECT c.concept_id, c.level, c.en_label,
+      SELECT c.concept_id, c.parent_id, c.level, c.en_label,
              l.preferred_label, COALESCE(l.label_count, 0) AS label_count,
              l.reference_label, COALESCE(l.alternative_labels, '[]'::jsonb) AS alternative_labels, d.definition, d.reference_definition,
              COALESCE(d.definition_count, 0) AS definition_count
@@ -92,26 +92,36 @@ router.get("/review", async (req, res) => {
       LEFT JOIN labels l ON l.concept_id = c.concept_id
       LEFT JOIN definitions d ON d.concept_id = c.concept_id
       WHERE c.sort_order IS NOT NULL
+        AND COALESCE(c.lifecycle_status,'active') <> 'retired'
         AND lower(COALESCE(NULLIF(btrim(c.is_active), ''), 'true')) NOT IN ('false','0','no','inactive')
       ORDER BY c.sort_order, c.concept_id
     `, [language, referenceLanguage]);
     const rows = result.rows.map(row => ({ ...row, missing_label: !row.preferred_label, missing_definition: !row.definition,
       conflict: row.label_count > 1 || row.definition_count > 1 }));
-    const counts = { total: rows.length, missing_label: 0, missing_definition: 0, missing_both: 0, missing_any: 0, conflicts: 0 };
-    for (const row of rows) {
+    const branch=String(req.query.branch||'').trim(),concept=String(req.query.concept_id||'').trim();
+    if(branch && concept) return res.status(400).json({ok:false,error:'Choose a branch or a single concept.'});
+    const selected=branch||concept;
+    if(selected && !rows.some(r=>r.concept_id===selected))return res.status(404).json({ok:false,error:'The selected review concept is not active.'});
+    const ids=new Set(selected?[selected]:rows.map(r=>r.concept_id));
+    if(branch){let changed=true;while(changed){changed=false;for(const r of rows)if(ids.has(r.parent_id)&&!ids.has(r.concept_id)){ids.add(r.concept_id);changed=true;}}}
+    const scoped=rows.filter(r=>ids.has(r.concept_id));
+    const counts = { total: scoped.length, missing_label: 0, missing_definition: 0, missing_both: 0, missing_any: 0, conflicts: 0 };
+    for (const row of scoped) {
       counts.missing_label += Number(row.missing_label);
       counts.missing_definition += Number(row.missing_definition);
       counts.missing_both += Number(row.missing_label && row.missing_definition);
       counts.missing_any += Number(row.missing_label || row.missing_definition);
       counts.conflicts += Number(row.conflict);
     }
-    const matches = rows.filter(row => {
+    const matches = scoped.filter(row => {
       const missingMatches = filter === "all" || (filter === "any" && (row.missing_label || row.missing_definition)) ||
         (filter === "label" && row.missing_label) || (filter === "definition" && row.missing_definition) ||
         (filter === "both" && row.missing_label && row.missing_definition) || (filter === "conflicts" && row.conflict);
       return missingMatches && (!search || [row.concept_id, row.reference_label, row.en_label, row.preferred_label].some(value => normalise(value).includes(search)));
     });
-    return res.json({ ok: true, language, reference_language: referenceLanguage, counts, matched: matches.length, offset, limit, rows: matches.slice(offset, offset + limit) });
+    return res.json({ ok: true, language, reference_language: referenceLanguage, counts, matched: matches.length, offset, limit,
+      coverage:rows.map(r=>({concept_id:r.concept_id,missing_label:r.missing_label,missing_definition:r.missing_definition,conflict:r.conflict})),
+      rows: matches.slice(offset, offset + limit) });
   } catch (error) {
     console.error("Site Types Review failed:", error);
     return res.status(500).json({ ok: false, error: "Could not audit Site Types translations" });

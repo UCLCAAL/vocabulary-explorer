@@ -285,6 +285,7 @@ router.get("/site-types/status", async (req, res) => {
           max(changed_at) AS last_edit_at
         FROM (
           SELECT changed_at FROM vocab_workbench.concept_revisions WHERE vocabulary_code=$1
+          UNION ALL SELECT changed_at FROM vocab_workbench.editor_revisions WHERE vocabulary_code=$1
           UNION ALL
           SELECT changed_at FROM vocab_workbench.site_type_alignment_events
           WHERE action IN ('accept','deprecate','import')

@@ -365,12 +365,13 @@ def turtle_identifier(slug: str) -> str:
 
 def skosmos_block(vocab: Vocabulary) -> str:
     ident = turtle_identifier(vocab.slug)
+    uri_space = f"{BASE_ROOT}/concept/" if vocab.slug == "cultural-periods" else f"{BASE_ROOT}/concept/{vocab.slug}/"
     langs = ", ".join(f'"{lang}"' for lang in LANGS)
     return f""":{ident} a skosmos:Vocabulary, void:Dataset ;
     dc:title "{vocab.title}"@en ;
     skosmos:shortName "{vocab.short_name}" ;
     dc:subject :{vocab.category} ;
-    void:uriSpace "{BASE_ROOT}/concept/{vocab.slug}/" ;
+    void:uriSpace "{uri_space}" ;
     skosmos:language {langs} ;
     skosmos:defaultLanguage "en" ;
     skosmos:showTopConcepts true ;
@@ -473,7 +474,9 @@ def main() -> int:
 
     print(f"Exporting {len(vocabs)} CAAL lookup vocabularies from schema {args.schema!r}...")
 
+    from workbench_texts import export_workbench
     with get_connection(args) as conn:
+        conn.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY")
         for vocab in vocabs:
             print(f"\n[{vocab.slug}] {args.schema}.{vocab.view}")
             columns = relation_columns(conn, args.schema, vocab.view)
@@ -509,6 +512,7 @@ def main() -> int:
                 if cid:
                     included_ids.append(cid)
 
+            managed=export_workbench(conn,g,vocab.slug,lambda cid:concept_uri(vocab.slug,cid))
             all_issues.extend(issues)
             all_coverage.extend(translation_coverage(vocab, rows))
 
@@ -530,6 +534,7 @@ def main() -> int:
                 "rdf_file": str(rdf_path).replace("\\", "/"),
                 "concept_count": len(included_ids),
                 "triple_count": len(g),
+                "managed_fields": managed,
             })
             config_blocks.append(skosmos_block(vocab))
 

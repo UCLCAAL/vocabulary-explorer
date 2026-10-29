@@ -26,6 +26,7 @@ function initialiseReview() {
 }
 
 function allowReviewNavigation() {
+  if (!allowEditorNavigation())return false;
   if (!reviewDirty) return true;
   if (!window.confirm("Leave the unsaved translation changes?")) return false;
   reviewDirty = false;
@@ -70,6 +71,7 @@ async function loadReview() {
     return;
   }
   status.textContent = "Loading translations...";
+  document.getElementById("reviewTable").innerHTML="";
   try {
     let data = await api(`/api/vocabularies/site-types/review?${new URLSearchParams({ ...filters, offset: reviewOffset, limit: reviewLimit })}`);
     if (requestId !== reviewRequestId || userKey !== reviewUserKey) return;
@@ -102,7 +104,7 @@ async function loadReview() {
         return `<tr><td><strong>${escapeHtml(row.reference_label || row.en_label || row.concept_id)}</strong><div class="concept-id">${id}</div>
           ${!row.reference_label ? `<div class="muted">No ${referenceName} label; English label or ID shown.</div>` : ""}
           <details class="review-reference" open><summary>${referenceName} definition</summary><p>${escapeHtml(row.reference_definition || `No ${referenceName} definition stored.`)}</p></details>
-          <div class="review-concept-actions"><button class="secondary" type="button" data-review-open="${id}">Open concept</button><button class="secondary" type="button" data-review-usage="${id}">Find records using this type</button></div>
+          <div class="review-concept-actions"><button class="secondary" type="button" data-review-open="${id}">Open concept</button>${!isGenericVocabulary()?`<button class="secondary" type="button" data-review-usage="${id}">Find records using this type</button>`:""}</div>
           </td><td>${editor("label", row.preferred_label, row.label_count)}${renderReviewAlternatives(row, languageName)}</td><td>${editor("definition", row.definition, row.definition_count)}</td></tr>`;
       }).join("")}</tbody></table>` : '<p class="empty-state">No concepts match these filters.</p>';
     status.textContent = "";
@@ -138,7 +140,7 @@ function bindReviewEditors(filters) {
     status.textContent = "Saving...";
     try {
       await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(form.dataset.concept)}/${field === "label" ? "labels" : "definitions"}/${filters.language}`, {
-        method: "PUT", body: JSON.stringify(field === "label" ? { label: value } : { note: value })
+        method: "PUT", body: JSON.stringify(field === "label" ? { label: value, expected:input.dataset.original?[input.dataset.original]:[] } : { note: value, expected:input.dataset.original?[input.dataset.original]:[] })
       });
       input.value = value;
       input.dataset.original = value;
@@ -207,7 +209,7 @@ function bindReviewAlternatives(container, filters) {
     status.textContent = "Saving...";
     try {
       const result = await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}/alternative-labels${labelId ? "/" + encodeURIComponent(labelId) : ""}`, {
-        method: labelId ? "PUT" : "POST", body: JSON.stringify({ lang: filters.language, label: value })
+        method: labelId ? "PUT" : "POST", body: JSON.stringify({ lang: filters.language, label: value, expected:reviewAlternativeValues(container) })
       });
       if (!form.isConnected) return;
       if (labelId) {
@@ -217,6 +219,7 @@ function bindReviewAlternatives(container, filters) {
         input.value = ""; input.dataset.original = ""; status.textContent = "Added";
       }
       updateReviewDirty();
+      if(isGenericVocabulary())reindexReviewAlternatives(container,filters.language);
     } catch (error) { status.textContent = error.message; }
     finally { input.disabled = button.disabled = false; if (removeButton) removeButton.disabled = false; }
   });
@@ -230,8 +233,9 @@ function bindReviewAlternatives(container, filters) {
     const saveButton = form.querySelector('button[type="submit"]');
     button.disabled = input.disabled = saveButton.disabled = true;
     try {
-      await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(form.dataset.concept)}/alternative-labels/${encodeURIComponent(form.dataset.labelId)}`, { method: "DELETE" });
+      await api(`/api/vocabularies/site-types/concepts/${encodeURIComponent(form.dataset.concept)}/alternative-labels/${encodeURIComponent(form.dataset.labelId)}`, { method: "DELETE", body:JSON.stringify({expected:reviewAlternativeValues(container)}) });
       form.remove(); updateReviewDirty();
+      if(isGenericVocabulary())reindexReviewAlternatives(container,filters.language);
     } catch (error) { status.textContent = error.message; }
     finally { button.disabled = input.disabled = saveButton.disabled = false; }
   });
@@ -291,3 +295,6 @@ document.querySelectorAll("[data-main-tab]").forEach(button => button.addEventLi
   if (!allowReviewNavigation()) { event.preventDefault(); event.stopImmediatePropagation(); }
 }, true));
 window.addEventListener("beforeunload", event => { if (reviewDirty) { event.preventDefault(); event.returnValue = ""; } });
+
+function reviewAlternativeValues(container){return [...container.querySelectorAll("[data-review-alt-existing] input")].map(i=>i.dataset.original).filter(Boolean);}
+function reindexReviewAlternatives(container,lang){container.querySelectorAll("[data-review-alt-existing] form").forEach((f,i)=>f.dataset.labelId="alternative:"+lang+":"+i);}

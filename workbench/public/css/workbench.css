@@ -1551,3 +1551,13 @@ button.coverage-chip:focus-visible { outline: 2px solid #305f4f; outline-offset:
 .alignment-decisions .empty-state { min-height:0; padding:1.2rem 0; text-align:left; }
 .alignment-saved-main>div,.alignment-candidates li>div,.alignment-source-detail { min-width:0; overflow-wrap:anywhere; }
 .alignment-candidates button { flex-shrink:0; }
+
+/* Vocabulary-level descriptions and shared editors */
+#vocabularyDescriptions details { margin-top: 1rem; border-top: 1px solid #d8dce3; padding-top: .8rem; }
+#vocabularyDescriptions summary { cursor:pointer; font-weight:600; }
+#vocabularyDescriptions label { display:block; margin: .8rem 0; }
+#vocabularyDescriptions textarea { display:block; width:100%; margin-top:.4rem; }
+#vocabularyDescriptions select { max-width:20rem; margin-left:.5rem; }
+#vocabularyDescriptions form { padding-bottom:1rem; }
+[data-generic-form] { border-bottom:1px solid #d8dce3; padding:1rem 0; }
+[data-generic-form] textarea,[data-generic-form] input { width:100%; }

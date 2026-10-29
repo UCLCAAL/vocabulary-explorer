@@ -124,9 +124,10 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:hasMultiLingualProperty skos:scopeNote ;
     skosmos:showTopConcepts true ;
-    skosmos:sidebarViews ( "alphabetical" "hierarchy" "groups" ) ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/site-types> ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
@@ -139,6 +140,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:hasMultiLingualProperty skos:scopeNote ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
@@ -153,6 +156,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/address-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/address-types> ;
@@ -166,6 +171,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/administrative-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/administrative-types> ;
@@ -179,6 +186,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/anomaly-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/anomaly-types> ;
@@ -192,6 +201,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/beginning-of-existence-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/beginning-of-existence-types> ;
@@ -205,6 +216,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/certainty/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/certainty> ;
@@ -218,6 +231,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/classifications/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/classifications> ;
@@ -231,6 +246,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/colours/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/colours> ;
@@ -244,6 +261,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/conditions/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/conditions> ;
@@ -257,6 +276,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/condition-levels/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/condition-levels> ;
@@ -270,6 +291,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/content-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/content-types> ;
@@ -283,6 +306,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/copyright-status/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/copyright-status> ;
@@ -296,6 +321,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/countries/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/countries> ;
@@ -309,6 +336,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/dataset-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/dataset-types> ;
@@ -322,6 +351,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/description-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/description-types> ;
@@ -335,6 +366,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/designation-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/designation-types> ;
@@ -348,6 +381,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/deterioration-causes/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/deterioration-causes> ;
@@ -361,6 +396,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/digital-file-formats/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/digital-file-formats> ;
@@ -374,6 +411,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/end-of-existence-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/end-of-existence-types> ;
@@ -387,6 +426,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/levels/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/levels> ;
@@ -400,6 +441,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/location-accuracy-assessment/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/location-accuracy-assessment> ;
@@ -413,6 +456,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/measurement-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/measurement-types> ;
@@ -426,6 +471,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/name-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/name-types> ;
@@ -439,6 +486,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/origins/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/origins> ;
@@ -452,6 +501,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/religions/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/religions> ;
@@ -465,6 +516,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/risk-levels/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/risk-levels> ;
@@ -478,6 +531,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/scripts/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/scripts> ;
@@ -491,6 +546,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/size-dimensions-original-material/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/size-dimensions-original-material> ;
@@ -504,6 +561,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/subjects/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/subjects> ;
@@ -517,6 +576,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/title-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/title-types> ;
@@ -530,6 +591,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/units-of-measurement/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/units-of-measurement> ;
@@ -543,6 +606,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/writing-systems/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/writing-systems> ;
@@ -556,6 +621,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/languages/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/languages> ;
@@ -569,6 +636,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/actor-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/actor-types> ;
@@ -582,6 +651,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/external-xref-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/external-xref-types> ;
@@ -595,6 +666,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/geometry-qualifiers/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/geometry-qualifiers> ;
@@ -608,6 +681,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/threat-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/threat-types> ;
@@ -621,6 +696,8 @@
     void:uriSpace "https://vocab.uclcaal.org/concept/ground-truthing-priority/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     skosmos:showTopConcepts true ;
     skosmos:fullAlphabeticalIndex true ;
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/ground-truthing-priority> ;
@@ -633,5 +710,7 @@
     void:uriSpace "http://vocab.getty.edu/aat/" ;
     skosmos:language "en" ;
     skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/aat-reference> .

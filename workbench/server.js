@@ -61,7 +61,9 @@ app.get("/api/health", async (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/vocabularies", require("./routes/allVocabularies"));
 app.use("/api/vocabularies", vocabularyRoutes);
+app.use("/api/publishing", require("./routes/vocabularyPublishing"));
 app.use("/api/publishing", publishingRoutes);
 
 app.use(express.static(publicRoot));

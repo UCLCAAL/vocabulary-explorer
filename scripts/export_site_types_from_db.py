@@ -978,6 +978,8 @@ def main() -> int:
 
             else:
                 graph = build_curated_graph(cur)
+                from workbench_texts import export_workbench
+                export_workbench(conn,graph,"site-types",concept_uri)
 
     output = Path(args.output).resolve()
     output.parent.mkdir(

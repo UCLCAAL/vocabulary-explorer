@@ -8,12 +8,12 @@ function initialiseWorkspace(){
   const workspace=document.createElement("div");workspace.id="vocabularyWorkspace";workspace.className="vocabulary-workspace";
   const content=document.createElement("div");content.className="vocabulary-workspace-content";
   view.before(workspace);workspace.append(aside,content);
-  for(const id of ["vocabulariesView","reviewView","alignmentsView"])content.append(document.getElementById(id));
+  for(const id of ["vocabulariesView","reviewView","alignmentsView","publishingView"])content.append(document.getElementById(id));
   const heading=aside.querySelector("h2");
   heading.insertAdjacentHTML("beforebegin",'<label class="workspace-vocabulary-label" for="workspaceVocabulary">Vocabulary</label><select id="workspaceVocabulary" aria-label="Vocabulary"><option value="site-types">Site Types</option></select>');
   heading.hidden=true;
   aside.querySelector(".muted").remove();
-  // Other vocabularies can join this selector once their authoritative tables are onboarded.
+  document.getElementById("workspaceVocabulary").addEventListener("change",event=>changeVocabulary(event.target.value));
 }
 
 function workspaceTreeFilterIds(){
@@ -49,11 +49,12 @@ function workspaceConceptBadge(id){
 function workspaceMarkConcept(id){
   workspaceSelectedId=id||"";
   if(id)expandPathToConcept(id);
+  updateVocabularyControls();
   renderHierarchyTree();
 }
 
 async function workspaceSelectConcept(id){
-  if(!allowReviewNavigation()||!allowAlignmentNavigation())return;
+  if(!allowEditorNavigation()||!allowReviewNavigation()||!allowAlignmentNavigation())return;
   if(workbenchTab==="alignments"){
     document.getElementById("alignmentSource").value=id;
     await selectAlignmentSource(id);
@@ -66,7 +67,7 @@ async function workspaceSelectConcept(id){
 
 async function setWorkspaceTab(tab){
   workbenchTab=tab;
-  document.getElementById("vocabularyWorkspace").hidden=tab==="publishing";
+  document.getElementById("vocabularyWorkspace").hidden=false;
   newConceptButton.hidden=tab!=="vocabularies";
   document.querySelector(".retired-toggle").hidden=tab!=="vocabularies";
   if(tab!=="vocabularies"&&document.getElementById("showRetiredConcepts").checked){
@@ -74,5 +75,6 @@ async function setWorkspaceTab(tab){
     if(!activeHierarchyConcepts.some(c=>c.concept_id===workspaceSelectedId))workspaceSelectedId="";
   }
   if(tab==="vocabularies"&&workspaceSelectedId&&selectedConcept?.concept?.concept_id!==workspaceSelectedId)await loadConcept(workspaceSelectedId);
+  updateVocabularyControls();
   renderHierarchyTree();
 }

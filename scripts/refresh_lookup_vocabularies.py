@@ -130,7 +130,7 @@ def checked_manifest(path,config):
         if item['concept_count']<1:raise RuntimeError(f'{item["slug"]}: empty export')
     return items
 
-def run(repo,apply):
+def run(repo,apply,only=None):
     exporter=repo/'scripts/export_postgres_lookups_to_skos.py'
     config_path=repo/'dockerfiles/config/config-docker-compose.ttl'
     if not exporter.is_file() or not config_path.is_file():raise RuntimeError('Repository files not found')
@@ -145,13 +145,19 @@ def run(repo,apply):
     # Exporter's generated loader/config fragment stays in this isolated run directory.
     subprocess.run([sys.executable,str(exporter),'--out-dir',str(rdf_dir),'--strict'],cwd=folder,check=True)
     manifest=checked_manifest(rdf_dir/'manifest.json',config)
+    if only:
+        manifest=[item for item in manifest if item['slug']==only]
+        if not manifest:raise RuntimeError('Unknown publication vocabulary')
     items=[];report=[];conflicts=[]
     for entry in manifest:
         slug=entry['slug'];uri=entry['graph_uri']
         new=Graph().parse(entry['rdf_file'],format='xml')
         old,original,existed=get_graph(endpoint,uri)
         (backups/(slug+'.rdf')).write_bytes(original)
-        merged,found=merge_preserving_existing(old,new,slug)
+        from workbench_texts import prepare_managed_merge
+        prepared,managed_conflicts=prepare_managed_merge(old,new,slug,entry.get("managed_fields",[]))
+        merged,found=merge_preserving_existing(prepared,new,slug)
+        found.extend(managed_conflicts)
         conflicts.extend(found)
         data=merged.serialize(format='xml',encoding='utf-8')
         (ready/(slug+'.rdf')).write_bytes(data)
@@ -195,14 +201,20 @@ def run(repo,apply):
         raise
     # Restart display services even when the graphs are unchanged, to clear cached results.
     subprocess.run([os.getenv('DOCKER_BIN','docker'),'compose','restart','fuseki-cache','skosmos'],cwd=repo,check=True)
-    print('\nComplete. Current lookup vocabularies refreshed, including Cultural Periods with existing CP URIs. Existing published-only content retained; only the two approved English names can be replaced, with old names retained as alternatives. Site Types and AAT were not changed.',flush=True)
+    print('\nComplete. Current lookup vocabularies refreshed, including Cultural Periods with existing CP URIs. Existing published-only content retained; audited Workbench text changes are applied. Site Types and AAT were not changed.',flush=True)
 
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--repo',type=Path,default=Path('/opt/vocabulary-explorer'))
     parser.add_argument('--apply',action='store_true')
+    parser.add_argument('--only')
     args=parser.parse_args()
-    try:run(args.repo.resolve(),args.apply)
+    try:
+        import psycopg
+        with psycopg.connect(os.getenv("CAAL_DATABASE_URL") or os.getenv("DATABASE_URL"),autocommit=True) as lock:
+            if not lock.execute("SELECT pg_try_advisory_lock(hashtext('caal-generic-vocabulary-edit'))").fetchone()[0]:
+                raise RuntimeError("Another vocabulary edit or publication is in progress. Try again.")
+            run(args.repo.resolve(),args.apply,args.only)
     except Exception as error:
         # Avoid dumping connection strings or environment variables in exception output.
         if isinstance(error,RuntimeError):print(str(error),file=sys.stderr)

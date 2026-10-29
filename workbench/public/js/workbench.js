@@ -50,6 +50,7 @@ function apiPath(path) {
 }
 
 async function api(path, options = {}) {
+  path=path.replace(/\/api\/vocabularies\/site-types(?=\/)/, "/api/vocabularies/"+selectedVocabularyCode);
   const response = await fetch(apiPath(path), {
     credentials: "include",
     headers: {
@@ -115,7 +116,9 @@ async function showApp() {
   document.getElementById("signedInAs").textContent =
     `${session?.user?.username || ""}${workspace ? ` (${workspace} admin)` : ""}`;
 
+  selectedVocabularyCode="site-types";editorDirty=false;
   initialiseReview();
+  await loadVocabularyCatalog();
   resetAlignments();
   workspaceSelectedId="";reviewCoverage.clear();
 
@@ -155,10 +158,13 @@ document.getElementById("logoutButton").addEventListener("click", async () => {
 });
 
 async function loadVocabularySummary() {
+  if(editorDirty)return;
   const container = document.getElementById("vocabularySummary");
 
   try {
-    const data = await api("/api/vocabularies");
+    const code=selectedVocabularyCode;
+    const data = await api(isGenericVocabulary()?`/api/vocabularies/${code}/summary`:"/api/vocabularies");
+    if(code!==selectedVocabularyCode)return;
     const vocab = data.vocabularies[0];
     currentVocabulary = vocab;
 
@@ -173,7 +179,7 @@ async function loadVocabularySummary() {
       <div class="summary-row">
         <div>
           <div class="eyebrow">Hosted vocabulary</div>
-          <h2>Site Types</h2>
+          <h2>${escapeHtml(vocabularyTitle())}</h2>
         </div>
         <div class="metric">
           <span class="muted">Concepts</span>
@@ -196,10 +202,11 @@ async function loadVocabularySummary() {
         <span class="save-status" data-copy-status></span>
       </div>
 
-      <div class="coverage">${labelCoverage}</div>
+      <div class="coverage">${labelCoverage}</div><div id="vocabularyDescriptions"></div>
     `;
 
     bindCopyButtons();
+    if(!editorDirty)loadVocabularyDescriptions();
     container.querySelectorAll("[data-review-language]").forEach(button => {
       button.addEventListener("click", async () => {
         if (!allowReviewNavigation()) return;
@@ -746,6 +753,7 @@ function bindNewConceptForm() {
 }
 
 async function loadConcept(conceptId, keepTab = false) {
+  if(!keepTab&&!allowEditorNavigation())return;
   const request=++conceptDetailRequestId;
   const data = await api(
     `/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}`
@@ -799,6 +807,7 @@ async function loadConcept(conceptId, keepTab = false) {
 
 document.querySelectorAll(".detail-tab").forEach((button) => {
   button.addEventListener("click", () => {
+    if(!allowEditorNavigation())return;
     selectedDetailTab = button.dataset.detailTab;
 
     document.querySelectorAll(".detail-tab").forEach((tab) => {
@@ -826,6 +835,7 @@ function renderDetail() {
 }
 
 function renderDetailContent() {
+  if(isGenericVocabulary()&&selectedConcept)return renderGenericDetail();
   const container = document.getElementById("detailContent");
   if (!selectedConcept) return;
 
@@ -2359,6 +2369,7 @@ function bindMainTabs() {
 }
 
 async function loadPublishingStatus() {
+  if(isGenericVocabulary())return loadGenericPublishingStatus();
   const statusContainer =
     document.getElementById("publishingStatus");
 
@@ -2531,6 +2542,7 @@ function renderPublicationHistory(rows) {
 }
 
 async function publishSiteTypes() {
+  if(isGenericVocabulary())return publishGenericVocabulary();
   const button =
     document.getElementById("publishSiteTypesButton");
 

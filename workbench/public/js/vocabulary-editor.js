@@ -96,9 +96,9 @@ async function loadVocabularyDescriptions(){
 async function loadGenericPublishingStatus(){
  const code=selectedVocabularyCode,container=document.getElementById('publishingStatus');
  container.textContent='Loading publishing status...';
- try{const d=await api(`/api/publishing/${code}/status`);if(code!==selectedVocabularyCode)return;container.innerHTML=`<p><strong>${d.unpublished_changes}</strong> recorded text or mapping changes awaiting publication.</p><p>${d.running?'Publication in progress.':d.latest_success?'Last published: '+escapeHtml(formatDate(d.latest_success.finished_at)):'No workbench publication recorded yet.'}</p>`;
+ try{const d=await api(`/api/publishing/${code}/status`);if(code!==selectedVocabularyCode)return;container.innerHTML=`<p><strong>${d.unpublished_changes}</strong> recorded text or mapping changes awaiting publication.</p><p>${d.running?'Publication in progress.':d.latest_success?'Last published: '+escapeHtml(formatDate(d.latest_success.finished_at))+' by '+escapeHtml(d.latest_success.started_by_username||'Not recorded'):'No successful workbench publication recorded yet.'}</p>`;
   document.getElementById('publishSiteTypesButton').disabled=!!d.running;
-  document.getElementById('publicationHistory').innerHTML=d.latest_runs.map(r=>`<p>${escapeHtml(formatDate(r.started_at))}: ${escapeHtml(r.status)}${r.error?' · '+escapeHtml(r.error):''}</p>`).join('');
+  document.getElementById('publicationHistory').innerHTML=renderLookupPublicationHistory(d.latest_runs||[]);
  }catch(e){container.textContent=e.message;}
 }
 async function publishGenericVocabulary(){
@@ -113,3 +113,10 @@ async function publishGenericVocabulary(){
  }catch(e){if(code===selectedVocabularyCode)status.textContent=e.message;}finally{if(code===selectedVocabularyCode){button.disabled=false;await loadGenericPublishingStatus();}}
 }
 window.addEventListener('beforeunload',e=>{if(editorDirty){e.preventDefault();e.returnValue='';}});
+
+function renderLookupPublicationHistory(rows){
+ const heading='<section class="publication-history"><h3>Publication history</h3>';
+ if(!rows.length)return heading+'<p class="muted">No workbench publications have been recorded for this vocabulary yet.</p></section>';
+ const statusLabel=status=>({success:'Published',failed:'Failed',running:'In progress'}[status]||status);
+ return heading+'<p class="muted">Latest 10 runs. Times are shown in your local time.</p><div class="review-table-wrap"><table class="data-table"><thead><tr><th>Published by</th><th>Started</th><th>Finished</th><th>Result</th></tr></thead><tbody>'+rows.map(row=>`<tr><td>${escapeHtml(row.started_by_username||'Not recorded')}</td><td>${escapeHtml(formatDate(row.started_at))}</td><td>${row.finished_at?escapeHtml(formatDate(row.finished_at)):'Pending'}</td><td><strong>${escapeHtml(statusLabel(row.status))}</strong></td></tr>${row.error?`<tr><td colspan="4" class="error">${escapeHtml(row.error)}</td></tr>`:''}`).join('')+'</tbody></table></div></section>';
+}

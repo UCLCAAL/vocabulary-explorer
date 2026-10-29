@@ -5,8 +5,8 @@ export_postgres_lookups_to_skos.py
 Generic CAAL PostgreSQL lookup -> SKOS exporter.
 
 Exports selected ui.v_lkp_* lookup views as separate SKOS ConceptSchemes
-for Fuseki/Skosmos, while leaving Site Types and Cultural Periods on their
-specialist workflows.
+for Fuseki/Skosmos. Site Types keeps its specialist workflow. Cultural Periods
+uses a raw curated-label view and retains its established /concept/CP-* URIs.
 
 Public Skosmos titles omit the redundant "CAAL" prefix.
 
@@ -59,7 +59,7 @@ class Vocabulary:
 VOCABULARIES: Tuple[Vocabulary, ...] = (
     # Location and administration
     Vocabulary("address-types", "v_lkp_address_type", "Address Types", "Address Types", "cat_location"),
-    Vocabulary("administrative-types", "v_lkp_admin_type", "Administrative Types", "Administrative Types", "cat_location"),
+    Vocabulary("administrative-types", "v_lkp_admin_type", "Administrative Subdivision Types", "Administrative Subdivision Types", "cat_location"),
     Vocabulary("countries", "v_lkp_countries", "Countries", "Countries", "cat_location"),
     Vocabulary("location-accuracy-assessment", "v_lkp_loc_acc_ass", "Location Accuracy Assessment", "Location Accuracy Assessment", "cat_location"),
 
@@ -69,6 +69,8 @@ VOCABULARIES: Tuple[Vocabulary, ...] = (
     Vocabulary("religions", "v_lkp_religion", "Religions", "Religions", "cat_archaeology"),
 
     # Archive and resource description
+    Vocabulary("actor-types", "v_lkp_actor_type", "Actor Types", "Actor Types", "cat_archive"),
+    Vocabulary("external-xref-types", "v_lkp_external_xref_types", "External XRef Types", "External XRef Types", "cat_archive"),
     Vocabulary("beginning-of-existence-types", "v_lkp_beg_of_exist_type", "Beginning of Existence Types", "Beginning of Existence Types", "cat_archive"),
     Vocabulary("content-types", "v_lkp_content_types", "Content Types", "Content Types", "cat_archive"),
     Vocabulary("copyright-status", "v_lkp_copyright_status", "Copyright Status", "Copyright Status", "cat_archive"),
@@ -82,6 +84,8 @@ VOCABULARIES: Tuple[Vocabulary, ...] = (
     Vocabulary("title-types", "v_lkp_titles_type", "Title Types", "Title Types", "cat_archive"),
 
     # Condition and risk
+    Vocabulary("threat-types", "v_lkp_threat_types", "Threat Types", "Threat Types", "cat_condition"),
+    Vocabulary("ground-truthing-priority", "v_lkp_ground_truthing_priority", "Merit Levels for Ground Level Truthing", "Ground Truthing Merit", "cat_remote_sensing"),
     Vocabulary("conditions", "v_lkp_condition", "Conditions", "Conditions", "cat_condition"),
     Vocabulary("condition-levels", "v_lkp_condition_level", "Condition Levels", "Condition Levels", "cat_condition"),
     Vocabulary("deterioration-causes", "v_lkp_deterioration_cause", "Deterioration Causes", "Deterioration Causes", "cat_condition"),
@@ -93,6 +97,8 @@ VOCABULARIES: Tuple[Vocabulary, ...] = (
     Vocabulary("origins", "v_lkp_origin", "Surface Mark Origins", "Surface Mark Origins", "cat_remote_sensing"),
 
     # Physical description and measurement
+    Vocabulary("geometry-qualifiers", "v_lkp_geometry_qualifiers", "Geometry Qualifiers", "Geometry Qualifiers", "cat_location"),
+    Vocabulary("cultural-periods", "v_lkp_cultural_periods_raw", "Cultural Periods", "Cultural Periods", "cat_archaeology"),
     Vocabulary("colours", "v_lkp_colour", "Colours", "Colours", "cat_physical"),
     Vocabulary("measurement-types", "v_lkp_measurement_type", "Measurement Types", "Measurement Types", "cat_physical"),
     Vocabulary("size-dimensions-original-material", "v_lkp_size_dimensions_original_material", "Size/Dimensions Original Material", "Size/Dimensions Original Material", "cat_physical"),
@@ -116,6 +122,8 @@ def scheme_uri(slug: str) -> URIRef:
 
 
 def concept_uri(slug: str, concept_id: Any) -> URIRef:
+    if slug == "cultural-periods":
+        return URIRef(f"{BASE_ROOT}/concept/{str(concept_id).strip()}")
     return URIRef(f"{BASE_ROOT}/concept/{slug}/{str(concept_id).strip()}")
 
 
@@ -169,6 +177,8 @@ def fetch_rows(conn, schema: str, view: str, columns: Sequence[str]) -> List[Dic
 
 def validate_structure(vocab: Vocabulary, columns: Sequence[str]) -> List[str]:
     required = {"id", "canonical_value", "display_en"}
+    if vocab.slug == "actor-types":
+        required.update({"parent_id", "level"})
     missing = sorted(required.difference(columns))
     if missing:
         return [f"{vocab.view}: missing required column(s): {', '.join(missing)}"]
@@ -184,6 +194,25 @@ def add_scheme(g: Graph, vocab: Vocabulary) -> URIRef:
     g.add((su, RDF.type, SKOS.ConceptScheme))
     g.add((su, SKOS.prefLabel, Literal(vocab.title, lang="en")))
     return su
+
+
+def hierarchy_issues(vocab: Vocabulary, rows: Sequence[Mapping[str, Any]]) -> List[Dict[str, str]]:
+    """Reject missing parents and cycles before publishing a hierarchical lookup."""
+    if not any("parent_id" in row for row in rows):
+        return []
+    parents = {clean_text(row.get("id")): clean_text(row.get("parent_id")) for row in rows}
+    issues: List[Dict[str, str]] = []
+    for cid, parent in parents.items():
+        seen = {cid}
+        current = parent
+        while current:
+            if current not in parents or current in seen:
+                issues.append({"vocabulary": vocab.slug, "id": cid, "issue": "invalid_hierarchy",
+                               "detail": "Parent is missing or the hierarchy contains a cycle."})
+                break
+            seen.add(current)
+            current = parents[current]
+    return issues
 
 
 def add_concept(
@@ -204,8 +233,14 @@ def add_concept(
     g.add((cu, RDF.type, SKOS.Concept))
     g.add((cu, SKOS.inScheme, su))
     g.add((cu, SKOS.notation, Literal(cid)))
-    g.add((su, SKOS.hasTopConcept, cu))
-    g.add((cu, SKOS.topConceptOf, su))
+    parent_id = clean_text(row.get("parent_id"))
+    if parent_id:
+        parent = concept_uri(vocab.slug, parent_id)
+        g.add((cu, SKOS.broader, parent))
+        g.add((parent, SKOS.narrower, cu))
+    else:
+        g.add((su, SKOS.hasTopConcept, cu))
+        g.add((cu, SKOS.topConceptOf, su))
 
     canonical = clean_text(row.get("canonical_value"))
     if canonical:
@@ -235,11 +270,21 @@ def add_concept(
             label = english
         if label:
             g.add((cu, SKOS.prefLabel, Literal(label, lang=lang)))
+        alternatives = row.get(f"alt_labels_{lang}") or []
+        if isinstance(alternatives, str):
+            alternatives = [alternatives]
+        for alternative in alternatives:
+            alternative = clean_text(alternative)
+            if alternative and alternative != label:
+                g.add((cu, SKOS.altLabel, Literal(alternative, lang=lang)))
 
     if "description" in columns:
         description = clean_text(row.get("description"))
         if description:
             g.add((cu, SKOS.scopeNote, Literal(description, lang="en")))
+
+    if vocab.slug == "cultural-periods" and clean_text(row.get("date_range")):
+        g.add((cu, CAAL.dateRangeLabel, Literal(clean_text(row.get("date_range")))))
 
     if "sort_order" in columns:
         sort_value = row.get("sort_order")
@@ -451,6 +496,7 @@ def main() -> int:
             issues: List[Dict[str, str]] = []
             issues.extend(duplicate_id_issues(vocab, rows))
             issues.extend(duplicate_label_issues(vocab, rows))
+            issues.extend(hierarchy_issues(vocab, rows))
 
             g = Graph()
             g.bind("skos", SKOS)
@@ -480,7 +526,7 @@ def main() -> int:
                 "source_view": f"{args.schema}.{vocab.view}",
                 "scheme_uri": str(scheme_uri(vocab.slug)),
                 "graph_uri": graph_uri(vocab.slug),
-                "concept_uri_space": f"{BASE_ROOT}/concept/{vocab.slug}/",
+                "concept_uri_space": f"{BASE_ROOT}/concept/" if vocab.slug == "cultural-periods" else f"{BASE_ROOT}/concept/{vocab.slug}/",
                 "rdf_file": str(rdf_path).replace("\\", "/"),
                 "concept_count": len(included_ids),
                 "triple_count": len(g),
@@ -521,7 +567,7 @@ def main() -> int:
 
     strict_failures = [
         issue for issue in all_issues
-        if issue["issue"] in {"duplicate_id", "missing_english_label"}
+        if issue["issue"] in {"duplicate_id", "missing_english_label", "invalid_hierarchy", "invalid_view_structure"}
     ]
 
     print("\nFinished.")

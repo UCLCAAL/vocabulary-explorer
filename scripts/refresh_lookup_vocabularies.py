@@ -21,8 +21,12 @@ from rdflib.namespace import SKOS
 
 CAAL=Namespace('https://vocab.uclcaal.org/ns/')
 ROOT='https://vocab.uclcaal.org/'
-EXPECTED_VOCABULARIES=32
+EXPECTED_VOCABULARIES=38
 SKOSMOS=Namespace('http://purl.org/net/skosmos#')
+APPROVED_LABEL_REPLACEMENTS={
+    (ROOT+'concept/certainty/3','en'):('Mid','Medium'),
+    (ROOT+'scheme/administrative-types','en'):('Administrative Types','Administrative Subdivision Types'),
+}
 
 def validate_lookup_fixes():
     import psycopg
@@ -77,6 +81,8 @@ def restore_graph(endpoint,item):
 def merge_preserving_existing(old,new,slug):
     """Only additive publication. Conflicting single-valued text blocks the batch."""
     conflicts=[]
+    approved=[]
+    skip_scheme_labels=set()
     single_properties=[SKOS.prefLabel,CAAL.canonicalValue,CAAL.sortOrder]
     for predicate in single_properties:
         for subject in set(new.subjects(predicate,None)):
@@ -87,7 +93,13 @@ def merge_preserving_existing(old,new,slug):
                 for lang in groups:
                     before={v for v in old_values if isinstance(v,Literal) and v.language==lang}
                     after={v for v in new_values if isinstance(v,Literal) and v.language==lang}
-                    if len(after)>1 or (before and before!=after):
+                    if slug=='cultural-periods' and subject==URIRef(ROOT+'scheme/cultural-periods') and before:
+                        skip_scheme_labels.update((subject,predicate,v) for v in after if v not in before)
+                        continue
+                    replacement=APPROVED_LABEL_REPLACEMENTS.get((str(subject),lang))
+                    if replacement and before=={Literal(replacement[0],lang=lang)} and after=={Literal(replacement[1],lang=lang)}:
+                        approved.append((subject,lang,*replacement))
+                    elif len(after)>1 or (before and before!=after):
                         conflicts.append({'vocabulary':slug,'subject':str(subject),'property':str(predicate),'language':lang,
                             'published_values':sorted(map(str,before)),'database_values':sorted(map(str,after))})
             elif old_values and set(old_values)!=set(new_values):
@@ -96,7 +108,11 @@ def merge_preserving_existing(old,new,slug):
     merged=Graph()
     for graph in (old,new):
         for prefix,namespace in graph.namespaces():merged.bind(prefix,namespace)
-        for triple in graph:merged.add(triple)
+        for triple in graph:
+            if triple not in skip_scheme_labels:merged.add(triple)
+    for subject,lang,old_label,new_label in approved:
+        merged.remove((subject,SKOS.prefLabel,Literal(old_label,lang=lang)))
+        merged.add((subject,SKOS.altLabel,Literal(old_label,lang=lang)))
     return merged,conflicts
 
 def checked_manifest(path,config):
@@ -109,7 +125,7 @@ def checked_manifest(path,config):
     for item in items:
         uri=item['graph_uri']
         if uri not in configured:raise RuntimeError(f'{item["slug"]}: graph is not in current Skosmos configuration')
-        if uri in [ROOT+'graph/monument-types',ROOT+'graph/cultural-periods',ROOT+'graph/aat-reference']:
+        if uri in [ROOT+'graph/monument-types',ROOT+'graph/aat-reference']:
             raise RuntimeError('Specialist graph unexpectedly included')
         if item['concept_count']<1:raise RuntimeError(f'{item["slug"]}: empty export')
     return items
@@ -143,7 +159,7 @@ def run(repo,apply):
         label_added=len(set(merged.triples((None,SKOS.prefLabel,None)))-set(old.triples((None,SKOS.prefLabel,None))))
         concept_added=len(set(merged.subjects(RDF.type,SKOS.Concept))-set(old.subjects(RDF.type,SKOS.Concept)))
         report.append({'vocabulary':slug,'exported_concepts':entry['concept_count'],'new_concepts':concept_added,
-            'new_labels':label_added,'retained_published_triples':len(old),'changed':changed,'conflicts':len(found),'graph_uri':uri,'graph_existed':existed})
+            'new_labels':label_added,'retained_published_triples':len(set(old)&set(merged)),'changed':changed,'conflicts':len(found),'graph_uri':uri,'graph_existed':existed})
         items.append({'slug':slug,'graph_uri':uri,'old':old,'original':original,'existed':existed,'data':data,'changed':changed})
     (folder/'conflicts.json').write_text(json.dumps(conflicts,ensure_ascii=False,indent=2))
     with (folder/'summary.csv').open('w',encoding='utf-8-sig',newline='') as stream:
@@ -179,7 +195,7 @@ def run(repo,apply):
         raise
     # Restart display services even when the graphs are unchanged, to clear cached results.
     subprocess.run([os.getenv('DOCKER_BIN','docker'),'compose','restart','fuseki-cache','skosmos'],cwd=repo,check=True)
-    print('\nComplete. Current generic lookup vocabularies refreshed. Existing published-only content retained. Site Types, Cultural Periods and AAT were not changed.',flush=True)
+    print('\nComplete. Current lookup vocabularies refreshed, including Cultural Periods with existing CP URIs. Existing published-only content retained; only the two approved English names can be replaced, with old names retained as alternatives. Site Types and AAT were not changed.',flush=True)
 
 def main():
     parser=argparse.ArgumentParser()

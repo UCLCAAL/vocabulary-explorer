@@ -160,8 +160,8 @@
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/address-types> .
 
 :caalAdministrativeTypes a skosmos:Vocabulary, void:Dataset ;
-    dc:title "Administrative Types"@en ;
-    skosmos:shortName "Administrative Types" ;
+    dc:title "Administrative Subdivision Types"@en ;
+    skosmos:shortName "Administrative Subdivision Types" ;
     dc:subject :cat_location ;
     void:uriSpace "https://vocab.uclcaal.org/concept/administrative-types/" ;
     skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
@@ -561,6 +561,71 @@
     skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/languages> ;
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/languages> .
+
+:caalActorTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Actor Types"@en ;
+    skosmos:shortName "Actor Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/actor-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/actor-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/actor-types> .
+
+:caalExternalXrefTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "External XRef Types"@en ;
+    skosmos:shortName "External XRef Types" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/external-xref-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/external-xref-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/external-xref-types> .
+
+:caalGeometryQualifiers a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Geometry Qualifiers"@en ;
+    skosmos:shortName "Geometry Qualifiers" ;
+    dc:subject :cat_location ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/geometry-qualifiers/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/geometry-qualifiers> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/geometry-qualifiers> .
+
+:caalThreatTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Threat Types"@en ;
+    skosmos:shortName "Threat Types" ;
+    dc:subject :cat_condition ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/threat-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/threat-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/threat-types> .
+
+:caalGroundTruthingPriority a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Merit Levels for Ground Level Truthing"@en ;
+    skosmos:shortName "Merit Levels for Ground Level Truthing" ;
+    dc:subject :cat_remote_sensing ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/ground-truthing-priority/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/ground-truthing-priority> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/ground-truthing-priority> .
 
 :aatReference a skosmos:Vocabulary, void:Dataset ;
     dc:title "Art and Architecture Thesaurus"@en ;

@@ -99,6 +99,7 @@ VOCABULARIES: Tuple[Vocabulary, ...] = (
     Vocabulary("units-of-measurement", "v_lkp_unit_of_measurement", "Units of Measurement", "Units of Measurement", "cat_physical"),
 
     # Language and writing
+    Vocabulary("languages", "v_lkp_languages_abridged", "Languages", "Languages", "cat_language"),
     Vocabulary("scripts", "v_lkp_scripts", "Scripts", "Scripts", "cat_language"),
     Vocabulary("writing-systems", "v_lkp_writing_systems", "Writing Systems", "Writing Systems", "cat_language"),
 )

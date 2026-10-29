@@ -549,6 +549,19 @@
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/writing-systems> .
 
+:caalLanguages a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Languages"@en ;
+    skosmos:shortName "Languages" ;
+    dc:subject :cat_language ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/languages/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/languages> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/languages> .
+
 :aatReference a skosmos:Vocabulary, void:Dataset ;
     dc:title "Art and Architecture Thesaurus"@en ;
     skosmos:shortName "AAT" ;

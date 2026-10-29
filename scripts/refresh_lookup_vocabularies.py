@@ -21,7 +21,7 @@ from rdflib.namespace import SKOS
 
 CAAL=Namespace('https://vocab.uclcaal.org/ns/')
 ROOT='https://vocab.uclcaal.org/'
-EXPECTED_VOCABULARIES=31
+EXPECTED_VOCABULARIES=32
 SKOSMOS=Namespace('http://purl.org/net/skosmos#')
 
 def validate_lookup_fixes():

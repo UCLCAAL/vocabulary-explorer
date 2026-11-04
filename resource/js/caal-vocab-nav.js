@@ -349,7 +349,7 @@ const caalLanguageReplacements = {
     */
     const scopeProperties = [...document.querySelectorAll(".property")]
       .filter((property) =>
-        property.querySelector(".property-label h2")
+        property.querySelector(".property-label :is(h2, h3)")
           ?.textContent.trim() === "Scope note"
       );
 
@@ -584,14 +584,18 @@ const caalLanguageReplacements = {
   }
 
   function caalCurrentConceptUriProperty() {
+    const stableProperty = document.getElementById("concept-uri")?.closest(".property");
+    if (stableProperty) return stableProperty;
     return [...document.querySelectorAll(".property")]
       .find((property) =>
-        property.querySelector(".property-label h2")
+        property.querySelector(".property-label :is(h2, h3)")
           ?.textContent.trim() === "URI"
       ) || null;
   }
 
   function caalCurrentConceptUri() {
+    const stableUri = document.getElementById("concept-uri")?.textContent.trim();
+    if (/^https?:\/\/[^\s]+$/.test(stableUri || "")) return stableUri;
     const uriProperty = caalCurrentConceptUriProperty();
 
     if (!uriProperty) return "";
@@ -1201,7 +1205,7 @@ const caalLanguageReplacements = {
     [...document.querySelectorAll(".property")]
       .filter((property) => {
         const heading =
-          property.querySelector(".property-label h2")
+          property.querySelector(".property-label :is(h2, h3)")
             ?.textContent.trim();
 
         return (
@@ -1744,7 +1748,7 @@ const caalLanguageReplacements = {
         const heading =
           property
             .querySelector(
-              ".property-label h2"
+              ".property-label :is(h2, h3)"
             )
             ?.textContent.trim();
 
@@ -1804,7 +1808,7 @@ const caalLanguageReplacements = {
       const heading =
         property
           .querySelector(
-            ".property-label h2"
+            ".property-label :is(h2, h3)"
           )
           ?.textContent
           .trim();
@@ -1847,7 +1851,7 @@ const caalLanguageReplacements = {
         const heading =
           property
             .querySelector(
-              ".property-label h2"
+              ".property-label :is(h2, h3)"
             )
             ?.textContent
             .trim();
@@ -4870,7 +4874,7 @@ const caalLanguageReplacements = {
     conceptId
   ) {
     const property =
-      heading.closest?.(".property");
+      heading.closest?.("#concept-heading, .property");
 
     if (property) {
       return property;
@@ -4954,6 +4958,9 @@ const caalLanguageReplacements = {
   function caalHideLegacySkosmosConceptBlocks(
     conceptUri = ""
   ) {
+    // Hide legacy rows only after the replacement has been mounted.
+    if (!document.querySelector(".caal-concept-identity") ||
+        !document.querySelector(".caal-concept-sections")) return;
     const conceptId =
       caalConceptIdFromUri(conceptUri) ||
       caalConceptIdFromUri(
@@ -5022,7 +5029,9 @@ const caalLanguageReplacements = {
             : ""
         );
 
-      if (block) {
+      if (block &&
+          !block.matches("#main-content, #main-container, .main-content-section") &&
+          !block.querySelector(".caal-concept-identity, .caal-concept-sections")) {
         block.classList.add(
           "caal-native-concept-property"
         );

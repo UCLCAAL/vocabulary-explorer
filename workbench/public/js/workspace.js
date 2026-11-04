@@ -14,6 +14,7 @@ function initialiseWorkspace(){
   heading.hidden=true;
   aside.querySelector(".muted").remove();
   document.getElementById("workspaceVocabulary").addEventListener("change",event=>changeVocabulary(event.target.value));
+  initialiseReviewOverview();
 }
 
 function workspaceTreeFilterIds(){
@@ -39,9 +40,7 @@ function workspaceConceptBadge(id){
     return `<span class="tree-coverage tree-coverage-${row.state}">${escapeHtml(title)}</span>`;
   }
   if(workbenchTab==="review"){
-    const row=reviewCoverage.get(id);if(!row)return "";
-    const title=row.conflict?"Duplicate entries":row.missing_label&&row.missing_definition?"Label and definition missing":row.missing_label?"Label missing":row.missing_definition?"Definition missing":"Complete";
-    return `<span class="tree-coverage${row.missing_label||row.missing_definition||row.conflict?'':' tree-coverage-mapped'}">${title}</span>`;
+    return allLanguageReviewBadge(id);
   }
   return "";
 }

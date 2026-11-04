@@ -60,6 +60,7 @@ function renderReviewCounts(data) {
 
 async function loadReview() {
   if (!allowReviewNavigation()) return;
+  refreshReviewOverview();
   const requestId = ++reviewRequestId;
   const userKey = reviewUserKey;
   const filters = reviewFilters();
@@ -151,7 +152,7 @@ function bindReviewEditors(filters) {
         const data = await api(`/api/vocabularies/site-types/review?${new URLSearchParams({ ...filters, limit: 1 })}`);
         if (form.isConnected && session && filters.language === reviewAppliedFilters?.language) {
           renderReviewCounts(data);
-          reviewCoverage=new Map((data.coverage||[]).map(r=>[r.concept_id,r]));renderHierarchyTree();
+          reviewCoverage=new Map((data.coverage||[]).map(r=>[r.concept_id,r]));refreshReviewOverview();renderHierarchyTree();
           document.getElementById("reviewStatus").textContent = "";
         }
         if (session) await loadVocabularySummary();

@@ -141,3 +141,53 @@
     padding-bottom: 4.25rem;
   }
 }
+
+/* Give the vocabulary menu its own green surface on desktop and mobile. */
+.caal-vocabulary-nav {
+  --caal-nav-ink: #244b3e;
+  --caal-nav-green: #355e50;
+  --caal-nav-surface: #e7f1ed;
+  --caal-nav-divider: #c3d8ce;
+  --caal-nav-hover: #d7e8e0;
+
+  background: var(--caal-nav-surface);
+  border-right-color: var(--caal-nav-divider);
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__brand {
+  background: var(--caal-nav-green);
+  border-bottom-color: var(--caal-nav-green);
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__home {
+  color: #fff;
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__home:hover,
+.caal-vocabulary-nav .caal-vocabulary-nav__home:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__home:focus-visible {
+  outline-color: #fff;
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__tools {
+  background: var(--caal-nav-surface);
+  border-bottom-color: var(--caal-nav-divider);
+}
+.caal-vocabulary-nav .caal-vocabulary-nav__filter {
+  border-color: #91aea1;
+}
+.caal-vocabulary-nav .caal-vocabulary-group {
+  border-bottom-color: var(--caal-nav-divider);
+}
+.caal-vocabulary-nav .caal-vocabulary-group__title,
+.caal-vocabulary-nav .caal-vocabulary-group__title::after,
+.caal-vocabulary-nav .caal-vocabulary-link {
+  color: var(--caal-nav-ink);
+}
+.caal-vocabulary-nav .caal-vocabulary-link:hover,
+.caal-vocabulary-nav .caal-vocabulary-link:focus {
+  background: var(--caal-nav-hover);
+}
+.caal-vocabulary-nav .caal-vocabulary-link.is-active {
+  background: #cce1d7;
+  border-left-color: var(--caal-nav-green);
+}

@@ -1,0 +1,235 @@
+/* Match the public viewer's green accent and light surfaces. */
+:root {
+  --caal-accent: #2f6f5f;
+  --caal-accent-dark: #276050;
+  --caal-accent-soft: #e7f1ed;
+  --caal-ink: #1f2a30;
+  --caal-surface: #f5f7f8;
+  --caal-logo: url("./caal-logo.png");
+
+  --dark-color: var(--caal-ink);
+  --medium-color: var(--caal-accent);
+  --muted-color: #5f727c;
+  --secondary-medium-color: #bacfc6;
+  --light-color: #d9e0e3;
+  --secondary-light-color: #f7faf9;
+  --focus-color: var(--caal-accent);
+  --topbar-bg-1: var(--white-color);
+  --topbar-bg-2: var(--white-color);
+  --topbar-text-1: var(--caal-ink);
+  --topbar-text-2: var(--caal-ink);
+  --search-button-bg: var(--caal-accent);
+  --search-dropdown-selected-bg: var(--caal-accent);
+  --search-dropdown-hover-bg: var(--caal-accent);
+  --search-hover-bg: var(--caal-accent-soft);
+  --sidebar-tab-active-bg: var(--caal-accent);
+  --main-bg-1: var(--caal-surface);
+  --main-bg-2: var(--caal-surface);
+  --main-bg-3: var(--caal-surface);
+  --bs-link-color-rgb: 47, 111, 95;
+  --bs-link-hover-color-rgb: 39, 96, 80;
+
+  /* Existing custom navigation variables. */
+  --caal-navy: var(--caal-ink);
+  --caal-blue: var(--caal-accent);
+  --caal-border: var(--light-color);
+  --caal-panel: var(--secondary-light-color);
+  --caal-muted: var(--muted-color);
+}
+
+/* Keep Skosmos's accessible home link and replace its background logo. */
+#topbar {
+  align-items: center;
+  border-bottom: 1px solid var(--caal-border);
+}
+#skosmos-logo-top {
+  flex: 0 0 134px;
+  width: 134px;
+  background: var(--caal-logo) left center / contain no-repeat;
+}
+#topbar :focus-visible,
+.frontpage-logo #topbar :focus-visible,
+#skiptocontent:focus-visible {
+  outline-color: var(--caal-accent) !important;
+}
+#topbar-nav .language,
+.frontpage-logo #topbar-nav .language {
+  border-left-color: var(--caal-border);
+}
+#topbar-nav .nav-item a:hover,
+#global-search-toggle:hover {
+  color: var(--caal-accent-dark);
+}
+.frontpage-logo #global-search-toggle,
+.frontpage-logo #global-search-toggle::after {
+  color: var(--caal-accent);
+}
+body:has(main.about) #navi2,
+body:has(main.feedback) #navi3 {
+  color: var(--caal-accent);
+  border-bottom: 2px solid var(--caal-accent);
+  padding-bottom: .25rem;
+}
+
+.caal-landing-intro__eyebrow::before {
+  content: "";
+  display: block;
+  width: 156px;
+  height: 51px;
+  margin-bottom: 1rem;
+  background: var(--caal-logo) left center / contain no-repeat;
+}
+.frontpage-logo #main-container-row,
+#main-container:is(.about, .feedback) #main-container-row {
+  margin-inline: 0;
+}
+.caal-start-card__icon .fa-magnifying-glass {
+  color: var(--caal-accent);
+  font-size: inherit;
+  margin: 0;
+}
+.caal-vocabulary-link,
+.caal-start-links a,
+.caal-hierarchy-node__label {
+  color: var(--caal-accent);
+}
+.caal-vocabulary-link:hover,
+.caal-vocabulary-link:focus,
+.caal-vocabulary-link.is-active,
+.caal-start-links a:hover,
+.caal-hierarchy-node:hover,
+.caal-hierarchy-node.is-current {
+  background: var(--caal-accent-soft);
+  border-color: var(--caal-accent);
+  color: var(--caal-accent-dark);
+}
+.caal-vocabulary-nav-toggle {
+  background: var(--caal-accent);
+}
+.caal-start-card {
+  background: var(--secondary-light-color);
+  border-color: var(--caal-border);
+}
+.caal-start-links a {
+  border-color: var(--caal-border);
+}
+.concept .caal-concept-identity__label,
+.concept .caal-concept-identity__notation,
+.concept .caal-label-row__label,
+.concept .caal-relation-group h3 {
+  color: var(--caal-ink);
+}
+.concept .caal-concept-copy,
+.concept details.caal-concept-section > summary {
+  color: var(--caal-accent);
+}
+.concept .caal-concept-section__meta {
+  background: var(--caal-accent-soft);
+  color: var(--caal-accent-dark);
+}
+
+/* Information pages have no vocabulary navigator. */
+#main-container:is(.about, .feedback) {
+  margin-left: 0;
+  width: 100%;
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+}
+#main-container:is(.about, .feedback) .container {
+  max-width: 900px;
+  padding-inline: clamp(.75rem, 2vw, 1.25rem);
+}
+#main-container:is(.about, .feedback) h1 {
+  margin-bottom: 1rem !important;
+}
+.caal-information-panel {
+  padding: clamp(1rem, 4vw, 2rem);
+  background: var(--white-color);
+  border: 1px solid var(--caal-border);
+  border-top: 3px solid var(--caal-accent);
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.caal-information-panel h2 {
+  margin: 0 0 .65rem;
+  font-size: 1.5rem;
+}
+.caal-information-panel h3 {
+  margin-top: 1.35rem;
+  font-size: 1.15rem;
+}
+.caal-information-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.4rem;
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+}
+.caal-information-panel a {
+  color: var(--caal-accent);
+  text-underline-offset: .2em;
+}
+.caal-software-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1rem;
+  border-top: 1px solid var(--caal-border);
+  margin: 1.5rem 0 0;
+  padding-top: .8rem;
+  color: var(--muted-color);
+  font-size: .875rem;
+}
+.about #version {
+  font-size: .8rem;
+  color: var(--muted-color);
+}
+
+/* Keep the upstream form visible if the custom slot did not render. */
+.feedback:has(.caal-feedback-panel) #feedback-form,
+.feedback .fs-5:has(> .caal-feedback-panel) > p:first-child {
+  display: none;
+}
+.feedback .fs-5:has(> .caal-feedback-panel) {
+  margin-bottom: 0 !important;
+}
+.caal-information-panel .caal-information-action {
+  display: inline-block;
+  padding: .62rem 1rem;
+  border-radius: 5px;
+  background: var(--caal-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.caal-information-panel .caal-information-action:hover {
+  background: var(--caal-accent-dark);
+  text-decoration: underline;
+}
+.caal-information-note {
+  margin: .75rem 0 0;
+  color: var(--muted-color);
+  font-size: .9rem;
+}
+@media (max-width: 767.98px) {
+  #topbar {
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: .35rem;
+  }
+  #skosmos-logo-top {
+    flex-basis: 110px;
+    height: 36px;
+  }
+  #topbar-nav {
+    row-gap: .5rem;
+    margin-left: 0 !important;
+    padding-block: .35rem !important;
+  }
+  #topbar-nav .nav-item:not(.language) a {
+    margin-left: 0 !important;
+    margin-right: .65rem;
+  }
+}

@@ -191,3 +191,19 @@
   background: #cce1d7;
   border-left-color: var(--caal-nav-green);
 }
+
+/* Keep the utility bar compact without reducing the navigation text. */
+#topbar {
+  padding-block: .625rem !important;
+}
+#topbar #topbar-nav {
+  padding-block: .35rem !important;
+}
+#topbar #global-search-toggle {
+  padding-block: .45rem !important;
+}
+@media (min-width: 768px) {
+  #topbar #skosmos-logo-top {
+    height: 48px;
+  }
+}

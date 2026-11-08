@@ -207,3 +207,10 @@
     height: 48px;
   }
 }
+
+.caal-landing-intro__logo {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  margin-bottom: .85rem;
+}

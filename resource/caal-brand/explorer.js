@@ -234,6 +234,15 @@
 
   const topbar = document.getElementById('topbar');
   if (topbar) {
+    const homeTitle = document.getElementById('caal-landing-title');
+    const homeLink = document.querySelector('.caal-vocabulary-nav__home') || document.getElementById('navi1');
+    if (homeTitle && homeLink && !document.getElementById('skosmos-logo-top')) {
+      const logo = link(homeLink.href);
+      logo.id = 'skosmos-logo-top';
+      logo.setAttribute('aria-labelledby', homeTitle.id);
+      topbar.prepend(logo);
+    }
+
     const updateChineseLink = () => {
       const chinese = topbar.querySelector('#language-zh');
       if (!chinese || chinese.textContent === '中文') return;

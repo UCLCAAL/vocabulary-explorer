@@ -49,7 +49,17 @@
     "all_languages": "所有语言"
   };
 
-  const siteTypeId = /^MT-[1-3]-[0-9]{4,8}$/;
+  const viewerFilters = {
+    caalMonumentTypes: {param:'siteType', pattern:/^MT-[1-3]-[0-9]{4,8}$/},
+    caalCulturalPeriods: {param:'culturalPeriod', pattern:/^CP-[1-3]-[0-9]{4,8}$/},
+    caalCountries: {param:'country', values:{"2": "China", "3": "Karakalpakstan", "4": "Kazakhstan", "5": "Kyrgyzstan", "6": "Tajikistan", "7": "Turkmenistan", "8": "Uzbekistan"}},
+    caalLocationAccuracyAssessment: {param:'locationConfidence', values:{"4": "No coords", "1": "High", "2": "Medium", "3": "Low", "5": "Unknown"}},
+    caalConditionLevels: {param:'condition', pattern:/^[1-5]$/},
+    caalDeteriorationCauses: {param:'deteriorationCause', values:{"11": "Cemetery", "1": "Urban Encroachment", "2": "Quarrying", "3": "Construction", "4": "Agriculture", "5": "Looting", "6": "Fire", "7": "Dumping", "8": "Riverine Erosion", "9": "Soil Erosion", "10": "Transport Infrastructure"}},
+    caalThreatTypes: {param:'riskType', values:{"43": "Risk of quarrying", "21": "Risk of construction", "18": "Risk of agriculture", "30": "Risk of fire", "27": "Risk of dumping"}},
+    caalRiskLevels: {param:'riskMin', pattern:/^[2-5]$/,
+      caption:'Explore CAAL records at this risk level or higher'}
+  };
   const languages = new Set(['en', 'zh', 'ru', 'kk', 'ky', 'tg', 'tk', 'uz']);
   const viewer = 'https://data.uclcaal.org/';
   const el = (tag, cls, content) => {
@@ -145,12 +155,15 @@
     if (!bibliography) return;
     const actions = el('div', 'caal-concept-actions');
     const conceptId = cfg.uri.split('/').pop();
-    if (cfg.vocab === 'caalMonumentTypes' && siteTypeId.test(conceptId)) {
+    const filter = viewerFilters[cfg.vocab];
+    const filterValue = filter?.pattern?.test(conceptId) ? conceptId
+      : filter?.values && Object.hasOwn(filter.values,conceptId) ? filter.values[conceptId] : null;
+    if (filterValue) {
       const url = new URL(viewer);
-      url.searchParams.set('siteType', conceptId);
+      url.searchParams.set(filter.param, filterValue);
       url.hash = 'viewer';
       const explore = link(url, '', 'caal-explore-viewer');
-      explore.append(icon('globe'), el('span', '', 'Explore CAAL records in the Viewer using this term'), icon('arrow-up-right-from-square'));
+      explore.append(icon('globe'), el('span', '', filter.caption || 'Explore CAAL records in the Viewer using this term'), icon('arrow-up-right-from-square'));
       actions.append(explore);
     }
     const url = new URL(viewer);

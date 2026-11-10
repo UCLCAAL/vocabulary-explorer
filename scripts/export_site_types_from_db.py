@@ -738,6 +738,9 @@ def build_curated_graph(cur) -> Graph:
         skipped_unassigned_alt_labels
     )
 
+    from workbench_texts import export_workbench
+    export_workbench(cur.connection, g, VOCABULARY_CODE, concept_uri)
+
     return g
 
 
@@ -978,8 +981,6 @@ def main() -> int:
 
             else:
                 graph = build_curated_graph(cur)
-                from workbench_texts import export_workbench
-                export_workbench(conn,graph,"site-types",concept_uri)
 
     output = Path(args.output).resolve()
     output.parent.mkdir(

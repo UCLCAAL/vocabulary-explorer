@@ -149,6 +149,116 @@
     identity.prepend(nav);
   }
 
+  const chronologyCopy = {
+    en: {start: 'Start year', end: 'End year', range: 'Recorded date range', bce: 'BCE', ce: 'CE'},
+    ru: {start: 'Начало периода', end: 'Конец периода', range: 'Указанный диапазон дат', bce: 'до н. э.', ce: 'н. э.'},
+    zh: {start: '起始年份', end: '结束年份', range: '记录的年代范围', bce: '公元前', ce: '公元'}
+  };
+  const rdfNs = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+  const caalNs = 'https://vocab.uclcaal.org/ns/';
+  const timeNs = 'http://www.w3.org/2006/time#';
+  let chronology = null;
+
+  function readPeriodDates(xml, uri) {
+    const root = new DOMParser().parseFromString(xml, 'application/xml').documentElement;
+    if (root.namespaceURI !== rdfNs || root.localName !== 'RDF') return null;
+    const subjects = Array.from(root.children);
+    const properties = (nodes, ns, name) => nodes.flatMap(node =>
+      Array.from(node.children).filter(child => child.namespaceURI === ns && child.localName === name));
+    const about = id => subjects.filter(node => node.getAttributeNS(rdfNs, 'about') === id);
+    const literal = (nodes, ns, name) => {
+      const values = new Set(properties(nodes, ns, name)
+        .filter(node => !node.children.length && !node.hasAttributeNS(rdfNs, 'resource'))
+        .map(node => node.textContent.trim()).filter(Boolean));
+      return values.size === 1 ? values.values().next().value : '';
+    };
+    const objects = (nodes, ns, name) => properties(nodes, ns, name).flatMap(node => {
+      const id = node.getAttributeNS(rdfNs, 'resource');
+      return id ? about(id) : Array.from(node.children);
+    });
+    const year = (value, astronomical = false) => {
+      if (!(astronomical ? /^-?[0-9]{4,}$/ : /^-?[0-9]+$/).test(value)) return null;
+      const n = Number(value);
+      const historical = astronomical && n <= 0 ? n - 1 : n;
+      return Number.isSafeInteger(historical) && historical !== 0 ? historical : null;
+    };
+    const concept = about(uri);
+    const range = literal(concept, caalNs, 'dateRangeLabel');
+    // The legacy numbers were derived from prose. Only use them when the written
+    // range confirms both years and their eras; leave century, BP, and conflicting
+    // ranges in their original form.
+    const number = '([0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)';
+    const exactRange = new RegExp('^(?:c\\.\\s*)?' + number +
+      '\\s*(BCE|CE)?\\s*(?:[-–—]|to)\\s*' + number + '\\s*(BCE|CE)?$', 'i').exec(range);
+    let legacyStart = null, legacyEnd = null;
+    if (exactRange && (exactRange[2] || exactRange[4])) {
+      const [, startText, startEra, endText, endEra] = exactRange;
+      const signed = (text, era) => year((era.toUpperCase() === 'BCE' ? '-' : '') + text.replace(/,/g, ''));
+      const start = signed(startText, startEra || endEra);
+      const end = signed(endText, endEra || startEra);
+      if (start !== null && end !== null && start <= end &&
+          start === year(literal(concept, caalNs, 'startYear')) &&
+          end === year(literal(concept, caalNs, 'endYear'))) {
+        legacyStart = start;
+        legacyEnd = end;
+      }
+    }
+    const extent = objects(concept, 'http://purl.org/dc/terms/', 'temporal');
+    const bound = standard => year(literal(objects(extent, timeNs, standard), timeNs, 'inXSDgYear'), true);
+    return {
+      start: bound('hasBeginning') ?? legacyStart,
+      end: bound('hasEnd') ?? legacyEnd,
+      range
+    };
+  }
+
+  function renderPeriodDates(cfg, identity, dates) {
+    if (!dates || !identity.isConnected || identity.querySelector('.caal-period-dates')) return;
+    const locale = Object.hasOwn(chronologyCopy, cfg.lang) ? cfg.lang : 'en';
+    const copy = chronologyCopy[locale];
+    const format = year => {
+      const number = new Intl.NumberFormat(locale).format(Math.abs(year));
+      const era = year < 0 ? copy.bce : copy.ce;
+      return locale === 'zh' ? era + number + '年' : number + ' ' + era;
+    };
+    const list = el('dl', 'caal-period-dates');
+    list.dataset.chronologyKey = cfg.uri + '|' + cfg.lang;
+    for (const key of ['start', 'end', 'range']) {
+      if (dates[key] === null || dates[key] === '') continue;
+      const field = el('div', 'caal-period-dates__' + key);
+      field.append(el('dt', '', copy[key]), el('dd', '', key === 'range' ? dates[key] : format(dates[key])));
+      list.append(field);
+    }
+    if (list.childElementCount) identity.append(list);
+  }
+
+  function loadPeriodDates(cfg, identity) {
+    const prior = identity?.querySelector('.caal-period-dates');
+    if (prior && prior.dataset.chronologyKey !== cfg?.uri + '|' + cfg?.lang) prior.remove();
+    if (cfg?.vocab !== 'caalCulturalPeriods' || !identity) {
+      chronology?.controller.abort();
+      chronology = null;
+      return;
+    }
+    if (chronology?.uri === cfg.uri && chronology.lang === cfg.lang) {
+      renderPeriodDates(cfg, identity, chronology.dates);
+      return;
+    }
+    chronology?.controller.abort();
+    const controller = new AbortController();
+    const request = chronology = {uri: cfg.uri, lang: cfg.lang, controller, dates: null};
+    const query = new URLSearchParams({uri: cfg.uri, format: 'application/rdf+xml'});
+    fetch('/rest/v1/' + encodeURIComponent(cfg.vocab) + '/data?' + query, {signal: controller.signal})
+      .then(response => response.ok ? response.text() : null)
+      .then(xml => {
+        if (!xml || chronology !== request || window.SKOSMOS?.uri !== cfg.uri) return;
+        request.dates = readPeriodDates(xml, cfg.uri);
+        renderPeriodDates(cfg, identity, request.dates);
+        schedule();
+      })
+      .catch(() => {}); // A failed chronology request must not interrupt the concept page.
+  }
+
   function addActions(cfg, sections) {
     if (sections.querySelector('.caal-concept-actions')) return;
     const bibliography = sections.querySelector('.caal-concept-section--bibliography');
@@ -177,10 +287,14 @@
 
   function enhanceConcept() {
     const cfg = {...window.SKOSMOS};
-    if (cfg?.pageType !== 'concept' || !cfg.vocab || !cfg.uri || !cfg.lang) return;
+    if (cfg.pageType !== 'concept' || !cfg.vocab || !cfg.uri || !cfg.lang) {
+      loadPeriodDates(null);
+      return;
+    }
     const identity = document.querySelector('.caal-concept-identity');
     const sections = identity?.nextElementSibling;
     if (!sections?.classList.contains('caal-concept-sections')) return;
+    loadPeriodDates(cfg, identity);
     addActions(cfg, sections);
     const lang = cfg.content_lang || cfg.lang;
     const key = [cfg.vocab, cfg.uri, lang].join('|');

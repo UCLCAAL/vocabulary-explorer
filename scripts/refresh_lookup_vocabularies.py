@@ -9,6 +9,7 @@ import datetime
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import urllib.error
@@ -17,12 +18,18 @@ import urllib.request
 
 from rdflib import Graph, Literal, Namespace, RDF, URIRef
 from rdflib.compare import isomorphic
-from rdflib.namespace import SKOS
+from rdflib.namespace import DCTERMS, SKOS, XSD
 
 CAAL=Namespace('https://vocab.uclcaal.org/ns/')
 ROOT='https://vocab.uclcaal.org/'
 EXPECTED_VOCABULARIES=38
 SKOSMOS=Namespace('http://purl.org/net/skosmos#')
+TIME=Namespace('http://www.w3.org/2006/time#')
+YEAR_TEXT=r'([0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)'
+SIMPLE_PERIOD_RANGE=re.compile(
+    rf'(?:c\.\s*)?{YEAR_TEXT}\s*(BCE|CE)?\s*(?:[-–—]|to)\s*'
+    rf'{YEAR_TEXT}\s*(BCE|CE)?', re.IGNORECASE
+)
 APPROVED_LABEL_REPLACEMENTS={
     (ROOT+'concept/certainty/3','en'):('Mid','Medium'),
     (ROOT+'scheme/administrative-types','en'):('Administrative Types','Administrative Subdivision Types'),
@@ -78,6 +85,47 @@ def restore_graph(endpoint,item):
         except urllib.error.HTTPError as error:
             if error.code!=404:raise
 
+def add_cultural_period_temporal_extents(graph):
+    """Add OWL-Time for legacy bounds corroborated by the recorded date range."""
+    def single_literal(concept, predicate):
+        values=list(graph.objects(concept,predicate))
+        return str(values[0]).strip() if len(values)==1 and isinstance(values[0],Literal) else ''
+
+    def historical_year(value, era=''):
+        if not re.fullmatch(r'-?[0-9]+',value):return None
+        number=int(value)
+        return (-number if era.upper()=='BCE' else number) or None
+
+    def gyear(historical):
+        # CAAL uses -1 for 1 BCE; XSD 1.1 uses year 0000.
+        astronomical=historical+1 if historical<0 else historical
+        return Literal(f'{"-" if astronomical<0 else ""}{abs(astronomical):04d}',
+                       datatype=XSD.gYear,normalize=False)
+
+    scheme=URIRef(ROOT+'scheme/cultural-periods')
+    for concept in set(graph.subjects(SKOS.inScheme,scheme)):
+        if not isinstance(concept,URIRef) or (concept,RDF.type,SKOS.Concept) not in graph:continue
+        if any(graph.objects(concept,DCTERMS.temporal)):continue
+        label=single_literal(concept,CAAL.dateRangeLabel)
+        match=SIMPLE_PERIOD_RANGE.fullmatch(label)
+        if not match:continue
+        first,first_era,last,last_era=match.groups()
+        if not (first_era or last_era):continue
+        start=historical_year(first.replace(',',''),first_era or last_era)
+        end=historical_year(last.replace(',',''),last_era or first_era)
+        if start is None or end is None or start>end:continue
+        if start!=historical_year(single_literal(concept,CAAL.startYear)):continue
+        if end!=historical_year(single_literal(concept,CAAL.endYear)):continue
+        extent=URIRef(f'{concept}#temporal-extent')
+        graph.add((concept,DCTERMS.temporal,extent))
+        graph.add((extent,RDF.type,TIME.ProperInterval if start<end else TIME.TemporalEntity))
+        for predicate,fragment,year in [(TIME.hasBeginning,'start',start),(TIME.hasEnd,'end',end)]:
+            instant=URIRef(f'{extent}-{fragment}')
+            graph.add((extent,predicate,instant))
+            graph.add((instant,RDF.type,TIME.Instant))
+            graph.add((instant,TIME.inXSDgYear,gyear(year)))
+    return graph
+
 def merge_preserving_existing(old,new,slug):
     """Only additive publication. Conflicting single-valued text blocks the batch."""
     conflicts=[]
@@ -113,6 +161,8 @@ def merge_preserving_existing(old,new,slug):
     for subject,lang,old_label,new_label in approved:
         merged.remove((subject,SKOS.prefLabel,Literal(old_label,lang=lang)))
         merged.add((subject,SKOS.altLabel,Literal(old_label,lang=lang)))
+    if slug=='cultural-periods':
+        add_cultural_period_temporal_extents(merged)
     return merged,conflicts
 
 def checked_manifest(path,config):

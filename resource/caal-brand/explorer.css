@@ -71,6 +71,21 @@
 .caal-concept-actions a {
   text-underline-offset: .18em;
 }
+.caal-period-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  margin: .85rem 0 0;
+  font-size: .92rem;
+}
+.caal-period-dates dt {
+  color: var(--muted-color);
+  font-size: .85rem;
+}
+.caal-period-dates dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
 .caal-concept-actions {
   display: flex;
   flex-wrap: wrap;

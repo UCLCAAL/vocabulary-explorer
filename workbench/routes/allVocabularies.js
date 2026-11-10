@@ -6,11 +6,15 @@ const router=express.Router();router.use(requireLevel9);router.use((req,res,next
 function error(res,e){if(!e.status)console.error('Vocabulary editor request failed:',e.code||e.name);return res.status(e.status||503).json({ok:false,error:e.status?e.message:'Could not load or save this vocabulary. Check migration 006 and database permissions.'});}
 const get=work=>async(req,res)=>{try{return res.json({ok:true,...await work(req)});}catch(e){return error(res,e);}};
 const transaction=work=>async(req,res)=>{let client;try{client=await pool.connect();await client.query('BEGIN');await client.query("SET LOCAL lock_timeout='5s'");await client.query("SET LOCAL statement_timeout='20s'");const data=await work(req,client);await client.query('COMMIT');return res.json({ok:true,...data});}catch(e){if(client)await client.query('ROLLBACK').catch(()=>{});return error(res,e);}finally{client?.release();}};
-router.get('/catalog',get(async()=>({vocabularies:[{vocabulary_code:'site-types',title:'Site Types'},...E.registry.map(v=>({vocabulary_code:v.slug,title:v.title,category:v.category}))]})));
+router.get('/catalog',get(async()=>{
+ const {rows}=await pool.query("SELECT vocabulary_code,label FROM public.vocabulary_scheme_labels WHERE lang='en'");
+ const titles=new Map(rows.map(row=>[row.vocabulary_code,row.label]));
+ return {vocabularies:[{vocabulary_code:'site-types',title:titles.get('site-types')||'Site Types'},...E.registry.map(v=>({vocabulary_code:v.slug,title:titles.get(v.slug)||v.title,category:v.category}))]};
+}));
 router.get('/:vocabulary/descriptions',get(req=>E.descriptions(pool,req.params.vocabulary)));
 router.put('/:vocabulary/descriptions/:language',transaction(async(req,client)=>{
  const slug=req.params.vocabulary,v=slug==='site-types'?{slug}:E.vocabulary(slug),lang=req.params.language;
- if(!['description','editorial'].includes(req.body.field))throw E.fail('Unsupported vocabulary text.');
+ if(!['description','editorial','schemeName'].includes(req.body.field))throw E.fail('Unsupported vocabulary text.');
  await E.save(client,v,'',req.body.field,lang,req.body.text?[req.body.text]:[],req.body.expected,req.session.workbenchSession.user);return {};
 }));
 router.use('/:vocabulary/alignments',(req,res,next)=>{

@@ -4,7 +4,7 @@ from rdflib import Literal,URIRef
 from rdflib.namespace import SKOS,RDF
 from psycopg.rows import dict_row
 ROOT='https://vocab.uclcaal.org/'
-FIELDS={'preferred':SKOS.prefLabel,'alternative':SKOS.altLabel,'definition':SKOS.definition,'scopeNote':SKOS.scopeNote,'description':SKOS.scopeNote}
+FIELDS={'preferred':SKOS.prefLabel,'alternative':SKOS.altLabel,'definition':SKOS.definition,'scopeNote':SKOS.scopeNote,'description':SKOS.scopeNote,'schemeName':SKOS.prefLabel}
 
 def read_rows(conn,query,params=()):
     with conn.cursor(row_factory=dict_row) as cur:
@@ -16,6 +16,13 @@ def export_workbench(conn,g,slug,concept_uri):
         return []
     texts=read_rows(conn,'SELECT * FROM vocab_workbench.editor_texts WHERE vocabulary_code=%s',(slug,))
     revisions=read_rows(conn,'SELECT * FROM vocab_workbench.editor_revisions WHERE vocabulary_code=%s ORDER BY revision_id',(slug,))
+    if slug!='site-types' and read_rows(conn,"SELECT to_regclass('public.vocabulary_scheme_labels') AS t")[0]['t']:
+        subject=URIRef(ROOT+'scheme/'+slug)
+        for row in read_rows(conn,'SELECT lang,label FROM public.vocabulary_scheme_labels WHERE vocabulary_code=%s',(slug,)):
+            for value in list(g.objects(subject,SKOS.prefLabel)):
+                if isinstance(value,Literal) and value.language==row['lang']:
+                    g.remove((subject,SKOS.prefLabel,value))
+            g.add((subject,SKOS.prefLabel,Literal(row['label'],lang=row['lang'])))
     managed={}
     for r in revisions:
         if r['field'] not in FIELDS:continue

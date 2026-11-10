@@ -38,26 +38,29 @@ async function detail(db,v,id){
   hierarchy:{ancestors,parent:all.find(r=>r.concept_id===row.parent_id)||null,children:all.filter(r=>r.parent_id===id),siblings:all.filter(r=>r.parent_id===row.parent_id&&r.concept_id!==id)}};
 }
 async function descriptions(db,slug){
- if(slug!=='site-types')vocabulary(slug);
+ const defaultTitle=slug==='site-types'?'Site Types':vocabulary(slug).title;
  const stored=(await db.query("SELECT * FROM vocab_workbench.editor_texts WHERE vocabulary_code=$1 AND concept_id=''",[slug])).rows;
+ const names=(await db.query("SELECT lang,label FROM public.vocabulary_scheme_labels WHERE vocabulary_code=$1",[slug])).rows;
  let baseline=[];
  if(slug==='site-types')baseline=(await db.query("SELECT lang,note FROM public.vocabulary_scheme_notes WHERE vocabulary_code='site-types' AND lower(note_type)='scopenote' ORDER BY lang")).rows;
- const result=LANGS.map(lang=>{const descriptions=stored.find(r=>r.field==='description'&&r.lang===lang)?.texts??baseline.filter(r=>r.lang===lang).map(r=>r.note),editorial=stored.find(r=>r.field==='editorial'&&r.lang===lang)?.texts??[];return {lang,description:descriptions.join('\n\n'),description_values:descriptions,editorial:editorial.join('\n\n'),editorial_values:editorial};});
+ const result=LANGS.map(lang=>{const name=names.find(r=>r.lang===lang)?.label??(lang==='en'?defaultTitle:''),descriptions=stored.find(r=>r.field==='description'&&r.lang===lang)?.texts??baseline.filter(r=>r.lang===lang).map(r=>r.note),editorial=stored.find(r=>r.field==='editorial'&&r.lang===lang)?.texts??[];return {lang,schemeName:name,schemeName_values:name?[name]:[],description:descriptions.join('\n\n'),description_values:descriptions,editorial:editorial.join('\n\n'),editorial_values:editorial};});
  return {rows:result,version:hash(result)};
 }
 async function save(db,v,id,field,lang,newValues,expected,user){
  if(!LANGS.includes(lang))throw fail('Unsupported language.');
- if(!['preferred','alternative','definition','scopeNote','description','editorial'].includes(field))throw fail('Unsupported field.');
+ if(!['preferred','alternative','definition','scopeNote','description','editorial','schemeName'].includes(field))throw fail('Unsupported field.');
  if(!Array.isArray(newValues)||newValues.some(x=>typeof x!=='string'||x.length>20000))throw fail('Enter plain text within 20,000 characters.');
  newValues=[...new Set(newValues.map(clean).filter(Boolean))];
+ if(field==='schemeName'&&(!newValues.length||newValues.some(v=>v.length>300||/[\r\n]/.test(v))))throw fail('Enter a vocabulary name on one line, within 300 characters.');
  if(field!=='alternative'&&newValues.length>1)throw fail('Only one value is allowed.');
  // All generic writes and publications use the same advisory lock, including scheme edits.
  await db.query("SELECT pg_advisory_xact_lock(hashtext('caal-generic-vocabulary-edit'))");
  let oldValues,row;
  if(id===''){
-  if(!['description','editorial'].includes(field))throw fail('Choose a concept.');
+  if(!['description','editorial','schemeName'].includes(field))throw fail('Choose a concept.');
   const d=await descriptions(db,v.slug);oldValues=d.rows.find(r=>r.lang===lang)[field+'_values'];
  }else{
+  if(field==='schemeName')throw fail('Vocabulary names belong to the vocabulary itself.');
   const all=await rows(db,v);row=all.find(r=>String(r.id)===id);if(!row)throw fail('Concept not found.',404);
   const stored=await texts(db,v);oldValues=values(row,stored,field,lang);
   if(field==='alternative'&&newValues.some(x=>values(row,stored,'preferred',lang).includes(x)))throw fail('An alternative label must differ from the preferred label.');
@@ -65,7 +68,11 @@ async function save(db,v,id,field,lang,newValues,expected,user){
  }
  if(!Array.isArray(expected)||JSON.stringify(expected)!==JSON.stringify(oldValues))throw fail('Another administrator changed this text. Refresh before saving.',409);
  if(JSON.stringify(oldValues)===JSON.stringify(newValues))return;
- if(field==='preferred'){
+ if(field==='schemeName'){
+  await db.query(`INSERT INTO public.vocabulary_scheme_labels(vocabulary_code,lang,label,source)
+   VALUES($1,$2,$3,'workbench') ON CONFLICT(vocabulary_code,lang)
+   DO UPDATE SET label=EXCLUDED.label,source=EXCLUDED.source,import_run_id=NULL,updated_at=now()`,[v.slug,lang,newValues[0]]);
+ }else if(field==='preferred'){
   if(!newValues.length)throw fail('A preferred label cannot be empty.');
   if(v.mode==='display')await db.query(`INSERT INTO vocab_workbench.display_labels VALUES($1,$2,$3,$4) ON CONFLICT(vocabulary_code,concept_id,lang) DO UPDATE SET label=EXCLUDED.label`,[v.slug,id,lang,newValues[0]]);
   else if(v.mode==='curated'){

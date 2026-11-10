@@ -6,7 +6,8 @@ const isGenericVocabulary=()=>selectedVocabularyCode!=='site-types';
 function vocabularyTitle(){return vocabularyCatalog.find(v=>v.vocabulary_code===selectedVocabularyCode)?.title||'Site Types';}
 function allowEditorNavigation(){if(!editorDirty)return true;if(!confirm('Leave the unsaved text changes?'))return false;editorDirty=false;return true;}
 async function loadVocabularyCatalog(){
- const data=await api('/api/vocabularies/catalog');vocabularyCatalog=data.vocabularies;
+ const data=await api('/api/vocabularies/catalog');vocabularyCatalog=[...data.vocabularies].sort((a,b)=>
+  a.title.localeCompare(b.title,'en',{sensitivity:'base'})||a.vocabulary_code.localeCompare(b.vocabulary_code));
  const select=document.getElementById('workspaceVocabulary');
  select.innerHTML=vocabularyCatalog.map(v=>`<option value="${escapeHtml(v.vocabulary_code)}">${escapeHtml(v.title)}</option>`).join('');select.value=selectedVocabularyCode;
  updateVocabularyControls();
@@ -85,10 +86,24 @@ async function loadVocabularyDescriptions(){
   const data=await api(`/api/vocabularies/${code}/descriptions`);if(code!==selectedVocabularyCode||!panel.isConnected)return;
   panel.innerHTML='<details><summary>About this vocabulary</summary><label>Language<select id="descriptionLanguage">'+LANGUAGES.map(([l,n])=>`<option value="${l}">${n}</option>`).join('')+'</select></label><div id="descriptionEditor"></div></details>';
   const select=panel.querySelector('select');select.value=document.getElementById('reviewLanguage').value||'en';let prev=select.value;
-  const render=()=>{const row=data.rows.find(r=>r.lang===select.value);panel.querySelector('#descriptionEditor').innerHTML=['description','editorial'].map(field=>`<form data-description-form data-field="${field}"><label>${field==='description'?'Public vocabulary description':'Editorial note (workbench only)'}<textarea data-vocabulary-text data-original="${escapeHtml(row[field])}" rows="4">${escapeHtml(row[field])}</textarea></label><button type="submit" ${(row[field+"_values"]||[]).length>1?"disabled title=\"Multiple stored notes need review\"":""}>Save</button> <span class="save-status" role="status"></span></form>`).join('');
-   panel.querySelectorAll('textarea').forEach(i=>i.addEventListener('input',markEditorDirty));
-   panel.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();const field=f.dataset.field,i=f.querySelector('textarea'),b=f.querySelector('button'),status=f.querySelector('.save-status');b.disabled=true;
-    try{await api(`/api/vocabularies/${code}/descriptions/${row.lang}`,{method:'PUT',body:JSON.stringify({field,text:i.value.trim(),expected:row[field]?[row[field]]:[]})});row[field]=i.value.trim();i.value=row[field];i.dataset.original=i.value;markEditorDirty();status.textContent='Saved';}catch(e){status.textContent=e.message;}finally{b.disabled=false;}
+  const render=()=>{
+   const row=data.rows.find(r=>r.lang===select.value);
+   const fields=[['schemeName','Vocabulary name'],['description','Public vocabulary description'],['editorial','Editorial note (workbench only)']];
+   panel.querySelector('#descriptionEditor').innerHTML=fields.map(([field,label])=>{
+    const value=escapeHtml(row[field]||''),attrs=`data-vocabulary-text data-original="${value}"`;
+    const input=field==='schemeName'?`<input ${attrs} value="${value}" maxlength="300" required>`:`<textarea ${attrs} rows="4">${value}</textarea>`;
+    const multiple=(row[field+'_values']||[]).length>1;
+    return `<form data-description-form data-field="${field}"><label>${label}${input}</label><button type="submit" ${multiple?'disabled title="Multiple stored notes need review"':''}>Save</button> <span class="save-status" role="status"></span></form>`;
+   }).join('');
+   panel.querySelectorAll('[data-vocabulary-text]').forEach(i=>i.addEventListener('input',markEditorDirty));
+   panel.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{
+    e.preventDefault();const field=f.dataset.field,i=f.querySelector('[data-vocabulary-text]'),b=f.querySelector('button'),status=f.querySelector('.save-status'),text=i.value.trim();
+    b.disabled=true;status.textContent='Saving...';
+    try{
+     await api(`/api/vocabularies/${code}/descriptions/${row.lang}`,{method:'PUT',body:JSON.stringify({field,text,expected:row[field+'_values']})});
+     row[field]=text;row[field+'_values']=text?[text]:[];i.value=text;i.dataset.original=text;markEditorDirty();status.textContent='Saved';
+     if(field==='schemeName'&&row.lang==='en')loadVocabularyCatalog().catch(()=>{});
+    }catch(e){status.textContent=e.message;}finally{b.disabled=false;}
    }));
   };render();select.addEventListener('change',()=>{if(!allowEditorNavigation()){select.value=prev;return;}prev=select.value;render();});
  }catch(e){panel.textContent=e.message;}

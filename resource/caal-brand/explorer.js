@@ -49,6 +49,49 @@
     "all_languages": "所有语言"
   };
 
+  // Skosmos vocabulary IDs and their configured CAAL concept schemes.
+  const vocabularySchemes = {
+    caalActorTypes: 'actor-types',
+    caalAddressTypes: 'address-types',
+    caalAdministrativeTypes: 'administrative-types',
+    caalAnomalyTypes: 'anomaly-types',
+    caalBeginningOfExistenceTypes: 'beginning-of-existence-types',
+    caalCertainty: 'certainty',
+    caalClassifications: 'classifications',
+    caalColours: 'colours',
+    caalConditionLevels: 'condition-levels',
+    caalConditions: 'conditions',
+    caalContentTypes: 'content-types',
+    caalCopyrightStatus: 'copyright-status',
+    caalCountries: 'countries',
+    caalCulturalPeriods: 'cultural-periods',
+    caalDatasetTypes: 'dataset-types',
+    caalDescriptionTypes: 'description-types',
+    caalDesignationTypes: 'designation-types',
+    caalDeteriorationCauses: 'deterioration-causes',
+    caalDigitalFileFormats: 'digital-file-formats',
+    caalEndOfExistenceTypes: 'end-of-existence-types',
+    caalExternalXrefTypes: 'external-xref-types',
+    caalGeometryQualifiers: 'geometry-qualifiers',
+    caalGroundTruthingPriority: 'ground-truthing-priority',
+    caalLanguages: 'languages',
+    caalLevels: 'levels',
+    caalLocationAccuracyAssessment: 'location-accuracy-assessment',
+    caalMeasurementTypes: 'measurement-types',
+    caalMonumentTypes: 'site-types',
+    caalNameTypes: 'name-types',
+    caalOrigins: 'origins',
+    caalReligions: 'religions',
+    caalRiskLevels: 'risk-levels',
+    caalScripts: 'scripts',
+    caalSizeDimensionsOriginalMaterial: 'size-dimensions-original-material',
+    caalSubjects: 'subjects',
+    caalThreatTypes: 'threat-types',
+    caalTitleTypes: 'title-types',
+    caalUnitsOfMeasurement: 'units-of-measurement',
+    caalWritingSystems: 'writing-systems',
+  };
+
   const viewerFilters = {
     caalMonumentTypes: {param:'siteType', pattern:/^MT-[1-3]-[0-9]{4,8}$/},
     caalCulturalPeriods: {param:'culturalPeriod', pattern:/^CP-[1-3]-[0-9]{4,8}$/},
@@ -128,7 +171,7 @@
     for (const path of paths.length ? paths : [[cfg.uri]]) {
       const list = el('ol');
       const first = el('li');
-      first.append(link(vocabularyPage(cfg), cfg.vocShortName || cfg.vocab));
+      first.append(link(vocabularyPage(cfg), cfg.vocShortName || cfg.vocab, 'caal-path-vocabulary-title'));
       list.append(first);
       for (const uri of path) {
         const item = el('li');
@@ -157,7 +200,58 @@
   const rdfNs = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
   const caalNs = 'https://vocab.uclcaal.org/ns/';
   const timeNs = 'http://www.w3.org/2006/time#';
+  const skosNs = 'http://www.w3.org/2004/02/skos/core#';
+  const xmlNs = 'http://www.w3.org/XML/1998/namespace';
+  const schemeTitles = new Map();
+  const originalTitles = new WeakMap();
   let chronology = null;
+
+  function readSchemeTitles(xml, uri) {
+    const root = new DOMParser().parseFromString(xml, 'application/xml').documentElement;
+    const titles = new Map();
+    if (root.namespaceURI !== rdfNs || root.localName !== 'RDF') return titles;
+    for (const subject of root.children) {
+      if (subject.getAttributeNS(rdfNs, 'about') !== uri) continue;
+      for (const prop of subject.children) {
+        if (prop.namespaceURI !== skosNs || prop.localName !== 'prefLabel' || prop.children.length) continue;
+        const lang = prop.getAttributeNS(xmlNs, 'lang')?.toLowerCase();
+        const label = prop.textContent.trim();
+        if (!lang || !label) continue;
+        // A scheme with conflicting preferred labels should use the configured title.
+        if (!titles.has(lang)) titles.set(lang, label);
+        else if (titles.get(lang) !== label) titles.set(lang, null);
+      }
+    }
+    return titles;
+  }
+
+  function localiseVocabularyTitle() {
+    const cfg = window.SKOSMOS;
+    if (!cfg?.vocab || !Object.hasOwn(vocabularySchemes, cfg.vocab)) return;
+    const nodes = document.querySelectorAll('#vocab-title a, .caal-path-vocabulary-title');
+    if (!nodes.length) return;
+    const vocab = cfg.vocab;
+    if (!schemeTitles.has(vocab)) {
+      schemeTitles.set(vocab, new Map());
+      const uri = 'https://vocab.uclcaal.org/scheme/' + vocabularySchemes[vocab];
+      const query = new URLSearchParams({uri, format: 'application/rdf+xml'});
+      fetch('/rest/v1/' + encodeURIComponent(vocab) + '/data?' + query)
+        .then(response => response.ok ? response.text() : '')
+        .then(xml => {
+          if (!xml) return;
+          schemeTitles.set(vocab, readSchemeTitles(xml, uri));
+          schedule();
+        })
+        .catch(() => {}); // Leave the configured titles if the scheme is unavailable.
+    }
+    const lang = cfg.content_lang || cfg.lang;
+    const title = schemeTitles.get(vocab).get(lang) || (lang === 'zh' ? chineseCopy[vocab] : '');
+    for (const node of nodes) {
+      if (!originalTitles.has(node)) originalTitles.set(node, node.textContent.trim());
+      const text = title || originalTitles.get(node);
+      if (text && node.textContent.trim() !== text) node.textContent = text;
+    }
+  }
 
   function readPeriodDates(xml, uri) {
     const root = new DOMParser().parseFromString(xml, 'application/xml').documentElement;
@@ -351,7 +445,6 @@
     setText(document.querySelector('label[for="caal-vocabulary-filter"]'), chineseCopy.filter_vocabularies);
     const filter = document.getElementById('caal-vocabulary-filter');
     if (filter) filter.placeholder = chineseCopy.filter_vocabularies;
-    setText(document.querySelector('#vocab-title a'), chineseCopy[window.SKOSMOS?.vocab]);
     document.querySelectorAll('.caal-home-shortcuts a').forEach(node => {
       const vocabularyId = new URL(node.href).pathname.split('/')[1];
       setText(node, chineseCopy[vocabularyId]);
@@ -406,6 +499,7 @@
       moveHomeSearch();
       localiseChineseUi();
       enhanceConcept();
+      localiseVocabularyTitle();
     });
   }
   const main = document.querySelector('main');

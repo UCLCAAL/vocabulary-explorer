@@ -10,39 +10,6 @@
     "cat_location": "地理位置与行政区划",
     "cat_physical": "实体特征与测量",
     "cat_language": "语言与文字",
-    "caalMonumentTypes": "遗址类型",
-    "caalCulturalPeriods": "文化时期",
-    "caalAddressTypes": "地址类型",
-    "caalAdministrativeTypes": "行政区划类型",
-    "caalAnomalyTypes": "异常类型",
-    "caalBeginningOfExistenceTypes": "起始类型",
-    "caalCertainty": "确定性",
-    "caalClassifications": "分类",
-    "caalColours": "颜色",
-    "caalConditions": "保存状况",
-    "caalConditionLevels": "保存状况等级",
-    "caalContentTypes": "内容类型",
-    "caalCopyrightStatus": "版权状态",
-    "caalCountries": "国家",
-    "caalDatasetTypes": "数据集类型",
-    "caalDescriptionTypes": "描述类型",
-    "caalDesignationTypes": "保护认定类型",
-    "caalDeteriorationCauses": "劣化原因",
-    "caalDigitalFileFormats": "数字文件格式",
-    "caalEndOfExistenceTypes": "终止类型",
-    "caalLevels": "层级",
-    "caalLocationAccuracyAssessment": "位置精度评估",
-    "caalMeasurementTypes": "测量类型",
-    "caalNameTypes": "名称类型",
-    "caalOrigins": "地表痕迹成因",
-    "caalReligions": "宗教",
-    "caalRiskLevels": "风险等级",
-    "caalScripts": "文字",
-    "caalSizeDimensionsOriginalMaterial": "原始资料尺寸",
-    "caalSubjects": "主题",
-    "caalTitleTypes": "标题类型",
-    "caalUnitsOfMeasurement": "计量单位",
-    "caalWritingSystems": "书写系统",
     "explorer_title": "CAAL词表浏览器",
     "filter_vocabularies": "筛选词表…",
     "vocabulary_language": "词表语言",
@@ -202,7 +169,9 @@
   const timeNs = 'http://www.w3.org/2006/time#';
   const skosNs = 'http://www.w3.org/2004/02/skos/core#';
   const xmlNs = 'http://www.w3.org/XML/1998/namespace';
+  const schemeBase = 'https://vocab.uclcaal.org/scheme/';
   const schemeTitles = new Map();
+  let titleIndexState = 'idle';
   const originalTitles = new WeakMap();
   let chronology = null;
 
@@ -217,40 +186,93 @@
         const lang = prop.getAttributeNS(xmlNs, 'lang')?.toLowerCase();
         const label = prop.textContent.trim();
         if (!lang || !label) continue;
-        // A scheme with conflicting preferred labels should use the configured title.
-        if (!titles.has(lang)) titles.set(lang, label);
-        else if (titles.get(lang) !== label) titles.set(lang, null);
+        addSchemeTitle(titles, lang, label);
       }
     }
     return titles;
   }
 
-  function localiseVocabularyTitle() {
+  function addSchemeTitle(titles, lang, label) {
+    // A conflict is ambiguous. Fall back rather than picking an arbitrary label.
+    if (!titles.has(lang)) titles.set(lang, label);
+    else if (titles.get(lang) !== label) titles.set(lang, null);
+  }
+
+  function loadTitleIndex() {
+    titleIndexState = 'loading';
+    fetch('/resource/caal-brand/vocabulary-titles.php')
+      .then(response => {
+        if (!response.ok) throw new Error('Vocabulary titles unavailable');
+        return response.json();
+      })
+      .then(data => {
+        const rows = data.results?.bindings;
+        if (!Array.isArray(rows)) throw new Error('Invalid vocabulary titles response');
+        for (const row of rows) {
+          const uri = row?.scheme?.value;
+          const lang = row?.label?.['xml:lang']?.toLowerCase();
+          const label = row?.label?.value?.trim();
+          if (!uri?.startsWith(schemeBase) || !languages.has(lang) || !label) continue;
+          if (!schemeTitles.has(uri)) schemeTitles.set(uri, new Map());
+          addSchemeTitle(schemeTitles.get(uri), lang, label);
+        }
+        titleIndexState = 'loaded';
+      })
+      .catch(() => { titleIndexState = 'failed'; })
+      .finally(schedule);
+  }
+
+  function loadCurrentTitle(vocab, uri) {
+    if (schemeTitles.has(uri)) return;
+    schemeTitles.set(uri, new Map());
+    const query = new URLSearchParams({uri, format: 'application/rdf+xml'});
+    fetch('/rest/v1/' + encodeURIComponent(vocab) + '/data?' + query)
+      .then(response => response.ok ? response.text() : '')
+      .then(xml => {
+        if (!xml) return;
+        schemeTitles.set(uri, readSchemeTitles(xml, uri));
+        schedule();
+      })
+      .catch(() => {}); // Keep the configured names if the fallback is unavailable.
+  }
+
+  function localiseVocabularyTitles() {
     const cfg = window.SKOSMOS;
-    if (!cfg?.vocab || !Object.hasOwn(vocabularySchemes, cfg.vocab)) return;
-    const nodes = document.querySelectorAll('#vocab-title a, .caal-path-vocabulary-title');
-    if (!nodes.length) return;
-    const vocab = cfg.vocab;
-    if (!schemeTitles.has(vocab)) {
-      schemeTitles.set(vocab, new Map());
-      const uri = 'https://vocab.uclcaal.org/scheme/' + vocabularySchemes[vocab];
-      const query = new URLSearchParams({uri, format: 'application/rdf+xml'});
-      fetch('/rest/v1/' + encodeURIComponent(vocab) + '/data?' + query)
-        .then(response => response.ok ? response.text() : '')
-        .then(xml => {
-          if (!xml) return;
-          schemeTitles.set(vocab, readSchemeTitles(xml, uri));
-          schedule();
-        })
-        .catch(() => {}); // Leave the configured titles if the scheme is unavailable.
-    }
-    const lang = cfg.content_lang || cfg.lang;
-    const title = schemeTitles.get(vocab).get(lang) || (lang === 'zh' ? chineseCopy[vocab] : '');
-    for (const node of nodes) {
+    const current = document.querySelectorAll('#vocab-title a, .caal-path-vocabulary-title');
+    const links = document.querySelectorAll('#caal-vocabulary-nav [data-caal-vocabulary], .caal-home-shortcuts a');
+    if (!current.length && !links.length) return;
+    if (titleIndexState === 'idle') loadTitleIndex();
+
+    const lang = cfg?.content_lang || cfg?.lang || document.documentElement.lang;
+    const schemeUri = vocab => Object.hasOwn(vocabularySchemes, vocab) ? schemeBase + vocabularySchemes[vocab] : null;
+    const currentUri = schemeUri(cfg?.vocab);
+    if (current.length && currentUri && titleIndexState === 'failed') loadCurrentTitle(cfg.vocab, currentUri);
+
+    const setTitle = (node, uri) => {
       if (!originalTitles.has(node)) originalTitles.set(node, node.textContent.trim());
-      const text = title || originalTitles.get(node);
+      const fallback = originalTitles.get(node);
+      const titles = schemeTitles.get(uri);
+      const text = titles?.get(lang) || titles?.get('en') || fallback;
       if (text && node.textContent.trim() !== text) node.textContent = text;
+      return {text, fallback};
+    };
+
+    if (currentUri) for (const node of current) setTitle(node, currentUri);
+    let indexChanged = false;
+    for (const node of links) {
+      const vocab = node.dataset.caalVocabulary || new URL(node.href).pathname.split('/')[1];
+      const uri = schemeUri(vocab);
+      if (!uri) continue;
+      const {text, fallback} = setTitle(node, uri);
+      if (!node.hasAttribute('data-vocabulary-title')) continue;
+      const index = [fallback, schemeTitles.get(uri)?.get('en'), text].filter(Boolean).join(' ');
+      if (node.dataset.vocabularyTitle !== index) {
+        node.dataset.vocabularyTitle = index;
+        indexChanged = true;
+      }
     }
+    const filter = document.getElementById('caal-vocabulary-filter');
+    if (indexChanged && filter?.value.trim()) filter.dispatchEvent(new Event('input'));
   }
 
   function readPeriodDates(xml, uri) {
@@ -431,24 +453,11 @@
     document.querySelectorAll('[data-caal-category]').forEach(node => {
       setText(node, chineseCopy[node.dataset.caalCategory]);
     });
-    document.querySelectorAll('[data-caal-vocabulary]').forEach(node => {
-      const label = chineseCopy[node.dataset.caalVocabulary];
-      if (!label) return;
-      // The existing filter indexes this attribute, so keep both languages searchable.
-      if (!node.dataset.vocabularyTitle.includes(label)) {
-        node.dataset.vocabularyTitle += ' ' + label;
-      }
-      setText(node, label);
-    });
     setText(document.querySelector('#caal-landing-title'), chineseCopy.explorer_title);
     setText(document.querySelector('.caal-vocabulary-nav__brand-subtitle'), chineseCopy.explorer_title.slice(4));
     setText(document.querySelector('label[for="caal-vocabulary-filter"]'), chineseCopy.filter_vocabularies);
     const filter = document.getElementById('caal-vocabulary-filter');
     if (filter) filter.placeholder = chineseCopy.filter_vocabularies;
-    document.querySelectorAll('.caal-home-shortcuts a').forEach(node => {
-      const vocabularyId = new URL(node.href).pathname.split('/')[1];
-      setText(node, chineseCopy[vocabularyId]);
-    });
     setText(document.getElementById('content-language-label'), chineseCopy.vocabulary_language);
     document.querySelectorAll('#language-list li.dropdown-item, #content-language-current').forEach(node => {
       if (/^all languages$/i.test(node.textContent.trim())) setText(node, chineseCopy.all_languages);
@@ -499,7 +508,7 @@
       moveHomeSearch();
       localiseChineseUi();
       enhanceConcept();
-      localiseVocabularyTitle();
+      localiseVocabularyTitles();
     });
   }
   const main = document.querySelector('main');

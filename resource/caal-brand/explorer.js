@@ -184,6 +184,17 @@
     };
     const concept = about(uri);
     const range = literal(concept, caalNs, 'dateRangeLabel');
+    const temporal = 'http://purl.org/dc/terms/';
+    const ownedExtent = uri + '#temporal-extent';
+    const hasPublishedBounds = properties(concept, temporal, 'temporal').some(node =>
+      node.getAttributeNS(rdfNs, 'resource') === ownedExtent ||
+      Array.from(node.children).some(child => child.getAttributeNS(rdfNs, 'about') === ownedExtent));
+    if (hasPublishedBounds) {
+      // The concept response may omit linked instants. The publisher writes these
+      // signed year literals alongside OWL-Time, so they remain available here.
+      return {start: year(literal(concept, caalNs, 'startYear')),
+        end: year(literal(concept, caalNs, 'endYear')), range};
+    }
     // The legacy numbers were derived from prose. Only use them when the written
     // range confirms both years and their eras; leave century, BP, and conflicting
     // ranges in their original form.
@@ -203,7 +214,7 @@
         legacyEnd = end;
       }
     }
-    const extent = objects(concept, 'http://purl.org/dc/terms/', 'temporal');
+    const extent = objects(concept, temporal, 'temporal');
     const bound = standard => year(literal(objects(extent, timeNs, standard), timeNs, 'inXSDgYear'), true);
     return {
       start: bound('hasBeginning') ?? legacyStart,

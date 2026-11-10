@@ -175,6 +175,40 @@ def fetch_rows(conn, schema: str, view: str, columns: Sequence[str]) -> List[Dic
         return list(cur.fetchall())
 
 
+def apply_cultural_period_chronology(conn, schema: str, rows: Sequence[Dict[str, Any]]) -> None:
+    """Use the same corrected chronology as the Viewer, independently of labels."""
+    by_id = {}
+    query = sql.SQL("SELECT concept_id, date_range, date_from, date_to FROM {}.{}").format(
+        sql.Identifier(schema), sql.Identifier("v_lkp_cultural_periods_context")
+    )
+    with conn.cursor() as cur:
+        cur.execute(query)
+        for record in cur.fetchall():
+            cid = clean_text(record["concept_id"])
+            if cid in by_id:
+                raise RuntimeError(f"Cultural Periods: duplicate chronology row for {cid}.")
+            by_id[cid] = record
+
+    for row in rows:
+        cid = clean_text(row.get("id"))
+        if cid not in by_id:
+            raise RuntimeError(f"Cultural Periods: chronology lookup is missing {cid or '(empty ID)'}.")
+        source = by_id[cid]
+        years = []
+        for field in ("date_from", "date_to"):
+            value = clean_text(source[field])
+            if not value:
+                years.append(None)
+            elif not re.fullmatch(r"-?[0-9]+", value) or int(value) == 0:
+                raise RuntimeError(f"Cultural Periods: invalid {field} for {cid}; expected a signed nonzero year.")
+            else:
+                years.append(int(value))
+        start, end = years
+        if start is not None and end is not None and start > end:
+            raise RuntimeError(f"Cultural Periods: start year is after end year for {cid}.")
+        row.update(date_range=source["date_range"], date_from=start, date_to=end)
+
+
 def validate_structure(vocab: Vocabulary, columns: Sequence[str]) -> List[str]:
     required = {"id", "canonical_value", "display_en"}
     if vocab.slug == "actor-types":
@@ -283,8 +317,13 @@ def add_concept(
         if description:
             g.add((cu, SKOS.scopeNote, Literal(description, lang="en")))
 
-    if vocab.slug == "cultural-periods" and clean_text(row.get("date_range")):
-        g.add((cu, CAAL.dateRangeLabel, Literal(clean_text(row.get("date_range")))))
+    if vocab.slug == "cultural-periods":
+        date_range = clean_text(row.get("date_range"))
+        if date_range:
+            g.add((cu, CAAL.dateRangeLabel, Literal(date_range)))
+        for field, predicate in (("date_from", CAAL.startYear), ("date_to", CAAL.endYear)):
+            if row.get(field) is not None:
+                g.add((cu, predicate, Literal(row[field], datatype=XSD.integer)))
 
     if "sort_order" in columns:
         sort_value = row.get("sort_order")
@@ -494,6 +533,8 @@ def main() -> int:
                 continue
 
             rows = fetch_rows(conn, args.schema, vocab.view, columns)
+            if vocab.slug == "cultural-periods":
+                apply_cultural_period_chronology(conn, args.schema, rows)
             print(f"  Rows: {len(rows)}")
 
             issues: List[Dict[str, str]] = []

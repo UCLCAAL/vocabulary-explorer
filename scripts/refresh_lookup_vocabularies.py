@@ -21,7 +21,6 @@ from rdflib.namespace import DCTERMS, SKOS, XSD
 
 CAAL=Namespace('https://vocab.uclcaal.org/ns/')
 ROOT='https://vocab.uclcaal.org/'
-EXPECTED_VOCABULARIES=38
 SKOSMOS=Namespace('http://purl.org/net/skosmos#')
 TIME=Namespace('http://www.w3.org/2006/time#')
 PERIOD_CHRONOLOGY=(CAAL.dateRangeLabel,CAAL.startYear,CAAL.endYear)
@@ -160,12 +159,28 @@ def merge_preserving_existing(old,new,slug):
         replace_cultural_period_chronology(merged,new)
     return merged,conflicts
 
-def checked_manifest(path,config,only=None):
+def check_catalog(repo, config):
+    from export_postgres_lookups_to_skos import configured_lookup_vocabularies
+    registry=json.loads((repo/'workbench/services/vocabularyRegistry.json').read_text(encoding='utf-8'))
+    registered=[item['slug'] for item in registry]
+    exported=[item.slug for item in configured_lookup_vocabularies()]
+    graphs={str(uri) for uri in config.objects(None,SKOSMOS.sparqlGraph)}
+    # Site Types has a dedicated Workbench editor; Getty AAT is an external reference.
+    lookup_graphs=graphs-{ROOT+'graph/monument-types', ROOT+'graph/aat-reference'}
+    expected={ROOT+'graph/'+slug for slug in registered}
+    if lookup_graphs!=expected or set(registered)!=set(exported) or len(registered)!=len(set(registered)) or len(exported)!=len(set(exported)):
+        missing=sorted(uri.rsplit('/',1)[-1] for uri in lookup_graphs-expected)
+        extra=sorted(uri.rsplit('/',1)[-1] for uri in expected-lookup_graphs)
+        raise RuntimeError(f'Vocabulary registry, exporter and Skosmos differ. Missing from Workbench: {missing}; missing from Skosmos: {extra}; exporter differences: {sorted(set(registered)^set(exported))}.')
+    return lookup_graphs
+
+
+def checked_manifest(path,config,expected,only=None):
     items=json.loads(path.read_text())
     if only and [item['slug'] for item in items]!=[only]:
         raise RuntimeError(f'Expected an export for {only} only. No publication performed.')
-    if not only and len(items)!=EXPECTED_VOCABULARIES:
-        raise RuntimeError(f'Expected {EXPECTED_VOCABULARIES} exporter entries; got {len(items)}. No publication performed.')
+    if not only and {item['graph_uri'] for item in items}!=expected:
+        raise RuntimeError('Export manifest does not match the vocabulary catalog. No publication performed.')
     configured={str(v) for v in config.objects(None,SKOSMOS.sparqlGraph)}
     uris=[r['graph_uri'] for r in items]
     if len(uris)!=len(set(uris)):raise RuntimeError('Duplicate graph in export manifest')
@@ -182,6 +197,7 @@ def run(repo,apply,only=None):
     config_path=repo/'dockerfiles/config/config-docker-compose.ttl'
     if not exporter.is_file() or not config_path.is_file():raise RuntimeError('Repository files not found')
     config=Graph().parse(config_path,format='turtle')
+    expected=check_catalog(repo,config)
     validate_lookup_fixes()
     endpoint=os.getenv('FUSEKI_DATA_URL','http://localhost:9030/skosmos/data')
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d-%H%M%S-%f')
@@ -194,7 +210,7 @@ def run(repo,apply,only=None):
     if only:
         command.extend(['--only',only])
     subprocess.run(command,cwd=folder,check=True)
-    manifest=checked_manifest(rdf_dir/'manifest.json',config,only)
+    manifest=checked_manifest(rdf_dir/'manifest.json',config,expected,only)
     items=[];report=[];conflicts=[]
     for entry in manifest:
         slug=entry['slug'];uri=entry['graph_uri']
@@ -255,8 +271,15 @@ def main():
     parser.add_argument('--repo',type=Path,default=Path('/opt/vocabulary-explorer'))
     parser.add_argument('--apply',action='store_true')
     parser.add_argument('--only')
+    parser.add_argument('--check-catalog',action='store_true',help='Check Skosmos and Workbench registration without database or Fuseki access.')
     args=parser.parse_args()
     try:
+        if args.check_catalog:
+            repo=args.repo.resolve()
+            config=Graph().parse(repo/'dockerfiles/config/config-docker-compose.ttl',format='turtle')
+            count=len(check_catalog(repo,config))
+            print(f'Catalog matches: {count} editable lookups plus Site Types. External Getty AAT excluded.')
+            return 0
         import psycopg
         with psycopg.connect(os.getenv("CAAL_DATABASE_URL") or os.getenv("DATABASE_URL"),autocommit=True) as lock:
             if not lock.execute("SELECT pg_try_advisory_lock(hashtext('caal-generic-vocabulary-edit'))").fetchone()[0]:

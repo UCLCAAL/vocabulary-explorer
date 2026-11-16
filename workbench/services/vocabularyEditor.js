@@ -46,11 +46,16 @@ async function descriptions(db,slug){
  const result=LANGS.map(lang=>{const name=names.find(r=>r.lang===lang)?.label??(lang==='en'?defaultTitle:''),descriptions=stored.find(r=>r.field==='description'&&r.lang===lang)?.texts??baseline.filter(r=>r.lang===lang).map(r=>r.note),editorial=stored.find(r=>r.field==='editorial'&&r.lang===lang)?.texts??[];return {lang,schemeName:name,schemeName_values:name?[name]:[],description:descriptions.join('\n\n'),description_values:descriptions,editorial:editorial.join('\n\n'),editorial_values:editorial};});
  return {rows:result,version:hash(result)};
 }
-async function save(db,v,id,field,lang,newValues,expected,user){
+async function save(db,v,id,field,lang,newValues,expected,user,directions){
  if(!LANGS.includes(lang))throw fail('Unsupported language.');
  if(!['preferred','alternative','definition','scopeNote','description','editorial','schemeName'].includes(field))throw fail('Unsupported field.');
  if(!Array.isArray(newValues)||newValues.some(x=>typeof x!=='string'||x.length>20000))throw fail('Enter plain text within 20,000 characters.');
  newValues=[...new Set(newValues.map(clean).filter(Boolean))];
+ if(v.mode==='directional'&&field==='preferred'){
+  if(!directions||!['forward','reverse'].every(d=>typeof directions[d]==='string'&&clean(directions[d])&&directions[d].length<=20000&&!/[\r\n]/.test(directions[d])))throw fail('Edit forward and reverse labels in the concept Labels tab.');
+  directions={forward:clean(directions.forward),reverse:clean(directions.reverse)};
+  newValues=[directions.forward===directions.reverse?directions.forward:directions.forward+' / '+directions.reverse];
+ }else directions=null;
  if(field==='schemeName'&&(!newValues.length||newValues.some(v=>v.length>300||/[\r\n]/.test(v))))throw fail('Enter a vocabulary name on one line, within 300 characters.');
  if(field!=='alternative'&&newValues.length>1)throw fail('Only one value is allowed.');
  // All generic writes and publications use the same advisory lock, including scheme edits.
@@ -61,13 +66,20 @@ async function save(db,v,id,field,lang,newValues,expected,user){
   const d=await descriptions(db,v.slug);oldValues=d.rows.find(r=>r.lang===lang)[field+'_values'];
  }else{
   if(field==='schemeName')throw fail('Vocabulary names belong to the vocabulary itself.');
+  if(v.mode==='directional'&&field==='preferred'){
+   await db.query(`SELECT l.relation_direction FROM ui.relation_type_labels l
+    JOIN vocab_workbench.relation_type_concept_ids m USING (relation_type_norm)
+    WHERE m.id=$1 AND l.relation_direction IN ('forward','reverse')
+    ORDER BY l.relation_direction FOR UPDATE OF l`,[id]);
+  }
   const all=await rows(db,v);row=all.find(r=>String(r.id)===id);if(!row)throw fail('Concept not found.',404);
   const stored=await texts(db,v);oldValues=values(row,stored,field,lang);
   if(field==='alternative'&&newValues.some(x=>values(row,stored,'preferred',lang).includes(x)))throw fail('An alternative label must differ from the preferred label.');
   if(field==='preferred'&&newValues.some(x=>values(row,stored,'alternative',lang).includes(x)))throw fail('Remove this text from the alternatives before making it preferred.');
  }
  if(!Array.isArray(expected)||JSON.stringify(expected)!==JSON.stringify(oldValues))throw fail('Another administrator changed this text. Refresh before saving.',409);
- if(JSON.stringify(oldValues)===JSON.stringify(newValues))return;
+ if(JSON.stringify(oldValues)===JSON.stringify(newValues)&&
+    (!directions||['forward','reverse'].every(d=>row?.[d+'_'+lang]===directions[d])))return;
  if(field==='schemeName'){
   await db.query(`INSERT INTO public.vocabulary_scheme_labels(vocabulary_code,lang,label,source)
    VALUES($1,$2,$3,'workbench') ON CONFLICT(vocabulary_code,lang)
@@ -75,14 +87,23 @@ async function save(db,v,id,field,lang,newValues,expected,user){
  }else if(field==='preferred'){
   if(!newValues.length)throw fail('A preferred label cannot be empty.');
   if(v.mode==='display')await db.query(`INSERT INTO vocab_workbench.display_labels VALUES($1,$2,$3,$4) ON CONFLICT(vocabulary_code,concept_id,lang) DO UPDATE SET label=EXCLUDED.label`,[v.slug,id,lang,newValues[0]]);
-  else if(v.mode==='curated'){
+  else if(v.mode==='directional'){
+   const column=quote(v.columns[lang]);
+   const result=await db.query(`UPDATE ui.relation_type_labels
+    SET ${column}=CASE relation_direction WHEN 'forward' THEN $2::text ELSE $3::text END
+    WHERE relation_type_norm=$1 AND relation_direction IN ('forward','reverse')
+    RETURNING relation_direction`,[row.canonical_value,directions.forward,directions.reverse]);
+   if(result.rows.length!==2||new Set(result.rows.map(r=>r.relation_direction)).size!==2)throw fail('The two directional source rows need review.',409);
+  }else if(v.mode==='curated'){
    const before=await db.query("SELECT label_id FROM public.labels_curated_cultural_periods WHERE concept_id=$1 AND lang=$2 AND lower(status)='preferred' FOR UPDATE",[id,lang]);
    if(before.rows.length>1)throw fail('Duplicate preferred labels need review.',409);
    if(before.rows.length)await db.query('UPDATE public.labels_curated_cultural_periods SET label=$2 WHERE label_id=$1',[before.rows[0].label_id,newValues[0]]);
    else await db.query("INSERT INTO public.labels_curated_cultural_periods(concept_id,lang,label,status,en_label) VALUES($1,$2,$3,'preferred',$4)",[id,lang,newValues[0],row.display_en]);
   }else{
    let column=v.columns[lang];if(v.mode==='actor'&&String(row.level).replace('L','')==='2')column=column.replace(/_1$/,'_2');
-   const result=await db.query(`UPDATE ${quote(v.schema)}.${quote(v.table)} SET ${quote(column)}=$2 WHERE ${quote(v.key)}::text=$1 RETURNING ${quote(v.key)}`,[id,newValues[0]]);
+   const scope=v.reference?' AND vocabulary_code=$3':'';
+   const params=v.reference?[id,newValues[0],v.slug]:[id,newValues[0]];
+   const result=await db.query(`UPDATE ${quote(v.schema)}.${quote(v.table)} SET ${quote(column)}=$2 WHERE ${quote(v.key)}::text=$1${scope} RETURNING ${quote(v.key)}`,params);
    if(result.rows.length!==1)throw fail('The source row changed. Refresh before saving.',409);
   }
   const check=(await rows(db,v)).find(r=>String(r.id)===id);

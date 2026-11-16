@@ -47,8 +47,14 @@ function markEditorDirty(){editorDirty=Array.from(document.querySelectorAll('[da
 function genericValues(field,lang){const rows=field==='definition'?selectedConcept.definitions:field==='scopeNote'?selectedConcept.scope_notes:selectedConcept.labels;return rows.filter(r=>r.lang===lang&&(field==='preferred'?r.status==='preferred':field==='alternative'?r.status==='alt':true)).map(r=>r.label??r.note);}
 function renderGenericTextEditor(field){
  return '<div class="editor-list">'+LANGUAGES.map(([lang,name])=>{
+ const isDirectional=selectedVocabularyCode==='resource-relationships'&&field==='preferred';
+ const directionalInput=isDirectional?['forward','reverse'].map(d=>{
+  const value=escapeHtml(selectedConcept.concept[d+'_'+lang]??'');
+  const label=d==='forward'?'Forward (parent to child)':'Reverse (child to parent)';
+  return `<label>${label}<input required data-generic-text data-direction="${d}" data-original="${value}" value="${value}" aria-label="${name} ${label}"></label>`;
+ }).join(''):'';
  const vals=genericValues(field,lang),multiple=field!=='alternative'&&vals.length>1,value=vals.join('\n'),input=field==='preferred'?`<input data-generic-text data-original="${escapeHtml(value)}" value="${escapeHtml(value)}" aria-label="${name} preferred label">`:`<textarea data-generic-text data-original="${escapeHtml(value)}" rows="${field==='alternative'?2:4}" aria-label="${name} ${escapeHtml(field)}">${escapeHtml(value)}</textarea>`;
- return `<form class="editor-row" data-generic-form data-field="${field}" data-lang="${lang}" data-expected="${escapeHtml(JSON.stringify(vals))}"><div class="editor-language"><strong>${name}</strong><span>${lang}</span></div><div class="editor-field">${input}<span class="save-status" role="status"></span></div><button type="submit" ${multiple?"disabled title=\"Multiple stored notes need review\"":""}>Save</button></form>`;
+ return `<form class="editor-row" data-generic-form data-field="${field}" data-lang="${lang}" data-expected="${escapeHtml(JSON.stringify(vals))}"><div class="editor-language"><strong>${name}</strong><span>${lang}</span></div><div class="editor-field">${isDirectional?directionalInput:input}<span class="save-status" role="status"></span></div><button type="submit" ${multiple?"disabled title=\"Multiple stored notes need review\"":""}>Save</button></form>`;
  }).join('')+'</div>';
 }
 function renderGenericDetail(){
@@ -67,11 +73,19 @@ function renderGenericDetail(){
  container.querySelectorAll('[data-generic-form]').forEach(f=>f.addEventListener('submit',async event=>{
   event.preventDefault();const field=f.dataset.field,lang=f.dataset.lang,i=f.querySelector('[data-generic-text]'),b=f.querySelector('button'),status=f.querySelector('.save-status');
   const vals=field==='alternative'?i.value.split('\n').map(s=>s.trim()).filter(Boolean):i.value.trim()?[i.value.trim()]:[];
+  const inputs=Array.from(f.querySelectorAll('[data-direction]'));
+  const directions=inputs.length?Object.fromEntries(inputs.map(input=>[input.dataset.direction,input.value.trim()])):undefined;
+  if(directions)vals.splice(0,vals.length,directions.forward===directions.reverse?directions.forward:directions.forward+' / '+directions.reverse);
   const code=selectedVocabularyCode,id=selectedConcept.concept.concept_id; b.disabled=true;status.textContent='Saving...';
   try{
-   await api(`/api/vocabularies/${code}/concepts/${encodeURIComponent(id)}/text/${field}/${lang}`,{method:'PUT',body:JSON.stringify({values:vals,expected:JSON.parse(f.dataset.expected)})});
+   await api(`/api/vocabularies/${code}/concepts/${encodeURIComponent(id)}/text/${field}/${lang}`,{method:'PUT',body:JSON.stringify({values:vals,expected:JSON.parse(f.dataset.expected),directions})});
    if(code!==selectedVocabularyCode||!f.isConnected)return;
-   f.dataset.expected=JSON.stringify(vals);i.value=vals.join('\n');i.dataset.original=i.value;status.textContent='Saved';markEditorDirty();
+   f.dataset.expected=JSON.stringify(vals);
+   if(directions)for(const input of inputs){
+    input.value=directions[input.dataset.direction];input.dataset.original=input.value;
+    selectedConcept.concept[input.dataset.direction+'_'+lang]=input.value;
+   }else{i.value=vals.join('\n');i.dataset.original=i.value;}
+   status.textContent='Saved';markEditorDirty();
    const prop=field==='definition'?'definitions':field==='scopeNote'?'scope_notes':'labels';
    selectedConcept[prop]=selectedConcept[prop].filter(r=>!(r.lang===lang&&(field==='preferred'?r.status==='preferred':field==='alternative'?r.status==='alt':true)));
    selectedConcept[prop].push(...vals.map((value,n)=>prop==='labels'?{lang,label:value,status:field==='preferred'?'preferred':'alt',label_id:field+':'+lang+':'+n}:{lang,note:value,note_type:field}));

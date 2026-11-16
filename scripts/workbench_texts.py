@@ -1,7 +1,7 @@
 """Read audited Workbench text and mapping edits for RDF export and safe publication."""
 from collections import defaultdict
 from rdflib import Literal,URIRef
-from rdflib.namespace import SKOS,RDF
+from rdflib.namespace import SKOS,RDF,DCTERMS
 from psycopg.rows import dict_row
 ROOT='https://vocab.uclcaal.org/'
 FIELDS={'preferred':SKOS.prefLabel,'alternative':SKOS.altLabel,'definition':SKOS.definition,'scopeNote':SKOS.scopeNote,'description':SKOS.scopeNote,'schemeName':SKOS.prefLabel}
@@ -16,13 +16,16 @@ def export_workbench(conn,g,slug,concept_uri):
         return []
     texts=read_rows(conn,'SELECT * FROM vocab_workbench.editor_texts WHERE vocabulary_code=%s',(slug,))
     revisions=read_rows(conn,'SELECT * FROM vocab_workbench.editor_revisions WHERE vocabulary_code=%s ORDER BY revision_id',(slug,))
+    reference=slug.startswith('vernacular-') or slug=='resource-relationships'
     if slug!='site-types' and read_rows(conn,"SELECT to_regclass('public.vocabulary_scheme_labels') AS t")[0]['t']:
         subject=URIRef(ROOT+'scheme/'+slug)
         for row in read_rows(conn,'SELECT lang,label FROM public.vocabulary_scheme_labels WHERE vocabulary_code=%s',(slug,)):
             for value in list(g.objects(subject,SKOS.prefLabel)):
                 if isinstance(value,Literal) and value.language==row['lang']:
                     g.remove((subject,SKOS.prefLabel,value))
-            g.add((subject,SKOS.prefLabel,Literal(row['label'],lang=row['lang'])))
+            label=Literal(row['label'],lang=row['lang'])
+            g.add((subject,SKOS.prefLabel,label))
+            if reference:g.add((subject,DCTERMS.title,label))
     managed={}
     for r in revisions:
         if r['field'] not in FIELDS:continue
@@ -44,6 +47,8 @@ def export_workbench(conn,g,slug,concept_uri):
         actual=sorted(str(v) for v in g.objects(subject,FIELDS[field]) if isinstance(v,Literal) and v.language==lang)
         if set(actual)!=set(item['values']):raise RuntimeError('Audited text and current source differ. Refresh the workbench before publishing.')
         result.append({'subject':str(subject),'property':str(FIELDS[field]),'language':lang,'allowed':sorted(item['allowed']),'values':actual,'kind':'text'})
+        if reference and field=='schemeName':
+            result.append({**result[-1],'property':str(DCTERMS.title)})
     if slug=='site-types':return result
     mappings=read_rows(conn,'SELECT * FROM vocab_workbench.editor_alignments WHERE vocabulary_code=%s',(slug,))
     groups=defaultdict(lambda:{'allowed':set(),'values':set()})

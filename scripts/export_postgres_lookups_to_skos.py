@@ -54,6 +54,7 @@ class Vocabulary:
     title: str
     short_name: str
     category: str
+    reference: bool = False
 
 
 VOCABULARIES: Tuple[Vocabulary, ...] = (
@@ -280,7 +281,8 @@ def add_concept(
     if canonical:
         g.add((cu, CAAL.canonicalValue, Literal(canonical)))
 
-    english = clean_text(row.get("display_en"))
+    label_text = (lambda value: "" if value is None else str(value).strip()) if vocab.reference else clean_text
+    english = label_text(row.get("display_en"))
     if not english:
         if canonical:
             english = canonical
@@ -299,7 +301,7 @@ def add_concept(
             })
 
     for lang in LANGS:
-        label = clean_text(row.get(f"display_{lang}"))
+        label = label_text(row.get(f"display_{lang}"))
         if lang == "en" and not label:
             label = english
         if label:
@@ -472,12 +474,21 @@ Write-Host "Finished loading generated CAAL lookup vocabularies."
     path.write_text(body.replace("__ITEMS__", "\n".join(entries)), encoding="utf-8")
 
 
+def configured_lookup_vocabularies() -> Tuple[Vocabulary, ...]:
+    path = Path(__file__).resolve().parents[1] / "workbench/services/vocabularyRegistry.json"
+    registry = json.loads(path.read_text(encoding="utf-8"))
+    references = tuple(Vocabulary(*(item[key] for key in ("slug", "view", "title", "short_name", "category")), reference=True)
+                       for item in registry if item.get("reference"))
+    return VOCABULARIES + references
+
+
 def selected_vocabularies(only: str) -> List[Vocabulary]:
+    configured = configured_lookup_vocabularies()
     if not only:
-        return list(VOCABULARIES)
+        return list(configured)
 
     wanted = {x.strip() for x in only.split(",") if x.strip()}
-    known = {v.slug for v in VOCABULARIES}
+    known = {v.slug for v in configured}
     unknown = sorted(wanted - known)
     if unknown:
         raise SystemExit(
@@ -486,7 +497,7 @@ def selected_vocabularies(only: str) -> List[Vocabulary]:
             + "\nKnown slugs: "
             + ", ".join(sorted(known))
         )
-    return [v for v in VOCABULARIES if v.slug in wanted]
+    return [v for v in configured if v.slug in wanted]
 
 
 def parse_args() -> argparse.Namespace:

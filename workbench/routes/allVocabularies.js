@@ -55,7 +55,7 @@ router.get('/:vocabulary/review',get(async req=>{
 }));
 router.get('/:vocabulary/concepts/:conceptId',get(req=>E.detail(pool,req.editorVocabulary,req.params.conceptId)));
 router.put('/:vocabulary/concepts/:conceptId/text/:field/:language',transaction(async(req,client)=>{
- await E.save(client,req.editorVocabulary,req.params.conceptId,req.params.field,req.params.language,req.body.values,req.body.expected,req.session.workbenchSession.user);return {};
+ await E.save(client,req.editorVocabulary,req.params.conceptId,req.params.field,req.params.language,req.body.values,req.body.expected,req.session.workbenchSession.user,req.body.directions);return {};
 }));
 // Review uses the same per-field save controls as the Site Types review.
 router.put('/:vocabulary/concepts/:conceptId/:field/:language',(req,res,next)=>{if(!['labels','definitions','scope-notes'].includes(req.params.field))return next('route');next();},transaction(async(req,client)=>{

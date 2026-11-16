@@ -1,0 +1,189 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-001> a skos:Concept ;
+    dct:identifier "associated with" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-001" ;
+    skos:prefLabel "associated with"@en,
+        "…-мен байланысты"@kk,
+        "… менен байланыштуу"@ky,
+        "связан с"@ru,
+        "бо … алоқаманд аст"@tg,
+        "… bilen baglanyşykly"@tk,
+        "… bilan aloqador"@uz,
+        "与…有关联"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-002> a skos:Concept ;
+    dct:identifier "contains / is contained within" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-002" ;
+    skos:prefLabel "contains / is contained within"@en,
+        "… қамтиды / … құрамына кіреді"@kk,
+        "… камтыйт / … курамына кирет"@ky,
+        "содержит / содержится в"@ru,
+        "…-ро дар бар мегирад / дар … ҷой дорад"@tg,
+        "… öz içine alýar / …-iň düzümine girýär"@tk,
+        "…ni o‘z ichiga oladi / … tarkibiga kiradi"@uz,
+        "包含… / 包含在…中"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-003> a skos:Concept ;
+    dct:identifier "cuts" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-003" ;
+    skos:prefLabel "cuts / is cut by"@en,
+        "…-ді кесіп өтеді / … кесіп өтеді (осы нысанды)"@kk,
+        "… кесип өтөт / … бул объектти кесип өтөт"@ky,
+        "перерезает / перерезан …"@ru,
+        "…-ро бурида мегузарад / … ин объектро бурида мегузарад"@tg,
+        "…-i kesip geçýär / … bu obýekti kesip geçýär"@tk,
+        "…ni kesib o‘tadi / … bu obyektni kesib o‘tadi"@uz,
+        "切穿… / 被…切穿"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-004> a skos:Concept ;
+    dct:identifier "is associated with" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-004" ;
+    skos:prefLabel "associated with"@en,
+        "…-мен байланысты"@kk,
+        "… менен байланыштуу"@ky,
+        "связан с"@ru,
+        "бо … алоқаманд аст"@tg,
+        "… bilen baglanyşykly"@tk,
+        "… bilan aloqador"@uz,
+        "与…有关联"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-005> a skos:Concept ;
+    dct:identifier "is created by / created" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-005" ;
+    skos:prefLabel "is created by / created"@en,
+        "… жасаған / …-ді жасады"@kk,
+        "… тарабынан түзүлгөн / … түзгөн"@ky,
+        "создано … / создал(а)"@ru,
+        "аз ҷониби … сохта шудааст / …-ро сохтааст"@tg,
+        "… tarapyndan döredildi / …-i döretdi"@tk,
+        "… tomonidan yaratilgan / …ni yaratgan"@uz,
+        "由…创建 / 创建了…"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-006> a skos:Concept ;
+    dct:identifier "is part of" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-006" ;
+    skos:prefLabel "is part of / contains"@en,
+        "…-ның бөлігі / … қамтиды"@kk,
+        "… бөлүгү / … камтыйт"@ky,
+        "является частью / содержит"@ru,
+        "қисми … аст / …-ро дар бар мегирад"@tg,
+        "…-yň bir bölegi / … öz içine alýar"@tk,
+        "…ning bir qismi / …ni o‘z ichiga oladi"@uz,
+        "是…的一部分 / 包含…"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-007> a skos:Concept ;
+    dct:identifier "is referred to in / refers to" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-007" ;
+    skos:prefLabel "is referred to in / refers to"@en,
+        "…-де аталады / …-ге сілтеме жасайды"@kk,
+        "… ичинде эскерилет / … шилтеме берет"@ky,
+        "упоминается в / ссылается на"@ru,
+        "дар … зикр мешавад / ба … истинод мекунад"@tg,
+        "…-de agzalýar / …-e salgylanýar"@tk,
+        "…da tilga olingan / …ga havola qiladi"@uz,
+        "在…中被提及 / 提及…"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-008> a skos:Concept ;
+    dct:identifier "is related to" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-008" ;
+    skos:prefLabel "is related to"@en,
+        "…-мен байланысты"@kk,
+        "… менен байланыштуу"@ky,
+        "связан с"@ru,
+        "марбут ба …"@tg,
+        "… bilen baglanyşykly"@tk,
+        "… bilan bog‘liq"@uz,
+        "与…相关"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-009> a skos:Concept ;
+    dct:identifier "is represented by / represents" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-009" ;
+    skos:prefLabel "is represented by / represents"@en,
+        "… арқылы көрсетіледі / …-ді көрсетеді"@kk,
+        "… аркылуу көрсөтүлөт / … көрсөтөт"@ky,
+        "представлен(о) … / представляет"@ru,
+        "тавассути … муаррифӣ мешавад / …-ро муаррифӣ мекунад"@tg,
+        "… arkaly görkezilýär / …-i görkezýär"@tk,
+        "… orqali ifodalanadi / …ni ifodalaydi"@uz,
+        "由…表征 / 表征…"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-010> a skos:Concept ;
+    dct:identifier "is superseded by / supersedes" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-010" ;
+    skos:prefLabel "is superseded by / supersedes"@en,
+        "…-мен ауыстырылған / …-ді ауыстырады"@kk,
+        "… менен алмаштырылган / … алмаштырат"@ky,
+        "заменено … / заменяет"@ru,
+        "бо … иваз шудааст / …-ро иваз мекунад"@tg,
+        "… bilen çalşyryldy / …-iň ornuny tutýar"@tk,
+        "… bilan almashtirilgan / …ning o‘rnini egallaydi"@uz,
+        "被…取代 / 取代…"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-011> a skos:Concept ;
+    dct:identifier "same as" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-011" ;
+    skos:prefLabel "same as"@en,
+        "…-мен бірдей"@kk,
+        "… менен бирдей"@ky,
+        "идентично …"@ru,
+        "бо … яксон аст"@tg,
+        "… bilen birmeňzeş"@tk,
+        "… bilan bir xil"@uz,
+        "与…相同"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/concept/resource-relationships/REL-012> a skos:Concept ;
+    dct:identifier "supersedes / is superseded by" ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    skos:notation "REL-012" ;
+    skos:prefLabel "supersedes / is superseded by"@en,
+        "…-ді ауыстырады / …-мен ауыстырылған"@kk,
+        "… алмаштырат / … менен алмаштырылган"@ky,
+        "заменяет / заменено …"@ru,
+        "…-ро иваз мекунад / бо … иваз шудааст"@tg,
+        "…-iň ornuny tutýar / … bilen çalşyryldy"@tk,
+        "…ning o‘rnini egallaydi / … bilan almashtirilgan"@uz,
+        "取代… / 被…取代"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/resource-relationships> .
+
+<https://vocab.uclcaal.org/scheme/resource-relationships> a skos:ConceptScheme ;
+    dct:title "Resource Relationships"@en,
+        "Типы взаимосвязей между ресурсами"@ru,
+        "Resursdan Resursa Gatnaşyk Görnüşleri"@tk,
+        "Resursdan resursga bog‘liqlik turlari"@uz,
+        "资源间关系类型"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/resource-relationships/REL-001>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-002>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-003>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-004>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-005>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-006>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-007>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-008>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-009>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-010>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-011>,
+        <https://vocab.uclcaal.org/concept/resource-relationships/REL-012> .

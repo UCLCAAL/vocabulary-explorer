@@ -554,6 +554,170 @@
     void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
     skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/size-dimensions-original-material> .
 
+:cat_vernacular a skos:Concept ;
+    skos:topConceptOf :categories ;
+    skos:inScheme :categories ;
+    skos:prefLabel "Vernacular Architecture"@en, "Традиционная архитектура"@ru, "乡土建筑"@zh .
+
+:caalVernacularBuildingMaterials a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Building Materials"@en ;
+    dc:title "Дәстүрлі құрылыс материалдары"@kk ;
+    dc:title "Традиционные строительные материалы"@ru ;
+    dc:title "Yerli binalaryň gurluşyk materiallary"@tk ;
+    dc:title "Mahalliy bino qurilish ashyosi"@uz ;
+    dc:title "乡土建筑材料"@zh ;
+    skosmos:shortName "Building Materials" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-building-materials/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-building-materials> .
+
+:caalVernacularRoofMaterials a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Roof Materials"@en ;
+    dc:title "Дәстүрлі шатыр материалдары"@kk ;
+    dc:title "Традиционные кровельные материалы"@ru ;
+    dc:title "Ýerli bina üçekleriniň materiallary"@tk ;
+    dc:title "Mahalliy bino tom qurilish ashyosi"@uz ;
+    dc:title "乡土建筑屋顶材料"@zh ;
+    skosmos:shortName "Roof Materials" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-roof-materials/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-roof-materials> .
+
+:caalVernacularBuildingFunctions a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Building Functions"@en ;
+    dc:title "Дәстүрлі (вернакулярлық) құрылыстардың функциялары"@kk ;
+    dc:title "Функции традиционной (вернакулярной) застройки"@ru ;
+    dc:title "Ýerli binalaryň funksiýalary"@tk ;
+    dc:title "Mahalliy binolarning vazifalari"@uz ;
+    dc:title "乡土建筑功能"@zh ;
+    skosmos:shortName "Building Functions" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-building-functions/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-building-functions> .
+
+:caalVernacularOccupationStatus a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Occupation Status"@en ;
+    dc:title "Дәстүрлі құрылыстардың қоныстану мәртебесі"@kk ;
+    dc:title "Статус заселённости традиционных построек"@ru ;
+    dc:title "Ýerli binalaryň ulanyş statusy"@tk ;
+    dc:title "Mahalliy binoning foydalanish holati"@uz ;
+    dc:title "乡土建筑占用状态"@zh ;
+    skosmos:shortName "Occupation Status" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-occupation-status/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-occupation-status> .
+
+:caalVernacularOpenSpaces a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Open Space Types"@en ;
+    dc:title "Дәстүрлі құрылыс ашық кеңістік түрлері"@kk ;
+    dc:title "Типы открытых пространств в местной застройке"@ru ;
+    dc:title "Ýerli binalardaky açyk giňişlikleriniň görnüşleri"@tk ;
+    dc:title "Mahalliy binoga tutash ochiq joy turlari"@uz ;
+    dc:title "乡土建筑开放空间类型"@zh ;
+    skosmos:shortName "Open Space Types" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-open-spaces/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-open-spaces> .
+
+:caalVernacularInterventionDegrees a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Degrees of Intervention"@en ;
+    dc:title "Дәстүрлі (вернакулярлық) ортаға араласу дәрежелері"@kk ;
+    dc:title "Степени местного вмешательства"@ru ;
+    dc:title "Ýerli intervensiya derejeleri"@tk ;
+    dc:title "Aralashuvning mahalliy darajalari"@uz ;
+    dc:title "乡土建筑干预程度"@zh ;
+    skosmos:shortName "Degrees of Intervention" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-intervention-degrees> .
+
+:caalVernacularInterventionTypes a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Intervention Types"@en ;
+    dc:title "Дәстүрлі (вернакулярлық) құрылыстарға араласу түрлері"@kk ;
+    dc:title "Типы вмешательства в традиционную (вернакулярную) застройку"@ru ;
+    dc:title "Ýerli intervensiya derejeleri"@tk ;
+    dc:title "Mahalliy binolarga aralashuv turlari"@uz ;
+    dc:title "乡土建筑干预方式"@zh ;
+    skosmos:shortName "Intervention Types" ;
+    dc:subject :cat_vernacular ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/vernacular-intervention-types/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/vernacular-intervention-types> .
+
+:caalResourceRelationships a skosmos:Vocabulary, void:Dataset ;
+    dc:title "Resource Relationships"@en ;
+    dc:title "Типы взаимосвязей между ресурсами"@ru ;
+    dc:title "Resursdan Resursa Gatnaşyk Görnüşleri"@tk ;
+    dc:title "Resursdan resursga bog‘liqlik turlari"@uz ;
+    dc:title "资源间关系类型"@zh ;
+    skosmos:shortName "Resource Relationships" ;
+    dc:subject :cat_archive ;
+    void:uriSpace "https://vocab.uclcaal.org/concept/resource-relationships/" ;
+    skosmos:language "en", "ru", "zh", "kk", "ky", "tg", "tk", "uz" ;
+    skosmos:defaultLanguage "en" ;
+    skosmos:sidebarViews ( "hierarchy" "alphabetical" ) ;
+    skosmos:defaultSidebarView "hierarchy" ;
+    skosmos:showTopConcepts true ;
+    skosmos:fullAlphabeticalIndex true ;
+    skosmos:mainConceptScheme <https://vocab.uclcaal.org/scheme/resource-relationships> ;
+    void:sparqlEndpoint <http://fuseki-cache:80/skosmos/sparql> ;
+    skosmos:sparqlGraph <https://vocab.uclcaal.org/graph/resource-relationships> .
+
 :caalSubjects a skosmos:Vocabulary, void:Dataset ;
     dc:title "Subjects"@en ;
     skosmos:shortName "Subjects" ;

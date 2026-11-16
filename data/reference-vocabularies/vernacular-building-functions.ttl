@@ -1,0 +1,164 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "001" ;
+    skos:prefLabel "Abandoned"@en,
+        "Қараусыз"@kk,
+        "Кароосуз калган/ташталган"@ky,
+        "Заброшенное"@ru,
+        "Партофташуда"@tg,
+        "Terk edilen"@tk,
+        "Tashlandiq"@uz,
+        "废弃"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "002" ;
+    skos:prefLabel "Administrative"@en,
+        "Әкімшілік"@kk,
+        "Админстративтик"@ky,
+        "Административное"@ru,
+        "Маъмурӣ"@tg,
+        "Administratiw"@tk,
+        "Ma'muriy"@uz,
+        "行政"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "003" ;
+    skos:prefLabel "Commercial"@en,
+        "Коммерциялық"@kk,
+        "Комерциялык"@ky,
+        "Коммерческое"@ru,
+        "Тиҷоратӣ"@tg,
+        "Söwda"@tk,
+        "Tadbirkorlik"@uz,
+        "商业"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "004" ;
+    skos:prefLabel "Cultural"@en,
+        "Мәдени"@kk,
+        "Маданий"@ky,
+        "Культурное"@ru,
+        "Фарҳангӣ"@tg,
+        "Medeni"@tk,
+        "Madaniy"@uz,
+        "文化"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/005> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "005" ;
+    skos:prefLabel "Educational"@en,
+        "Білім беру"@kk,
+        "Билим беруу"@ky,
+        "Образовательное"@ru,
+        "Таълимӣ"@tg,
+        "Bilim"@tk,
+        "Ta'lim"@uz,
+        "教育"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/006> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "006" ;
+    skos:prefLabel "Handicraft"@en,
+        "Қолөнер"@kk,
+        "Кол онорчулук"@ky,
+        "Ремесленное"@ru,
+        "Ҳунармандӣ"@tg,
+        "El işleri"@tk,
+        "Hunarmandchilik"@uz,
+        "手工艺"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/007> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "007" ;
+    skos:prefLabel "Health"@en,
+        "Медициналық"@kk,
+        "Саламатттыкты сактоо"@ky,
+        "Медицинское"@ru,
+        "Саломатӣ"@tg,
+        "Saglyk"@tk,
+        "Kasalxona"@uz,
+        "医疗"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/008> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "008" ;
+    skos:prefLabel "Hotel"@en,
+        "Қонақүй"@kk,
+        "Мейманкана"@ky,
+        "Гостиничное"@ru,
+        "Меҳмонхона"@tg,
+        "Myhmanhana"@tk,
+        "Mehmonxona"@uz,
+        "旅馆"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/009> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "009" ;
+    skos:prefLabel "Public"@en,
+        "Қоғамдық"@kk,
+        "Коомдук"@ky,
+        "Общественное"@ru,
+        "Ҷамъиятӣ"@tg,
+        "Jemgyýetçilik"@tk,
+        "Jamoat binosi"@uz,
+        "公共"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/010> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "010" ;
+    skos:prefLabel "Residential"@en,
+        "Тұрғын"@kk,
+        "Турак жай"@ky,
+        "Жилое"@ru,
+        "Истиқоматӣ"@tg,
+        "Ýaşaýyş jaýy"@tk,
+        "Turarjoy"@uz,
+        "居住"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-functions/011> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-functions> ;
+    skos:notation "011" ;
+    skos:prefLabel "Storage"@en,
+        "Қоймалық"@kk,
+        "Кампа"@ky,
+        "Складское"@ru,
+        "Анбор"@tg,
+        "Ammar"@tk,
+        "Ombor"@uz,
+        "仓储"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-functions> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-building-functions> a skos:ConceptScheme ;
+    dct:title "Vernacular building functions"@en,
+        "Дәстүрлі (вернакулярлық) құрылыстардың функциялары"@kk,
+        "Функции традиционной (вернакулярной) застройки"@ru,
+        "Ýerli binalaryň funksiýalary"@tk,
+        "Mahalliy binolarning vazifalari"@uz,
+        "乡土建筑功能"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-building-functions/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/004>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/005>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/006>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/007>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/008>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/009>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/010>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-functions/011> .

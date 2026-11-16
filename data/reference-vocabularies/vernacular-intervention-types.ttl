@@ -1,0 +1,132 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "001" ;
+    skos:prefLabel "Abandoned"@en,
+        "Қараусыз"@kk,
+        "Кароосуз калган/ ташталган"@ky,
+        "Заброшенное"@ru,
+        "Партофташуда"@tg,
+        "Terk edilen"@tk,
+        "Tashlandiq"@uz,
+        "废弃"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "002" ;
+    skos:prefLabel "Adaptation"@en,
+        "Бейімдеу"@kk,
+        "Ылайыкташтыруу"@ky,
+        "Адаптация"@ru,
+        "Мутобиқшавӣ"@tg,
+        "Adaptasiýa"@tk,
+        "Moslashtirish"@uz,
+        "适应性改造"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "003" ;
+    skos:prefLabel "Conservation"@en,
+        "Консервация/Консервациялық жұмыстар"@kk,
+        "Сохранение"@ru,
+        "Asrab turish"@uz ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "004" ;
+    skos:prefLabel "Maintenance"@en,
+        "Күтім"@kk,
+        "Техникалык тейлоо/ кутуу"@ky,
+        "Содержание"@ru,
+        "Нигоҳдорӣ"@tg,
+        "Hyzmat etme"@tk,
+        "Asrab turish"@uz,
+        "维护"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/005> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "005" ;
+    skos:prefLabel "New work"@en,
+        "Жаңа құрылыс"@kk,
+        "Жаны жумуш"@ky,
+        "Новодел"@ru,
+        "Корҳои нав"@tg,
+        "Täze iş"@tk,
+        "Yangi qurilish"@uz,
+        "新建"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/006> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "006" ;
+    skos:prefLabel "Preservation"@en,
+        "Сақтау"@kk,
+        "Сактоо/ Консервация"@ky,
+        "Сохранение"@ru,
+        "Муҳофизат"@tg,
+        "Gorap saklama"@tk,
+        "Saqlash"@uz,
+        "保护"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/007> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "007" ;
+    skos:prefLabel "Reconstruction"@en,
+        "Қайта құру"@kk,
+        "Кайра куруу"@ky,
+        "Реконструкция"@ru,
+        "Барқарорсозӣ"@tg,
+        "Durky täzeleme"@tk,
+        "Tiklash"@uz,
+        "重建"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/008> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "008" ;
+    skos:prefLabel "Repair"@en,
+        "Жөндеу"@kk,
+        "Ондоо"@ky,
+        "Ремонт"@ru,
+        "Таъмир"@tg,
+        "Bejeriş"@tk,
+        "Tuzatish / qayta qurish"@uz,
+        "修缮"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-types/009> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> ;
+    skos:notation "009" ;
+    skos:prefLabel "Restoration"@en,
+        "Қалпына келтіру"@kk,
+        "Калыбына келтируу"@ky,
+        "Реставрация"@ru,
+        "Тармим"@tg,
+        "Restawrasiýa"@tk,
+        "Qayta tiklash"@uz,
+        "修复"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-types> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-intervention-types> a skos:ConceptScheme ;
+    dct:title "Vernacular building intervention types"@en,
+        "Дәстүрлі (вернакулярлық) құрылыстарға араласу түрлері"@kk,
+        "Типы вмешательства в традиционную (вернакулярную) застройку"@ru,
+        "Ýerli intervensiya derejeleri"@tk,
+        "Mahalliy binolarga aralashuv turlari"@uz,
+        "乡土建筑干预方式"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-intervention-types/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/004>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/005>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/006>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/007>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/008>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-types/009> .

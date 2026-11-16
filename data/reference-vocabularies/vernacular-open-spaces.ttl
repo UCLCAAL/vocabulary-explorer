@@ -1,0 +1,94 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "001" ;
+    skos:prefLabel "Courtyard"@en,
+        "Аула"@kk,
+        "Ички короо"@ky,
+        "Двор"@ru,
+        "Ҳавлӣ"@tg,
+        "Howly"@tk,
+        "Hovli"@uz,
+        "院落"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "002" ;
+    skos:prefLabel "Garden"@en,
+        "Бақ"@kk,
+        "Бакча"@ky,
+        "Сад"@ru,
+        "Боғ"@tg,
+        "Bag"@tk,
+        "Bog‘"@uz,
+        "花园"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "003" ;
+    skos:prefLabel "None"@en,
+        "Жоқ"@kk,
+        "Жок"@ky,
+        "Ничего"@ru,
+        "Не"@tg,
+        "Hiç zatsyz"@tk,
+        "Hech biri"@uz,
+        "无"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "004" ;
+    skos:prefLabel "Orchard"@en,
+        "Жеміс бағы"@kk,
+        "Момо-жемиш багы"@ky,
+        "Фруктовый сад"@ru,
+        "Боғи мева"@tg,
+        "Miweli bag"@tk,
+        "Mevali bog‘"@uz,
+        "果园"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/005> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "005" ;
+    skos:prefLabel "Other"@en,
+        "Басқа"@kk,
+        "Башка"@ky,
+        "Другой"@ru,
+        "Дигар"@tg,
+        "Başga"@tk,
+        "Boshqa"@uz,
+        "其他"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/concept/vernacular-open-spaces/006> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> ;
+    skos:notation "006" ;
+    skos:prefLabel "Storage area"@en,
+        "Шаруашылық алаңы"@kk,
+        "Кампа аянты (сактоочу жай)"@ky,
+        "Складское помещение"@ru,
+        "Анбор"@tg,
+        "Ammar"@tk,
+        "Saqlash joyi"@uz,
+        "储物区"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-open-spaces> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-open-spaces> a skos:ConceptScheme ;
+    dct:title "Vernacular open spaces"@en,
+        "Дәстүрлі құрылыс ашық кеңістік түрлері"@kk,
+        "Типы открытых пространств в местной застройке"@ru,
+        "Ýerli binalardaky açyk giňişlikleriniň görnüşleri"@tk,
+        "Mahalliy binoga tutash ochiq joy turlari"@uz,
+        "乡土建筑开放空间类型"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-open-spaces/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-open-spaces/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-open-spaces/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-open-spaces/004>,
+        <https://vocab.uclcaal.org/concept/vernacular-open-spaces/005>,
+        <https://vocab.uclcaal.org/concept/vernacular-open-spaces/006> .

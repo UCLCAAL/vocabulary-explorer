@@ -1,0 +1,66 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> ;
+    skos:notation "001" ;
+    skos:prefLabel "Major"@en,
+        "Елеулі"@kk,
+        "Негизги/Маанилуу"@ky,
+        "Крупный"@ru,
+        "Зиёд"@tg,
+        "Köp"@tk,
+        "Katta"@uz,
+        "重大干预"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> ;
+    skos:notation "002" ;
+    skos:prefLabel "Minor"@en,
+        "Болмашы"@kk,
+        "Кошумча/Мааниси томон"@ky,
+        "Незначительный"@ru,
+        "Кам"@tg,
+        "Az"@tk,
+        "Kichik"@uz,
+        "小型干预"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> ;
+    skos:notation "003" ;
+    skos:prefLabel "None"@en,
+        "Жоқ"@kk,
+        "Жок"@ky,
+        "Никакой"@ru,
+        "Нест"@tg,
+        "Hiç hili"@tk,
+        "Yo‘q"@uz,
+        "无干预"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> .
+
+<https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> ;
+    skos:notation "004" ;
+    skos:prefLabel "Total"@en,
+        "Барлығы"@kk,
+        "Жалпы"@ky,
+        "Полный"@ru,
+        "Пурра"@tg,
+        "Doly"@tk,
+        "Jami"@uz,
+        "全面干预"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-intervention-degrees> a skos:ConceptScheme ;
+    dct:title "Vernacular degrees of intervention"@en,
+        "Дәстүрлі (вернакулярлық) ортаға араласу дәрежелері"@kk,
+        "Степени местного вмешательства"@ru,
+        "Ýerli intervensiya derejeleri"@tk,
+        "Aralashuvning mahalliy darajalari"@uz,
+        "乡土建筑干预程度"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-intervention-degrees/004> .

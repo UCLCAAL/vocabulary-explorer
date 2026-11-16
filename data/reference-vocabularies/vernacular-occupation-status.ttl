@@ -1,0 +1,52 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-occupation-status/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> ;
+    skos:notation "001" ;
+    skos:prefLabel "Fully occupied"@en,
+        "Толық пайдалануда"@kk,
+        "Толук ээлеген (толугу менен жашашат)"@ky,
+        "Полностью занято"@ru,
+        "Пурра ишғолшуда"@tg,
+        "Doly eýelenen"@tk,
+        "To‘liq foydalanilmoqda"@uz,
+        "完全使用"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> .
+
+<https://vocab.uclcaal.org/concept/vernacular-occupation-status/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> ;
+    skos:notation "002" ;
+    skos:prefLabel "Not occupied"@en,
+        "Пайдаланылмайды"@kk,
+        "Ээленген эмес"@ky,
+        "Не занято"@ru,
+        "Ишғолнашуда"@tg,
+        "Eýelenmedik"@tk,
+        "Foydalanilmaydi"@uz,
+        "未使用"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> .
+
+<https://vocab.uclcaal.org/concept/vernacular-occupation-status/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> ;
+    skos:notation "003" ;
+    skos:prefLabel "Partially occupied"@en,
+        "Ішінара пайдалануда"@kk,
+        "Жарым жартылай ээленген."@ky,
+        "Частично занято"@ru,
+        "Қисман ишғолшуда"@tg,
+        "Bölekleýin eýelenen"@tk,
+        "Qisman foydalaniladi"@uz,
+        "部分使用"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-occupation-status> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-occupation-status> a skos:ConceptScheme ;
+    dct:title "Vernacular building occupation status"@en,
+        "Дәстүрлі құрылыстардың қоныстану мәртебесі"@kk,
+        "Статус заселённости традиционных построек"@ru,
+        "Ýerli binalaryň ulanyş statusy"@tk,
+        "Mahalliy binoning foydalanish holati"@uz,
+        "乡土建筑占用状态"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-occupation-status/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-occupation-status/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-occupation-status/003> .

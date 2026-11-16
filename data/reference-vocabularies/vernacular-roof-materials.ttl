@@ -1,0 +1,94 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "001" ;
+    skos:prefLabel "Asbestos"@en,
+        "Асбест"@kk,
+        "Асбест (Шифер)"@ky,
+        "Асбест"@ru,
+        "Азбест"@tg,
+        "Asbest"@tk,
+        "Azbest"@uz,
+        "石棉瓦"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "002" ;
+    skos:prefLabel "Burnt brick"@en,
+        "Күйдірілген кірпіш"@kk,
+        "Бышкан кыш"@ky,
+        "Обожжённый кирпич"@ru,
+        "Хишти хом"@tg,
+        "Bişen kerpiç"@tk,
+        "Pishiq g‘isht"@uz,
+        "烧结砖"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "003" ;
+    skos:prefLabel "Concrete"@en,
+        "Бетон"@kk,
+        "Бетон"@ky,
+        "Бетон"@ru,
+        "Бетон"@tg,
+        "Beton"@tk,
+        "Beton"@uz,
+        "混凝土"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "004" ;
+    skos:prefLabel "Concrete slab"@en,
+        "Темірбетон плита"@kk,
+        "Бетон плитасы"@ky,
+        "Железобетонная плита"@ru,
+        "Плитаи бетонӣ"@tg,
+        "Beton plita"@tk,
+        "Beton plita (Beton qoplama?)"@uz,
+        "混凝土板"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/005> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "005" ;
+    skos:prefLabel "Earthen"@en,
+        "Топырақ"@kk,
+        "Топурактуу (ылай)"@ky,
+        "Земляная"@ru,
+        "Хокӣ"@tg,
+        "Toprak"@tk,
+        "Tuproqli"@uz,
+        "土"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-roof-materials/006> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> ;
+    skos:notation "006" ;
+    skos:prefLabel "Other"@en,
+        "Басқа"@kk,
+        "Башка"@ky,
+        "Прочее"@ru,
+        "Дигар"@tg,
+        "Başga"@tk,
+        "Boshqa"@uz,
+        "其他"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-roof-materials> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-roof-materials> a skos:ConceptScheme ;
+    dct:title "Vernacular building roof materials"@en,
+        "Дәстүрлі шатыр материалдары"@kk,
+        "Традиционные кровельные материалы"@ru,
+        "Ýerli bina üçekleriniň materiallary"@tk,
+        "Mahalliy bino tom qurilish ashyosi"@uz,
+        "乡土建筑屋顶材料"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-roof-materials/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-roof-materials/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-roof-materials/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-roof-materials/004>,
+        <https://vocab.uclcaal.org/concept/vernacular-roof-materials/005>,
+        <https://vocab.uclcaal.org/concept/vernacular-roof-materials/006> .

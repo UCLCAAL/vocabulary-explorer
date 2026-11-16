@@ -1,0 +1,196 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/001> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "001" ;
+    skos:prefLabel "Adobe brick"@en,
+        "Саман кірпіш"@kk,
+        "Пахса, чийки кыш"@ky,
+        "Саманный кирпич"@ru,
+        "Хишти хом"@tg,
+        "Çig kerpiç"@tk,
+        "Xom g‘isht"@uz,
+        "土坯砖"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/002> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "002" ;
+    skos:prefLabel "Brick"@en,
+        "Кірпіш"@kk,
+        "Кыш"@ky,
+        "Кирпич"@ru,
+        "Хишт"@tg,
+        "Kerpiç"@tk,
+        "G‘isht"@uz,
+        "砖"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/003> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "003" ;
+    skos:prefLabel "Burnt brick"@en,
+        "Күйдірілген кірпіш"@kk,
+        "Бышкан кыш"@ky,
+        "Обожжённый кирпич"@ru,
+        "Хишти пухта"@tg,
+        "Bişen kerpiç"@tk,
+        "Pishiq g‘isht"@uz,
+        "烧结砖"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/004> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "004" ;
+    skos:prefLabel "Burnt brick (with Nikalai building shape)"@en,
+        "Күйдірілген кірпіш («Николаевский»)"@kk,
+        "Бышкан кыш (Николай формасындагы)"@ky,
+        "Обожжённый кирпич (\"Николаевский\")"@ru,
+        "Хишти пухта (?)"@tg,
+        "Bişen kerpiç (Nikalaý binasynyň şekili bilen)"@tk,
+        "Pishiq g‘isht (Nikolay g‘isht)"@uz,
+        "烧结砖(Nikolai 型建筑)"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/005> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "005" ;
+    skos:prefLabel "Burnt brick and mud block"@en,
+        "Күйдірілген кірпіш және шикі блок"@kk,
+        "Бышкан кыш жана топурак жасалган блок"@ky,
+        "Обожжённый кирпич и глиноблок"@ru,
+        "Хишти хом бо похса"@tg,
+        "Bişen  kerpiç we pagsa blok"@tk,
+        "Pishiq g‘isht va paxsa (loy blok?)"@uz,
+        "烧结砖与土坯块"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/006> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "006" ;
+    skos:prefLabel "Cinder block"@en,
+        "Шлакоблок"@kk,
+        "Шлактан жасалган блок"@ky,
+        "Шлакоблок"@ru,
+        "Блоки синдер"@tg,
+        "Şlak blok"@tk,
+        "Shlakli g‘isht"@uz,
+        "煤渣砌块"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/007> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "007" ;
+    skos:prefLabel "Concrete"@en,
+        "Бетон"@kk,
+        "Бетон"@ky,
+        "Бетон"@ru,
+        "Семент"@tg,
+        "Beton"@tk,
+        "Beton"@uz,
+        "混凝土"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/008> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "008" ;
+    skos:prefLabel "Mud block"@en,
+        "Шикі блок"@kk,
+        "Топурактан жасалган блок (ылайдан жасалган блок)"@ky,
+        "Глиноблок (сырцовый блок)"@ru,
+        "Блоки хом"@tg,
+        "Pagsa blok"@tk,
+        "Paxsa (loy blok?)"@uz,
+        "土坯块"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/009> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "009" ;
+    skos:prefLabel "Mud brick"@en,
+        "Шикі кірпіш"@kk,
+        "Чийки кыш (ылайдан жасалган кыш)"@ky,
+        "Кирпич-сырец"@ru,
+        "Хишти хом"@tg,
+        "Palçyk kerpiç"@tk,
+        "Xom g‘isht"@uz,
+        "土坯砖"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/010> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "010" ;
+    skos:prefLabel "Other"@en,
+        "Басқа"@kk,
+        "Башка"@ky,
+        "Прочее"@ru,
+        "Дигар"@tg,
+        "Başga"@tk,
+        "Boshqa"@uz,
+        "其他"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/011> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "011" ;
+    skos:prefLabel "Pakhsa"@en,
+        "Пахса"@kk,
+        "Пахса"@ru ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/012> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "012" ;
+    skos:prefLabel "Rammed earth"@en,
+        "Тапталған саз"@kk,
+        "Глинобит"@ru ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/013> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "013" ;
+    skos:prefLabel "Wood"@en,
+        "Ағаш"@kk,
+        "Жыгач"@ky,
+        "Дерево"@ru,
+        "Чӯб"@tg,
+        "Agaç"@tk,
+        "Yog‘och"@uz,
+        "木材"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/concept/vernacular-building-materials/014> a skos:Concept ;
+    skos:inScheme <https://vocab.uclcaal.org/scheme/vernacular-building-materials> ;
+    skos:notation "014" ;
+    skos:prefLabel "Wooden frame"@en,
+        "Ағаш қаңқа"@kk,
+        "Жыгач каркас"@ky,
+        "Деревянный каркас"@ru,
+        "Қолаби чӯбӣ"@tg,
+        "Agaç rama"@tk,
+        "Yog‘och sinchli"@uz,
+        "木结构框架"@zh ;
+    skos:topConceptOf <https://vocab.uclcaal.org/scheme/vernacular-building-materials> .
+
+<https://vocab.uclcaal.org/scheme/vernacular-building-materials> a skos:ConceptScheme ;
+    dct:title "Vernacular building materials"@en,
+        "Дәстүрлі құрылыс материалдары"@kk,
+        "Традиционные строительные материалы"@ru,
+        "Yerli binalaryň gurluşyk materiallary"@tk,
+        "Mahalliy bino qurilish ashyosi"@uz,
+        "乡土建筑材料"@zh ;
+    skos:hasTopConcept <https://vocab.uclcaal.org/concept/vernacular-building-materials/001>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/002>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/003>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/004>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/005>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/006>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/007>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/008>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/009>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/010>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/011>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/012>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/013>,
+        <https://vocab.uclcaal.org/concept/vernacular-building-materials/014> .

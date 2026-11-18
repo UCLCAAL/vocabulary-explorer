@@ -11,6 +11,7 @@ router.get('/catalog',get(async()=>{
  const titles=new Map(rows.map(row=>[row.vocabulary_code,row.label]));
  return {vocabularies:[{vocabulary_code:'site-types',title:titles.get('site-types')||'Site Types'},...E.registry.map(v=>({vocabulary_code:v.slug,title:titles.get(v.slug)||v.title,category:v.category}))]};
 }));
+router.get('/search',get(req=>require('../services/vocabularySearch').search(pool,req.query.q)));
 router.get('/:vocabulary/descriptions',get(req=>E.descriptions(pool,req.params.vocabulary)));
 router.put('/:vocabulary/descriptions/:language',transaction(async(req,client)=>{
  const slug=req.params.vocabulary,v=slug==='site-types'?{slug}:E.vocabulary(slug),lang=req.params.language;

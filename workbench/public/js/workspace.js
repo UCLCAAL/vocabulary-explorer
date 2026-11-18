@@ -2,6 +2,9 @@
 let workbenchTab="vocabularies";
 let workspaceSelectedId="";
 let reviewCoverage=new Map();
+let workspaceSearchRequest=0;
+let workspaceSearchTimer=null;
+let workspaceSearchOpening=false;
 
 function initialiseWorkspace(){
   const view=document.getElementById("vocabulariesView"),aside=view.querySelector("aside");
@@ -16,27 +19,71 @@ function initialiseWorkspace(){
   const picker=aside.querySelector(".panel-heading");
   picker.insertAdjacentHTML("beforebegin",`
     <div class="search">
-      <input id="workspaceVocabularySearch" type="search" placeholder="Search vocabularies"
-        aria-label="Search vocabularies" aria-controls="workspaceVocabulary" autocomplete="off">
+      <input id="workspaceVocabularySearch" type="search" placeholder="Search terms in all vocabularies"
+        aria-label="Search terms in all vocabularies" aria-controls="workspaceVocabularySearchResults" autocomplete="off">
       <small id="workspaceVocabularySearchStatus" class="muted" role="status"></small>
+      <div id="workspaceVocabularySearchResults" aria-label="Terms across all vocabularies" hidden></div>
     </div>
   `);
-  document.getElementById("workspaceVocabularySearch").addEventListener("input",renderWorkspaceVocabularyOptions);
+  const search=document.getElementById("workspaceVocabularySearch");
+  search.addEventListener("input",()=>{
+    clearTimeout(workspaceSearchTimer);
+    const request=++workspaceSearchRequest;
+    const results=document.getElementById("workspaceVocabularySearchResults");
+    results.hidden=true;results.replaceChildren();
+    document.getElementById("workspaceVocabularySearchStatus").textContent=search.value.trim()?"Searching...":"";
+    if(search.value.trim())workspaceSearchTimer=setTimeout(()=>searchWorkspaceTerms(search.value,request),250);
+  });
+  search.addEventListener("keydown",event=>{
+    if(event.key==="Escape"){
+      search.value="";search.dispatchEvent(new Event("input"));event.preventDefault();
+    }
+  });
   document.getElementById("workspaceVocabulary").addEventListener("change",event=>changeVocabulary(event.target.value));
   initialiseReviewOverview();
 }
 
 function renderWorkspaceVocabularyOptions(){
   const select=document.getElementById("workspaceVocabulary");
-  const query=document.getElementById("workspaceVocabularySearch").value.trim().toLowerCase();
-  const matches=vocabularyCatalog.filter(v=>v.title.toLowerCase().includes(query)||v.vocabulary_code.includes(query));
-  const options=matches.map(v=>new Option(v.title,v.vocabulary_code));
-  const current=vocabularyCatalog.find(v=>v.vocabulary_code===selectedVocabularyCode);
-  if(current&&!matches.includes(current))options.unshift(new Option(current.title+" (current)",current.vocabulary_code));
+  const options=vocabularyCatalog.map(v=>new Option(v.title,v.vocabulary_code));
   select.replaceChildren(...options);
   select.value=selectedVocabularyCode;
-  document.getElementById("workspaceVocabularySearchStatus").textContent=
-    query&&!matches.length?"No matching vocabularies.":"";
+}
+
+async function searchWorkspaceTerms(query,request){
+  const results=document.getElementById("workspaceVocabularySearchResults");
+  const status=document.getElementById("workspaceVocabularySearchStatus");
+  try{
+    const data=await api("/api/vocabularies/search?q="+encodeURIComponent(query.trim()));
+    if(request!==workspaceSearchRequest)return;
+    status.textContent=data.total>data.concepts.length?
+      "Showing "+data.concepts.length+" of "+data.total+" terms. Refine your search.":
+      data.total?data.total+" matching terms.":"No matching terms.";
+    results.innerHTML=data.concepts.map((r,i)=>`<button type="button" class="concept-search-result" data-workspace-result="${i}">
+      <span class="concept-search-result-main"><strong>${escapeHtml(r.en_label)}</strong>
+        <span class="concept-row-id">${escapeHtml(r.concept_id)}</span></span>
+      <span>${escapeHtml(r.vocabulary_title)}</span>
+      <span class="concept-row-match">${escapeHtml(r.match_label)}${r.match_lang?" ("+escapeHtml(r.match_lang)+")":""}</span>
+    </button>`).join("");
+    results.hidden=!data.concepts.length;
+    results.querySelectorAll("[data-workspace-result]").forEach(button=>button.addEventListener("click",async()=>{
+      if(workspaceSearchOpening)return;
+      if(!allowEditorNavigation()||!allowReviewNavigation()||!allowAlignmentNavigation())return;
+      workspaceSearchOpening=true;
+      const r=data.concepts[Number(button.dataset.workspaceResult)];
+      try{
+        if(r.vocabulary_code!==selectedVocabularyCode)await changeVocabulary(r.vocabulary_code);
+        if(selectedVocabularyCode!==r.vocabulary_code)return;
+        await setWorkspaceTab("vocabularies");
+        document.querySelectorAll("[data-main-tab]").forEach(b=>b.classList.toggle("active",b.dataset.mainTab==="vocabularies"));
+        document.querySelectorAll("[data-main-view]").forEach(v=>{v.hidden=v.dataset.mainView!=="vocabularies";});
+        await workspaceSelectConcept(r.concept_id);
+      }catch(e){status.textContent=e.message;}finally{workspaceSearchOpening=false;}
+    }));
+  }catch(e){
+    if(request!==workspaceSearchRequest)return;
+    results.hidden=true;status.textContent=e.message;
+  }
 }
 
 function workspaceTreeFilterIds(){

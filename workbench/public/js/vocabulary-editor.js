@@ -8,8 +8,7 @@ function allowEditorNavigation(){if(!editorDirty)return true;if(!confirm('Leave 
 async function loadVocabularyCatalog(){
  const data=await api('/api/vocabularies/catalog');vocabularyCatalog=[...data.vocabularies].sort((a,b)=>
   a.title.localeCompare(b.title,'en',{sensitivity:'base'})||a.vocabulary_code.localeCompare(b.vocabulary_code));
- const select=document.getElementById('workspaceVocabulary');
- select.innerHTML=vocabularyCatalog.map(v=>`<option value="${escapeHtml(v.vocabulary_code)}">${escapeHtml(v.title)}</option>`).join('');select.value=selectedVocabularyCode;
+ renderWorkspaceVocabularyOptions();
  updateVocabularyControls();
 }
 function updateVocabularyControls(){
@@ -30,6 +29,7 @@ async function changeVocabulary(code){
  if(!allowEditorNavigation()||!allowReviewNavigation()||!allowAlignmentNavigation()){select.value=selectedVocabularyCode;return;}
  const request=++vocabularySwitchRequest;
  selectedVocabularyCode=code;currentVocabulary=null;selectedConcept=null;workspaceSelectedId='';creatingConcept=false;
+ renderWorkspaceVocabularyOptions();
  conceptDetailRequestId++;hierarchyRequestId++;conceptSearchRequestId++;reviewRequestId++;reviewUsageRequestId++;reviewUsageController?.abort();
  document.getElementById('reviewUsageDialog').close();document.getElementById('conceptManagementDialog').close();
  resetAlignments();reviewOffset=0;reviewCoverage.clear();editorDirty=false;

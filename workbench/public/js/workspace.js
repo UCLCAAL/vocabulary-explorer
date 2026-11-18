@@ -13,8 +13,30 @@ function initialiseWorkspace(){
   heading.insertAdjacentHTML("beforebegin",'<label class="workspace-vocabulary-label" for="workspaceVocabulary">Vocabulary</label><select id="workspaceVocabulary" aria-label="Vocabulary"><option value="site-types">Site Types</option></select>');
   heading.hidden=true;
   aside.querySelector(".muted").remove();
+  const picker=aside.querySelector(".panel-heading");
+  picker.insertAdjacentHTML("beforebegin",`
+    <div class="search">
+      <input id="workspaceVocabularySearch" type="search" placeholder="Search vocabularies"
+        aria-label="Search vocabularies" aria-controls="workspaceVocabulary" autocomplete="off">
+      <small id="workspaceVocabularySearchStatus" class="muted" role="status"></small>
+    </div>
+  `);
+  document.getElementById("workspaceVocabularySearch").addEventListener("input",renderWorkspaceVocabularyOptions);
   document.getElementById("workspaceVocabulary").addEventListener("change",event=>changeVocabulary(event.target.value));
   initialiseReviewOverview();
+}
+
+function renderWorkspaceVocabularyOptions(){
+  const select=document.getElementById("workspaceVocabulary");
+  const query=document.getElementById("workspaceVocabularySearch").value.trim().toLowerCase();
+  const matches=vocabularyCatalog.filter(v=>v.title.toLowerCase().includes(query)||v.vocabulary_code.includes(query));
+  const options=matches.map(v=>new Option(v.title,v.vocabulary_code));
+  const current=vocabularyCatalog.find(v=>v.vocabulary_code===selectedVocabularyCode);
+  if(current&&!matches.includes(current))options.unshift(new Option(current.title+" (current)",current.vocabulary_code));
+  select.replaceChildren(...options);
+  select.value=selectedVocabularyCode;
+  document.getElementById("workspaceVocabularySearchStatus").textContent=
+    query&&!matches.length?"No matching vocabularies.":"";
 }
 
 function workspaceTreeFilterIds(){

@@ -4,7 +4,65 @@ let editorDirty=false;
 let vocabularySwitchRequest=0;
 const isGenericVocabulary=()=>selectedVocabularyCode!=='site-types';
 function vocabularyTitle(){return vocabularyCatalog.find(v=>v.vocabulary_code===selectedVocabularyCode)?.title||'Site Types';}
-function allowEditorNavigation(){if(!editorDirty)return true;if(!confirm('Leave the unsaved text changes?'))return false;editorDirty=false;return true;}
+// Site Types use individual save buttons, so compare each field with its own
+// saved value. Generic vocabulary and review fields retain their existing guards.
+const workbenchSavedFields=new WeakMap();
+const workbenchFieldSelector=[
+ '[data-label-input]','[data-alt-input]','[data-alt-lang]','[data-new-alt-input]',
+ '[data-note-input]','[data-scope-note-input]','[data-bib-field]','[data-edit-bib-field]',
+ '#newConceptForm input','#newConceptForm textarea','#newConceptForm select'
+].join(',');
+function workbenchFields(){return [...document.querySelectorAll(workbenchFieldSelector)];}
+function workbenchFieldValue(input){
+ return input.tagName==='SELECT'&&input.multiple?JSON.stringify([...input.selectedOptions].map(o=>o.value)):input.value;
+}
+function workbenchOriginalValue(input){
+ if(workbenchSavedFields.has(input))return workbenchSavedFields.get(input);
+ if(input.tagName!=='SELECT')return input.defaultValue;
+ const selected=[...input.options].filter(o=>o.defaultSelected);
+ return input.multiple?JSON.stringify(selected.map(o=>o.value)):(selected[0]||input.options[0])?.value||'';
+}
+function hasWorkbenchEditorChanges(){
+ return editorDirty||workbenchFields().some(input=>workbenchFieldValue(input)!==workbenchOriginalValue(input));
+}
+function discardWorkbenchFieldChanges(){
+ for(const input of workbenchFields())workbenchSavedFields.set(input,workbenchFieldValue(input));
+}
+function snapshotWorkbenchSave(path,options){
+ if(!options.method||options.method.toUpperCase()==='GET')return [];
+ const match=/^\/api\/vocabularies\/site-types\/concepts(?:\/([^/?]+))?(?:\/([^/?]+))?(?:\/([^/?]+))?(?:\/([^/?]+))?$/.exec(path);
+ if(!match)return [];
+ const [,concept,area,encodedKey,action]=match;
+ if(action)return [];
+ const key=encodedKey?decodeURIComponent(encodedKey):'';
+ let body={};try{body=JSON.parse(options.body||'{}');}catch{return [];}
+ const fields=workbenchFields().filter(input=>{
+  if(!concept)return input.closest('#newConceptForm')!==null;
+  if(area==='labels'&&typeof body.label==='string')return input.dataset.labelInput===key;
+  if(area==='definitions')return input.dataset.noteInput===key;
+  if(area==='scope-notes')return input.dataset.scopeNoteInput===key;
+  if(area==='alternative-labels'){
+   if(key)return input.dataset.altInput===key||input.dataset.altLang===key;
+   return input.dataset.newAltInput===body.lang;
+  }
+  if(area==='bibliography'){
+   if(!key)return input.hasAttribute('data-bib-field');
+   return input.closest('[data-reference-edit-panel]')?.dataset.referenceEditPanel===key;
+  }
+  return false;
+ });
+ return fields.map(input=>[input,workbenchFieldValue(input)]);
+}
+function markWorkbenchSaveComplete(snapshot){
+ // Preserve edits made while a save request was in flight.
+ for(const [input,value] of snapshot)workbenchSavedFields.set(input,value);
+}
+
+function allowEditorNavigation(){
+ if(!hasWorkbenchEditorChanges())return true;
+ if(!confirm('You have unsaved changes. Leave without saving?'))return false;
+ editorDirty=false;discardWorkbenchFieldChanges();return true;
+}
 async function loadVocabularyCatalog(){
  const data=await api('/api/vocabularies/catalog');vocabularyCatalog=[...data.vocabularies].sort((a,b)=>
   a.title.localeCompare(b.title,'en',{sensitivity:'base'})||a.vocabulary_code.localeCompare(b.vocabulary_code));
@@ -141,7 +199,7 @@ async function publishGenericVocabulary(){
   status.textContent=data.publication.status==='success'?'Published successfully.':data.publication.error||'Publication failed. Check the server log.';
  }catch(e){if(code===selectedVocabularyCode)status.textContent=e.message;}finally{if(code===selectedVocabularyCode){button.disabled=false;await loadGenericPublishingStatus();}}
 }
-window.addEventListener('beforeunload',e=>{if(editorDirty){e.preventDefault();e.returnValue='';}});
+window.addEventListener('beforeunload',e=>{if(hasWorkbenchEditorChanges()){e.preventDefault();e.returnValue='';}});
 
 function renderLookupPublicationHistory(rows){
  const heading='<section class="publication-history"><h3>Publication history</h3>';

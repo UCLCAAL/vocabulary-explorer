@@ -51,6 +51,7 @@ function apiPath(path) {
 
 async function api(path, options = {}) {
   path=path.replace(/\/api\/vocabularies\/site-types(?=\/)/, "/api/vocabularies/"+selectedVocabularyCode);
+  const savedFields=snapshotWorkbenchSave(path,options);
   const response = await fetch(apiPath(path), {
     credentials: "include",
     headers: {
@@ -67,7 +68,7 @@ async function api(path, options = {}) {
     data = { ok: false, error: "Invalid server response" };
   }
 
-  if (!response.ok) {
+  if (!response.ok || data.ok === false) {
     const message = data.detail
       ? `${data.error || "Request failed"}: ${data.detail}`
       : (data.error || `Request failed (${response.status})`);
@@ -75,6 +76,7 @@ async function api(path, options = {}) {
     throw new Error(message);
   }
 
+  markWorkbenchSaveComplete(savedFields);
   return data;
 }
 
@@ -150,6 +152,7 @@ loginForm.addEventListener("submit", async (event) => {
 });
 
 document.getElementById("logoutButton").addEventListener("click", async () => {
+  if(!allowReviewNavigation()||!allowAlignmentNavigation())return;
   try {
     await api("/api/auth/logout", { method: "POST" });
   } finally {
@@ -158,7 +161,7 @@ document.getElementById("logoutButton").addEventListener("click", async () => {
 });
 
 async function loadVocabularySummary() {
-  if(editorDirty)return;
+  if(hasWorkbenchEditorChanges())return;
   const container = document.getElementById("vocabularySummary");
 
   try {
@@ -588,6 +591,7 @@ function predictedLevelForParent(parentId) {
 }
 
 function openNewConceptForm() {
+  if(!allowEditorNavigation())return;
   creatingConcept = true;
 
   const parentId = defaultNewConceptParentId();
@@ -685,6 +689,7 @@ function bindNewConceptForm() {
   });
 
   document.getElementById("cancelNewConceptButton").addEventListener("click", async () => {
+    if(!allowEditorNavigation())return;
     creatingConcept = false;
     document.querySelector(".detail-tabs").hidden = false;
     renderHierarchyTree();
@@ -753,7 +758,7 @@ function bindNewConceptForm() {
 }
 
 async function loadConcept(conceptId, keepTab = false) {
-  if(!keepTab&&!allowEditorNavigation())return;
+  if(!allowEditorNavigation())return;
   const request=++conceptDetailRequestId;
   const data = await api(
     `/api/vocabularies/site-types/concepts/${encodeURIComponent(conceptId)}`
@@ -2610,7 +2615,8 @@ document
 
 // Parent corrections, retirement and deletion share a compact management dialog.
 const managementDialog = document.getElementById("conceptManagementDialog");
-document.getElementById("showRetiredConcepts").addEventListener("change", async () => {
+document.getElementById("showRetiredConcepts").addEventListener("change", async event => {
+  if(!allowEditorNavigation()){event.target.checked=!event.target.checked;return;}
   try {
     await loadHierarchyTree();
     const selected = selectedConcept?.concept;

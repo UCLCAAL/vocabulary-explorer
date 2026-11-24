@@ -257,6 +257,13 @@ function conceptNavigationLabel(concept) {
   );
 }
 
+// Display order is local to the Workbench. Stored publication order is unchanged.
+function compareWorkbenchTerms(a, b) {
+  return conceptNavigationLabel(a).trim().localeCompare(
+    conceptNavigationLabel(b).trim(), 'en', { sensitivity: 'base', numeric: true }
+  ) || String(a.concept_id).localeCompare(String(b.concept_id), 'en', { numeric: true });
+}
+
 function rebuildHierarchyIndex() {
   hierarchyById = new Map(
     [...activeHierarchyConcepts, ...hierarchyConcepts].map((concept) => [concept.concept_id, concept])
@@ -275,20 +282,7 @@ function rebuildHierarchyIndex() {
   }
 
   for (const children of hierarchyChildren.values()) {
-    children.sort((a, b) => {
-      const aOrder = Number(a.sort_order);
-      const bOrder = Number(b.sort_order);
-
-      if (Number.isFinite(aOrder) && Number.isFinite(bOrder) && aOrder !== bOrder) {
-        return aOrder - bOrder;
-      }
-
-      return conceptNavigationLabel(a).localeCompare(
-        conceptNavigationLabel(b),
-        undefined,
-        { sensitivity: "base" }
-      );
-    });
+    children.sort(compareWorkbenchTerms);
   }
 }
 
@@ -308,16 +302,7 @@ function hierarchyRoots() {
   return hierarchyConcepts.filter((concept) => {
     const parentId = concept.parent_id || null;
     return !parentId || !visibleIds.has(parentId);
-  }).sort((a, b) => {
-    const aOrder = Number(a.sort_order);
-    const bOrder = Number(b.sort_order);
-
-    if (Number.isFinite(aOrder) && Number.isFinite(bOrder) && aOrder !== bOrder) {
-      return aOrder - bOrder;
-    }
-
-    return conceptNavigationLabel(a).localeCompare(conceptNavigationLabel(b));
-  });
+  }).sort(compareWorkbenchTerms);
 }
 
 function renderTreeNode(concept, depth = 0, ancestry = new Set()) {

@@ -113,6 +113,25 @@ body:has(main.feedback) #navi3 {
 .caal-start-links a {
   border-color: var(--caal-border);
 }
+#sidebar #tab-hierarchy .concept-notation {
+  display: none;
+}
+
+.concept .caal-download-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--main-content-link);
+  font: inherit;
+  font-weight: bold;
+  text-align: start;
+  cursor: pointer;
+}
+
+.concept .caal-download-link:disabled {
+  cursor: wait;
+}
+
 .concept .caal-concept-identity__label,
 .concept .caal-concept-identity__notation,
 .concept .caal-label-row__label,

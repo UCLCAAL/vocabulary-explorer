@@ -2525,18 +2525,12 @@ const caalLanguageReplacements = {
         );
     }
 
-    const code =
-      document.createElement("span");
-
-    code.className =
-      "caal-hierarchy-node__code";
-
-    code.textContent =
-      isMore
-        ? (node.countLabel || "")
-        : caalConceptIdFromUri(
-            node.uri
-          );
+    if (isMore && node.countLabel) {
+      const count = document.createElement("span");
+      count.className = "caal-hierarchy-node__code";
+      count.textContent = node.countLabel;
+      element.appendChild(count);
+    }
 
     const label =
       document.createElement("span");
@@ -2550,7 +2544,6 @@ const caalLanguageReplacements = {
         node.uri
       );
 
-    element.appendChild(code);
     element.appendChild(label);
 
     return element;
@@ -3715,19 +3708,16 @@ const caalLanguageReplacements = {
       )
     );
 
-    const notationEl =
-      document.createElement("div");
-
-    notationEl.className =
-      "caal-concept-identity__notation";
-
-    notationEl.textContent =
-      notation;
-
     top.appendChild(title);
     top.appendChild(copy);
     identity.appendChild(top);
-    identity.appendChild(notationEl);
+
+    if (notation) {
+      const notationEl = document.createElement("div");
+      notationEl.className = "caal-concept-identity__notation";
+      notationEl.textContent = notation;
+      identity.appendChild(notationEl);
+    }
 
     return identity;
   }
@@ -4410,7 +4400,7 @@ const caalLanguageReplacements = {
   function caalLinkedArtDownload(vocabularyId, conceptUri) {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "btn btn-link p-0";
+    button.className = "caal-download-link";
     button.textContent = "Linked Art JSON-LD";
 
     const status = document.createElement("span");
@@ -4477,10 +4467,9 @@ const caalLanguageReplacements = {
       grid.appendChild(valueEl);
     }
 
-    addRow(
-      caalConceptText("notation"),
-      notation
-    );
+    if (notation) {
+      addRow(caalConceptText("notation"), notation);
+    }
 
     const uriLink =
       document.createElement("a");
@@ -5299,11 +5288,9 @@ const caalLanguageReplacements = {
         conceptUri
       );
 
-    const notation =
-      caalNotationFromXml(
-        baseXml,
-        conceptUri
-      );
+    const notation = ["caalMonumentTypes", "caalCulturalPeriods"].includes(vocabularyId)
+      ? caalNotationFromXml(baseXml, conceptUri)
+      : "";
 
     const hierarchyData =
       await caalHierarchyData(

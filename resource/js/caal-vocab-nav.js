@@ -3108,6 +3108,7 @@ const caalLanguageReplacements = {
       notation: "Notation",
       uri: "URI",
       downloads: "Downloads",
+      linkedArtDownloadError: "Linked Art download failed. Try again.",
       related: "Related concepts",
       mappings: "Mappings",
       source: "Source",
@@ -3144,6 +3145,7 @@ const caalLanguageReplacements = {
       notation: "Нотация",
       uri: "URI",
       downloads: "Загрузки",
+      linkedArtDownloadError: "Не удалось скачать Linked Art. Попробуйте ещё раз.",
       related: "Связанные понятия",
       mappings: "Сопоставления",
       source: "Источник",
@@ -3180,6 +3182,7 @@ const caalLanguageReplacements = {
       notation: "记号",
       uri: "URI",
       downloads: "下载",
+      linkedArtDownloadError: "无法下载 Linked Art。请重试。",
       related: "相关概念",
       mappings: "映射",
       source: "来源",
@@ -4324,6 +4327,120 @@ const caalLanguageReplacements = {
     return body;
   }
 
+  function caalLinkedArtConcept(xml, conceptUri) {
+    const rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+    const skos = "http://www.w3.org/2004/02/skos/core#";
+    const aat = "http://vocab.getty.edu/aat/";
+    const languageIds = {
+      en: "300388277", ru: "300389168", zh: "300388113",
+      kk: "300388568", ky: "300388668", tg: "300389350",
+      tk: "300389473", uz: "300389510"
+    };
+    const subjects = Array.from(xml.getElementsByTagName("*")).filter(
+      (element) => element.getAttributeNS(rdf, "about") === conceptUri
+    );
+    if (!subjects.length) throw new Error("Concept missing from RDF response");
+
+    const properties = subjects.flatMap((subject) => Array.from(subject.children));
+    const values = (predicate) => properties.filter(
+      (element) => element.namespaceURI === skos && element.localName === predicate
+    );
+    const literals = (predicate) => values(predicate)
+      .filter((element) => !element.children.length && !element.hasAttributeNS(rdf, "resource"))
+      .map((element) => ({
+        content: element.textContent.trim(),
+        lang: (element.getAttributeNS("http://www.w3.org/XML/1998/namespace", "lang") || "").toLowerCase()
+      }))
+      .filter(({ content }) => content);
+    const references = (predicate, type = "Type") => [...new Set(values(predicate)
+      .map((element) => element.getAttributeNS(rdf, "resource")
+        || element.firstElementChild?.getAttributeNS(rdf, "about"))
+      .filter(Boolean))].map((id) => ({ id, type }));
+    const text = ({ content, lang }, type) => {
+      const id = languageIds[lang];
+      if (!id) return { type, content };
+
+      return {
+        type,
+        content,
+        language: [{ id: aat + id, type: "Language", _label: caalConceptLanguageNames[lang] }]
+      };
+    };
+
+    const preferred = literals("prefLabel");
+    const concept = {
+      "@context": "https://linked.art/ns/v1/linked-art.json",
+      id: conceptUri,
+      type: "Type",
+      _label: preferred.find(({ lang }) => lang === "en")?.content
+        || preferred[0]?.content || caalConceptIdFromUri(conceptUri)
+    };
+    const identifiedBy = [
+      ...preferred.map((row) => ({
+        ...text(row, "Name"),
+        classified_as: [{ id: aat + "300404670", type: "Type", _label: "Primary Name" }]
+      })),
+      ...literals("altLabel").map((row) => text(row, "Name")),
+      ...literals("notation").map(({ content }) => ({ type: "Identifier", content }))
+    ];
+    const statements = [["definition", "Definition"], ["scopeNote", "Scope note"]]
+      .flatMap(([predicate, label]) => literals(predicate).map((row) => ({
+        ...text(row, "LinguisticObject"),
+        identified_by: [{ type: "Name", content: label }]
+      })));
+    const assignments = ["exactMatch", "closeMatch", "broadMatch", "narrowMatch", "relatedMatch"]
+      .flatMap((predicate) => references(predicate).map((target) => ({
+        type: "AttributeAssignment",
+        assigned_property: skos + predicate,
+        assigned: [target]
+      })));
+
+    for (const [property, entries] of Object.entries({
+      identified_by: identifiedBy,
+      referred_to_by: statements,
+      broader: references("broader"),
+      member_of: references("inScheme", "Set"),
+      attributed_by: assignments
+    })) {
+      if (entries.length) concept[property] = entries;
+    }
+    return concept;
+  }
+
+  function caalLinkedArtDownload(vocabularyId, conceptUri) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn btn-link p-0";
+    button.textContent = "Linked Art JSON-LD";
+
+    const status = document.createElement("span");
+    status.setAttribute("role", "status");
+
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      status.textContent = "";
+      try {
+        const xml = await caalFetchConceptXml(vocabularyId, conceptUri);
+        if (!xml) throw new Error("Published RDF unavailable");
+        const data = caalLinkedArtConcept(xml, conceptUri);
+        const file = new Blob([JSON.stringify(data, null, 2) + "\n"], { type: "application/ld+json" });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = caalConceptIdFromUri(conceptUri) + ".linked-art.jsonld";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      } catch {
+        status.textContent = caalConceptText("linkedArtDownloadError");
+      } finally {
+        button.disabled = false;
+      }
+    });
+    return [button, status];
+  }
+
   function caalBuildTechnicalBody(
     vocabularyId,
     conceptUri,
@@ -4383,7 +4500,7 @@ const caalLanguageReplacements = {
     [
       ["RDF/XML", "application/rdf+xml", "rdf"],
       ["Turtle", "text/turtle", "ttl"],
-      ["JSON-LD", "application/ld+json", "jsonld"]
+      ["SKOS JSON-LD", "application/ld+json", "jsonld"]
     ].forEach(
       ([label, format, extension]) => {
         const link =
@@ -4413,6 +4530,8 @@ const caalLanguageReplacements = {
         downloads.appendChild(link);
       }
     );
+
+    downloads.append(...caalLinkedArtDownload(vocabularyId, conceptUri));
 
     addRow(
       caalConceptText("downloads"),

@@ -8,7 +8,12 @@ const clean=v=>String(v??'').trim();
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(v)).digest('hex');
 function vocabulary(slug){const v=registry.find(v=>v.slug===slug);if(!v)throw fail('Vocabulary not found.',404);return v;}
 async function rows(db,v){
- const result=await db.query(`SELECT to_jsonb(v) AS data FROM ui.${quote(v.view)} v`);
+ const state=v.management?` || COALESCE((SELECT jsonb_build_object('replaced_by_concept_id',s.replacement_concept_id) FROM vocab_workbench.managed_terms s WHERE s.vocabulary_code=$1 AND s.concept_id=v.id::text),'{}'::jsonb)`:'';
+ const result=await db.query(`SELECT to_jsonb(v)${state} AS data FROM ui.${quote(v.view)} v`,v.management?[v.slug]:[]);
+ if(v.slug==='cultural-periods'){
+  const context=(await db.query('SELECT concept_id,date_from,date_to,date_range FROM ui.v_lkp_cultural_periods_context')).rows;
+  for(const r of result.rows)Object.assign(r.data,context.find(c=>String(c.concept_id)===String(r.data.id))||{});
+ }
  return result.rows.map(r=>r.data).sort((a,b)=>Number(a.sort_order??0)-Number(b.sort_order??0)||String(a.id).localeCompare(String(b.id)));
 }
 async function texts(db,v){return (await db.query('SELECT * FROM vocab_workbench.editor_texts WHERE vocabulary_code=$1',[v.slug])).rows;}
@@ -23,7 +28,7 @@ function values(row,stored,field,lang){
 async function list(db,v){
  const [rs,ts]=await Promise.all([rows(db,v),texts(db,v)]);
  return rs.map(row=>({...row,concept_id:String(row.id),parent_id:row.parent_id==null?null:String(row.parent_id),level:String(row.level||'L1'),
-  en_label:clean(row.display_en),label_en:clean(row.display_en),label_ru:clean(row.display_ru),label_zh:clean(row.display_zh),is_active:'true',lifecycle_status:'active',
+  en_label:clean(row.display_en),label_en:clean(row.display_en),label_ru:clean(row.display_ru),label_zh:clean(row.display_zh),is_active:row.is_selectable===false?'false':'true',lifecycle_status:row.is_selectable===false?'retired':'active',
   labels:LANGS.flatMap(lang=>values(row,ts,'preferred',lang).map(label=>({label_id:'preferred:'+lang,lang,label,status:'preferred'})).concat(values(row,ts,'alternative',lang).map((label,i)=>({label_id:'alternative:'+lang+':'+i,lang,label,status:'alt'})))),
   definitions:LANGS.flatMap(lang=>values(row,ts,'definition',lang).map(note=>({lang,note,note_type:'definition'}))),
   scope_notes:LANGS.flatMap(lang=>values(row,ts,'scopeNote',lang).map(note=>({lang,note,note_type:'scopeNote'}))),
@@ -73,6 +78,7 @@ async function save(db,v,id,field,lang,newValues,expected,user,directions){
     ORDER BY l.relation_direction FOR UPDATE OF l`,[id]);
   }
   const all=await rows(db,v);row=all.find(r=>String(r.id)===id);if(!row)throw fail('Concept not found.',404);
+  if(row.is_selectable===false)throw fail('This term is retired. Its saved content is read-only.',409);
   const stored=await texts(db,v);oldValues=values(row,stored,field,lang);
   if(field==='alternative'&&newValues.some(x=>values(row,stored,'preferred',lang).includes(x)))throw fail('An alternative label must differ from the preferred label.');
   if(field==='preferred'&&newValues.some(x=>values(row,stored,'alternative',lang).includes(x)))throw fail('Remove this text from the alternatives before making it preferred.');

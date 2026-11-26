@@ -37,6 +37,7 @@ async function search(db,query){
  }
  for(const r of site)add('site-types','Site Types',String(r.concept_id),r.labels,r.en_label);
  for(const {source,data:row} of generic){
+  if(row.is_selectable===false)continue;
   const v=E.registry[source],ts=byVocabulary.get(v.slug)||[];
   const labels=E.LANGS.flatMap(lang=>['preferred','alternative'].flatMap(field=>
    E.values(row,ts,field,lang).map(label=>({label,lang,status:field==='preferred'?'preferred':'alt'}))));

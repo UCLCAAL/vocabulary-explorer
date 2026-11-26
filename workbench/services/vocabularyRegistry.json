@@ -19,7 +19,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/address-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/address-types/",
+    "management": "descriptive"
   },
   {
     "slug": "administrative-types",
@@ -41,7 +42,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/administrative-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/administrative-types/",
+    "management": "descriptive"
   },
   {
     "slug": "countries",
@@ -151,7 +153,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/religions/"
+    "uri_base": "https://vocab.uclcaal.org/concept/religions/",
+    "management": "descriptive"
   },
   {
     "slug": "actor-types",
@@ -195,7 +198,8 @@
       "tk": "display_tk",
       "uz": "display_uz"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/external-xref-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/external-xref-types/",
+    "management": "descriptive"
   },
   {
     "slug": "beginning-of-existence-types",
@@ -217,7 +221,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/beginning-of-existence-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/beginning-of-existence-types/",
+    "management": "descriptive"
   },
   {
     "slug": "content-types",
@@ -239,7 +244,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/content-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/content-types/",
+    "management": "descriptive"
   },
   {
     "slug": "copyright-status",
@@ -271,7 +277,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/dataset-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/dataset-types/",
+    "management": "descriptive"
   },
   {
     "slug": "description-types",
@@ -293,7 +300,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/description-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/description-types/",
+    "management": "descriptive"
   },
   {
     "slug": "digital-file-formats",
@@ -315,7 +323,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/digital-file-formats/"
+    "uri_base": "https://vocab.uclcaal.org/concept/digital-file-formats/",
+    "management": "descriptive"
   },
   {
     "slug": "end-of-existence-types",
@@ -337,7 +346,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/end-of-existence-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/end-of-existence-types/",
+    "management": "descriptive"
   },
   {
     "slug": "levels",
@@ -381,7 +391,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/name-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/name-types/",
+    "management": "descriptive"
   },
   {
     "slug": "subjects",
@@ -403,7 +414,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/subjects/"
+    "uri_base": "https://vocab.uclcaal.org/concept/subjects/",
+    "management": "descriptive"
   },
   {
     "slug": "title-types",
@@ -425,7 +437,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/title-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/title-types/",
+    "management": "descriptive"
   },
   {
     "slug": "threat-types",
@@ -657,7 +670,8 @@
     "mode": "curated",
     "schema": "public",
     "table": "labels_curated_cultural_periods",
-    "uri_base": "https://vocab.uclcaal.org/concept/"
+    "uri_base": "https://vocab.uclcaal.org/concept/",
+    "management": "hierarchical"
   },
   {
     "slug": "colours",
@@ -679,7 +693,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/colours/"
+    "uri_base": "https://vocab.uclcaal.org/concept/colours/",
+    "management": "descriptive"
   },
   {
     "slug": "measurement-types",
@@ -701,7 +716,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/measurement-types/"
+    "uri_base": "https://vocab.uclcaal.org/concept/measurement-types/",
+    "management": "descriptive"
   },
   {
     "slug": "size-dimensions-original-material",
@@ -735,7 +751,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/units-of-measurement/"
+    "uri_base": "https://vocab.uclcaal.org/concept/units-of-measurement/",
+    "management": "descriptive"
   },
   {
     "slug": "languages",
@@ -757,7 +774,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/languages/"
+    "uri_base": "https://vocab.uclcaal.org/concept/languages/",
+    "management": "descriptive"
   },
   {
     "slug": "scripts",
@@ -779,7 +797,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/scripts/"
+    "uri_base": "https://vocab.uclcaal.org/concept/scripts/",
+    "management": "descriptive"
   },
   {
     "slug": "writing-systems",
@@ -801,7 +820,8 @@
       "tk": "Turkmen_1",
       "uz": "Uzbek_1"
     },
-    "uri_base": "https://vocab.uclcaal.org/concept/writing-systems/"
+    "uri_base": "https://vocab.uclcaal.org/concept/writing-systems/",
+    "management": "descriptive"
   },
   {
     "slug": "resource-relationships",
@@ -847,7 +867,8 @@
       "uz": "display_uz"
     },
     "uri_base": "https://vocab.uclcaal.org/concept/vernacular-building-functions/",
-    "reference": true
+    "reference": true,
+    "management": "descriptive"
   },
   {
     "slug": "vernacular-building-materials",
@@ -870,7 +891,8 @@
       "uz": "display_uz"
     },
     "uri_base": "https://vocab.uclcaal.org/concept/vernacular-building-materials/",
-    "reference": true
+    "reference": true,
+    "management": "descriptive"
   },
   {
     "slug": "vernacular-intervention-degrees",
@@ -916,7 +938,8 @@
       "uz": "display_uz"
     },
     "uri_base": "https://vocab.uclcaal.org/concept/vernacular-intervention-types/",
-    "reference": true
+    "reference": true,
+    "management": "descriptive"
   },
   {
     "slug": "vernacular-occupation-status",
@@ -962,7 +985,8 @@
       "uz": "display_uz"
     },
     "uri_base": "https://vocab.uclcaal.org/concept/vernacular-open-spaces/",
-    "reference": true
+    "reference": true,
+    "management": "descriptive"
   },
   {
     "slug": "vernacular-roof-materials",
@@ -985,6 +1009,7 @@
       "uz": "display_uz"
     },
     "uri_base": "https://vocab.uclcaal.org/concept/vernacular-roof-materials/",
-    "reference": true
+    "reference": true,
+    "management": "descriptive"
   }
 ]

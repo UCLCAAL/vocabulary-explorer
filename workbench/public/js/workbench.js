@@ -576,6 +576,7 @@ function predictedLevelForParent(parentId) {
 }
 
 function openNewConceptForm() {
+  if(isGenericVocabulary())return openManagedNewTerm();
   if(!allowEditorNavigation())return;
   creatingConcept = true;
 
@@ -2617,10 +2618,10 @@ document.getElementById("showRetiredConcepts").addEventListener("change", async 
   catch (error) { window.alert(error.message); }
 });
 document.getElementById("manageConceptButton").addEventListener("click", openConceptManagement);
-document.getElementById("closeConceptManagement").addEventListener("click", () => managementDialog.close());
+document.getElementById("closeConceptManagement").addEventListener("click", () => {if(isGenericVocabulary()&&!allowEditorNavigation())return;managementDialog.close();});
 managementDialog.addEventListener("click", event => { if (event.target === managementDialog && !managementDialog.dataset.saving) {
   const box = managementDialog.getBoundingClientRect();
-  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) managementDialog.close();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) {if(isGenericVocabulary()&&!allowEditorNavigation())return;managementDialog.close();}
 }});
 function managementOptions(selected = "", forParent = false) {
   const current = selectedConcept.concept;
@@ -2639,6 +2640,7 @@ function managementOptions(selected = "", forParent = false) {
     .map(c => `<option value="${escapeHtml(c.concept_id)}" ${c.concept_id === selected ? "selected" : ""}>${escapeHtml(conceptNavigationLabel(c))} (${escapeHtml(c.concept_id)})</option>`).join("");
 }
 function openConceptManagement() {
+  if(isGenericVocabulary())return openManagedTerm();
   if (!selectedConcept) return;
   const c = selectedConcept.concept;
   const retired = c.lifecycle_status === "retired";
@@ -2703,6 +2705,6 @@ function openConceptManagement() {
   }));
   managementDialog.showModal();
 }
-managementDialog.addEventListener("cancel", event => { if (managementDialog.dataset.saving) event.preventDefault(); });
+managementDialog.addEventListener("cancel", event => { if (managementDialog.dataset.saving || (isGenericVocabulary()&&!allowEditorNavigation())) event.preventDefault(); });
 
 loadSession();

@@ -27,6 +27,7 @@ function hasWorkbenchEditorChanges(){
 }
 function discardWorkbenchFieldChanges(){
  for(const input of workbenchFields())workbenchSavedFields.set(input,workbenchFieldValue(input));
+ for(const input of document.querySelectorAll('[data-management-draft]'))input.dataset.original=input.value;
 }
 function snapshotWorkbenchSave(path,options){
  if(!options.method||options.method.toUpperCase()==='GET')return [];
@@ -71,9 +72,9 @@ async function loadVocabularyCatalog(){
 }
 function updateVocabularyControls(){
  const generic=isGenericVocabulary(),title=vocabularyTitle();
- newConceptButton.hidden=generic||workbenchTab!=='vocabularies';
- document.querySelector('.retired-toggle').hidden=generic||workbenchTab!=='vocabularies';
- document.getElementById('manageConceptButton').hidden=generic;
+ newConceptButton.hidden=(generic&&!managedVocabulary())||workbenchTab!=='vocabularies';
+ document.querySelector('.retired-toggle').hidden=(generic&&!managedVocabulary())||workbenchTab!=='vocabularies';
+ document.getElementById('manageConceptButton').hidden=generic&&!managedVocabulary();
  conceptSearch.placeholder='Search labels or concept ID';conceptTree.setAttribute('aria-label',title+' hierarchy');
  for(const id of ['reviewView','publishingView'])document.querySelector('#'+id+' .eyebrow').textContent=title;
  document.querySelector('#alignmentsView .eyebrow').textContent=title+' · Getty AAT';
@@ -101,7 +102,7 @@ async function changeVocabulary(code){
   if(workbenchTab==='review')await loadReview();if(workbenchTab==='alignments')await loadAlignmentsView();if(workbenchTab==='publishing')await loadPublishingStatus();
  }catch(e){document.getElementById('vocabularySummary').textContent=e.message;}
 }
-function markEditorDirty(){editorDirty=Array.from(document.querySelectorAll('[data-generic-text],[data-vocabulary-text]')).some(i=>i.value!==i.dataset.original);}
+function markEditorDirty(){editorDirty=Array.from(document.querySelectorAll('[data-generic-text],[data-vocabulary-text],[data-management-draft]')).some(i=>i.value!==i.dataset.original);}
 function genericValues(field,lang){const rows=field==='definition'?selectedConcept.definitions:field==='scopeNote'?selectedConcept.scope_notes:selectedConcept.labels;return rows.filter(r=>r.lang===lang&&(field==='preferred'?r.status==='preferred':field==='alternative'?r.status==='alt':true)).map(r=>r.label??r.note);}
 function renderGenericTextEditor(field){
  return '<div class="editor-list">'+LANGUAGES.map(([lang,name])=>{
@@ -124,7 +125,13 @@ function renderGenericDetail(){
  }else if(tab==='hierarchy'){
   const relatives=[...selectedConcept.hierarchy.ancestors,selectedConcept.concept,...selectedConcept.hierarchy.children];
   container.innerHTML=relatives.map(r=>`<p><button type="button" class="tree-text-action" data-generic-open="${escapeHtml(r.concept_id)}">${escapeHtml(r.en_label||r.concept_id)}</button> <span class="muted">${escapeHtml(r.concept_id)}</span></p>`).join('');
- }else container.innerHTML=renderOverview(selectedConcept);
+ }else {
+  container.innerHTML=renderOverview(selectedConcept);
+  if(selectedVocabularyCode==='cultural-periods'){
+   const c=selectedConcept.concept,year=v=>v==null||v===''?'Unknown':Math.abs(Number(v))+(Number(v)<0?' BCE':' CE');
+   container.innerHTML+=`<h3>Chronology</h3><p>${escapeHtml(c.date_range||'No date-range label recorded')}</p><p class="muted">Start: ${escapeHtml(year(c.date_from))}; end: ${escapeHtml(year(c.date_to))}</p>`;
+  }
+ }
  bindCopyButtons();
  container.querySelectorAll('[data-generic-open]').forEach(b=>b.addEventListener('click',()=>{if(allowEditorNavigation())loadConcept(b.dataset.genericOpen);}));
  container.querySelectorAll('[data-generic-text]').forEach(i=>i.addEventListener('input',markEditorDirty));
@@ -136,8 +143,9 @@ function renderGenericDetail(){
   if(directions)vals.splice(0,vals.length,directions.forward===directions.reverse?directions.forward:directions.forward+' / '+directions.reverse);
   const code=selectedVocabularyCode,id=selectedConcept.concept.concept_id; b.disabled=true;status.textContent='Saving...';
   try{
-   await api(`/api/vocabularies/${code}/concepts/${encodeURIComponent(id)}/text/${field}/${lang}`,{method:'PUT',body:JSON.stringify({values:vals,expected:JSON.parse(f.dataset.expected),directions})});
+   const saved=await api(`/api/vocabularies/${code}/concepts/${encodeURIComponent(id)}/text/${field}/${lang}`,{method:'PUT',body:JSON.stringify({values:vals,expected:JSON.parse(f.dataset.expected),directions})});
    if(code!==selectedVocabularyCode||!f.isConnected)return;
+   if(saved.version)selectedConcept.version=saved.version;
    f.dataset.expected=JSON.stringify(vals);
    if(directions)for(const input of inputs){
     input.value=directions[input.dataset.direction];input.dataset.original=input.value;

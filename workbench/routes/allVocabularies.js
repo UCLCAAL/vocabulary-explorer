@@ -9,7 +9,7 @@ const transaction=work=>async(req,res)=>{let client;try{client=await pool.connec
 router.get('/catalog',get(async()=>{
  const {rows}=await pool.query("SELECT vocabulary_code,label FROM public.vocabulary_scheme_labels WHERE lang='en'");
  const titles=new Map(rows.map(row=>[row.vocabulary_code,row.label]));
- return {vocabularies:[{vocabulary_code:'site-types',title:titles.get('site-types')||'Site Types'},...E.registry.map(v=>({vocabulary_code:v.slug,title:titles.get(v.slug)||v.title,category:v.category}))]};
+ return {vocabularies:[{vocabulary_code:'site-types',title:titles.get('site-types')||'Site Types'},...E.registry.map(v=>({vocabulary_code:v.slug,title:titles.get(v.slug)||v.title,category:v.category,management:v.management||null}))]};
 }));
 router.get('/search',get(req=>require('../services/vocabularySearch').search(pool,req.query.q)));
 router.get('/:vocabulary/descriptions',get(req=>E.descriptions(pool,req.params.vocabulary)));
@@ -27,12 +27,12 @@ router.use('/:vocabulary',(req,res,next)=>{
  try{req.editorVocabulary=E.vocabulary(req.params.vocabulary);return next();}catch(e){return error(res,e);}
 });
 router.get('/:vocabulary/summary',get(async req=>{
- const v=req.editorVocabulary,all=await E.list(pool,v);
+ const v=req.editorVocabulary,all=(await E.list(pool,v)).filter(c=>c.lifecycle_status!=='retired');
  return {vocabularies:[{vocabulary_code:v.slug,title:v.title,scheme_uri:E.ROOT+'scheme/'+v.slug,concept_uri_base:v.uri_base,concept_count:all.length,
  labels_by_language:Object.fromEntries(E.LANGS.map(l=>[l,all.filter(r=>r.labels.some(x=>x.lang===l&&x.status==='preferred')).length])),definitions_by_language:Object.fromEntries(E.LANGS.map(l=>[l,all.filter(r=>r.definitions.some(x=>x.lang===l)).length]))}]};
 }));
 router.get('/:vocabulary/concepts',get(async req=>{
- let all=await E.list(pool,req.editorVocabulary);if(req.query.status==='retired')all=[];
+ let all=(await E.list(pool,req.editorVocabulary)).filter(c=>req.query.status==='retired'?c.lifecycle_status==='retired':c.lifecycle_status!=='retired');
  const q=E.clean(req.query.q).toLowerCase();if(q)all=all.filter(r=>[r.concept_id,...r.labels.map(l=>l.label)].some(s=>s.toLowerCase().includes(q)));
  return {concepts:all.map(({labels,definitions,scope_notes,...row})=>row)};
 }));
@@ -40,7 +40,7 @@ router.get('/:vocabulary/review',get(async req=>{
  const language=req.query.language||'en',ref=req.query.reference_language||'en',filter=req.query.missing||'any';
  if(!E.LANGS.includes(language)||!E.LANGS.includes(ref))throw E.fail('Unsupported language.');
  if(!['any','label','definition','both','all','conflicts'].includes(filter))throw E.fail('Unsupported review filter.');
- const all=await E.list(pool,req.editorVocabulary);
+ const all=(await E.list(pool,req.editorVocabulary)).filter(c=>c.lifecycle_status!=='retired');
  const rs=all.map(r=>{const pref=l=>r.labels.find(x=>x.lang===l&&x.status==='preferred')?.label;return {concept_id:r.concept_id,parent_id:r.parent_id,level:r.level,en_label:r.en_label,preferred_label:pref(language),reference_label:pref(ref),
  label_count:Number(Boolean(pref(language))),definition:r.definitions.find(x=>x.lang===language)?.note,reference_definition:r.definitions.find(x=>x.lang===ref)?.note,
  definition_count:r.definitions.filter(x=>x.lang===language).length,alternative_labels:r.labels.filter(x=>x.lang===language&&x.status==='alt'),
@@ -54,9 +54,15 @@ router.get('/:vocabulary/review',get(async req=>{
  const offset=Math.max(0,parseInt(req.query.offset)||0),limit=Math.min(50,Math.max(1,parseInt(req.query.limit)||25));
  return {counts,matched:matches.length,rows:matches.slice(offset,offset+limit),coverage:rs,offset,limit};
 }));
+const M=require('../services/termManagement');
+router.post('/:vocabulary/concepts',transaction((req,db)=>M.create(db,req.editorVocabulary,req.body,req.session.workbenchSession.user)));
+router.put('/:vocabulary/concepts/:conceptId/dates',transaction((req,db)=>M.dates(db,req.editorVocabulary,req.params.conceptId,req.body,req.session.workbenchSession.user)));
+router.put('/:vocabulary/concepts/:conceptId/parent',transaction((req,db)=>M.parent(db,req.editorVocabulary,req.params.conceptId,req.body,req.session.workbenchSession.user)));
+router.post('/:vocabulary/concepts/:conceptId/retire',transaction((req,db)=>M.retire(db,req.editorVocabulary,req.params.conceptId,req.body,req.session.workbenchSession.user)));
+router.delete('/:vocabulary/concepts/:conceptId',transaction((req,db)=>M.remove(db,req.editorVocabulary,req.params.conceptId,req.body,req.session.workbenchSession.user)));
 router.get('/:vocabulary/concepts/:conceptId',get(req=>E.detail(pool,req.editorVocabulary,req.params.conceptId)));
 router.put('/:vocabulary/concepts/:conceptId/text/:field/:language',transaction(async(req,client)=>{
- await E.save(client,req.editorVocabulary,req.params.conceptId,req.params.field,req.params.language,req.body.values,req.body.expected,req.session.workbenchSession.user,req.body.directions);return {};
+ await E.save(client,req.editorVocabulary,req.params.conceptId,req.params.field,req.params.language,req.body.values,req.body.expected,req.session.workbenchSession.user,req.body.directions);return {version:(await E.detail(client,req.editorVocabulary,req.params.conceptId)).version};
 }));
 // Review uses the same per-field save controls as the Site Types review.
 router.put('/:vocabulary/concepts/:conceptId/:field/:language',(req,res,next)=>{if(!['labels','definitions','scope-notes'].includes(req.params.field))return next('route');next();},transaction(async(req,client)=>{

@@ -13,7 +13,7 @@ function summarize(rows){
 }
 function query(){
  const generic=registry.map(v=>`SELECT '${v.slug}'::text AS vocabulary_code,v.id::text AS concept_id,jsonb_build_object(${LANGS.map(l=>`'${l}',v.display_${l}`).join(',')}) AS labels,
- COALESCE((SELECT jsonb_object_agg(t.lang,t.texts) FROM vocab_workbench.editor_texts t WHERE t.vocabulary_code='${v.slug}' AND t.concept_id=v.id::text AND t.field='definition'),'{}'::jsonb) AS definitions FROM ui.${quote(v.view)} v`);
+ COALESCE((SELECT jsonb_object_agg(t.lang,t.texts) FROM vocab_workbench.editor_texts t WHERE t.vocabulary_code='${v.slug}' AND t.concept_id=v.id::text AND t.field='definition'),'{}'::jsonb) AS definitions FROM ui.${quote(v.view)} v${v.management?' WHERE v.is_selectable IS DISTINCT FROM false':''}`);
  const site=`SELECT 'site-types'::text AS vocabulary_code,c.concept_id::text,
  COALESCE((SELECT jsonb_object_agg(l.lang,l.label) FROM (SELECT lang,min(NULLIF(btrim(label),'')) AS label FROM public.labels_curated WHERE concept_id=c.concept_id AND lower(COALESCE(status,''))='preferred' AND lang IN ('en','ru','zh','kk','ky','tg','tk','uz') GROUP BY lang) l),'{}'::jsonb) AS labels,
  COALESCE((SELECT jsonb_object_agg(n.lang,n.notes) FROM (SELECT lang,jsonb_agg(note) AS notes FROM public.concept_notes_curated WHERE concept_id=c.concept_id AND lower(COALESCE(note_type,''))='definition' AND lang IN ('en','ru','zh','kk','ky','tg','tk','uz') GROUP BY lang) n),'{}'::jsonb) AS definitions

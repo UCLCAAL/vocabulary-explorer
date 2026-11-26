@@ -40,7 +40,7 @@ import psycopg
 from psycopg import sql
 from psycopg.rows import dict_row
 from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import RDF, SKOS, XSD
+from rdflib.namespace import RDF, SKOS, XSD, OWL
 
 LANGS: Tuple[str, ...] = ("en", "ru", "zh", "kk", "ky", "tg", "tk", "uz")
 BASE_ROOT = "https://vocab.uclcaal.org"
@@ -268,6 +268,8 @@ def add_concept(
     g.add((cu, RDF.type, SKOS.Concept))
     g.add((cu, SKOS.inScheme, su))
     g.add((cu, SKOS.notation, Literal(cid)))
+    if row.get("is_selectable") is False:
+        g.add((cu, OWL.deprecated, Literal(True)))
     parent_id = clean_text(row.get("parent_id"))
     if parent_id:
         parent = concept_uri(vocab.slug, parent_id)
